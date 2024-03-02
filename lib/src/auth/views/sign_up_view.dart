@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -41,7 +42,9 @@ class _SignUpViewState extends State<SignUpView> {
                               decoration: TextDecoration.underline,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            context.go('/login');
+                          },
                         ),
                       ),
                     ),

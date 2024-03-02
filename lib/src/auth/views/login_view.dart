@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -83,11 +84,37 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height / 2,
+                  top: MediaQuery.of(context).size.height / 2 - 30,
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width,
-                    child: customButton(text: 'Log In', onTap: () {}),
+                    child: Column(
+                      children: [
+                        customButton(text: 'Log In', onTap: () {}),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Don\'t have an account?',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                context.go('/signup');
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    decoration: TextDecoration.underline),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SafeArea(
