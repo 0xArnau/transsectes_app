@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
+import 'package:transsectes_app/src/auth/views/sign_up_view.dart';
 import 'package:transsectes_app/src/splash/views/splash_view.dart';
 import 'package:transsectes_app/src/utils/routes/custom_transition_route.dart';
 
@@ -25,7 +26,13 @@ GoRouter router = GoRouter(
         return CustomTransitionRoute.transition(view: const LoginView());
       },
     ),
+    GoRoute(
+      path: SignUpView.path,
+      pageBuilder: (context, state) {
+        return CustomTransitionRoute.transition(view: const SignUpView());
+      },
+    ),
   ],
-  initialLocation: '/login',
+  initialLocation: '/signup',
   overridePlatformDefaultLocation: true,
 );
