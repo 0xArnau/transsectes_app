@@ -25,7 +25,7 @@ class _LoginViewState extends State<LoginView> {
           children: <Widget>[
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery.of(context).size.height / 4 + 10,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
                     child: Container(
                       margin: const EdgeInsets.all(10.0),
                       width: MediaQuery.of(context).size.height / 4,
-                      height: MediaQuery.of(context).size.height / 4 - 10,
+                      height: MediaQuery.of(context).size.height / 4,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: kColorButtons,
@@ -97,7 +97,7 @@ class _LoginViewState extends State<LoginView> {
                             Text(
                               'Don\'t have an account?',
                               style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                             TextButton(
@@ -107,8 +107,10 @@ class _LoginViewState extends State<LoginView> {
                               child: Text(
                                 'Sign Up',
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    decoration: TextDecoration.underline),
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.white,
+                                ),
                               ),
                             ),
                           ],
