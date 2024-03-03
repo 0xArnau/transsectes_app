@@ -4,6 +4,12 @@ import 'package:flutter/material.dart';
 //     Color.fromRGBO(253, 243, 216, 1); // https://www.color-hex.com/color/fdf3d8
 const kColorBackground =
     Color.fromRGBO(252, 238, 197, 1); // https://www.color-hex.com/color/fceec5
+final kColorBackgroundWidthTransparency = Color.fromRGBO(
+  kColorBackground.red,
+  kColorBackground.green,
+  kColorBackground.blue,
+  .5,
+);
 
 const kColorBackgroundWave =
     Color.fromRGBO(76, 26, 221, 1); // https://www.color-hex.com/color/4c1add

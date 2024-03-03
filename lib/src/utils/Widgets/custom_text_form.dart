@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
 class CustomTextForm extends StatelessWidget {
   const CustomTextForm({
@@ -20,6 +21,8 @@ class CustomTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        filled: true,
+        fillColor: kColorBackgroundWidthTransparency,
         prefixIcon: prefixIcon,
         labelText: hintText,
         labelStyle: TextStyle(
@@ -29,7 +32,7 @@ class CustomTextForm extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
             color: Colors.black,
-            width: 4.0,
+            width: 2.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
