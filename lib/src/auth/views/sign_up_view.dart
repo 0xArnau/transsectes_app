@@ -31,26 +31,6 @@ class _SignUpViewState extends State<SignUpView> {
                 children: [
                   Positioned(
                     top: 0,
-                    left: 0,
-                    child: Center(
-                      child: SafeArea(
-                        child: TextButton(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.black,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                          onPressed: () {
-                            context.go('/login');
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 0,
                     right: 0,
                     child: Container(
                       margin: const EdgeInsets.all(10.0),
@@ -62,18 +42,14 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 30,
-                    width: MediaQuery.of(context).size.width,
-                    child: const SafeArea(
-                      child: Text(
-                        'Transsectes APP',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          color: kColorTitle,
-                        ),
+                  const SafeArea(
+                    child: Text(
+                      'Transsectes APP',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                        color: kColorTitle,
                       ),
                     ),
                   ),
@@ -136,11 +112,39 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height / 2,
+                  top: MediaQuery.of(context).size.height / 2 - 30,
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width,
-                    child: customButton(text: 'Sign Up', onTap: () {}),
+                    child: Column(
+                      children: [
+                        customButton(text: 'Sign Up', onTap: () {}),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Already have an account?',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                context.go('/login');
+                              },
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SafeArea(

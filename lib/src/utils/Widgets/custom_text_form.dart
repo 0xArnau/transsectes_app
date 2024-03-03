@@ -21,6 +21,7 @@ class CustomTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10),
         filled: true,
         fillColor: kColorBackgroundWidthTransparency,
         prefixIcon: prefixIcon,

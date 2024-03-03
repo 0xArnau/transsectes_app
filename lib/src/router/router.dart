@@ -33,6 +33,6 @@ GoRouter router = GoRouter(
       },
     ),
   ],
-  initialLocation: '/signup',
+  initialLocation: '/login',
   overridePlatformDefaultLocation: true,
 );
