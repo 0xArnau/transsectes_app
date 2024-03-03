@@ -5,16 +5,16 @@ import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class ForgotPasswordView extends StatefulWidget {
+  const ForgotPasswordView({super.key});
 
-  static const String path = '/login';
+  static const String path = '/forgot-password';
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,44 +66,30 @@ class _LoginViewState extends State<LoginView> {
                   child: Container(
                     padding: const EdgeInsets.all(10.0),
                     width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      children: [
-                        CustomTextForm(
-                          hintText: 'Email',
-                          obscureText: false,
-                          prefixIcon: Icon(Icons.email_outlined),
-                        ),
-                        SizedBox(height: 20),
-                        CustomTextForm(
-                          hintText: 'Password',
-                          obscureText: true,
-                          prefixIcon: Icon(Icons.password_outlined),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                    child: SingleChildScrollView(
+                      child: Container(
+                        child: const Column(
                           children: [
-                            Text(
-                              'Forgot password?',
-                              style: TextStyle(
+                            CustomTextForm(
+                              hintText: 'Email',
+                              obscureText: false,
+                              prefixIcon: Icon(
+                                Icons.email_outlined,
                                 color: Colors.black,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                context.go('/forgot-password');
-                              },
-                              child: Text(
-                                'Recover',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.black,
-                                ),
+                            SizedBox(height: 20),
+                            CustomTextForm(
+                              hintText: 'Confirm Email',
+                              obscureText: false,
+                              prefixIcon: Icon(
+                                Icons.email_outlined,
+                                color: Colors.black,
                               ),
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -114,22 +100,22 @@ class _LoginViewState extends State<LoginView> {
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
-                        customButton(text: 'Log In', onTap: () {}),
+                        customButton(text: 'Recover Password', onTap: () {}),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Don\'t have an account?',
+                              'Already have an account?',
                               style: TextStyle(
                                 color: Colors.white,
                               ),
                             ),
                             TextButton(
                               onPressed: () {
-                                context.go('/signup');
+                                context.go('/login');
                               },
                               child: Text(
-                                'Sign Up',
+                                'Login',
                                 style: TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,
