@@ -61,6 +61,16 @@ class _SignUpViewState extends State<SignUpView> {
               alignment: Alignment.bottomCenter,
               children: [
                 CustomWaveShape(context),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: SafeArea(
+                    child: Image.asset(
+                      'assets/imgs/background/imatge_tortuga.png',
+                      fit: BoxFit.fitWidth,
+                      height: MediaQuery.of(context).size.width / 1.12,
+                    ),
+                  ),
+                ),
                 Positioned(
                   top: 0,
                   child: Container(

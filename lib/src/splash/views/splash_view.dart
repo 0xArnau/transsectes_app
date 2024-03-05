@@ -16,7 +16,7 @@ class SplashView extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery.of(context).size.height / 4 + 10,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
@@ -26,7 +26,7 @@ class SplashView extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.all(10.0),
                       width: MediaQuery.of(context).size.height / 4,
-                      height: MediaQuery.of(context).size.height / 4 - 10,
+                      height: MediaQuery.of(context).size.height / 4,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: kColorButtons,
@@ -52,6 +52,16 @@ class SplashView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 CustomWaveShape(context),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: SafeArea(
+                    child: Image.asset(
+                      'assets/imgs/background/imatge_tortuga.png',
+                      fit: BoxFit.fitWidth,
+                      height: MediaQuery.of(context).size.width / 1.12,
+                    ),
+                  ),
+                ),
                 SafeArea(
                   child: SizedBox(
                     width: double.infinity,
