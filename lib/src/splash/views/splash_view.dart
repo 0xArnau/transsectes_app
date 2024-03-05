@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   static const String path = '/splash';
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(milliseconds: 1500), () {}).then(
+      (value) => context.go(LoginView.path),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -78,6 +78,6 @@ GoRouter router = GoRouter(
       },
     ),
   ],
-  initialLocation: '/login',
+  initialLocation: '/splash',
   overridePlatformDefaultLocation: true,
 );

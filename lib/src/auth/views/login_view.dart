@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/home/views/home_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -133,7 +134,10 @@ class _LoginViewState extends State<LoginView> {
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
-                        customButton(text: S.current.login, onTap: () {}),
+                        customButton(
+                          text: S.current.login,
+                          onTap: () => context.go(HomeView.path),
+                        ),
                         TextButton(
                           onPressed: () {
                             context.go('/signup');
