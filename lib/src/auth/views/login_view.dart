@@ -96,12 +96,28 @@ class _LoginViewState extends State<LoginView> {
                             onPressed: () {
                               context.go('/forgot-password');
                             },
-                            child: Text(
-                              S.current.forgot_password,
-                              style: TextStyle(
-                                color: Colors.black,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.black,
+                            child: Container(
+                              padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                gradient: LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Colors.grey.withOpacity(.2),
+                                    Colors.grey.withOpacity(.2),
+                                    Colors.grey.withOpacity(.2),
+                                    Colors.grey.withOpacity(.2),
+                                  ],
+                                ),
+                              ),
+                              child: Text(
+                                S.current.forgot_password,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.black,
+                                ),
                               ),
                             ),
                           ),
@@ -118,29 +134,34 @@ class _LoginViewState extends State<LoginView> {
                     child: Column(
                       children: [
                         customButton(text: S.current.login, onTap: () {}),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              S.current.no_account,
+                        TextButton(
+                          onPressed: () {
+                            context.go('/signup');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                ],
+                              ),
+                            ),
+                            child: Text(
+                              S.current.no_account + ' ' + S.current.signup,
                               style: TextStyle(
                                 color: Colors.white,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.white,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                context.go('/signup');
-                              },
-                              child: Text(
-                                S.current.signup,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),

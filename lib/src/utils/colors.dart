@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kColorBackground =
-    Color.fromRGBO(253, 243, 216, 1); // https://www.color-hex.com/color/fdf3d8
-// const kColorBackground =
-//     Color.fromRGBO(252, 238, 197, 1); // https://www.color-hex.com/color/fceec5
+const kColorBackground = Color.fromRGBO(255, 255, 255, 1);
 final kColorBackgroundWidthTransparency = Color.fromRGBO(
   kColorBackground.red,
   kColorBackground.green,

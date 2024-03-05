@@ -113,29 +113,34 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                       children: [
                         customButton(
                             text: S.current.change_password, onTap: () {}),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              S.current.yes_account,
+                        TextButton(
+                          onPressed: () {
+                            context.go('/login');
+                          },
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              gradient: LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                  Colors.black.withOpacity(.5),
+                                ],
+                              ),
+                            ),
+                            child: Text(
+                              S.current.yes_account + ' ' + S.current.login,
                               style: TextStyle(
                                 color: Colors.white,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.white,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                context.go('/login');
-                              },
-                              child: Text(
-                                S.current.login,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
