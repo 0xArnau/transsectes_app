@@ -1,0 +1,16 @@
+{
+  "change_password": "Cambiar contraseña",
+  "confirm_email": "Confirmar correo electrónico",
+  "confirm_password": "Confirmar Contraseña",
+  "contact": "Contacta",
+  "email": "Correo electrónico",
+  "forgot_password": "¿Has olvidado tu contraseña?",
+  "how2transect": "Cómo hacer un transecto",
+  "login": "Iniciar sesión",
+  "no_account": "¿No tienes una cuenta?",
+  "password": "Contraseña",
+  "signup": "Inscribirse",
+  "start_transect": "Inicia un transecto",
+  "transect_records": "Registros de transectos",
+  "yes_account": "¿Ya tienes una cuenta?"
+}

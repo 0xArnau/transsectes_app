@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -78,10 +79,10 @@ class _SignUpViewState extends State<SignUpView> {
                     width: MediaQuery.of(context).size.width,
                     child: SingleChildScrollView(
                       child: Container(
-                        child: const Column(
+                        child: Column(
                           children: [
                             CustomTextForm(
-                              hintText: 'Email',
+                              hintText: S.current.email,
                               obscureText: false,
                               prefixIcon: Icon(
                                 Icons.email_outlined,
@@ -90,7 +91,7 @@ class _SignUpViewState extends State<SignUpView> {
                             ),
                             SizedBox(height: 20),
                             CustomTextForm(
-                              hintText: 'Confirm Email',
+                              hintText: S.current.confirm_email,
                               obscureText: false,
                               prefixIcon: Icon(
                                 Icons.email_outlined,
@@ -99,7 +100,7 @@ class _SignUpViewState extends State<SignUpView> {
                             ),
                             SizedBox(height: 20),
                             CustomTextForm(
-                              hintText: 'Password',
+                              hintText: S.current.password,
                               obscureText: true,
                               prefixIcon: Icon(
                                 Icons.password_outlined,
@@ -108,7 +109,7 @@ class _SignUpViewState extends State<SignUpView> {
                             ),
                             SizedBox(height: 20),
                             CustomTextForm(
-                              hintText: 'Confirm Password',
+                              hintText: S.current.confirm_password,
                               obscureText: true,
                               prefixIcon: Icon(
                                 Icons.password_outlined,
@@ -128,12 +129,12 @@ class _SignUpViewState extends State<SignUpView> {
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
-                        customButton(text: 'Sign Up', onTap: () {}),
+                        customButton(text: S.current.signup, onTap: () {}),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Already have an account?',
+                              S.current.yes_account,
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -143,7 +144,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 context.go('/login');
                               },
                               child: Text(
-                                'Login',
+                                S.current.login,
                                 style: TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,

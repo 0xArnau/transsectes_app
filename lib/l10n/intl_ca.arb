@@ -1,0 +1,16 @@
+{
+  "change_password": "Canviar contrasenya",
+  "confirm_email": "Confirma el correu electrònic",
+  "confirm_password": "Confirma la contrassenya",
+  "contact": "Contacta",
+  "email": "Correu electrònic",
+  "forgot_password": "Has oblidat la contrasenya?",
+  "how2transect": "Com fer un transsecte",
+  "login": "iniciar Sessió",
+  "no_account": "No tens un compte?",
+  "password": "Contrasenya",
+  "signup": "Registra't",
+  "start_transect": "Inicia un transsecte",
+  "transect_records": "Registres de transsectes",
+  "yes_account": "Ja tens un compte?"
+}

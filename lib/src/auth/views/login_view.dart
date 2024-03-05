@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -79,39 +80,31 @@ class _LoginViewState extends State<LoginView> {
                     child: Column(
                       children: [
                         CustomTextForm(
-                          hintText: 'Email',
+                          hintText: S.current.email,
                           obscureText: false,
                           prefixIcon: Icon(Icons.email_outlined),
                         ),
                         SizedBox(height: 20),
                         CustomTextForm(
-                          hintText: 'Password',
+                          hintText: S.current.password,
                           obscureText: true,
                           prefixIcon: Icon(Icons.password_outlined),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Forgot password?',
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              context.go('/forgot-password');
+                            },
+                            child: Text(
+                              S.current.forgot_password,
                               style: TextStyle(
                                 color: Colors.black,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.black,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
-                                context.go('/forgot-password');
-                              },
-                              child: Text(
-                                'Recover',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ],
                     ),
@@ -124,12 +117,12 @@ class _LoginViewState extends State<LoginView> {
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
-                        customButton(text: 'Log In', onTap: () {}),
+                        customButton(text: S.current.login, onTap: () {}),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Don\'t have an account?',
+                              S.current.no_account,
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -139,7 +132,7 @@ class _LoginViewState extends State<LoginView> {
                                 context.go('/signup');
                               },
                               child: Text(
-                                'Sign Up',
+                                S.current.signup,
                                 style: TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,

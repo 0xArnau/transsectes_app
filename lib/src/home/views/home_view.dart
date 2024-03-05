@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/home/views/menu_view.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -26,25 +27,25 @@ class _HomeViewState extends State<HomeView> {
                 context,
                 'assets/imgs/icons/walk.png',
                 MediaQuery.of(context).size.width / 3,
-                'Com fer un transsecte',
+                S.current.how2transect,
               ),
               _textImageWidget(
                 context,
                 'assets/imgs/icons/route.png',
                 MediaQuery.of(context).size.width / 2,
-                'Inicia un transsecte',
+                S.current.start_transect,
               ),
               _imageTextWidget(
                 context,
                 'assets/imgs/icons/book.png',
                 MediaQuery.of(context).size.width / 2.5,
-                'Registres de transsectes',
+                S.current.transect_records,
               ),
               _textImageWidget(
                 context,
                 'assets/imgs/icons/contact.png',
                 MediaQuery.of(context).size.width / 3.5,
-                'Contacta',
+                S.current.contact,
               ),
             ],
           ),
