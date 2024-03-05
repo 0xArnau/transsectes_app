@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/utils/colors.dart';
+import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 
 class HowToTransectView extends StatelessWidget {
   const HowToTransectView({super.key});
@@ -9,21 +9,10 @@ class HowToTransectView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kColorBackground,
-      appBar: _buildAppBar(),
+    return customScaffold(
+      context: context,
+      title: S.current.how2transect,
       body: null,
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      backgroundColor: kColorBackground,
-      foregroundColor: kColorTitle,
-      title: Text(
-        S.current.how2transect,
-        overflow: TextOverflow.ellipsis,
-      ),
     );
   }
 }

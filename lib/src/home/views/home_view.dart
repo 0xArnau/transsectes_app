@@ -6,6 +6,7 @@ import 'package:transsectes_app/src/home/views/menu_view.dart';
 import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.dart';
 import 'package:transsectes_app/src/start_stop_transecte/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transect_records/views/transect_records_view.dart';
+import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class HomeView extends StatefulWidget {
@@ -20,10 +21,10 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kColorBackground,
+    return customScaffold(
+      context: context,
       drawer: MenuView(),
-      appBar: _buildAppBar(),
+      title: 'Transsectes APP',
       body: Stack(
         children: [
           ListView(
@@ -74,16 +75,6 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      backgroundColor: kColorBackground,
-      foregroundColor: kColorTitle,
-      title: const Text(
-        'Transsectes APP',
       ),
     );
   }
