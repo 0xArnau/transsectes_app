@@ -79,6 +79,14 @@ flutter:
     - assets/imgs/logo/GEPEC_EdC_OFICIAL.png
     - assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png
     - assets/imgs/icons/app/opt.png
+    - assets/imgs/icons/book.png
+    - assets/imgs/icons/contact.png
+    - assets/imgs/icons/map.png
+    - assets/imgs/icons/person.png
+    - assets/imgs/icons/route.png
+    - assets/imgs/icons/pause.png
+    - assets/imgs/icons/start.png
+    - assets/imgs/icons/walk.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
