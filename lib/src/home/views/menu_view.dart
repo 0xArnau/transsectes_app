@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class MenuView extends StatefulWidget {
@@ -44,9 +45,14 @@ class _MenuViewState extends State<MenuView> {
               ),
             ),
             Center(
-              child: Text(
-                '$appName - $version($buildNumber)',
-                style: const TextStyle(color: Colors.grey),
+              child: Column(
+                children: [
+                  logOutWidget(),
+                  Text(
+                    '$appName - $version($buildNumber)',
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
               ),
             )
           ],

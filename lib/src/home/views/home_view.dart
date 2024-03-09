@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -12,7 +13,7 @@ import 'package:transsectes_app/src/utils/colors.dart';
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
-  static const path = '/';
+  static const path = '/home';
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -21,62 +22,66 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
-      context: context,
-      drawer: MenuView(),
-      title: 'Transsectes APP',
-      body: Stack(
-        children: [
-          ListView(
-            children: [
-              _imageTextWidget(
-                context,
-                'assets/imgs/icons/walk.png',
-                MediaQuery.of(context).size.width / 3,
-                S.current.how2transect,
-                () => context.push(HowToTransectView.path),
-              ),
-              _textImageWidget(
-                context,
-                'assets/imgs/icons/route.png',
-                MediaQuery.of(context).size.width / 2,
-                S.current.start_transect,
-                () => context.push(StartStopTransecteView.path),
-              ),
-              _imageTextWidget(
-                context,
-                'assets/imgs/icons/book.png',
-                MediaQuery.of(context).size.width / 2.5,
-                S.current.transect_records,
-                () => context.push(TransectRecordsView.path),
-              ),
-              _textImageWidget(
-                context,
-                'assets/imgs/icons/contact.png',
-                MediaQuery.of(context).size.width / 3.5,
-                S.current.contact,
-                () => context.push(ContactView.path),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: kColorBackground,
-              ),
-              child: SafeArea(
-                child: Image.asset(
-                  'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
-                  fit: BoxFit.fitWidth,
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          return customScaffold(
+            context: context,
+            drawer: MenuView(),
+            title: 'Transsectes APP',
+            body: Stack(
+              children: [
+                ListView(
+                  children: [
+                    _imageTextWidget(
+                      context,
+                      'assets/imgs/icons/walk.png',
+                      MediaQuery.of(context).size.width / 3,
+                      S.current.how2transect,
+                      () => context.push(HowToTransectView.path),
+                    ),
+                    _textImageWidget(
+                      context,
+                      'assets/imgs/icons/route.png',
+                      MediaQuery.of(context).size.width / 2,
+                      S.current.start_transect,
+                      () => context.push(StartStopTransecteView.path),
+                    ),
+                    _imageTextWidget(
+                      context,
+                      'assets/imgs/icons/book.png',
+                      MediaQuery.of(context).size.width / 2.5,
+                      S.current.transect_records,
+                      () => context.push(TransectRecordsView.path),
+                    ),
+                    _textImageWidget(
+                      context,
+                      'assets/imgs/icons/contact.png',
+                      MediaQuery.of(context).size.width / 3.5,
+                      S.current.contact,
+                      () => context.push(ContactView.path),
+                    ),
+                  ],
                 ),
-              ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: kColorBackground,
+                    ),
+                    child: SafeArea(
+                      child: Image.asset(
+                        'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
+        });
   }
 }
 
