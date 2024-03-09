@@ -9,7 +9,7 @@ import 'package:transsectes_app/src/utils/colors.dart';
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
-  static const String path = '/';
+  static const String path = '/splash';
 
   @override
   State<SplashView> createState() => _SplashViewState();

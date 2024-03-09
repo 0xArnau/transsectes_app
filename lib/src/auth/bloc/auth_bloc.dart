@@ -35,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthLoading(isLoading: false));
     });
 
-    on<SignOut>((event, emit) {
+    on<SignOut>((event, emit) async {
       emit(AuthLoading(isLoading: true));
 
       try {
@@ -44,8 +44,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         Logger().e(e.toString());
         emit(AuthFailure(message: 'Error: ${e.toString()}'));
       }
-
-      emit(AuthLoading(isLoading: true));
     });
   }
 }
