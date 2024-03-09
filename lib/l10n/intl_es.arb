@@ -10,6 +10,7 @@
   "login": "Iniciar sesión",
   "no_account": "¿No tienes una cuenta?",
   "password": "Contraseña",
+  "signOut": "Desconectar",
   "signup": "Inscribirse",
   "start_transect": "Inicia un transecto",
   "transect_records": "Registros de transectos",

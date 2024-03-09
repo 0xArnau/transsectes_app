@@ -16,12 +16,12 @@ final class AuthLoading extends AuthState {
 }
 
 final class AuthSuccess extends AuthState {
-  final String email;
+  final String? value;
 
-  AuthSuccess({required this.email});
+  AuthSuccess({required this.value});
 
   @override
-  List<Object> get props => [email];
+  List<Object> get props => [value ?? ''];
 }
 
 final class AuthFailure extends AuthState {

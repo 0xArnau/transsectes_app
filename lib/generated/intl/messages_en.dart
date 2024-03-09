@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),

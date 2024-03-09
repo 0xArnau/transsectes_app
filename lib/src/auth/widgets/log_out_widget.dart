@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/web.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget logOutWidget() {
   return BlocProvider(
@@ -29,7 +31,11 @@ Widget logOutWidget() {
             BlocProvider.of<AuthBloc>(context).add(SignOut());
           },
           icon: Icon(Icons.logout_outlined),
-          label: Text('Logut'),
+          label: Text(S.current.signOut),
+          style: ElevatedButton.styleFrom(
+            foregroundColor: kColorTitle,
+            surfaceTintColor: kColorTitle,
+          ),
         );
       },
     ),

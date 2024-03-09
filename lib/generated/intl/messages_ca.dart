@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
         "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Tanca sessió"),
         "signup": MessageLookupByLibrary.simpleMessage("Registra\'t"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transsecte"),

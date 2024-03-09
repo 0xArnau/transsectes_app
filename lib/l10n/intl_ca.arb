@@ -10,6 +10,7 @@
   "login": "iniciar Sessió",
   "no_account": "No tens un compte?",
   "password": "Contrasenya",
+  "signOut": "Tanca sessió",
   "signup": "Registra't",
   "start_transect": "Inicia un transsecte",
   "transect_records": "Registres de transsectes",

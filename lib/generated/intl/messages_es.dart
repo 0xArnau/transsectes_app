@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "signup": MessageLookupByLibrary.simpleMessage("Inscribirse"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transecto"),

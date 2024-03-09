@@ -58,5 +58,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthFailure(message: 'Error: ${e.toString()}'));
       }
     });
+
+    on<GetEmail>((event, emit) async {
+      emit(AuthLoading(isLoading: true));
+
+      try {
+        final String? email = await repository.getUserEmail();
+
+        emit(AuthSuccess(value: email));
+      } catch (e) {
+        Logger().e(e.toString());
+        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+      }
+    });
   }
 }

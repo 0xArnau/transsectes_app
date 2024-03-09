@@ -10,6 +10,7 @@
   "login": "Login",
   "no_account": "Don't have an account?",
   "password": "Password",
+  "signOut": "Sign Out",
   "signup": "Sign Up",
   "start_transect": "Start a transect",
   "transect_records": "Transect records",
