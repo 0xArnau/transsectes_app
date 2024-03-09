@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("invalid email"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
@@ -42,6 +43,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Start a transect"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Transect records"),
+        "user_disabled": MessageLookupByLibrary.simpleMessage("user disabled"),
+        "user_not_found":
+            MessageLookupByLibrary.simpleMessage("user not found"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("wrong password"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?")
       };

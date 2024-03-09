@@ -20,6 +20,7 @@ class AuthRepository {
       );
     } catch (e) {
       Logger().e(e.toString());
+      rethrow;
     }
   }
 
@@ -34,6 +35,7 @@ class AuthRepository {
       );
     } catch (e) {
       Logger().e(e.toString());
+      rethrow;
     }
   }
 
@@ -42,6 +44,7 @@ class AuthRepository {
       await _firebaseAuth.signOut();
     } catch (e) {
       Logger().e(e.toString());
+      rethrow;
     }
   }
 
@@ -50,8 +53,8 @@ class AuthRepository {
       return (await _firebaseAuth.currentUser) != null;
     } catch (e) {
       Logger().e(e.toString());
+      rethrow;
     }
-    return false;
   }
 
   Future<String?> getUserEmail() async {
@@ -59,7 +62,7 @@ class AuthRepository {
       return (await _firebaseAuth.currentUser)?.email;
     } catch (e) {
       Logger().e(e.toString());
+      rethrow;
     }
-    return null;
   }
 }

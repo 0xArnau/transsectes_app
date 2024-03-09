@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Has oblidat la contrasenya?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("email invàlid"),
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
@@ -43,6 +44,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Inicia un transsecte"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registres de transsectes"),
+        "user_disabled":
+            MessageLookupByLibrary.simpleMessage("usuari deshabilitat"),
+        "user_not_found":
+            MessageLookupByLibrary.simpleMessage("usuari no trobat"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("contrasenya incorrecta"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Ja tens un compte?")
       };

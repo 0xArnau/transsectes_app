@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `invalid email`
+  String get invalid_email {
+    return Intl.message(
+      'invalid email',
+      name: 'invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
@@ -175,6 +185,36 @@ class S {
     return Intl.message(
       'Transect records',
       name: 'transect_records',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user disabled`
+  String get user_disabled {
+    return Intl.message(
+      'user disabled',
+      name: 'user_disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user not found`
+  String get user_not_found {
+    return Intl.message(
+      'user not found',
+      name: 'user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wrong password`
+  String get wrong_password {
+    return Intl.message(
+      'wrong password',
+      name: 'wrong_password',
       desc: '',
       args: [],
     );

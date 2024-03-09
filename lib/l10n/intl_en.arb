@@ -6,11 +6,15 @@
   "email": "Email",
   "forgot_password": "Forgot password?",
   "how2transect": "How to do a transect",
+  "invalid_email": "invalid email",
   "login": "Login",
   "no_account": "Don't have an account?",
   "password": "Password",
   "signup": "Sign Up",
   "start_transect": "Start a transect",
   "transect_records": "Transect records",
+  "user_disabled": "user disabled",
+  "user_not_found": "user not found",
+  "wrong_password": "wrong password",
   "yes_account": "Already have an account?"
 }

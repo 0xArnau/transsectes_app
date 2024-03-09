@@ -6,11 +6,15 @@
   "email": "Correu electrònic",
   "forgot_password": "Has oblidat la contrasenya?",
   "how2transect": "Com fer un transsecte",
+  "invalid_email": "email invàlid",
   "login": "iniciar Sessió",
   "no_account": "No tens un compte?",
   "password": "Contrasenya",
   "signup": "Registra't",
   "start_transect": "Inicia un transsecte",
   "transect_records": "Registres de transsectes",
+  "user_disabled": "usuari deshabilitat",
+  "user_not_found": "usuari no trobat",
+  "wrong_password": "contrasenya incorrecta",
   "yes_account": "Ja tens un compte?"
 }

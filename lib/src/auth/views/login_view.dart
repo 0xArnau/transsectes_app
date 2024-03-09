@@ -9,6 +9,7 @@ import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
+import 'package:transsectes_app/src/utils/custom_snackbar.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -156,13 +157,7 @@ class _LoginViewState extends State<LoginView> {
                               if (state is AuthSuccess) {
                                 context.go(HomeView.path);
                               } else if (state is AuthFailure) {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return const AlertDialog(
-                                        content: Text('error'),
-                                      );
-                                    });
+                                CustomSnackbar.error(context, state.message);
                               }
                             },
                             builder: (context, state) {
@@ -172,7 +167,7 @@ class _LoginViewState extends State<LoginView> {
                                   BlocProvider.of<AuthBloc>(context).add(
                                     SignIn(
                                       email: _emailController.text.trim(),
-                                      password: _emailController.text,
+                                      password: _passwordController.text,
                                     ),
                                   );
                                 },
