@@ -71,5 +71,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthFailure(message: 'Error: ${e.toString()}'));
       }
     });
+
+    on<ResetPassword>((event, emit) async {
+      emit(AuthLoading(isLoading: true));
+
+      try {
+        await repository.resetPassword(email: event.email);
+
+        emit(AuthSuccess(value: null));
+      } on FirebaseAuthException catch (e) {
+        Logger().e(e.toString());
+        switch (e.code) {
+          default:
+            emit(AuthFailure(message: e.message.toString()));
+        }
+      } catch (e) {
+        Logger().e(e.toString());
+        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+      }
+    });
   }
 }

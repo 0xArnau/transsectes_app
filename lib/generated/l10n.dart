@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `The emails are different`
+  String get emails_are_different {
+    return Intl.message(
+      'The emails are different',
+      name: 'emails_are_different',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot password?`
   String get forgot_password {
     return Intl.message(
@@ -115,6 +125,16 @@ class S {
     return Intl.message(
       'How to do a transect',
       name: 'how2transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instructions sent by email`
+  String get instructions_sent {
+    return Intl.message(
+      'Instructions sent by email',
+      name: 'instructions_sent',
       desc: '',
       args: [],
     );

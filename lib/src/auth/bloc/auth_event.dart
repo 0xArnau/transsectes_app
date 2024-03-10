@@ -30,3 +30,12 @@ class SignIn extends AuthEvent {
 class GetEmail extends AuthEvent {}
 
 class SignOut extends AuthEvent {}
+
+class ResetPassword extends AuthEvent {
+  final String email;
+
+  const ResetPassword({required this.email});
+
+  @override
+  List<Object> get props => [email];
+}

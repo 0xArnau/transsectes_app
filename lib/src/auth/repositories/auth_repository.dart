@@ -65,4 +65,13 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  Future<void> resetPassword({required String email}) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      Logger().e(e.toString());
+      rethrow;
+    }
+  }
 }

@@ -29,10 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emails_are_different":
+            MessageLookupByLibrary.simpleMessage("The emails are different"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
+        "instructions_sent":
+            MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("invalid email"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "no_account":

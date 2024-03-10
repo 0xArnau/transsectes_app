@@ -30,10 +30,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirma la contrassenya"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
+        "emails_are_different": MessageLookupByLibrary.simpleMessage(
+            "Els correus electrònics són diferents"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Has oblidat la contrasenya?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
+        "instructions_sent": MessageLookupByLibrary.simpleMessage(
+            "Instruccions enviades per correu electrònic"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("email invàlid"),
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":

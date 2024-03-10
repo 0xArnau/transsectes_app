@@ -30,10 +30,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirmar Contraseña"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "emails_are_different": MessageLookupByLibrary.simpleMessage(
+            "Los correos electrónicos son diferentes."),
         "forgot_password": MessageLookupByLibrary.simpleMessage(
             "¿Has olvidado tu contraseña?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
+        "instructions_sent": MessageLookupByLibrary.simpleMessage(
+            "Instrucciones enviadas por correo electrónico."),
         "invalid_email": MessageLookupByLibrary.simpleMessage("email inválido"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "no_account":
