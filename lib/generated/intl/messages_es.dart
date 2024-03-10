@@ -32,13 +32,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Los correos electrónicos son diferentes."),
+        "empty_fields":
+            MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
         "forgot_password": MessageLookupByLibrary.simpleMessage(
             "¿Has olvidado tu contraseña?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
+        "incorrect_fields":
+            MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instrucciones enviadas por correo electrónico."),
         "invalid_email": MessageLookupByLibrary.simpleMessage("email inválido"),
+        "legalInfo": MessageLookupByLibrary.simpleMessage(
+            "Lee los siguientes documentos legales y marca la casilla para indicar que estar conforme y poder registrarte"),
+        "legal_documents":
+            MessageLookupByLibrary.simpleMessage("Documentos legales"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),

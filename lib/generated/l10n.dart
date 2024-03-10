@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `There are empty fields`
+  String get empty_fields {
+    return Intl.message(
+      'There are empty fields',
+      name: 'empty_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot password?`
   String get forgot_password {
     return Intl.message(
@@ -130,6 +140,16 @@ class S {
     );
   }
 
+  /// `There are incorrect fields`
+  String get incorrect_fields {
+    return Intl.message(
+      'There are incorrect fields',
+      name: 'incorrect_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions sent by email`
   String get instructions_sent {
     return Intl.message(
@@ -145,6 +165,26 @@ class S {
     return Intl.message(
       'invalid email',
       name: 'invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please read the following legal documents and check the box to indicate that you agree and can register.`
+  String get legalInfo {
+    return Intl.message(
+      'Please read the following legal documents and check the box to indicate that you agree and can register.',
+      name: 'legalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Legal documents`
+  String get legal_documents {
+    return Intl.message(
+      'Legal documents',
+      name: 'legal_documents',
       desc: '',
       args: [],
     );

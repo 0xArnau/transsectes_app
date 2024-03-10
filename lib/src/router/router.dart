@@ -84,6 +84,14 @@ GoRouter router = GoRouter(
         );
       },
     ),
+    // GoRoute(
+    //   path: LegalView.path,
+    //   pageBuilder: (context, state) {
+    //     return CustomTransitionRoute.transition(
+    //       view: const LegalView(),
+    //     );
+    //   },
+    // ),
   ],
   // initialLocation: '/splash',
   // overridePlatformDefaultLocation: true,

@@ -90,5 +90,29 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthFailure(message: 'Error: ${e.toString()}'));
       }
     });
+
+    on<SignUp>((event, emit) async {
+      emit(AuthLoading(isLoading: true));
+
+      try {
+        await repository.createUserWithEmailAndPassword(
+          email: event.email,
+          password: event.password,
+        );
+
+        // TODO: Validate email (send an email)
+
+        emit(AuthSuccess(value: null));
+      } on FirebaseAuthException catch (e) {
+        Logger().e(e.toString());
+        switch (e.code) {
+          default:
+            emit(AuthFailure(message: e.message.toString()));
+        }
+      } catch (e) {
+        Logger().e(e.toString());
+        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+      }
+    });
   }
 }

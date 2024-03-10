@@ -44,6 +44,7 @@ dependencies:
   firebase_core: ^2.27.0
   equatable: ^2.0.5
   logger: ^2.1.0
+  syncfusion_flutter_pdfviewer: ^24.2.8
   
 
 dev_dependencies:
@@ -94,6 +95,9 @@ flutter:
     - assets/imgs/icons/start.png
     - assets/imgs/icons/walk.png
     - assets/imgs/background/imatge_tortuga.png
+    - assets/docs/legal/avis-legal.pdf
+    - assets/docs/legal/clausula-informativa.pdf
+    - assets/docs/legal/privacitat.pdf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

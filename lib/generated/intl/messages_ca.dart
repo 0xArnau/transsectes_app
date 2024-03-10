@@ -32,13 +32,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Els correus electrònics són diferents"),
+        "empty_fields":
+            MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Has oblidat la contrasenya?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
+        "incorrect_fields":
+            MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instruccions enviades per correu electrònic"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("email invàlid"),
+        "legalInfo": MessageLookupByLibrary.simpleMessage(
+            "Llegeix els documents legals següents i marca la casella per indicar que estar conforme i poder registrar-te"),
+        "legal_documents":
+            MessageLookupByLibrary.simpleMessage("Documents legals"),
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
