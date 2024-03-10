@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/sign_up_view.dart';
-import 'package:transsectes_app/src/home/views/home_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_wave_shape.dart';
@@ -155,7 +154,9 @@ class _LoginViewState extends State<LoginView> {
                           BlocConsumer<AuthBloc, AuthState>(
                             listener: (context, state) {
                               if (state is AuthSuccess) {
-                                context.go(HomeView.path);
+                                // Not needed signInWithEmailAndPassword also signs the user in into the app and updates
+                                // any [authStateChanges], [idTokenChanges] or [userChanges] stream listeners.
+                                // context.go(HomeView.path);
                               } else if (state is AuthFailure) {
                                 CustomSnackbar.error(context, state.message);
                               }

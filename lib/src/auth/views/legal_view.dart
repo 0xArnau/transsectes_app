@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:logger/web.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
-import 'package:transsectes_app/src/home/views/home_view.dart';
+import 'package:transsectes_app/src/auth/widget_tree.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/Widgets/pdf_viewer_widget.dart';
@@ -98,7 +98,8 @@ class _LegalViewState extends State<LegalView> {
                   listener: (context, state) {
                     if (state is AuthSuccess) {
                       Logger().d('Singing up');
-                      context.go(HomeView.path);
+                      Navigator.pop(context);
+                      context.go(WidgetTree.path);
                     } else if (state is AuthFailure) {
                       CustomSnackbar.error(context, state.message);
                     }
