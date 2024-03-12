@@ -230,6 +230,136 @@ class S {
     );
   }
 
+  /// `Surveys involve conducting patrols along the beach to detect possible traces of turtle nesting during the period between June 1st and October 31st.`
+  String get how_to_1_1 {
+    return Intl.message(
+      'Surveys involve conducting patrols along the beach to detect possible traces of turtle nesting during the period between June 1st and October 31st.',
+      name: 'how_to_1_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for`
+  String get how_to_1_2 {
+    return Intl.message(
+      'It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for',
+      name: 'how_to_1_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `When a turtle emerges from the sea onto the beach to nest, it crawls using its flippers as if they were legs. This movement leaves a very distinctive track ascending towards the beach.`
+  String get how_to_2_1 {
+    return Intl.message(
+      'When a turtle emerges from the sea onto the beach to nest, it crawls using its flippers as if they were legs. This movement leaves a very distinctive track ascending towards the beach.',
+      name: 'how_to_2_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out.`
+  String get how_to_2_2 {
+    return Intl.message(
+      'When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out.',
+      name: 'how_to_2_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The ascent track may undergo changes in direction ascending, motivated by the turtle's search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea.`
+  String get how_to_2_3 {
+    return Intl.message(
+      'The ascent track may undergo changes in direction ascending, motivated by the turtle\'s search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea.',
+      name: 'how_to_2_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size.`
+  String get how_to_3_1 {
+    return Intl.message(
+      'Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size.',
+      name: 'how_to_3_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call`
+  String get how_to_3_2 {
+    return Intl.message(
+      'If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call',
+      name: 'how_to_3_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.`
+  String get how_to_4_1 {
+    return Intl.message(
+      'You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.',
+      name: 'how_to_4_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can put red cellophane paper on a flashlight or in front of the mobile phone flashlight.`
+  String get how_to_4_2 {
+    return Intl.message(
+      'You can put red cellophane paper on a flashlight or in front of the mobile phone flashlight.',
+      name: 'how_to_4_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.`
+  String get how_to_5_1 {
+    return Intl.message(
+      'Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.',
+      name: 'how_to_5_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will start the transect in a specific area of the beach and activate the "START TRANSECT" button.`
+  String get how_to_6_1 {
+    return Intl.message(
+      'We will start the transect in a specific area of the beach and activate the "START TRANSECT" button.',
+      name: 'how_to_6_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will walk along the beach, by the seashore, observing the first meters of undulating dry sand.`
+  String get how_to_6_2 {
+    return Intl.message(
+      'We will walk along the beach, by the seashore, observing the first meters of undulating dry sand.',
+      name: 'how_to_6_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.`
+  String get how_to_7_1 {
+    return Intl.message(
+      'Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.',
+      name: 'how_to_7_1',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `There are incorrect fields`
   String get incorrect_fields {
     return Intl.message(
@@ -295,6 +425,26 @@ class S {
     return Intl.message(
       'Don\'t have an account?',
       name: 'no_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PREVIOUS`
+  String get page_back {
+    return Intl.message(
+      'PREVIOUS',
+      name: 'page_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NEXT`
+  String get page_next {
+    return Intl.message(
+      'NEXT',
+      name: 'page_next',
       desc: '',
       args: [],
     );

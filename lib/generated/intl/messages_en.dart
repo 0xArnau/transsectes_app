@@ -55,6 +55,32 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
+        "how_to_1_1": MessageLookupByLibrary.simpleMessage(
+            "Surveys involve conducting patrols along the beach to detect possible traces of turtle nesting during the period between June 1st and October 31st."),
+        "how_to_1_2": MessageLookupByLibrary.simpleMessage(
+            "It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for"),
+        "how_to_2_1": MessageLookupByLibrary.simpleMessage(
+            "When a turtle emerges from the sea onto the beach to nest, it crawls using its flippers as if they were legs. This movement leaves a very distinctive track ascending towards the beach."),
+        "how_to_2_2": MessageLookupByLibrary.simpleMessage(
+            "When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out."),
+        "how_to_2_3": MessageLookupByLibrary.simpleMessage(
+            "The ascent track may undergo changes in direction ascending, motivated by the turtle\'s search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea."),
+        "how_to_3_1": MessageLookupByLibrary.simpleMessage(
+            "Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size."),
+        "how_to_3_2": MessageLookupByLibrary.simpleMessage(
+            "If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call"),
+        "how_to_4_1": MessageLookupByLibrary.simpleMessage(
+            "You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out."),
+        "how_to_4_2": MessageLookupByLibrary.simpleMessage(
+            "You can put red cellophane paper on a flashlight or in front of the mobile phone flashlight."),
+        "how_to_5_1": MessageLookupByLibrary.simpleMessage(
+            "Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad."),
+        "how_to_6_1": MessageLookupByLibrary.simpleMessage(
+            "We will start the transect in a specific area of the beach and activate the \"START TRANSECT\" button."),
+        "how_to_6_2": MessageLookupByLibrary.simpleMessage(
+            "We will walk along the beach, by the seashore, observing the first meters of undulating dry sand."),
+        "how_to_7_1": MessageLookupByLibrary.simpleMessage(
+            "Once we finish our route, we will access the section \"START TRANSECT\" and press \"FINISH TRANSECT,\" which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send."),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
         "instructions_sent":
@@ -67,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "page_back": MessageLookupByLibrary.simpleMessage("PREVIOUS"),
+        "page_next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),

@@ -56,6 +56,32 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Has oblidat la contrasenya?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
+        "how_to_1_1": MessageLookupByLibrary.simpleMessage(
+            "Les prospeccions consisteixen a fer recorreguts per la platja per detectar possibles rastres de posta de tortugues en el període comprès entre l\'1 de juny i el 31 d\'octubre."),
+        "how_to_1_2": MessageLookupByLibrary.simpleMessage(
+            "Es recomana fer aquests recorreguts entre les 22:00 h i les 8:00 h de l\'endemà, tot i que les primeres hores de la nit són les més propícies perquè les tortugues surtin a pondre."),
+        "how_to_2_1": MessageLookupByLibrary.simpleMessage(
+            "Quan una tortuga surt del mar cap a la sorra de la platja per fer una posta, ho fa arrossegant-se utilitzant les aletes com si fossin potes. Aquest desplaçament deixa un rastre molt particular en sentit ascendent cap a la platja."),
+        "how_to_2_2": MessageLookupByLibrary.simpleMessage(
+            "Quan troba el lloc idoni, excava el niu, fa la posta, la tapa i torna cap al mar, deixant un rastre de les mateixes característiques que el de pujada, però en direcció al mar. Sovint amb una ratlla al mig per arrossegar el tub per on han sortit els ous."),
+        "how_to_2_3": MessageLookupByLibrary.simpleMessage(
+            "El rastre de pujada pot patir canvis de direcció en sentit ascendent, motivats per la recerca del lloc idoni per excavar el niu per part de la tortuga. El rastre de baixada és sempre més rectilini,directe cap al mar."),
+        "how_to_3_1": MessageLookupByLibrary.simpleMessage(
+            "Més difícil encara seria trobar-nos, entre agost i octubre, cries que surten de nius no detectats i que caminen per la sorra cap a la platja. Aquesta és una probabilitat baixíssima tenint en compte que fan eclosió de nit i per la seva reduïda dimensió."),
+        "how_to_3_2": MessageLookupByLibrary.simpleMessage(
+            "Si trobem tortuguetes petites o una tortuga gran viva o morta fora de l\'aigua, cal que truquem ràpidament al"),
+        "how_to_4_1": MessageLookupByLibrary.simpleMessage(
+            "Pots portar una llanterna o frontal amb llum vermella tot i que rarament és necessària  per passejar; la utilitzarem si no estem segurs d\'alguna cosa durant el transsecte, la llum de la lluna acostuma a ser suficient. Sempre que puguem durem la llanterna apagada i caminarem sense fer soroll. Si no tenim prou llum per a observar rastres haurem de posar la llanterna amb el braç estirat cap a terra perquè la il·luminació destaqui millor el relleu de la sorra. Mai hem d\'apuntar a l\'aigua amb la llanterna, ja que si hi hagués una tortuga intentant sortir podríem espantar-la."),
+        "how_to_4_2": MessageLookupByLibrary.simpleMessage(
+            "Pots posar un paper de cel·lofana vermell en una llanterna o davant la llanterna del mòbil."),
+        "how_to_5_1": MessageLookupByLibrary.simpleMessage(
+            "Podem aprofitar el passeig per informar i sensibilitzar a les persones o grups de persones que ens trobem a la platja (esportistes, famílies, pescadors/es de canya i altres persones) perquè ens ajudin trucant al 112 si són testimonis d\'una nidificació o petjades. Sempre sota el nostre criteri i voluntat."),
+        "how_to_6_1": MessageLookupByLibrary.simpleMessage(
+            "Iniciarem el transsecte en una zona de la platja i activem el botó \"INICI TRANSSECTE\"."),
+        "how_to_6_2": MessageLookupByLibrary.simpleMessage(
+            "Caminarem per la platja, a la vora del mar, observant els primers metres de sorra seca ondulada."),
+        "how_to_7_1": MessageLookupByLibrary.simpleMessage(
+            "Una vegada finalitzem el nostre recorregut, accedirem a l\'apartat “INICI TRANSSECTE” i polsarem “FINALITZAR TRANSSECTE”, que ens portarà una pantalla on hem d\'emplenar els següents camps: Si hem trobat la platja llaurada per alguna màquina que pugui esborrar els rastres. Anotar el nombre de persones informades. Anotar observacions que considerem interessants. I polsem enviar."),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
@@ -68,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
+        "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
+        "page_next": MessageLookupByLibrary.simpleMessage("PROPER"),
         "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
         "signOut": MessageLookupByLibrary.simpleMessage("Tanca sessió"),
         "signup": MessageLookupByLibrary.simpleMessage("Registra\'t"),

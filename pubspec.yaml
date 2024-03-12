@@ -99,6 +99,14 @@ flutter:
     - assets/docs/legal/avis-legal.pdf
     - assets/docs/legal/clausula-informativa.pdf
     - assets/docs/legal/privacitat.pdf
+    - assets/imgs/explanation/1.png
+    - assets/imgs/explanation/2.png
+    - assets/imgs/explanation/3_1.png
+    - assets/imgs/explanation/4.png
+    - assets/imgs/explanation/5.png
+    - assets/imgs/explanation/6.png
+    - assets/imgs/explanation/7.png
+    - assets/imgs/explanation/8.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

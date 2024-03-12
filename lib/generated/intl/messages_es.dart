@@ -56,6 +56,32 @@ class MessageLookup extends MessageLookupByLibrary {
             "¿Has olvidado tu contraseña?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
+        "how_to_1_1": MessageLookupByLibrary.simpleMessage(
+            "Las prospecciones consisten a hacer recorridos por la playa para detectar posibles rastros de nidificación de tortugas en el periodo comprendido entre el 1 de junio y el 31 de octubre."),
+        "how_to_1_2": MessageLookupByLibrary.simpleMessage(
+            "Se recomienda hacer estos recorridos entre las 22:00 h y las 8:00 h del día siguiente, a pesar de que las primeras horas de la noche son las más propicias para que las tortugas salgan a poner los huevos."),
+        "how_to_2_1": MessageLookupByLibrary.simpleMessage(
+            "Cuando una tortuga sale del mar hacia la arena de la playa para hacer una puesta, lo hace arrastrándose utilizando las aletas como si fueran patas. Este desplazamiento deja un rastro muy particular en sentido ascendente hacia la playa."),
+        "how_to_2_2": MessageLookupByLibrary.simpleMessage(
+            "Cuando encuentra el lugar idóneo, excava el nido, hace la puesta, la tapa y vuelve hacia el mar, dejando un rastro de las mismas características que el de subida, pero en dirección al mar. A menudo con una raya en medio para arrastrar el tubo por dónde han salido los huevos."),
+        "how_to_2_3": MessageLookupByLibrary.simpleMessage(
+            "El rastro de subida puede sufrir cambios de dirección en sentido ascendente, motivados por la investigación del lugar idóneo para excavar el nido por parte de la  tortuga. El rastro de bajada es siempre más rectilíneo,directo hacia el mar."),
+        "how_to_3_1": MessageLookupByLibrary.simpleMessage(
+            "Más difícil todavía seria encontrarnos, entre agosto y octubre, crías que salen de nidos no detectados y que andan por la arena hacia la playa. Esta es una probabilidad bajísima teniendo en cuenta que eclosionan de noche y por su reducida dimensión."),
+        "how_to_3_2": MessageLookupByLibrary.simpleMessage(
+            "Si encontramos tortuguitas pequeñas o una tortuga grande viva o muerta fuera del agua, debemos llamar rápidamente al"),
+        "how_to_4_1": MessageLookupByLibrary.simpleMessage(
+            "Puedes llevar una linterna o frontal con luz roja aunque raramente es necesaria para pasear; la utilizaremos si no estamos seguros de algo durante el transecto, la luz de la luna acostumbra a ser suficiente. Siempre que sea possible, llevaremos la linterna apagada y andaremos sin hacer ruido. Si no tenemos suficiente luz para observar rastros tendremos que poner la linterna con el brazo estirado hacia el suelo para que la iluminación destaque mejor el relieve de la arena. Nunca tenemos que apuntar al agua con la linterna, puesto que si hubiera una tortuga intentando salir podríamos asustarla."),
+        "how_to_4_2": MessageLookupByLibrary.simpleMessage(
+            "Puedes poner un papel de celofán rojo en una linterna o delante de la linterna del móvil."),
+        "how_to_5_1": MessageLookupByLibrary.simpleMessage(
+            "We can take advantage of the walk to inform and sensitize the people or groups of people we meet on the beach (athletes, families, fishermen/women with fishing rods, and other individuals) to help us by calling 112 if they witness a nesting or tracks. Always under our own judgment and will."),
+        "how_to_6_1": MessageLookupByLibrary.simpleMessage(
+            "Iniciaremos el transecto en una zona de la playa y activamos el botón \"INICIO TRANSECTO\"."),
+        "how_to_6_2": MessageLookupByLibrary.simpleMessage(
+            "Andaremos por la playa, al lado del mar, observando los primeros metros de arena seca ondulada."),
+        "how_to_7_1": MessageLookupByLibrary.simpleMessage(
+            "Una vez finalizamos nuestro recorrido, accederemos en el apartado “INICIO  TRANSECTO” y pulsaremos “FINALIZAR TRANSECTO”, que nos llevará una pantalla donde tenemos que rellenar los siguientes campos: Si hemos encontrado la playa labrada por alguna máquina que pueda borrar los rastros. Anotar el número de personas informadas. Anotar observaciones que consideramos interesantes. Y pulsamos enviar."),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
@@ -68,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
+        "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
+        "page_next": MessageLookupByLibrary.simpleMessage("PRÓXIMO"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "signOut": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "signup": MessageLookupByLibrary.simpleMessage("Inscribirse"),
