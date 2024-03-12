@@ -29,6 +29,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirmar Contraseña"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
+        "contact_1": MessageLookupByLibrary.simpleMessage(
+            "Si observas una tortuga en la arena, un rastro, tortuguitas, una tortuga herida, muerta o cualquier otra incidencia relacionada con una tortuga marina, llama al"),
+        "contact_2": MessageLookupByLibrary.simpleMessage(
+            "Por cualquier duda o incidencia relacionada con los transectos o tortugas marinas, contacta con:"),
+        "contact_3":
+            MessageLookupByLibrary.simpleMessage("Teléfonos de urgencia"),
+        "contact_4": MessageLookupByLibrary.simpleMessage(
+            "También puedes visitar nuestra página web"),
+        "contact_clipboard_email": MessageLookupByLibrary.simpleMessage(
+            "Dirección de correo electrónico copiada al portapapeles"),
+        "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
+            "Número de teléfono copiado al portapapeles"),
+        "contact_error_email": MessageLookupByLibrary.simpleMessage(
+            "No se puede abrir la dirección de correo electrónico"),
+        "contact_error_phone": MessageLookupByLibrary.simpleMessage(
+            "No puedo abrir el número de teléfono"),
+        "contact_error_website": MessageLookupByLibrary.simpleMessage(
+            "No se puede abrir el sitio web"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Los correos electrónicos son diferentes."),

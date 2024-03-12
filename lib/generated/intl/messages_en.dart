@@ -28,6 +28,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
+        "contact_1": MessageLookupByLibrary.simpleMessage(
+            "If you observe a turtle on the sand, a track, hatchlings, an injured or dead turtle, or any other incident related to a sea turtle, call"),
+        "contact_2": MessageLookupByLibrary.simpleMessage(
+            "For any doubts or incidents related to transects or sea turtles, contact:"),
+        "contact_3":
+            MessageLookupByLibrary.simpleMessage("Emergency phone numbers"),
+        "contact_4": MessageLookupByLibrary.simpleMessage(
+            "You can also visit our website"),
+        "contact_clipboard_email": MessageLookupByLibrary.simpleMessage(
+            "Email address copied to clipboard"),
+        "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
+            "Phone number copied to clipboard"),
+        "contact_error_email": MessageLookupByLibrary.simpleMessage(
+            "Cannot open the email address"),
+        "contact_error_phone": MessageLookupByLibrary.simpleMessage(
+            "Cannot open the phone number"),
+        "contact_error_website":
+            MessageLookupByLibrary.simpleMessage("Cannot open the website"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emails_are_different":
             MessageLookupByLibrary.simpleMessage("The emails are different"),

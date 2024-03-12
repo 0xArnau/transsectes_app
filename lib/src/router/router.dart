@@ -80,7 +80,7 @@ GoRouter router = GoRouter(
       path: ContactView.path,
       pageBuilder: (context, state) {
         return CustomTransitionRoute.transition(
-          view: const ContactView(),
+          view: ContactView(),
         );
       },
     ),

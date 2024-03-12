@@ -29,6 +29,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirma la contrassenya"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
+        "contact_1": MessageLookupByLibrary.simpleMessage(
+            "Si observes una tortuga a la sorra, un rastre, tortuguetes, una tortuga ferida, morta o qualsevol altra incidència relacionada amb una tortuga marina, truca al "),
+        "contact_2": MessageLookupByLibrary.simpleMessage(
+            "Per qualsevol dubte o incidència relacionada amb els transsectes o tortugues marines, contacta a:"),
+        "contact_3":
+            MessageLookupByLibrary.simpleMessage("Tèlefons d\'urgència"),
+        "contact_4": MessageLookupByLibrary.simpleMessage(
+            "També pots visitar la nostra pàgina web"),
+        "contact_clipboard_email": MessageLookupByLibrary.simpleMessage(
+            "S\'ha copiat l\'adreça de correu electrònic al porta-retalls"),
+        "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
+            "El número de telèfon s\'ha copiat al porta-retalls"),
+        "contact_error_email": MessageLookupByLibrary.simpleMessage(
+            "No es pot obrir l\'adreça de correu electrònic"),
+        "contact_error_phone": MessageLookupByLibrary.simpleMessage(
+            "No es pot obrir el número de telèfon"),
+        "contact_error_website":
+            MessageLookupByLibrary.simpleMessage("No es pot obrir el lloc web"),
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Els correus electrònics són diferents"),

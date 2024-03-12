@@ -45,6 +45,7 @@ dependencies:
   equatable: ^2.0.5
   logger: ^2.1.0
   syncfusion_flutter_pdfviewer: ^24.2.8
+  url_launcher: ^6.2.5
   
 
 dev_dependencies:

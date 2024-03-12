@@ -90,6 +90,96 @@ class S {
     );
   }
 
+  /// `If you observe a turtle on the sand, a track, hatchlings, an injured or dead turtle, or any other incident related to a sea turtle, call`
+  String get contact_1 {
+    return Intl.message(
+      'If you observe a turtle on the sand, a track, hatchlings, an injured or dead turtle, or any other incident related to a sea turtle, call',
+      name: 'contact_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `For any doubts or incidents related to transects or sea turtles, contact:`
+  String get contact_2 {
+    return Intl.message(
+      'For any doubts or incidents related to transects or sea turtles, contact:',
+      name: 'contact_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Emergency phone numbers`
+  String get contact_3 {
+    return Intl.message(
+      'Emergency phone numbers',
+      name: 'contact_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can also visit our website`
+  String get contact_4 {
+    return Intl.message(
+      'You can also visit our website',
+      name: 'contact_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email address copied to clipboard`
+  String get contact_clipboard_email {
+    return Intl.message(
+      'Email address copied to clipboard',
+      name: 'contact_clipboard_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number copied to clipboard`
+  String get contact_clipboard_phone {
+    return Intl.message(
+      'Phone number copied to clipboard',
+      name: 'contact_clipboard_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot open the email address`
+  String get contact_error_email {
+    return Intl.message(
+      'Cannot open the email address',
+      name: 'contact_error_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot open the phone number`
+  String get contact_error_phone {
+    return Intl.message(
+      'Cannot open the phone number',
+      name: 'contact_error_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot open the website`
+  String get contact_error_website {
+    return Intl.message(
+      'Cannot open the website',
+      name: 'contact_error_website',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(

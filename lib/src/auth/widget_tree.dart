@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/home/views/home_view.dart';
 
@@ -15,6 +16,7 @@ class WidgetTree extends StatelessWidget {
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
+          Logger().d(snapshot);
           if (snapshot.hasData) {
             return const HomeView();
           } else {
