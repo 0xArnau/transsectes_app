@@ -67,7 +67,7 @@ class _MenuViewState extends State<MenuView> {
                       builder: (context, state) {
                         return ListTile(
                           title: Text(
-                            showEmail ? email : '******',
+                            showEmail ? email : '',
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                           ),
