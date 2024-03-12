@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/src/auth/views/forgot_password_view.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/auth/views/sign_up_view.dart';
+import 'package:transsectes_app/src/auth/widget_tree.dart';
 import 'package:transsectes_app/src/contact/views/contact_view.dart';
 import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.dart';
 import 'package:transsectes_app/src/splash/views/splash_view.dart';
@@ -13,6 +14,12 @@ import '../home/views/home_view.dart';
 
 GoRouter router = GoRouter(
   routes: [
+    GoRoute(
+      path: WidgetTree.path,
+      pageBuilder: (context, state) {
+        return CustomTransitionRoute.transition(view: const WidgetTree());
+      },
+    ),
     GoRoute(
       path: HomeView.path,
       pageBuilder: (context, state) {
@@ -77,7 +84,15 @@ GoRouter router = GoRouter(
         );
       },
     ),
+    // GoRoute(
+    //   path: LegalView.path,
+    //   pageBuilder: (context, state) {
+    //     return CustomTransitionRoute.transition(
+    //       view: const LegalView(),
+    //     );
+    //   },
+    // ),
   ],
-  initialLocation: '/splash',
-  overridePlatformDefaultLocation: true,
+  // initialLocation: '/splash',
+  // overridePlatformDefaultLocation: true,
 );

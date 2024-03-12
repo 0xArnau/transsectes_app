@@ -1,0 +1,111 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
+import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
+
+class MenuView extends StatefulWidget {
+  const MenuView({super.key});
+
+  @override
+  State<MenuView> createState() => _MenuViewState();
+}
+
+class _MenuViewState extends State<MenuView> {
+  late String appName = '';
+  late String version = '';
+  late String buildNumber = '';
+
+  String email = '';
+  bool showEmail = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<AuthBloc>(context).add(GetEmail());
+
+    _getPackageInfo();
+  }
+
+  _getPackageInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
+    setState(() {
+      appName = packageInfo.appName;
+      version = packageInfo.version;
+      buildNumber = packageInfo.buildNumber;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: kColorBackground,
+      child: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  Center(
+                    child: Icon(
+                      Icons.person,
+                      size: MediaQuery.of(context).size.height / 6,
+                    ),
+                  ),
+                  Center(
+                    child: BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        if (state is AuthSuccess) {
+                          setState(() {
+                            email = state.value ?? '';
+                          });
+                        }
+                      },
+                      builder: (context, state) {
+                        return ListTile(
+                          title: Text(
+                            showEmail ? email : '******',
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          leading: Icon(Icons.email),
+                          trailing: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                showEmail = !showEmail;
+                              });
+                            },
+                            child: Icon(
+                              showEmail
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Center(
+              child: Column(
+                children: [
+                  logOutWidget(),
+                  SizedBox(height: 10),
+                  Text(
+                    '$appName - $version($buildNumber)',
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

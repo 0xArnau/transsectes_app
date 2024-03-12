@@ -30,19 +30,39 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirmar Contraseña"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "emails_are_different": MessageLookupByLibrary.simpleMessage(
+            "Los correos electrónicos son diferentes."),
+        "empty_fields":
+            MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
         "forgot_password": MessageLookupByLibrary.simpleMessage(
             "¿Has olvidado tu contraseña?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
+        "incorrect_fields":
+            MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
+        "instructions_sent": MessageLookupByLibrary.simpleMessage(
+            "Instrucciones enviadas por correo electrónico."),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("email inválido"),
+        "legalInfo": MessageLookupByLibrary.simpleMessage(
+            "Lee los siguientes documentos legales y marca la casilla para indicar que estar conforme y poder registrarte"),
+        "legal_documents":
+            MessageLookupByLibrary.simpleMessage("Documentos legales"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "signup": MessageLookupByLibrary.simpleMessage("Inscribirse"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transecto"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registros de transectos"),
+        "user_disabled":
+            MessageLookupByLibrary.simpleMessage("usuario deshabilitado"),
+        "user_not_found":
+            MessageLookupByLibrary.simpleMessage("usuario no encontrado"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("contraseña incorrecta"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?")
       };

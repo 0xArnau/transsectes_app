@@ -29,19 +29,38 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emails_are_different":
+            MessageLookupByLibrary.simpleMessage("The emails are different"),
+        "empty_fields":
+            MessageLookupByLibrary.simpleMessage("There are empty fields"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
+        "incorrect_fields":
+            MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
+        "instructions_sent":
+            MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("invalid email"),
+        "legalInfo": MessageLookupByLibrary.simpleMessage(
+            "Please read the following legal documents and check the box to indicate that you agree and can register."),
+        "legal_documents":
+            MessageLookupByLibrary.simpleMessage("Legal documents"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Transect records"),
+        "user_disabled": MessageLookupByLibrary.simpleMessage("user disabled"),
+        "user_not_found":
+            MessageLookupByLibrary.simpleMessage("user not found"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("wrong password"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?")
       };

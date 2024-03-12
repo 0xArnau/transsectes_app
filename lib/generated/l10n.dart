@@ -100,6 +100,26 @@ class S {
     );
   }
 
+  /// `The emails are different`
+  String get emails_are_different {
+    return Intl.message(
+      'The emails are different',
+      name: 'emails_are_different',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There are empty fields`
+  String get empty_fields {
+    return Intl.message(
+      'There are empty fields',
+      name: 'empty_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot password?`
   String get forgot_password {
     return Intl.message(
@@ -115,6 +135,56 @@ class S {
     return Intl.message(
       'How to do a transect',
       name: 'how2transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There are incorrect fields`
+  String get incorrect_fields {
+    return Intl.message(
+      'There are incorrect fields',
+      name: 'incorrect_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instructions sent by email`
+  String get instructions_sent {
+    return Intl.message(
+      'Instructions sent by email',
+      name: 'instructions_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `invalid email`
+  String get invalid_email {
+    return Intl.message(
+      'invalid email',
+      name: 'invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please read the following legal documents and check the box to indicate that you agree and can register.`
+  String get legalInfo {
+    return Intl.message(
+      'Please read the following legal documents and check the box to indicate that you agree and can register.',
+      name: 'legalInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Legal documents`
+  String get legal_documents {
+    return Intl.message(
+      'Legal documents',
+      name: 'legal_documents',
       desc: '',
       args: [],
     );
@@ -150,6 +220,16 @@ class S {
     );
   }
 
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message(
+      'Sign Out',
+      name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign Up`
   String get signup {
     return Intl.message(
@@ -175,6 +255,36 @@ class S {
     return Intl.message(
       'Transect records',
       name: 'transect_records',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user disabled`
+  String get user_disabled {
+    return Intl.message(
+      'user disabled',
+      name: 'user_disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `user not found`
+  String get user_not_found {
+    return Intl.message(
+      'user not found',
+      name: 'user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wrong password`
+  String get wrong_password {
+    return Intl.message(
+      'wrong password',
+      name: 'wrong_password',
       desc: '',
       args: [],
     );

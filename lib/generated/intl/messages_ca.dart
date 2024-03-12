@@ -30,19 +30,39 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirma la contrassenya"),
         "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
+        "emails_are_different": MessageLookupByLibrary.simpleMessage(
+            "Els correus electrònics són diferents"),
+        "empty_fields":
+            MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Has oblidat la contrasenya?"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
+        "incorrect_fields":
+            MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
+        "instructions_sent": MessageLookupByLibrary.simpleMessage(
+            "Instruccions enviades per correu electrònic"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("email invàlid"),
+        "legalInfo": MessageLookupByLibrary.simpleMessage(
+            "Llegeix els documents legals següents i marca la casella per indicar que estar conforme i poder registrar-te"),
+        "legal_documents":
+            MessageLookupByLibrary.simpleMessage("Documents legals"),
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
         "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Tanca sessió"),
         "signup": MessageLookupByLibrary.simpleMessage("Registra\'t"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transsecte"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registres de transsectes"),
+        "user_disabled":
+            MessageLookupByLibrary.simpleMessage("usuari deshabilitat"),
+        "user_not_found":
+            MessageLookupByLibrary.simpleMessage("usuari no trobat"),
+        "wrong_password":
+            MessageLookupByLibrary.simpleMessage("contrasenya incorrecta"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Ja tens un compte?")
       };
