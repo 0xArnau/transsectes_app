@@ -46,6 +46,7 @@ dependencies:
   logger: ^2.1.0
   syncfusion_flutter_pdfviewer: ^24.2.8
   url_launcher: ^6.2.5
+  introduction_screen: ^3.1.12
   
 
 dev_dependencies:
@@ -101,7 +102,7 @@ flutter:
     - assets/docs/legal/privacitat.pdf
     - assets/imgs/explanation/1.png
     - assets/imgs/explanation/2.png
-    - assets/imgs/explanation/3_1.png
+    - assets/imgs/explanation/3.png
     - assets/imgs/explanation/4.png
     - assets/imgs/explanation/5.png
     - assets/imgs/explanation/6.png

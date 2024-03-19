@@ -250,6 +250,16 @@ class S {
     );
   }
 
+  /// `Transects`
+  String get how_to_1_title {
+    return Intl.message(
+      'Transects',
+      name: 'how_to_1_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `When a turtle emerges from the sea onto the beach to nest, it crawls using its flippers as if they were legs. This movement leaves a very distinctive track ascending towards the beach.`
   String get how_to_2_1 {
     return Intl.message(
@@ -280,6 +290,16 @@ class S {
     );
   }
 
+  /// `What are we looking for?`
+  String get how_to_2_title {
+    return Intl.message(
+      'What are we looking for?',
+      name: 'how_to_2_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size.`
   String get how_to_3_1 {
     return Intl.message(
@@ -290,11 +310,21 @@ class S {
     );
   }
 
-  /// `If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call`
+  /// `If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112`
   String get how_to_3_2 {
     return Intl.message(
-      'If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call',
+      'If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112',
       name: 'how_to_3_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What are we looking for?`
+  String get how_to_3_title {
+    return Intl.message(
+      'What are we looking for?',
+      name: 'how_to_3_title',
       desc: '',
       args: [],
     );
@@ -320,11 +350,31 @@ class S {
     );
   }
 
+  /// `Lightning`
+  String get how_to_4_title {
+    return Intl.message(
+      'Lightning',
+      name: 'how_to_4_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.`
   String get how_to_5_1 {
     return Intl.message(
       'Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.',
       name: 'how_to_5_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sensitization`
+  String get how_to_5_title {
+    return Intl.message(
+      'Sensitization',
+      name: 'how_to_5_title',
       desc: '',
       args: [],
     );
@@ -350,11 +400,41 @@ class S {
     );
   }
 
+  /// `Start transect`
+  String get how_to_6_title {
+    return Intl.message(
+      'Start transect',
+      name: 'how_to_6_title',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.`
   String get how_to_7_1 {
     return Intl.message(
       'Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.',
       name: 'how_to_7_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish transect`
+  String get how_to_7_title {
+    return Intl.message(
+      'Finish transect',
+      name: 'how_to_7_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Become a volunteer`
+  String get how_to_8_title {
+    return Intl.message(
+      'Become a volunteer',
+      name: 'how_to_8_title',
       desc: '',
       args: [],
     );

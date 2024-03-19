@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
@@ -13,24 +15,9 @@ class HowToTransectView extends StatefulWidget {
 }
 
 class _HowToTransectViewState extends State<HowToTransectView> {
-  final List<Widget> pages = [];
-
-  int _currentPageIndex = 0;
-
   @override
   void initState() {
     super.initState();
-
-    pages.addAll([
-      _page1(),
-      _page2(),
-      _page3(),
-      _page4(),
-      _page5(),
-      _page6(),
-      _page7(),
-      // _page8(),
-    ]);
   }
 
   @override
@@ -39,121 +26,86 @@ class _HowToTransectViewState extends State<HowToTransectView> {
       context: context,
       title: S.current.how2transect,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          child: Column(
-            children: [
-              Expanded(
-                child: PageView.builder(
-                  onPageChanged: (value) {
-                    setState(() {
-                      _currentPageIndex = value;
-                    });
-                  },
-                  itemCount: pages.length,
-                  itemBuilder: (context, index) {
-                    return pages[_currentPageIndex];
-                  },
-                ),
+        child: IntroductionScreen(
+          showDoneButton: true,
+          showNextButton: true,
+          showBackButton: true,
+          isProgress: false,
+          baseBtnStyle: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(kColorTitle),
+            surfaceTintColor: MaterialStateProperty.all<Color>(kColorTitle),
+            overlayColor: MaterialStateProperty.all<Color>(
+              Color.fromRGBO(
+                kColorTitle.red,
+                kColorTitle.green,
+                kColorTitle.blue,
+                .2,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  pages.length,
-                  (index) => AnimatedDot(isActive: index == _currentPageIndex),
-                ),
-              ),
-            ],
+            ),
           ),
+          back: Theme.of(context).platform == TargetPlatform.iOS
+              ? const Icon(Icons.arrow_back_ios)
+              : const Icon(Icons.arrow_back),
+          next: Theme.of(context).platform == TargetPlatform.iOS
+              ? const Icon(Icons.arrow_forward_ios)
+              : const Icon(Icons.arrow_forward),
+          done: const Icon(Icons.done),
+          onDone: () {
+            context.pop();
+          },
+          pages: [
+            myPageViewModel(
+              title: S.current.how_to_1_title,
+              textBefore: S.current.how_to_1_1,
+              textAfter: S.current.how_to_1_2,
+              image: 'assets/imgs/explanation/1.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_2_title,
+              textBefore: S.current.how_to_2_1,
+              textAfter: S.current.how_to_2_2,
+              image: 'assets/imgs/explanation/2.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_3_title,
+              textBefore: S.current.how_to_3_1,
+              textAfter: S.current.how_to_3_2,
+              image: 'assets/imgs/explanation/3.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_4_title,
+              textBefore: S.current.how_to_4_1,
+              textAfter: S.current.how_to_4_2,
+              image: 'assets/imgs/explanation/4.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_5_title,
+              textBefore: S.current.how_to_5_1,
+              textAfter: '',
+              image: 'assets/imgs/explanation/5.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_6_title,
+              textBefore: S.current.how_to_6_1,
+              textAfter: S.current.how_to_6_2,
+              image: 'assets/imgs/explanation/6.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_7_title,
+              textBefore: S.current.how_to_7_1,
+              textAfter: '',
+              image: 'assets/imgs/explanation/7.png',
+            ),
+            myPageViewModel(
+              title: S.current.how_to_8_title,
+              textBefore: '',
+              textAfter: '',
+              image: 'assets/imgs/explanation/8.png',
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  Widget _page1() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_1_1),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/1.png'),
-        SizedBox(height: 10),
-        _customText(S.current.how_to_1_2),
-      ],
-    );
-  }
-
-  Widget _page2() {
-    return ListView(
-      children: [
-        _customText('- ' + S.current.how_to_2_1),
-        SizedBox(height: 10),
-        _customText('- ' + S.current.how_to_2_2),
-        SizedBox(height: 10),
-        _customText('- ' + S.current.how_to_2_3),
-        Image.asset('assets/imgs/explanation/2.png'),
-      ],
-    );
-  }
-
-  Widget _page3() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_3_1),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/3_1.png'),
-        SizedBox(height: 10),
-        _customText(S.current.how_to_3_2),
-        // Image.asset('assets/imgs/explanation/3_2.png'),
-      ],
-    );
-  }
-
-  Widget _page4() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_4_1),
-        SizedBox(height: 30),
-        _customText(S.current.how_to_4_2),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/4.png'),
-      ],
-    );
-  }
-
-  Widget _page5() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_5_1),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/5.png'),
-      ],
-    );
-  }
-
-  Widget _page6() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_6_1),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/6.png'),
-        SizedBox(height: 10),
-        _customText(S.current.how_to_6_2),
-      ],
-    );
-  }
-
-  Widget _page7() {
-    return ListView(
-      children: [
-        _customText(S.current.how_to_7_1),
-        SizedBox(height: 10),
-        Image.asset('assets/imgs/explanation/7.png'),
-      ],
-    );
-  }
-
-  Widget _page8() {
-    return Image.asset('assets/imgs/explanation/8.png', fit: BoxFit.cover);
   }
 
   Widget _customText(String text) {
@@ -165,27 +117,29 @@ class _HowToTransectViewState extends State<HowToTransectView> {
   }
 }
 
-class AnimatedDot extends StatelessWidget {
-  final bool isActive;
-
-  const AnimatedDot({
-    super.key,
-    required this.isActive,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(2, 10, 2, 10),
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        height: 6,
-        width: isActive ? 20 : 6,
-        decoration: BoxDecoration(
-          color: isActive ? kColorTitle : Colors.grey,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
+PageViewModel myPageViewModel({
+  required String title,
+  required String textBefore,
+  required String textAfter,
+  required String image,
+}) =>
+    PageViewModel(
+      title: title,
+      bodyWidget: Column(
+        children: [
+          Text(
+            textBefore,
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+          Image.asset(image),
+          Text(
+            textAfter,
+            style: const TextStyle(fontSize: 18),
+            textAlign: TextAlign.justify,
+          ),
+        ],
       ),
     );
-  }
-}
