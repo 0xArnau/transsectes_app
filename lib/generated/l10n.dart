@@ -150,6 +150,16 @@ class S {
     );
   }
 
+  /// `The Website URL copied to clipboard`
+  String get contact_clipboard_website {
+    return Intl.message(
+      'The Website URL copied to clipboard',
+      name: 'contact_clipboard_website',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cannot open the email address`
   String get contact_error_email {
     return Intl.message(

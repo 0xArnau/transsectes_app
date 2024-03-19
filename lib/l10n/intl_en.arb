@@ -9,6 +9,7 @@
   "contact_4": "You can also visit our website",
   "contact_clipboard_email": "Email address copied to clipboard",
   "contact_clipboard_phone": "Phone number copied to clipboard",
+  "contact_clipboard_website": "The Website URL copied to clipboard",
   "contact_error_email": "Cannot open the email address",
   "contact_error_phone": "Cannot open the phone number",
   "contact_error_website": "Cannot open the website",

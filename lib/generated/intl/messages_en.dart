@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Email address copied to clipboard"),
         "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
             "Phone number copied to clipboard"),
+        "contact_clipboard_website": MessageLookupByLibrary.simpleMessage(
+            "The Website URL copied to clipboard"),
         "contact_error_email": MessageLookupByLibrary.simpleMessage(
             "Cannot open the email address"),
         "contact_error_phone": MessageLookupByLibrary.simpleMessage(

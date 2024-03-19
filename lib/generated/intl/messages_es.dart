@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dirección de correo electrónico copiada al portapapeles"),
         "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
             "Número de teléfono copiado al portapapeles"),
+        "contact_clipboard_website": MessageLookupByLibrary.simpleMessage(
+            "La URL de la página web copiada al portapapeles"),
         "contact_error_email": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir la dirección de correo electrónico"),
         "contact_error_phone": MessageLookupByLibrary.simpleMessage(

@@ -175,7 +175,7 @@ class ContactView extends StatelessWidget {
                   ).then(
                     (_) => CustomSnackbar.info(
                       context,
-                      S.current.contact_clipboard_email,
+                      S.current.contact_clipboard_website,
                     ),
                   );
                 },

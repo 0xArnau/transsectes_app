@@ -156,9 +156,9 @@ class _SignUpViewState extends State<SignUpView> {
                           customButton(
                             text: S.current.signup,
                             onTap: () {
-                              if (_emailController.text.isNotEmpty ||
-                                  _emailConfirmController.text.isNotEmpty ||
-                                  _passwordController.text.isNotEmpty ||
+                              if (_emailController.text.isNotEmpty &&
+                                  _emailConfirmController.text.isNotEmpty &&
+                                  _passwordController.text.isNotEmpty &&
                                   _passwordConfirmController.text.isNotEmpty) {
                                 if (_emailController.text.trim() ==
                                         _emailConfirmController.text.trim() &&

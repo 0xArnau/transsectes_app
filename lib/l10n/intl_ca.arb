@@ -9,6 +9,7 @@
   "contact_4": "També pots visitar la nostra pàgina web",
   "contact_clipboard_email": "S'ha copiat l'adreça de correu electrònic al porta-retalls",
   "contact_clipboard_phone": "El número de telèfon s'ha copiat al porta-retalls",
+  "contact_clipboard_website": "La URL de la pàgina web s'ha copiat al porta-retalls",
   "contact_error_email": "No es pot obrir l'adreça de correu electrònic",
   "contact_error_phone": "No es pot obrir el número de telèfon",
   "contact_error_website": "No es pot obrir el lloc web",

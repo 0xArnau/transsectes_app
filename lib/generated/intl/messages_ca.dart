@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "S\'ha copiat l\'adreça de correu electrònic al porta-retalls"),
         "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
             "El número de telèfon s\'ha copiat al porta-retalls"),
+        "contact_clipboard_website": MessageLookupByLibrary.simpleMessage(
+            "La URL de la pàgina web s\'ha copiat al porta-retalls"),
         "contact_error_email": MessageLookupByLibrary.simpleMessage(
             "No es pot obrir l\'adreça de correu electrònic"),
         "contact_error_phone": MessageLookupByLibrary.simpleMessage(

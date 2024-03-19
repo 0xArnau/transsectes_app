@@ -9,6 +9,7 @@
   "contact_4": "También puedes visitar nuestra página web",
   "contact_clipboard_email": "Dirección de correo electrónico copiada al portapapeles",
   "contact_clipboard_phone": "Número de teléfono copiado al portapapeles",
+  "contact_clipboard_website": "La URL de la página web copiada al portapapeles",
   "contact_error_email": "No se puede abrir la dirección de correo electrónico",
   "contact_error_phone": "No puedo abrir el número de teléfono",
   "contact_error_website": "No se puede abrir el sitio web",
