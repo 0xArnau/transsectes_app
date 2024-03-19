@@ -158,7 +158,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                           ),
                           TextButton(
                             onPressed: () {
-                              context.go('/login');
+                              context.pop();
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(17, 3, 17, 3),

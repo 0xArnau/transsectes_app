@@ -112,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () {
-                                context.go('/forgot-password');
+                                context.push('/forgot-password');
                               },
                               child: Container(
                                 padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
@@ -177,7 +177,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           TextButton(
                             onPressed: () {
-                              context.go(SignUpView.path);
+                              context.push(SignUpView.path);
                             },
                             child: Container(
                               padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
