@@ -98,8 +98,9 @@ class _LegalViewState extends State<LegalView> {
                   listener: (context, state) {
                     if (state is AuthSuccess) {
                       Logger().d('Singing up');
-                      Navigator.pop(context);
-                      context.go(WidgetTree.path);
+                      Navigator.pop(context); // push: Sign Up -> Legal
+                      Navigator.pop(context); // push: Login -> Sign Up
+                      context.go(WidgetTree.path); // TODO: Remove this and add the option on widget tree (email validate)
                     } else if (state is AuthFailure) {
                       CustomSnackbar.error(context, state.message);
                     }
