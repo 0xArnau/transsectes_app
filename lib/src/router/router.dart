@@ -6,6 +6,7 @@ import 'package:transsectes_app/src/auth/widget_tree.dart';
 import 'package:transsectes_app/src/contact/views/contact_view.dart';
 import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.dart';
 import 'package:transsectes_app/src/splash/views/splash_view.dart';
+import 'package:transsectes_app/src/start_stop_transecte/views/form_view.dart';
 import 'package:transsectes_app/src/start_stop_transecte/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transect_records/views/transect_records_view.dart';
 import 'package:transsectes_app/src/utils/routes/custom_transition_route.dart';
@@ -65,6 +66,14 @@ GoRouter router = GoRouter(
       pageBuilder: (context, state) {
         return CustomTransitionRoute.transition(
           view: const StartStopTransecteView(),
+        );
+      },
+    ),
+    GoRoute(
+      path: FormView.path,
+      pageBuilder: (context, state) {
+        return CustomTransitionRoute.transition(
+          view: const FormView(),
         );
       },
     ),

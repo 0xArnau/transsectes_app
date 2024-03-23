@@ -47,6 +47,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^24.2.8
   url_launcher: ^6.2.5
   introduction_screen: ^3.1.12
+  google_maps_flutter: ^2.5.3
   
 
 dev_dependencies:

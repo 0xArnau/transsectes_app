@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+        "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
+            "No se puede iniciar un transecto hasta terminar el actual."),
+        "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
+            "No puedes detener un transecto, no hay ninguno empezado"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
         "confirm_email": MessageLookupByLibrary.simpleMessage(
@@ -109,13 +114,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
+        "note": MessageLookupByLibrary.simpleMessage("Nota"),
+        "note_cancel": MessageLookupByLibrary.simpleMessage(
+            "Si presionas el botón de \'cancelar\' se perderán todos los datos referentes al transecto actual"),
+        "note_go_back": MessageLookupByLibrary.simpleMessage(
+            "Si quieres seguir con el transecto actual debes presionar el botón de arriba a la izquierda para ir atrás"),
+        "note_send": MessageLookupByLibrary.simpleMessage(
+            "Si presionas el botón de \'enviar\' se enviarán los datos del transecto actual y tendrás que empezar un nuevo transecto."),
+        "observations": MessageLookupByLibrary.simpleMessage("Observaciones"),
         "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
         "page_next": MessageLookupByLibrary.simpleMessage("PRÓXIMO"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "people_informed": MessageLookupByLibrary.simpleMessage(
+            "Número de personas informadas"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "signOut": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "signup": MessageLookupByLibrary.simpleMessage("Inscribirse"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transecto"),
+        "stop_transect":
+            MessageLookupByLibrary.simpleMessage("Detener un transecto"),
+        "tractor":
+            MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "transect_form": MessageLookupByLibrary.simpleMessage(
+            "Rellene los siguientes campos"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registros de transectos"),
         "user_disabled":

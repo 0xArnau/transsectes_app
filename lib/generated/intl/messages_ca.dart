@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel · lar"),
+        "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
+            "No podeu començar un transecte fins que no acabeu l\'actual."),
+        "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
+            "No pots aturar un transsecte, no n\'hi ha cap de començat"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Canviar contrasenya"),
         "confirm_email": MessageLookupByLibrary.simpleMessage(
@@ -108,13 +113,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("iniciar Sessió"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("No tens un compte?"),
+        "note": MessageLookupByLibrary.simpleMessage("Nota"),
+        "note_cancel": MessageLookupByLibrary.simpleMessage(
+            "Si premeu el botó de ‘cancel·lar’ es perdran totes les dades referents al transsecte actual"),
+        "note_go_back": MessageLookupByLibrary.simpleMessage(
+            "Si voleu seguir amb el transsecte actual heu de prémer el botó de dalt a l\'esquerra per anar enrere"),
+        "note_send": MessageLookupByLibrary.simpleMessage(
+            "Si premeu el botó d\'\'enviar\' s\'enviaran les dades del transsecte actual i haureu de començar un nou transsecte."),
+        "observations": MessageLookupByLibrary.simpleMessage("Observacions"),
         "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
         "page_next": MessageLookupByLibrary.simpleMessage("PROPER"),
         "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
+        "people_informed": MessageLookupByLibrary.simpleMessage(
+            "Nombre de persones informades"),
+        "send": MessageLookupByLibrary.simpleMessage("Enviar"),
         "signOut": MessageLookupByLibrary.simpleMessage("Tanca sessió"),
         "signup": MessageLookupByLibrary.simpleMessage("Registra\'t"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Inicia un transsecte"),
+        "stop_transect":
+            MessageLookupByLibrary.simpleMessage("Aturar un transecte"),
+        "tractor":
+            MessageLookupByLibrary.simpleMessage("Ha passat el tractor?"),
+        "transect_form":
+            MessageLookupByLibrary.simpleMessage("Empleneu els camps següents"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registres de transsectes"),
         "user_disabled":

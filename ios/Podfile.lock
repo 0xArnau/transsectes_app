@@ -28,6 +28,8 @@ PODS:
   - FirebaseCoreInternal (10.22.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - Flutter (1.0.0)
+  - flutter_keyboard_visibility (0.0.1):
+    - Flutter
   - flutter_localization (0.0.1):
     - Flutter
   - GoogleUtilities/AppDelegateSwizzler (7.13.0):
@@ -70,6 +72,7 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
   - flutter_localization (from `.symlinks/plugins/flutter_localization/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -97,6 +100,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  flutter_keyboard_visibility:
+    :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
   flutter_localization:
     :path: ".symlinks/plugins/flutter_localization/ios"
   package_info_plus:
@@ -118,6 +123,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 0326ec9b05fbed8f8716cddbf0e36894a13837f7
   FirebaseCoreInternal: bca337352024b18424a61e478460547d46c4c753
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
   GoogleUtilities: d053d902a8edaa9904e1bd00c37535385b8ed152
   GTMSessionFetcher: 8a1b34ad97ebe6f909fb8b9b77fba99943007556

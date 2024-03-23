@@ -50,6 +50,36 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You cannot start a transect until you finish the current one.`
+  String get cannot_start_transect {
+    return Intl.message(
+      'You cannot start a transect until you finish the current one.',
+      name: 'cannot_start_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can't stop a transect, there isn't one that's started`
+  String get cannot_stop_transect {
+    return Intl.message(
+      'You can\'t stop a transect, there isn\'t one that\'s started',
+      name: 'cannot_stop_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Change password`
   String get change_password {
     return Intl.message(
@@ -520,6 +550,56 @@ class S {
     );
   }
 
+  /// `Note`
+  String get note {
+    return Intl.message(
+      'Note',
+      name: 'note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you press the 'cancel' button, all data regarding the current transect will be lost`
+  String get note_cancel {
+    return Intl.message(
+      'If you press the \'cancel\' button, all data regarding the current transect will be lost',
+      name: 'note_cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you want to continue with the current transect you must press the button at the top left to go back`
+  String get note_go_back {
+    return Intl.message(
+      'If you want to continue with the current transect you must press the button at the top left to go back',
+      name: 'note_go_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you press the 'send' button the data for the current transect will be sent and you will have to start a new transect.`
+  String get note_send {
+    return Intl.message(
+      'If you press the \'send\' button the data for the current transect will be sent and you will have to start a new transect.',
+      name: 'note_send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Observations`
+  String get observations {
+    return Intl.message(
+      'Observations',
+      name: 'observations',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `PREVIOUS`
   String get page_back {
     return Intl.message(
@@ -550,6 +630,26 @@ class S {
     );
   }
 
+  /// `Number of people informed`
+  String get people_informed {
+    return Intl.message(
+      'Number of people informed',
+      name: 'people_informed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enviar`
+  String get send {
+    return Intl.message(
+      'Enviar',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign Out`
   String get signOut {
     return Intl.message(
@@ -575,6 +675,36 @@ class S {
     return Intl.message(
       'Start a transect',
       name: 'start_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stop a transect`
+  String get stop_transect {
+    return Intl.message(
+      'Stop a transect',
+      name: 'stop_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Has the tractor passed?`
+  String get tractor {
+    return Intl.message(
+      'Has the tractor passed?',
+      name: 'tractor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fill in the following fields`
+  String get transect_form {
+    return Intl.message(
+      'Fill in the following fields',
+      name: 'transect_form',
       desc: '',
       args: [],
     );

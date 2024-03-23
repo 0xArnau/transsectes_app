@@ -9,6 +9,7 @@ Widget customScaffold({
 }) {
   return Scaffold(
     backgroundColor: kColorBackground,
+    resizeToAvoidBottomInset: false,
     drawer: drawer,
     appBar: AppBar(
       backgroundColor: kColorBackground,

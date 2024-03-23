@@ -15,7 +15,7 @@ class CustomTextForm extends StatelessWidget {
   final void Function()? onTap;
   final String hintText;
   final bool obscureText;
-  final Icon prefixIcon;
+  final Icon? prefixIcon;
 
   @override
   Widget build(BuildContext context) {

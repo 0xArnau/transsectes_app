@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
+            "You cannot start a transect until you finish the current one."),
+        "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
+            "You can\'t stop a transect, there isn\'t one that\'s started"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "confirm_email": MessageLookupByLibrary.simpleMessage("Confirm email"),
@@ -108,13 +113,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "note": MessageLookupByLibrary.simpleMessage("Note"),
+        "note_cancel": MessageLookupByLibrary.simpleMessage(
+            "If you press the \'cancel\' button, all data regarding the current transect will be lost"),
+        "note_go_back": MessageLookupByLibrary.simpleMessage(
+            "If you want to continue with the current transect you must press the button at the top left to go back"),
+        "note_send": MessageLookupByLibrary.simpleMessage(
+            "If you press the \'send\' button the data for the current transect will be sent and you will have to start a new transect."),
+        "observations": MessageLookupByLibrary.simpleMessage("Observations"),
         "page_back": MessageLookupByLibrary.simpleMessage("PREVIOUS"),
         "page_next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "people_informed":
+            MessageLookupByLibrary.simpleMessage("Number of people informed"),
+        "send": MessageLookupByLibrary.simpleMessage("Enviar"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),
+        "stop_transect":
+            MessageLookupByLibrary.simpleMessage("Stop a transect"),
+        "tractor":
+            MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
+        "transect_form": MessageLookupByLibrary.simpleMessage(
+            "Fill in the following fields"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Transect records"),
         "user_disabled": MessageLookupByLibrary.simpleMessage("user disabled"),
