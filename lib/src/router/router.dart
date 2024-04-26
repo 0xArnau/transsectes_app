@@ -6,9 +6,9 @@ import 'package:transsectes_app/src/auth/widget_tree.dart';
 import 'package:transsectes_app/src/contact/views/contact_view.dart';
 import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.dart';
 import 'package:transsectes_app/src/splash/views/splash_view.dart';
-import 'package:transsectes_app/src/start_stop_transecte/views/form_view.dart';
-import 'package:transsectes_app/src/start_stop_transecte/views/start_stop_transecte_view.dart';
-import 'package:transsectes_app/src/transect_records/views/transect_records_view.dart';
+import 'package:transsectes_app/src/transects/views/form_view.dart';
+import 'package:transsectes_app/src/transects/views/start_stop_transecte_view.dart';
+import 'package:transsectes_app/src/transects/views/transect_records_view.dart';
 import 'package:transsectes_app/src/utils/routes/custom_transition_route.dart';
 
 import '../home/views/home_view.dart';

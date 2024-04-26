@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/start_stop_transecte/views/form_view.dart';
+import 'package:transsectes_app/src/transects/views/form_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_small_wave_shape.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
