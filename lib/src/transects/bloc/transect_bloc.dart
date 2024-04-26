@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
@@ -25,8 +26,17 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
           .listen((transects) => add(UpdateTransects(transects: transects)));
       // emit(TransectInitial());
     });
+
     on<UpdateTransects>((event, emit) {
       emit(TransectLoaded(transects: event.transects));
+    });
+
+    on<UpdateGeolocationTransect>((event, emit) {
+      // start getting geolocation each minute (for example)
+    });
+
+    on<StopTransect>((event, emit) {
+      // Save to firestore
     });
   }
 }

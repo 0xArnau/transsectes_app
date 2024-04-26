@@ -27,4 +27,11 @@ class TransectRepository extends BaseRepository {
       return event.docs.map((e) => TransectModel.fromSnapshot(e)).toList();
     });
   }
+
+  @override
+  Future<void> addTransect(TransectModel transect) {
+    return _firebaseFirestore
+        .collection('transects')
+        .add(transect.toDocument());
+  }
 }

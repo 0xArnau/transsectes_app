@@ -40,4 +40,15 @@ class TransectModel {
 
     return data;
   }
+
+  Map<String, Object> toDocument() {
+    return {
+      'createdAt': createdAt,
+      'createdBy': createdBy,
+      'coordinates': coordinates,
+      'tractor': tractor,
+      'informedPeople': informedPeople,
+      'observations': observations,
+    };
+  }
 }
