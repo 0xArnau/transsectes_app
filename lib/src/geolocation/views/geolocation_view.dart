@@ -29,7 +29,7 @@ class _GeolocationViewState extends State<GeolocationView> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   GeolocationController.getLocation().then((value) {
-                    print(value);
+                    Logger().d([value.latitude, value.longitude]);
                   });
                 },
                 icon: Icon(Icons.plus_one),

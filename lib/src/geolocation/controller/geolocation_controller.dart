@@ -1,15 +1,13 @@
-import 'package:location/location.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 
 class GeolocationController {
   static final GeolocationController _instance =
       GeolocationController._internal();
 
-  static final Location location = new Location();
-
   static late bool _serviceEnabled;
-  static late PermissionStatus _permissionGranted;
-  static late LocationData _locationData;
+  static late LocationPermission _permission;
 
   factory GeolocationController() {
     return _instance;
@@ -17,36 +15,54 @@ class GeolocationController {
   GeolocationController._internal();
 
   static Future<void> initialize() async {
-    Logger().d("Initialize geolocation service & permission");
+    Logger().d("Initialize geolocation service & _permission");
 
-    _serviceEnabled = await location.serviceEnabled();
+    // Test if location services are enabled.
+    _serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        Logger().d("1");
-        return;
+      // Location services are not enabled don't continue
+      // accessing the position and request users of the
+      // App to enable the location services.
+      return Future.error('Location services are disabled.');
+    }
+
+    _permission = await Geolocator.checkPermission();
+    if (_permission == LocationPermission.denied) {
+      _permission = await Geolocator.requestPermission();
+      if (_permission == LocationPermission.denied) {
+        // _permissions are denied, next time you could try
+        // requesting _permissions again (this is also where
+        // Android's shouldShowRequestPermissionRationale
+        // returned true. According to Android guidelines
+        // your App should show an explanatory UI now.
+        return Future.error('Location permissions are denied');
       }
     }
 
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        Logger().d("2");
-        return;
-      }
+    if (_permission == LocationPermission.deniedForever) {
+      // _permissions are denied forever, handle appropriately.
+      return Future.error(
+        'Location permissions are permanently denied, we cannot request permissions.',
+      );
     }
-
-    _locationData = await Location().getLocation();
-
-    Logger().d("KLK");
   }
 
   static bool get serviceEnabled => _serviceEnabled;
-  static PermissionStatus get permissionGranted => _permissionGranted;
-  static LocationData get locationData => _locationData;
+  static LocationPermission get permission => _permission;
 
-  static Future<LocationData> getLocation() async {
-    return await location.getLocation();
+  static Future<GeoPoint> getLocation() async {
+    if (!_serviceEnabled ||
+        _permission == LocationPermission.denied ||
+        _permission == LocationPermission.deniedForever) {
+      return Future.error(
+        "Error: service enabled? ${_serviceEnabled}, permissions status: ${_permission}",
+      );
+    }
+
+    Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+
+    return GeoPoint(position.latitude, position.longitude);
   }
 }
