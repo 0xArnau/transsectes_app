@@ -14,14 +14,14 @@ final class TransectStarted extends TransectState {}
 
 /// Stop the current transect
 final class TransectStopped extends TransectState {
-  TransectModel transect;
+  final TransectModel transect;
 
-  String observations;
-  Timestamp createdAt;
-  String createdBy;
-  List<GeoPoint> coordinates;
-  bool tractor;
-  int informedPeople;
+  final String observations;
+  final Timestamp createdAt;
+  final String createdBy;
+  final List<GeoPoint> coordinates;
+  final bool tractor;
+  final int informedPeople;
 
   TransectStopped({
     required this.observations,

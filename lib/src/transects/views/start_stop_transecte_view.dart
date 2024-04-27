@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/geolocation/views/geolocation_view.dart';
+import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/transects/views/form_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_small_wave_shape.dart';
@@ -17,67 +21,62 @@ class StartStopTransecteView extends StatefulWidget {
 }
 
 class _StartStopTransecteViewState extends State<StartStopTransecteView> {
-  bool startedTransect = false;
-
   @override
   Widget build(BuildContext context) {
     return customScaffold(
       context: context,
       title: S.current.start_transect,
-      body: Center(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: CustomSmallWaveShape(context),
-            ),
-            ListView(
+      body: BlocBuilder<TransectBloc, TransectState>(
+        builder: (context, state) {
+          return Center(
+            child: Stack(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height / 20),
-                _imageTextWidget(
-                  context,
-                  'assets/imgs/icons/pause.png',
-                  MediaQuery.of(context).size.width / 2,
-                  S.current.stop_transect,
-                  () {
-                    if (startedTransect) {
-                      context.push(FormView.path);
-
-                      setState(() {
-                        startedTransect =
-                            false; // TODO: this varaible should change the value inside de FormView not outside
-                      });
-                    } else {
-                      CustomSnackbar.error(
-                        context,
-                        S.current.cannot_stop_transect,
-                      );
-                    }
-                  },
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: CustomSmallWaveShape(context),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 20),
-                _imageTextWidget(
-                  context,
-                  'assets/imgs/icons/start.png',
-                  MediaQuery.of(context).size.width / 2,
-                  S.current.start_transect,
-                  () {
-                    if (startedTransect) {
-                      CustomSnackbar.error(
-                        context,
-                        S.current.cannot_start_transect,
-                      );
-                    } else {
-                      setState(() {
-                        startedTransect = true;
-                      });
-                    }
-                  },
+                ListView(
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height / 20),
+                    _imageTextWidget(
+                      context,
+                      'assets/imgs/icons/pause.png',
+                      MediaQuery.of(context).size.width / 2,
+                      S.current.stop_transect,
+                      () {
+                        if (state is TransectStarted) {
+                          context.push(FormView.path);
+                        } else {
+                          CustomSnackbar.error(
+                            context,
+                            S.current.cannot_stop_transect,
+                          );
+                        }
+                      },
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height / 20),
+                    _imageTextWidget(
+                      context,
+                      'assets/imgs/icons/start.png',
+                      MediaQuery.of(context).size.width / 2,
+                      state is TransectStarted
+                          ? "Add new marks"
+                          : S.current.start_transect,
+                      () {
+                        Logger().d(state.runtimeType);
+
+                        if (state is! TransectStarted) {
+                          context.read<TransectBloc>().add(StartTransect());
+                        }
+                        context.push(GeolocationView.path);
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

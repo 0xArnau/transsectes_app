@@ -31,6 +31,13 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
       emit(TransectLoaded(transects: event.transects));
     });
 
+    on<StartTransect>((event, emit) {
+      emit(TransectStarted());
+    });
+    on<CancelTransect>((event, emit) {
+      emit(TransectInitial());
+    });
+
     on<UpdateGeolocationTransect>((event, emit) {
       // start getting geolocation each minute (for example)
     });

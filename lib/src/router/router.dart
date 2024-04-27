@@ -111,6 +111,6 @@ GoRouter router = GoRouter(
     //   },
     // ),
   ],
-  initialLocation: GeolocationView.path,
-  overridePlatformDefaultLocation: true,
+  // initialLocation: GeolocationView.path,
+  // overridePlatformDefaultLocation: true,
 );

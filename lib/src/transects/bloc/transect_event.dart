@@ -10,11 +10,15 @@ sealed class TransectEvent extends Equatable {
 class UpdateGeolocationTransect extends TransectEvent {
   final List<GeoPoint> coordinates;
 
-  UpdateGeolocationTransect({required this.coordinates});
+  const UpdateGeolocationTransect({this.coordinates = const <GeoPoint>[]});
 
   @override
   List<Object> get props => coordinates;
 }
+
+class StartTransect extends TransectEvent {}
+
+class CancelTransect extends TransectEvent {}
 
 class StopTransect extends TransectEvent {
   final TransectModel transect;

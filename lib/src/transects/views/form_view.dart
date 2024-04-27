@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/utils/Widgets/counter_button_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_buttom_trailing.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
@@ -34,82 +37,94 @@ class _FormViewState extends State<FormView> {
     return customScaffold(
       context: context,
       title: S.current.transect_form,
-      body: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: CustomSmallWaveShape(context),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: ListView(
-              children: [
-                SizedBox(height: 25),
-                CustomButtonTrailing(
-                  hint: S.current.tractor,
-                  trailing: Checkbox(
-                    activeColor: kColorTitle,
-                    value: tractor,
-                    onChanged: (value) {
-                      setState(() {
-                        tractor = value ?? false;
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(height: 25),
-                CounterButtonWidget(
-                  hint: S.current.people_informed,
-                  onChanged: (value) {
-                    setState(() {
-                      peopleInformed = value;
-                    });
-                  },
-                ),
-                SizedBox(height: 25),
-                CustomTextForm(
-                  hintText: S.current.observations,
-                  obscureText: false,
-                  prefixIcon: null,
-                ),
-                SizedBox(height: 25),
-                Text(
-                  S.current.note + ':',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  '- ' + S.current.note_go_back,
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  '- ' + S.current.note_cancel,
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  '- ' + S.current.note_send,
-                  style: TextStyle(color: Colors.grey),
-                ),
-                SizedBox(height: 25),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: BlocBuilder<TransectBloc, TransectState>(
+        builder: (context, state) {
+          return Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: CustomSmallWaveShape(context),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ListView(
                   children: [
-                    customButton(
-                      text: S.current.cancel,
-                      onTap: () {},
+                    SizedBox(height: 25),
+                    CustomButtonTrailing(
+                      hint: S.current.tractor,
+                      trailing: Checkbox(
+                        activeColor: kColorTitle,
+                        value: tractor,
+                        onChanged: (value) {
+                          setState(() {
+                            tractor = value ?? false;
+                          });
+                        },
+                      ),
                     ),
-                    customButton(
-                      text: S.current.send,
-                      onTap: () {},
+                    SizedBox(height: 25),
+                    CounterButtonWidget(
+                      hint: S.current.people_informed,
+                      onChanged: (value) {
+                        setState(() {
+                          peopleInformed = value;
+                        });
+                      },
                     ),
+                    SizedBox(height: 25),
+                    CustomTextForm(
+                      hintText: S.current.observations,
+                      obscureText: false,
+                      prefixIcon: null,
+                    ),
+                    SizedBox(height: 25),
+                    Text(
+                      S.current.note + ':',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '- ' + S.current.note_go_back,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(
+                      '- ' + S.current.note_cancel,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(
+                      '- ' + S.current.note_send,
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    SizedBox(height: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        customButton(
+                          text: S.current.cancel,
+                          onTap: () {
+                            if (state is TransectStarted) {
+                              context
+                                  .read<TransectBloc>()
+                                  .add(CancelTransect());
+                            }
+
+                            context.pop();
+                          },
+                        ),
+                        customButton(
+                          text: S.current.send,
+                          onTap: () {},
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-          ),
-        ],
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
