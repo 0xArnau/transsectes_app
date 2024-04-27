@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
@@ -25,19 +26,45 @@ class _GeolocationViewState extends State<GeolocationView> {
       body: BlocBuilder<GeolocationBloc, GeolocationState>(
         builder: (context, state) {
           if (state is GeolocationLoaded) {
-            return Center(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  GeolocationController.getLocation().then((value) {
-                    Logger().d([value.latitude, value.longitude]);
-                  });
-                },
-                icon: Icon(Icons.plus_one),
-                label: Text("Add a new geopoint"),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: kColorTitle,
-                  surfaceTintColor: kColorTitle,
-                ),
+            return SafeArea(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: ListView.builder(
+                      itemCount: state.geolocation.geopoint.length,
+                      itemBuilder: (context, index) {
+                        return Text(
+                          "${state.geolocation.geopoint[index].latitude}, ${state.geolocation.geopoint[index].longitude}",
+                          textAlign: TextAlign.center,
+                        );
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        GeolocationController.getLocation().then((value) {
+                          Logger().d([value.latitude, value.longitude]);
+
+                          context.read<GeolocationBloc>().add(
+                                AddGeolocationPoint(
+                                  geoPoint:
+                                      GeoPoint(value.latitude, value.longitude),
+                                ),
+                              );
+                        });
+                      },
+                      icon: Icon(Icons.plus_one),
+                      label: Text("Add a new geopoint"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: kColorTitle,
+                        surfaceTintColor: kColorTitle,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             );
           }
