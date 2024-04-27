@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/web.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
@@ -31,7 +31,7 @@ class TransectRecordsView extends StatelessWidget {
           if (state is TransectLoaded) {
             if (state.transects.length == 0)
               return Center(child: Text("No elements found"));
-              
+
             return ListView.builder(
               itemCount: state.transects.length,
               itemBuilder: (context, index) {

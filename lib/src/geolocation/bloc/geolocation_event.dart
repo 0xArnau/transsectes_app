@@ -6,3 +6,14 @@ sealed class GeolocationEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class LoadGeolocation extends GeolocationEvent {}
+
+final class AddGeolocationPoint extends GeolocationEvent {
+  final GeoPoint geoPoint;
+
+  const AddGeolocationPoint({required this.geoPoint});
+
+  @override
+  List<Object> get props => [geoPoint];
+}

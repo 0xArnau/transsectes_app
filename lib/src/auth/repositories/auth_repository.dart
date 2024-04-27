@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:logger/web.dart';
+import 'package:logger/logger.dart';
 
 class AuthRepository {
   final FirebaseAuth _firebaseAuth;

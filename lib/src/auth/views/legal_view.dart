@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:logger/web.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/widget_tree.dart';
@@ -100,7 +100,8 @@ class _LegalViewState extends State<LegalView> {
                       Logger().d('Singing up');
                       Navigator.pop(context); // push: Sign Up -> Legal
                       Navigator.pop(context); // push: Login -> Sign Up
-                      context.go(WidgetTree.path); // TODO: Remove this and add the option on widget tree (email validate)
+                      context.go(WidgetTree
+                          .path); // TODO: Remove this and add the option on widget tree (email validate)
                     } else if (state is AuthFailure) {
                       CustomSnackbar.error(context, state.message);
                     }
