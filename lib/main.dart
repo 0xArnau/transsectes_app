@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => TransectBloc(
             transectRepository: TransectRepository(),
-          )..add(LoadTransects()),
+            geoloctionBloc: GeolocationBloc(),
+          ),
         ),
         BlocProvider(
           create: (_) => GeolocationBloc()..add(LoadGeolocation()),

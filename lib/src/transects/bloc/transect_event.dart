@@ -8,12 +8,12 @@ sealed class TransectEvent extends Equatable {
 }
 
 class UpdateGeolocationTransect extends TransectEvent {
-  final List<GeoPoint> coordinates;
+  final GeolocationModel coordinates;
 
-  const UpdateGeolocationTransect({this.coordinates = const <GeoPoint>[]});
+  const UpdateGeolocationTransect({required this.coordinates});
 
   @override
-  List<Object> get props => coordinates;
+  List<Object> get props => [coordinates];
 }
 
 class StartTransect extends TransectEvent {}
@@ -21,12 +21,20 @@ class StartTransect extends TransectEvent {}
 class CancelTransect extends TransectEvent {}
 
 class StopTransect extends TransectEvent {
-  final TransectModel transect;
+  final bool tractor;
+  final int informedPeople;
+  final String observations;
+  final GeolocationModel geolocationModel;
 
-  const StopTransect({required this.transect});
+  const StopTransect({
+    required this.tractor,
+    required this.informedPeople,
+    required this.observations,
+    required this.geolocationModel,
+  });
 
   @override
-  List<Object> get props => [transect];
+  List<Object> get props => [tractor, informedPeople, observations];
 }
 
 class LoadTransects extends TransectEvent {}

@@ -8,6 +8,7 @@ sealed class GeolocationEvent extends Equatable {
 }
 
 final class LoadGeolocation extends GeolocationEvent {}
+final class ResetGeolocation extends GeolocationEvent {}
 
 final class AddGeolocationPoint extends GeolocationEvent {
   final GeoPoint geoPoint;
