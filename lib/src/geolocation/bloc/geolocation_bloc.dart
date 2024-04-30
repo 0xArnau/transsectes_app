@@ -10,30 +10,93 @@ part 'geolocation_state.dart';
 
 class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
   // Add some subscription to location change/background
+  bool? foregrounPermission, backgroundPermision;
 
-  GeolocationBloc() : super(GeolocationInitial()) {
+  GeolocationBloc() : super(const GeolocationInitial()) {
     on<LoadGeolocation>((event, emit) async {
       Logger().d("Bloc (LoadGeolocation) event");
 
       await GeolocationController.initialize()
-          .whenComplete(() => emit(GeolocationLoaded()))
-          .onError((error, stackTrace) => emit(GeolocationError()));
+          .onError((error, stackTrace) async {
+        final permissions =
+            await GeolocationController.checkGeolocationPermissions();
+
+        foregrounPermission = permissions[0];
+        backgroundPermision = permissions[1];
+
+        return emit(GeolocationError(
+          foregroundPermission: foregrounPermission ?? false,
+          backgroundPermission: backgroundPermision ?? false,
+        ));
+      }).whenComplete(() async {
+        final permissions =
+            await GeolocationController.checkGeolocationPermissions();
+
+        foregrounPermission = permissions[0];
+        backgroundPermision = permissions[1];
+
+        emit(GeolocationLoaded(
+          foregroundPermission: foregrounPermission ?? false,
+          backgroundPermission: backgroundPermision ?? false,
+        ));
+      });
     });
-    on<AddGeolocationPoint>((event, emit) {
+    on<AddGeolocationPoint>((event, emit) async {
       Logger().d("Bloc (LoadGeolocation) event");
 
       emit(GeolocationLoaded(
         geolocation: GeolocationModel(
-          geopoint:
-              List.from((this.state as GeolocationLoaded).geolocation.geopoint)
-                ..add(event.geoPoint),
+          geopoint: List.from((state as GeolocationLoaded).geolocation.geopoint)
+            ..add(event.geoPoint),
         ),
+        foregroundPermission: foregrounPermission ?? false,
+        backgroundPermission: backgroundPermision ?? false,
       ));
     });
     on<ResetGeolocation>((event, emit) {
       Logger().d("Bloc (ResetGeolocation) event");
 
-      emit(GeolocationLoaded(geolocation: GeolocationModel()));
+      emit(GeolocationLoaded(
+        geolocation: const GeolocationModel(),
+        foregroundPermission: foregrounPermission ?? false,
+        backgroundPermission: backgroundPermision ?? false,
+      ));
+    });
+
+    on<RequestForegroundGeolocation>((event, emit) async {
+      Logger().d("Request foreground geolocation");
+
+      final status =
+          await GeolocationController.foregroundGeolocationPermission();
+
+      foregrounPermission = status;
+
+      emit(GeolocationLoaded(
+        geolocation: GeolocationModel(
+          geopoint:
+              List.from((state as GeolocationLoaded).geolocation.geopoint),
+        ),
+        foregroundPermission: foregrounPermission ?? false,
+        backgroundPermission: backgroundPermision ?? false,
+      ));
+    });
+
+    on<RequestBackgroundGeolocation>((event, emit) async {
+      Logger().d("Request background geolocation");
+
+      final status =
+          await GeolocationController.backgroundGeolocationPermission();
+
+      foregrounPermission = status;
+
+      emit(GeolocationLoaded(
+        geolocation: GeolocationModel(
+          geopoint:
+              List.from((state as GeolocationLoaded).geolocation.geopoint),
+        ),
+        foregroundPermission: foregrounPermission ?? false,
+        backgroundPermission: backgroundPermision ?? false,
+      ));
     });
   }
 }
