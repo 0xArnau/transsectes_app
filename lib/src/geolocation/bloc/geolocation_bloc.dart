@@ -16,26 +16,28 @@ class GeolocationBloc extends Bloc<GeolocationEvent, GeolocationState> {
     on<LoadGeolocation>((event, emit) async {
       Logger().d("Bloc (LoadGeolocation) event");
 
-      await GeolocationController.initialize()
-          .onError((error, stackTrace) async {
+      await GeolocationController.initialize().whenComplete(() async {
+        Logger().d("whenComplete");
         final permissions =
             await GeolocationController.checkGeolocationPermissions();
 
         foregrounPermission = permissions[0];
         backgroundPermision = permissions[1];
 
-        return emit(GeolocationError(
+        return emit(GeolocationLoaded(
           foregroundPermission: foregrounPermission ?? false,
           backgroundPermission: backgroundPermision ?? false,
         ));
-      }).whenComplete(() async {
+      }).onError((error, stackTrace) async {
+        Logger().d("onError");
+
         final permissions =
             await GeolocationController.checkGeolocationPermissions();
 
         foregrounPermission = permissions[0];
         backgroundPermision = permissions[1];
 
-        emit(GeolocationLoaded(
+        return emit(GeolocationServiceDisabled(
           foregroundPermission: foregrounPermission ?? false,
           backgroundPermission: backgroundPermision ?? false,
         ));

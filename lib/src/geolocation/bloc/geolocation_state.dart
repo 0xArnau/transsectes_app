@@ -27,6 +27,19 @@ final class GeolocationInitial extends GeolocationState {
       ];
 }
 
+final class GeolocationServiceDisabled extends GeolocationState {
+  const GeolocationServiceDisabled({
+    super.foregroundPermission = false,
+    super.backgroundPermission = false,
+  });
+
+  @override
+  List<Object> get props => [
+        super.foregroundPermission,
+        super.backgroundPermission,
+      ];
+}
+
 final class GeolocationLoaded extends GeolocationState {
   final GeolocationModel geolocation;
 

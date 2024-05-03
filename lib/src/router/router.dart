@@ -4,6 +4,7 @@ import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/auth/views/sign_up_view.dart';
 import 'package:transsectes_app/src/auth/widget_tree.dart';
 import 'package:transsectes_app/src/contact/views/contact_view.dart';
+import 'package:transsectes_app/src/geolocation/views/geolocation_disabled_view.dart';
 import 'package:transsectes_app/src/geolocation/views/geolocation_view.dart';
 import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.dart';
 import 'package:transsectes_app/src/splash/views/splash_view.dart';
@@ -98,7 +99,15 @@ GoRouter router = GoRouter(
       path: GeolocationView.path,
       pageBuilder: (context, state) {
         return CustomTransitionRoute.transition(
-          view: GeolocationView(),
+          view: const GeolocationView(),
+        );
+      },
+    ),
+    GoRoute(
+      path: GeolocationDisabledView.path,
+      pageBuilder: (context, state) {
+        return CustomTransitionRoute.transition(
+          view: const GeolocationDisabledView(),
         );
       },
     ),

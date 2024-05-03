@@ -20,6 +20,8 @@ final class AddGeolocationPoint extends GeolocationEvent {
   List<Object> get props => [geoPoint];
 }
 
+final class CheckoutGeolocationService extends GeolocationEvent {}
+
 final class RequestForegroundGeolocation extends GeolocationEvent {}
 
 final class RequestBackgroundGeolocation extends GeolocationEvent {}
