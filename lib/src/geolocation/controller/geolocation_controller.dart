@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -112,5 +113,63 @@ class GeolocationController {
     final bool background = await Permission.locationAlways.isGranted;
 
     return [foreground, background];
+  }
+
+  /// Updates the user's address based on the current [LatLng].
+  ///
+  /// The [provider] is the instance of the [UserProvider] that holds the current user's [UserProvider.position].
+  ///
+  /// Returns a [List] of [String] containing the administrativeArea, subAdministrativeArea, and locality, or empty strings if an error occurs.
+  Future<List<String>> getAddress(List<GeoPoint> geopoints) async {
+    Logger().d("Get addresses");
+    try {
+      List<Placemark> first = await placemarkFromCoordinates(
+        geopoints[0].latitude,
+        geopoints[0].longitude,
+      );
+
+      List<Placemark> last = await placemarkFromCoordinates(
+        geopoints[geopoints.length - 1].latitude,
+        geopoints[geopoints.length - 1].longitude,
+      );
+
+      String administrativeAreaFirst = first[0].administrativeArea ?? "";
+      String subAdministrativeAreaFirst = first[0].subAdministrativeArea ?? "";
+      String localityFirst = first[0].locality ?? "";
+
+      String administrativeAreaLast = last[0].administrativeArea ?? "";
+      String subAdministrativeAreaLast = last[0].subAdministrativeArea ?? "";
+      String localityLast = last[0].locality ?? "";
+
+      Logger().d([
+        "First",
+        geopoints[0].latitude,
+        geopoints[0].longitude,
+        administrativeAreaFirst,
+        subAdministrativeAreaFirst,
+        localityFirst,
+      ]);
+
+      Logger().d([
+        "Lasst",
+        geopoints[geopoints.length - 1].latitude,
+        geopoints[geopoints.length - 1].longitude,
+        administrativeAreaLast,
+        subAdministrativeAreaLast,
+        localityLast,
+      ]);
+
+      return [
+        administrativeAreaFirst,
+        subAdministrativeAreaFirst,
+        localityFirst,
+        administrativeAreaLast,
+        subAdministrativeAreaLast,
+        localityLast,
+      ];
+    } catch (e) {
+      Logger().e(e);
+      return ['', '', '', '', '', ''];
+    }
   }
 }

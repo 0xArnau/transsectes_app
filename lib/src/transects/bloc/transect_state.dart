@@ -23,6 +23,16 @@ final class TransectStopped extends TransectState {
   final bool tractor;
   final int informedPeople;
 
+  // First:
+  //  (0) - administrativeArea
+  //  (1) - subAdministrativeArea
+  //  (2) - locality
+  // Last:
+  //  (3) - administrativeArea
+  //  (4) - subAdministrativeArea
+  //  (5) - locality
+  final List<String> addresses;
+
   TransectStopped({
     required this.observations,
     required this.createdAt,
@@ -30,13 +40,20 @@ final class TransectStopped extends TransectState {
     required this.coordinates,
     required this.tractor,
     required this.informedPeople,
-  }) : this.transect = TransectModel(
+    required this.addresses,
+  }) : transect = TransectModel(
           createdAt: createdAt,
           createdBy: createdBy,
           coordinates: coordinates,
           tractor: tractor,
           informedPeople: informedPeople,
           observations: observations,
+          administrativeAreaFirst: addresses[0],
+          administrativeAreaLast: addresses[3],
+          subAdministrativeAreaFirst: addresses[1],
+          subAdministrativeAreaLast: addresses[4],
+          localityFirst: addresses[2],
+          localityLast: addresses[5],
         );
 
   @override
@@ -47,7 +64,7 @@ final class TransectStopped extends TransectState {
 final class TransectLoaded extends TransectState {
   final List<TransectModel> transects;
 
-  TransectLoaded({required this.transects});
+  const TransectLoaded({required this.transects});
 
   @override
   List<Object> get props => [transects];

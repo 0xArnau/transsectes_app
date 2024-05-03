@@ -13,6 +13,24 @@ class TransectModel {
 
   int informedPeople;
 
+  /// The administrative area where the report was made.
+  String administrativeAreaFirst;
+
+  /// The sub-administrative area where the report was made.
+  String subAdministrativeAreaFirst;
+
+  /// The locality where the report was made.
+  String localityFirst;
+
+  /// The administrative area where the report was made.
+  String administrativeAreaLast;
+
+  /// The sub-administrative area where the report was made.
+  String subAdministrativeAreaLast;
+
+  /// The locality where the report was made.
+  String localityLast;
+
   TransectModel({
     required this.createdAt,
     required this.createdBy,
@@ -20,6 +38,12 @@ class TransectModel {
     required this.tractor,
     required this.informedPeople,
     required this.observations,
+    required this.administrativeAreaFirst,
+    required this.administrativeAreaLast,
+    required this.localityFirst,
+    required this.localityLast,
+    required this.subAdministrativeAreaFirst,
+    required this.subAdministrativeAreaLast,
   });
 
   static TransectModel fromSnapshot(DocumentSnapshot snap) {
@@ -36,6 +60,12 @@ class TransectModel {
       tractor: snap['tractor'],
       informedPeople: snap['informedPeople'],
       observations: snap['observations'],
+      administrativeAreaFirst: snap['administrativeAreaFirst'],
+      administrativeAreaLast: snap['administrativeAreaLast'],
+      localityFirst: snap['localityFirst'],
+      localityLast: snap['localityLast'],
+      subAdministrativeAreaFirst: snap['subAdministrativeAreaFirst'],
+      subAdministrativeAreaLast: snap['subAdministrativeAreaLast'],
     );
 
     return data;
@@ -49,6 +79,12 @@ class TransectModel {
       'tractor': tractor,
       'informedPeople': informedPeople,
       'observations': observations,
+      'administrativeAreaFirst': administrativeAreaFirst,
+      'administrativeAreaLast': administrativeAreaLast,
+      'subAdministrativeAreaFirst': subAdministrativeAreaFirst,
+      'subAdministrativeAreaLast': subAdministrativeAreaLast,
+      'localityFirst': localityFirst,
+      'localityLast': localityLast,
     };
   }
 }

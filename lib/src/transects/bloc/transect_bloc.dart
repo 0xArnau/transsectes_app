@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
+import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/geolocation/models/geolocation_model.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
@@ -80,15 +81,25 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
       Logger().d("Bloc (StopTransect) event");
 
       final String? userEmail = await AuthRepository().getUserEmail();
+      final List<String> addresses = await GeolocationController()
+          .getAddress(event.geolocationModel.geopoint);
 
-      Logger().d([
-        _createdAt ?? Timestamp.now(),
-        userEmail ?? "unknown",
-        event.geolocationModel.geopoint,
-        event.tractor,
-        event.informedPeople,
-        event.observations,
-      ]);
+      final TransectModel transect = TransectModel(
+        createdAt: _createdAt ?? Timestamp.now(),
+        createdBy: userEmail ?? "unknown",
+        coordinates: event.geolocationModel.geopoint,
+        tractor: event.tractor,
+        informedPeople: event.informedPeople,
+        observations: event.observations,
+        administrativeAreaFirst: addresses[0],
+        administrativeAreaLast: addresses[3],
+        subAdministrativeAreaFirst: addresses[1],
+        subAdministrativeAreaLast: addresses[4],
+        localityFirst: addresses[2],
+        localityLast: addresses[5],
+      );
+
+      Logger().d(transect.toDocument());
 
       for (var element in event.geolocationModel.geopoint) {
         print("${element.latitude}, ${element.longitude}");
