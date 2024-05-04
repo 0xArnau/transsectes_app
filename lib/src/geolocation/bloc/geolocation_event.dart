@@ -11,6 +11,8 @@ final class LoadGeolocation extends GeolocationEvent {}
 
 final class ResetGeolocation extends GeolocationEvent {}
 
+final class StartBackgroundGeolocation extends GeolocationEvent {}
+
 final class AddGeolocationPoint extends GeolocationEvent {
   final GeoPoint geoPoint;
 
@@ -19,6 +21,8 @@ final class AddGeolocationPoint extends GeolocationEvent {
   @override
   List<Object> get props => [geoPoint];
 }
+
+final class AddCurrentGeolocationPoint extends GeolocationEvent {}
 
 final class CheckoutGeolocationService extends GeolocationEvent {}
 

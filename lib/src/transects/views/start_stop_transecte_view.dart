@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/views/geolocation_view.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/transects/views/form_view.dart';
@@ -66,9 +67,19 @@ class _StartStopTransecteViewState extends State<StartStopTransecteView> {
                         Logger().d(state.runtimeType);
 
                         if (state is! TransectStarted) {
+                          Logger().d("StartTrabsect");
                           context.read<TransectBloc>().add(StartTransect());
+                          Logger().d("StartBackgroundGeolocation");
+                          context
+                              .read<GeolocationBloc>()
+                              .add(StartBackgroundGeolocation());
+                          Logger().d("AddCurrentGeolocationPoint");
+                          context
+                              .read<GeolocationBloc>()
+                              .add(AddCurrentGeolocationPoint());
+                        } else {
+                          context.push(GeolocationView.path);
                         }
-                        context.push(GeolocationView.path);
                       },
                     ),
                   ],
@@ -92,7 +103,7 @@ Widget _imageTextWidget(
   return InkWell(
     onTap: goTo,
     child: Container(
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       width: double.infinity,
       child: SingleChildScrollView(
         child: Row(
@@ -102,11 +113,11 @@ Widget _imageTextWidget(
               imgSrc,
               width: imgSize,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Flexible(
               child: Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   color: kColorText,
                 ),

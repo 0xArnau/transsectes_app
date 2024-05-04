@@ -50,7 +50,7 @@ class _FormViewState extends State<FormView> {
                 padding: const EdgeInsets.all(10.0),
                 child: ListView(
                   children: [
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     CustomButtonTrailing(
                       hint: S.current.tractor,
                       trailing: Checkbox(
@@ -63,7 +63,7 @@ class _FormViewState extends State<FormView> {
                         },
                       ),
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     CounterButtonWidget(
                       hint: S.current.people_informed,
                       onChanged: (value) {
@@ -72,34 +72,34 @@ class _FormViewState extends State<FormView> {
                         });
                       },
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     CustomTextForm(
                       hintText: S.current.observations,
                       obscureText: false,
                       prefixIcon: null,
                       controller: observations,
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Text(
-                      S.current.note + ':',
-                      style: TextStyle(
+                      '${S.current.note}:',
+                      style: const TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      '- ' + S.current.note_go_back,
-                      style: TextStyle(color: Colors.grey),
+                      '- ${S.current.note_go_back}',
+                      style: const TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      '- ' + S.current.note_cancel,
-                      style: TextStyle(color: Colors.grey),
+                      '- ${S.current.note_cancel}',
+                      style: const TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      '- ' + S.current.note_send,
-                      style: TextStyle(color: Colors.grey),
+                      '- ${S.current.note_send}',
+                      style: const TextStyle(color: Colors.grey),
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [

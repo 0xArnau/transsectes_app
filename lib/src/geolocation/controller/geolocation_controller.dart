@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
@@ -10,6 +13,9 @@ class GeolocationController {
 
   static late bool _serviceEnabled;
   static late LocationPermission _permission;
+  static late LocationSettings _locationSettings;
+
+  static const int distanceFilter = 1;
 
   factory GeolocationController() {
     return _instance;
@@ -17,6 +23,39 @@ class GeolocationController {
   GeolocationController._internal();
 
   static Future<void> initialize() async {
+    Logger().d("Initialize location settings");
+
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      _locationSettings = AndroidSettings(
+          accuracy: LocationAccuracy.high,
+          distanceFilter: distanceFilter,
+          forceLocationManager: true,
+          intervalDuration: const Duration(seconds: 10),
+          //(Optional) Set foreground notification config to keep the app alive
+          //when going to the background
+          foregroundNotificationConfig: const ForegroundNotificationConfig(
+            notificationText:
+                "Example app will continue to receive your location even when you aren't using it",
+            notificationTitle: "Running in Background",
+            enableWakeLock: true,
+          ));
+    } else if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.macOS) {
+      _locationSettings = AppleSettings(
+        accuracy: LocationAccuracy.high,
+        activityType: ActivityType.fitness,
+        distanceFilter: distanceFilter,
+        pauseLocationUpdatesAutomatically: true,
+        // Only set to true if our app will be started up in the background.
+        showBackgroundLocationIndicator: false,
+      );
+    } else {
+      _locationSettings = const LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: distanceFilter,
+      );
+    }
+
     Logger().d("Initialize geolocation service & _permission");
 
     // Test if location services are enabled.
@@ -51,11 +90,6 @@ class GeolocationController {
         'Location permissions are permanently denied, we cannot request permissions.',
       );
     }
-
-    Logger().d([
-      _serviceEnabled,
-      _permission,
-    ]);
   }
 
   static bool get serviceEnabled => _serviceEnabled;
@@ -171,5 +205,10 @@ class GeolocationController {
       Logger().e(e);
       return ['', '', '', '', '', ''];
     }
+  }
+
+  Stream<Position> positionStream() {
+    Logger().d("positionStream");
+    return Geolocator.getPositionStream(locationSettings: _locationSettings);
   }
 }

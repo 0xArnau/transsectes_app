@@ -54,7 +54,10 @@
 	<string>Motion permission helps detect when device is in-motion, required to be able to capture the transect</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location required when app is in use to be able to capture the transect</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location required when app is in use to be able to capture the transect</string>
 	<key>Privacy - Location Always and When in Use Usage Description</key>
 	<string>Location required in the background to be able to capture the transect</string>
+	
 </dict>
 </plist>
