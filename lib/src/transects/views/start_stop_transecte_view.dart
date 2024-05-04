@@ -64,10 +64,8 @@ class _StartStopTransecteViewState extends State<StartStopTransecteView> {
                           ? "Add new marks"
                           : S.current.start_transect,
                       () {
-                        Logger().d(state.runtimeType);
-
                         if (state is! TransectStarted) {
-                          Logger().d("StartTrabsect");
+                          Logger().d("StartTransect");
                           context.read<TransectBloc>().add(StartTransect());
                           Logger().d("StartBackgroundGeolocation");
                           context
