@@ -62,13 +62,12 @@ class _HomeViewState extends State<HomeView> {
                                     .add(LoadGeolocation()),
                               );
                         } else {
-                          context
-                              .push(StartStopTransecteView.path)
-                              .whenComplete(
-                                () => context
-                                    .read<GeolocationBloc>()
-                                    .add(LoadGeolocation()),
-                              );
+                          context.push(StartStopTransecteView.path);
+                          // .whenComplete(
+                          //   () => context
+                          //       .read<GeolocationBloc>()
+                          //       .add(LoadGeolocation()),
+                          // );
                         }
                       },
                     );
