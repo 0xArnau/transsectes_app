@@ -131,6 +131,10 @@ class _FormViewState extends State<FormView> {
                                         observations: observations.text,
                                         geolocationModel: state.geolocation,
                                       ));
+                                  context
+                                      .read<GeolocationBloc>()
+                                      .add(ResetGeolocation());
+                                  context.pop();
                                 }
                               },
                             );

@@ -101,18 +101,14 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
 
       Logger().d(transect.toDocument());
 
-      for (var element in event.geolocationModel.geopoint) {
-        print("${element.latitude}, ${element.longitude}");
-      }
+      // for (var element in event.geolocationModel.geopoint) {
+      //   print("${element.latitude}, ${element.longitude}");
+      // }
 
-      // _transectRepository.addTransect(TransectModel(
-      //   createdAt: _createdAt ?? Timestamp.now(),
-      //   createdBy: userEmail ?? "unknown",
-      //   coordinates: _geolocationModel?.geopoint ?? <GeoPoint>[],
-      //   tractor: event.tractor,
-      //   informedPeople: event.informedPeople,
-      //   observations: event.observations,
-      // ));
+      _transectRepository.addTransect(transect);
+
+      _geolocationSubscription?.cancel();
+      emit(TransectInitial());
     });
   }
 }
