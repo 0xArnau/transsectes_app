@@ -3,6 +3,7 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
+import 'package:transsectes_app/src/transects/views/transect_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 
 class TransectRecordsView extends StatefulWidget {
@@ -70,12 +71,13 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                   trailing: const Icon(Icons.open_in_new),
                   onTap: () {
                     // Go to a dedicated screen where users can see all information and map
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>,
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            TransectView(transect: snapshot.data![index]),
+                      ),
+                    );
                   },
                 );
               },
