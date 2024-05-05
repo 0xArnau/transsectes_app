@@ -17,7 +17,7 @@ class TransectRepository extends BaseRepository {
 
   @override
   Stream<List<TransectModel>> getUserTransects(String? userEmail) {
-    if (userEmail == null) return Stream<List<TransectModel>>.empty();
+    if (userEmail == null) return const Stream<List<TransectModel>>.empty();
 
     return _firebaseFirestore
         .collection('transects')

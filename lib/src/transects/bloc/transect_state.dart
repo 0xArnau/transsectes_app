@@ -59,13 +59,3 @@ final class TransectStopped extends TransectState {
   @override
   List<Object> get props => [transect];
 }
-
-/// Loads the previous transect
-final class TransectLoaded extends TransectState {
-  final List<TransectModel> transects;
-
-  const TransectLoaded({required this.transects});
-
-  @override
-  List<Object> get props => [transects];
-}

@@ -38,12 +38,3 @@ class StopTransect extends TransectEvent {
 }
 
 class LoadTransects extends TransectEvent {}
-
-class UpdateTransects extends TransectEvent {
-  final List<TransectModel> transects;
-
-  const UpdateTransects({required this.transects});
-
-  @override
-  List<Object> get props => [transects];
-}

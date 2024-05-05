@@ -1,49 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
+import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
+import 'package:transsectes_app/src/transects/models/transect_model.dart';
+import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
-import 'package:transsectes_app/src/utils/colors.dart';
 
-class TransectRecordsView extends StatelessWidget {
+class TransectRecordsView extends StatefulWidget {
   const TransectRecordsView({super.key});
 
   static const path = '/transect-records';
 
   @override
+  State<TransectRecordsView> createState() => _TransectRecordsViewState();
+}
+
+class _TransectRecordsViewState extends State<TransectRecordsView> {
+  late Stream<List<TransectModel>> stream;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    AuthRepository().getUserEmail().then((userEmail) {
+      stream = TransectRepository().getUserTransects(userEmail).map(
+          (list) => list..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    Stream<List<TransectModel>> stream =
+        TransectRepository().getUserTransects("0xarnau@gmail.com");
+
+    Stream<List<TransectModel>> orderedStream = stream.map((list) {
+      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    });
+
     return customScaffold(
       context: context,
       title: S.current.transect_records,
-      body: BlocBuilder<TransectBloc, TransectState>(
-        builder: (context, state) {
-          Logger().i(state);
-
-          if (state is TransectInitial) {
-            return Center(
-              child: CircularProgressIndicator(
-                color: kColorTitle,
-              ),
-            );
-          }
-
-          if (state is TransectLoaded) {
-            if (state.transects.length == 0)
-              return Center(child: Text("No elements found"));
-
+      body: StreamBuilder(
+        stream: orderedStream,
+        builder: (BuildContext context,
+            AsyncSnapshot<List<TransectModel>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
             return ListView.builder(
-              itemCount: state.transects.length,
+              itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return ListTile(
+                  leading: Text(
+                    snapshot.data![index].localityFirst,
+                    textAlign: TextAlign.center,
+                  ),
                   title: Text(
-                    state.transects[index].createdAt.toDate().toIso8601String(),
+                    snapshot.data![index].createdAt
+                        .toDate()
+                        .toIso8601String()
+                        .split('.')[0],
                     textAlign: TextAlign.center,
                   ),
                   subtitle: Text(
-                    state.transects[index].observations,
+                    snapshot.data![index].observations,
                     textAlign: TextAlign.center,
                   ),
+                  trailing: const Icon(Icons.open_in_new),
                   onTap: () {
                     // Go to a dedicated screen where users can see all information and map
                     // Navigator.push(
@@ -57,8 +81,6 @@ class TransectRecordsView extends StatelessWidget {
               },
             );
           }
-
-          return Center(child: Text("Someting went wrong"));
         },
       ),
     );

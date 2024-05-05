@@ -18,7 +18,7 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
   final TransectRepository _transectRepository;
   // final GeolocationBloc _geolocationBloc;
 
-  StreamSubscription? _transectSubscription;
+  // StreamSubscription? _transectSubscription;
   StreamSubscription? _geolocationSubscription;
 
   Timestamp? _createdAt;
@@ -32,18 +32,13 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
         super(TransectInitial()) {
     on<LoadTransects>((event, emit) async {
       Logger().d("Bloc (LoadTransects) event");
-      final String? userEmail = await AuthRepository().getUserEmail();
+      // final String? userEmail = await AuthRepository().getUserEmail();
 
-      _transectSubscription?.cancel();
-      _transectSubscription = _transectRepository
-          .getUserTransects(userEmail)
-          .listen((transects) => add(UpdateTransects(transects: transects)));
+      // _transectSubscription?.cancel();
+      // _transectSubscription = _transectRepository
+      //     .getUserTransects(userEmail)
+      //     .listen((transects) => add(UpdateTransects(transects: transects)));
       // emit(TransectInitial());
-    });
-
-    on<UpdateTransects>((event, emit) {
-      Logger().d("Bloc (UpdateTransects) event");
-      emit(TransectLoaded(transects: event.transects));
     });
 
     on<StartTransect>((event, emit) {
