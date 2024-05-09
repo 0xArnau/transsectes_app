@@ -5,6 +5,7 @@ Widget customScaffold({
   required BuildContext context,
   required String title,
   required Widget? body,
+  NavigationBar? bottomNavigationBar,
   Widget? drawer,
 }) {
   return Scaffold(
@@ -20,5 +21,6 @@ Widget customScaffold({
       ),
     ),
     body: body,
+    bottomNavigationBar: bottomNavigationBar,
   );
 }

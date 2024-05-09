@@ -9,7 +9,7 @@ import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/geolocation/models/geolocation_model.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
+import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 
 part 'transect_event.dart';
 part 'transect_state.dart';

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/transects/repositories/base_repository.dart';
+import 'package:transsectes_app/src/transects/repositories/transects/base_repository.dart';
 
 class TransectRepository extends BaseRepository {
   final FirebaseFirestore _firebaseFirestore;

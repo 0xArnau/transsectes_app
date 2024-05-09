@@ -10,7 +10,7 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/l10n/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
-import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
+import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 import 'src/router/router.dart';

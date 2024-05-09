@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
-import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/transects/repositories/transect_repository.dart';
-import 'package:transsectes_app/src/transects/views/transect_view.dart';
+import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
+import 'package:transsectes_app/src/transects/views/all_transects_view.dart';
+import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
+import 'package:transsectes_app/src/transects/views/user_transects_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
 class TransectRecordsView extends StatefulWidget {
   const TransectRecordsView({super.key});
@@ -16,70 +17,76 @@ class TransectRecordsView extends StatefulWidget {
 }
 
 class _TransectRecordsViewState extends State<TransectRecordsView> {
-  late Stream<List<TransectModel>> stream;
+  bool technician = false;
+  int currentPage = 0;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    AuthRepository().getUserEmail().then((userEmail) {
-      stream = TransectRepository().getUserTransects(userEmail).map(
-          (list) => list..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
+
+    TecnicRepository().isTechnician().then((value) {
+      setState(() {
+        technician = true;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    Stream<List<TransectModel>> stream =
-        TransectRepository().getUserTransects("0xarnau@gmail.com");
+    List<NavigationDestination> navigation;
+    List<Widget> pages;
+    if (technician) {
+      navigation = [
+        const NavigationDestination(
+          icon: Icon(Icons.person),
+          label: "Transects",
+        ),
+        const NavigationDestination(
+          icon: Icon(Icons.people),
+          label: "All transects",
+        ),
+        const NavigationDestination(
+          icon: Icon(Icons.download),
+          label: "Download",
+        ),
+      ];
 
-    Stream<List<TransectModel>> orderedStream = stream.map((list) {
-      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    });
+      pages = [
+        const UserTransectsView(),
+        const AllTransectsView(),
+        const DownloadTransectsView(),
+      ];
+    } else {
+      navigation = [
+        const NavigationDestination(
+          icon: Icon(Icons.person),
+          label: "Transects",
+        ),
+        const NavigationDestination(
+          icon: Icon(Icons.download),
+          label: "Download",
+        ),
+      ];
 
+      pages = [
+        const UserTransectsView(),
+        const DownloadTransectsView(),
+      ];
+    }
     return customScaffold(
       context: context,
       title: S.current.transect_records,
-      body: StreamBuilder(
-        stream: orderedStream,
-        builder: (BuildContext context,
-            AsyncSnapshot<List<TransectModel>> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: Text(
-                    snapshot.data![index].localityFirst,
-                    textAlign: TextAlign.center,
-                  ),
-                  title: Text(
-                    snapshot.data![index].createdAt
-                        .toDate()
-                        .toIso8601String()
-                        .split('.')[0],
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: Text(
-                    snapshot.data![index].observations,
-                    textAlign: TextAlign.center,
-                  ),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () {
-                    // Go to a dedicated screen where users can see all information and map
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            TransectView(transect: snapshot.data![index]),
-                      ),
-                    );
-                  },
-                );
+      body: pages.elementAt(currentPage),
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: kColorBackground,
+        surfaceTintColor: kColorTitle,
+        destinations: navigation,
+        selectedIndex: currentPage,
+        onDestinationSelected: (int value) {
+          if (mounted) {
+            setState(
+              () {
+                currentPage = value;
               },
             );
           }

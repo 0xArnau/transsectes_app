@@ -50,7 +50,7 @@ class AuthRepository {
 
   Future<bool> isSignedIn() async {
     try {
-      return (await _firebaseAuth.currentUser) != null;
+      return (_firebaseAuth.currentUser) != null;
     } catch (e) {
       Logger().e(e.toString());
       rethrow;
@@ -59,7 +59,7 @@ class AuthRepository {
 
   Future<String?> getUserEmail() async {
     try {
-      return (await _firebaseAuth.currentUser)?.email;
+      return (_firebaseAuth.currentUser)?.email;
     } catch (e) {
       Logger().e(e.toString());
       rethrow;
