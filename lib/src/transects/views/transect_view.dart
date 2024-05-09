@@ -29,17 +29,20 @@ class TransectView extends StatelessWidget {
               title: "Author",
               value: transect.createdBy,
             ),
-            _ListTile(
+            _ListTileGeo(
               title: "Administrative Area",
-              value: transect.administrativeAreaFirst,
+              value1: transect.administrativeAreaFirst,
+              value2: transect.administrativeAreaLast,
             ),
-            _ListTile(
+            _ListTileGeo(
               title: "Subadministrative Area",
-              value: transect.subAdministrativeAreaFirst,
+              value1: transect.subAdministrativeAreaFirst,
+              value2: transect.subAdministrativeAreaLast,
             ),
-            _ListTile(
+            _ListTileGeo(
               title: "Locality",
-              value: transect.localityFirst,
+              value1: transect.localityFirst,
+              value2: transect.localityLast,
             ),
             _ListTile(
               title: "Number of people informed",
@@ -47,10 +50,6 @@ class TransectView extends StatelessWidget {
             ),
             _ListTile(
               title: "Has the tractor passed?",
-              value: transect.informedPeople.toString(),
-            ),
-            _ListTile(
-              title: "Number of people informed",
               value: transect.tractor.toString(),
             ),
             _ListTile(
@@ -74,6 +73,40 @@ class TransectView extends StatelessWidget {
         value,
         textAlign: TextAlign.end,
       ),
+    );
+  }
+
+  Widget _ListTileGeo({
+    required String title,
+    required String value1,
+    required String value2,
+  }) {
+    return ListTile(
+      leading: Text(title),
+      title: value1 == value2
+          ? Text(
+              value1,
+              textAlign: TextAlign.right,
+            )
+          : SizedBox(
+              height: 48,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      "$value1 (inici)",
+                      textAlign: TextAlign.right,
+                    ),
+                    Text(
+                      "$value2 (final)",
+                      textAlign: TextAlign.right,
+                    )
+                  ],
+                ),
+              ),
+            ),
     );
   }
 
