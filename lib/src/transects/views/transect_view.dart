@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
@@ -16,6 +17,16 @@ class TransectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return customScaffold(
+      actions: <Widget>[
+        IconButton(
+            onPressed: () {
+              FileIOController.saveReports2CSV(
+                  context: context,
+                  reports: [transect],
+                  locality: transect.localityFirst);
+            },
+            icon: const Icon(Icons.download))
+      ],
       context: context,
       title: "Transect detail",
       body: Center(
