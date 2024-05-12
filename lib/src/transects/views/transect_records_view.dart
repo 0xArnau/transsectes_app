@@ -20,6 +20,7 @@ class TransectRecordsView extends StatefulWidget {
 
 class _TransectRecordsViewState extends State<TransectRecordsView> {
   Stream<List<TransectModel>> allTransects = const Stream.empty();
+  Stream<List<TransectModel>> downloadTransects = const Stream.empty();
   Stream<List<TransectModel>> userTransects = const Stream.empty();
 
   String filter = '';
@@ -46,6 +47,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
 
         setState(() {
           allTransects = orderedStream;
+          downloadTransects =
+              TransectRepository().getAllTransects().map((list) {
+            return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+          });
         });
       }
     });
@@ -93,7 +98,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           transects: allTransects,
           filter: filter,
         ),
-        DownloadTransectsView(transects: allTransects),
+        DownloadTransectsView(transects: downloadTransects),
       ];
     } else {
       navigation = [
