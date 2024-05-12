@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
+import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/all_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/user_transects_view.dart';
@@ -17,6 +19,9 @@ class TransectRecordsView extends StatefulWidget {
 }
 
 class _TransectRecordsViewState extends State<TransectRecordsView> {
+  Stream<List<TransectModel>> allTransects = const Stream.empty();
+  Stream<List<TransectModel>> userTransects = const Stream.empty();
+
   bool technician = false;
   int currentPage = 0;
 
@@ -26,8 +31,32 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
 
     TecnicRepository().isTechnician().then((value) {
       setState(() {
-        technician = true;
+        technician = value;
       });
+
+      if (value) {
+        Stream<List<TransectModel>> stream =
+            TransectRepository().getAllTransects();
+
+        Stream<List<TransectModel>> orderedStream = stream.map((list) {
+          return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        });
+
+        setState(() {
+          allTransects = orderedStream;
+        });
+      }
+    });
+
+    Stream<List<TransectModel>> stream =
+        TransectRepository().getUserTransects("0xarnau@gmail.com");
+
+    Stream<List<TransectModel>> orderedStream = stream.map((list) {
+      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    });
+
+    setState(() {
+      userTransects = orderedStream;
     });
   }
 
@@ -52,9 +81,9 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       ];
 
       pages = [
-        const UserTransectsView(),
-        const AllTransectsView(),
-        const DownloadTransectsView(),
+        UserTransectsView(transects: userTransects),
+        AllTransectsView(transects: allTransects),
+        DownloadTransectsView(transects: allTransects),
       ];
     } else {
       navigation = [
@@ -69,8 +98,8 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       ];
 
       pages = [
-        const UserTransectsView(),
-        const DownloadTransectsView(),
+        UserTransectsView(transects: userTransects),
+        DownloadTransectsView(transects: allTransects),
       ];
     }
     return customScaffold(

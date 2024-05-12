@@ -11,12 +11,10 @@ class TecnicRepository extends BaseRepository {
 
   @override
   Future<bool> isTechnician() async {
-    Logger().d("isTechnician?");
-
     String? currentUserEmail = await AuthRepository().getUserEmail();
 
     try {
-      await _firebaseFirestore.collection('tecnics').get().then(
+      return await _firebaseFirestore.collection('tecnics').get().then(
         (snapshot) {
           for (var document in snapshot.docs) {
             if (document.data()['email'].toString().toLowerCase() ==
@@ -24,13 +22,13 @@ class TecnicRepository extends BaseRepository {
               return true;
             }
           }
+          return false;
         },
       );
-      return false;
     } catch (e) {
       Logger().e(e);
-
-      return false;
     }
+
+    return false;
   }
 }

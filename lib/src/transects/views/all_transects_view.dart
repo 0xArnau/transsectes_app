@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
 
 class AllTransectsView extends StatefulWidget {
-  const AllTransectsView({super.key});
+  final Stream<List<TransectModel>> transects;
+  const AllTransectsView({super.key, required this.transects});
 
   static const path = '/transect-records';
 
@@ -13,27 +13,10 @@ class AllTransectsView extends StatefulWidget {
 }
 
 class _AllTransectsViewState extends State<AllTransectsView> {
-  late Stream<List<TransectModel>> stream;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    stream = TransectRepository().getAllTransects().map(
-        (list) => list..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
-  }
-
   @override
   Widget build(BuildContext context) {
-    Stream<List<TransectModel>> stream = TransectRepository().getAllTransects();
-
-    Stream<List<TransectModel>> orderedStream = stream.map((list) {
-      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    });
-
     return StreamBuilder(
-      stream: orderedStream,
+      stream: widget.transects,
       builder:
           (BuildContext context, AsyncSnapshot<List<TransectModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {

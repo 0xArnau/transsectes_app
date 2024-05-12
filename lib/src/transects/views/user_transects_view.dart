@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
 
 class UserTransectsView extends StatefulWidget {
-  const UserTransectsView({super.key});
+  final Stream<List<TransectModel>> transects;
+  const UserTransectsView({super.key, required this.transects});
 
   static const path = '/transect-records';
 
@@ -14,31 +13,10 @@ class UserTransectsView extends StatefulWidget {
 }
 
 class _UserTransectsViewState extends State<UserTransectsView> {
-  late Stream<List<TransectModel>> stream;
-  late Stream<List<TransectModel>> streamAllTransects;
-  late bool technician;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    AuthRepository().getUserEmail().then((userEmail) {
-      stream = TransectRepository().getUserTransects(userEmail).map(
-          (list) => list..sort((a, b) => b.createdAt.compareTo(a.createdAt)));
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    Stream<List<TransectModel>> stream =
-        TransectRepository().getUserTransects("0xarnau@gmail.com");
-
-    Stream<List<TransectModel>> orderedStream = stream.map((list) {
-      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    });
-
     return StreamBuilder(
-      stream: orderedStream,
+      stream: widget.transects,
       builder:
           (BuildContext context, AsyncSnapshot<List<TransectModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
