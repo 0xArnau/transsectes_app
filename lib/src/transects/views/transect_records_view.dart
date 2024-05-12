@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
+import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
@@ -49,15 +50,17 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       }
     });
 
-    Stream<List<TransectModel>> stream =
-        TransectRepository().getUserTransects("0xarnau@gmail.com");
+    AuthRepository().getUserEmail().then((value) {
+      Stream<List<TransectModel>> stream =
+          TransectRepository().getUserTransects(value);
 
-    Stream<List<TransectModel>> orderedStream = stream.map((list) {
-      return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-    });
+      Stream<List<TransectModel>> orderedStream = stream.map((list) {
+        return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      });
 
-    setState(() {
-      userTransects = orderedStream;
+      setState(() {
+        userTransects = orderedStream;
+      });
     });
   }
 
