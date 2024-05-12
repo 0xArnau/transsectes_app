@@ -74,4 +74,15 @@ class AuthRepository {
       rethrow;
     }
   }
+
+  /// Sends an email verification link to the user's email address
+  Future<void> sendEmailVerification() async {
+    try {
+      if (!FirebaseAuth.instance.currentUser!.emailVerified) {
+        await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+      }
+    } catch (e) {
+      Logger().d(e.toString());
+    }
+  }
 }

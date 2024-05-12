@@ -17,6 +17,7 @@
   "contact_error_phone": "No puedo abrir el número de teléfono",
   "contact_error_website": "No se puede abrir el sitio web",
   "email": "Correo electrónico",
+  "email_sent": "Se ha enviado un correo electrónico, por favor revisa tu correo electrónico.",
   "emails_are_different": "Los correos electrónicos son diferentes.",
   "empty_fields": "Hay campos vacíos",
   "forgot_password": "¿Has olvidado tu contraseña?",

@@ -17,6 +17,7 @@
   "contact_error_phone": "No es pot obrir el número de telèfon",
   "contact_error_website": "No es pot obrir el lloc web",
   "email": "Correu electrònic",
+  "email_sent": "S'ha enviat un correu electrònic, si us plau revisa el teu correu electrònic.",
   "emails_are_different": "Els correus electrònics són diferents",
   "empty_fields": "Hi ha camps buits",
   "forgot_password": "Has oblidat la contrasenya?",
