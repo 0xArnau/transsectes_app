@@ -7,6 +7,7 @@ Widget customScaffold({
   required Widget? body,
   NavigationBar? bottomNavigationBar,
   Widget? drawer,
+  List<Widget>? actions,
 }) {
   return Scaffold(
     backgroundColor: kColorBackground,
@@ -19,6 +20,7 @@ Widget customScaffold({
         title,
         overflow: TextOverflow.ellipsis,
       ),
+      actions: actions,
     ),
     body: body,
     bottomNavigationBar: bottomNavigationBar,

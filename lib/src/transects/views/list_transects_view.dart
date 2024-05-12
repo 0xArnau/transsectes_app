@@ -2,21 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
 
-class UserTransectsView extends StatefulWidget {
+class ListTransectsView extends StatefulWidget {
   final Stream<List<TransectModel>> transects;
-  const UserTransectsView({super.key, required this.transects});
+  final String filter;
+  const ListTransectsView({
+    super.key,
+    required this.transects,
+    this.filter = '',
+  });
 
   static const path = '/transect-records';
 
   @override
-  State<UserTransectsView> createState() => _UserTransectsViewState();
+  State<ListTransectsView> createState() => _ListTransectsViewState();
 }
 
-class _UserTransectsViewState extends State<UserTransectsView> {
+class _ListTransectsViewState extends State<ListTransectsView> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: widget.transects,
+      stream: widget.transects.map((event) {
+        return event
+            .where((element) =>
+                element.localityFirst
+                    .toLowerCase()
+                    .contains(widget.filter.toLowerCase()) ||
+                element.createdAt
+                    .toDate()
+                    .toIso8601String()
+                    .toLowerCase()
+                    .contains(widget.filter.toLowerCase()))
+            .toList();
+      }),
       builder:
           (BuildContext context, AsyncSnapshot<List<TransectModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {

@@ -3,9 +3,8 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
-import 'package:transsectes_app/src/transects/views/all_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
-import 'package:transsectes_app/src/transects/views/user_transects_view.dart';
+import 'package:transsectes_app/src/transects/views/list_transects_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -21,6 +20,8 @@ class TransectRecordsView extends StatefulWidget {
 class _TransectRecordsViewState extends State<TransectRecordsView> {
   Stream<List<TransectModel>> allTransects = const Stream.empty();
   Stream<List<TransectModel>> userTransects = const Stream.empty();
+
+  String filter = '';
 
   bool technician = false;
   int currentPage = 0;
@@ -81,8 +82,14 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       ];
 
       pages = [
-        UserTransectsView(transects: userTransects),
-        AllTransectsView(transects: allTransects),
+        ListTransectsView(
+          transects: userTransects,
+          filter: filter,
+        ),
+        ListTransectsView(
+          transects: allTransects,
+          filter: filter,
+        ),
         DownloadTransectsView(transects: allTransects),
       ];
     } else {
@@ -98,11 +105,80 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       ];
 
       pages = [
-        UserTransectsView(transects: userTransects),
-        DownloadTransectsView(transects: allTransects),
+        ListTransectsView(
+          transects: userTransects,
+          filter: filter,
+        ),
+        ListTransectsView(
+          transects: allTransects,
+          filter: filter,
+        ),
       ];
     }
     return customScaffold(
+      actions: currentPage == pages.length - 1
+          ? null
+          : <Widget>[
+              IconButton(
+                onPressed: () async {
+                  await showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        backgroundColor: kColorBackground,
+                        title: const Text('Buscar'),
+                        content: TextField(
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            focusColor: kColorTitle,
+                            hoverColor: kColorTitle,
+                            filled: true,
+                            hintText: 'Ciutat o Data...',
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: kColorTitle,
+                              ),
+                            ),
+                          ),
+                          cursorColor: kColorTitle,
+                          onChanged: (value) {
+                            setState(() {
+                              filter = value;
+                            });
+                          },
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: kColorTitle,
+                            ),
+                            child: const Text('Cancelar'),
+                            onPressed: () {
+                              setState(() {
+                                filter = '';
+                              });
+
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: kColorTitle,
+                            ),
+                            child: const Text('Acceptar'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                icon: const Icon(Icons.search),
+              ),
+            ],
       context: context,
       title: S.current.transect_records,
       body: pages.elementAt(currentPage),
