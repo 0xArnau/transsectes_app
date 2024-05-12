@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
 class ListTransectsView extends StatefulWidget {
   final Stream<List<TransectModel>> transects;
@@ -37,7 +38,11 @@ class _ListTransectsViewState extends State<ListTransectsView> {
       builder:
           (BuildContext context, AsyncSnapshot<List<TransectModel>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(
+              color: kColorTitle,
+            ),
+          );
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {

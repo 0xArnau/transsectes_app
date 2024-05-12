@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
 class DownloadTransectsView extends StatefulWidget {
   final Stream<List<TransectModel>> transects;
@@ -21,6 +24,56 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView();
+    Logger().d("_DownloadTransectsViewState");
+    return StreamBuilder(
+        stream: transects,
+        builder: (BuildContext context,
+            AsyncSnapshot<List<TransectModel>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: kColorTitle,
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            Map<String, List<TransectModel>> map = {};
+
+            map['all'] = [];
+
+            for (var element in snapshot.data!) {
+              String localityKey = element.localityFirst == ''
+                  ? 'unknown'
+                  : element.localityFirst;
+
+              if (!map.containsKey(localityKey)) {
+                map[localityKey] = [];
+              }
+
+              map[localityKey]!.add(element);
+              map['all']!.add(element);
+            }
+
+            return ListView.builder(
+              itemCount: map.length,
+              itemBuilder: (context, index) {
+                String key = map.keys.elementAt(index);
+                return ListTile(
+                  leading: Text(map[key]!.length.toString()),
+                  title: Text(key),
+                  trailing: const Icon(Icons.download),
+                  onTap: () {
+                    FileIOController.saveReports2CSV(
+                      context: context,
+                      reports: map[key]!,
+                      locality: key,
+                    );
+                  },
+                );
+              },
+            );
+          }
+        });
   }
 }
