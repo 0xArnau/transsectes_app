@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -31,7 +32,7 @@ class CustomAlertDialogWidget extends StatelessWidget {
           child: Text(S.current.cancel),
           onPressed: () {
             if (onPressedCancel != null) onPressedCancel!();
-            Navigator.of(context).pop();
+            context.pop();
           },
         ),
         TextButton(
@@ -41,8 +42,7 @@ class CustomAlertDialogWidget extends StatelessWidget {
           child: const Text('Accept'),
           onPressed: () {
             if (onPressedAccept != null) onPressedAccept!();
-
-            Navigator.of(context).pop();
+            context.pop();
           },
         ),
       ],
