@@ -4,8 +4,10 @@ import 'package:logger/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
+import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
+import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class MenuView extends StatefulWidget {
@@ -147,6 +149,29 @@ class _MenuViewState extends State<MenuView> {
                       title: const Text("Open app settings (OS)"),
                       onTap: () {
                         openAppSettings();
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: ListTile(
+                      leading: const Icon(Icons.logout),
+                      title: const Text("Delete account"),
+                      onTap: () async {
+                        await showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return CustomAlertDialogWidget(
+                              title: 'Remove account',
+                              content:
+                                  'Tis action cannot be undone!!! Please logout and login before deleting user',
+                              onPressedAccept: () {
+                                Logger().d("onPressedAccept");
+                                AuthRepository()
+                                    .deleteUserAccountAndInformation(context);
+                              },
+                            );
+                          },
+                        );
                       },
                     ),
                   ),
