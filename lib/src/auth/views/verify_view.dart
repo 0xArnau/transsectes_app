@@ -31,7 +31,7 @@ class _VerifyViewState extends State<VerifyView> {
     _checkEmailVerified();
     if (!isEmailVerified) {
       timer = Timer.periodic(
-        const Duration(milliseconds: 20000),
+        const Duration(milliseconds: 2000),
         (_) => _checkEmailVerified(),
       );
     }
@@ -46,6 +46,7 @@ class _VerifyViewState extends State<VerifyView> {
   }
 
   Future _checkEmailVerified() async {
+    AuthRepository().userReload();
     if (mounted) {
       setState(() {
         isEmailVerified = AuthRepository().isEmailVerified();
@@ -77,18 +78,22 @@ class _VerifyViewState extends State<VerifyView> {
                     },
                     child: const Text('Send email'),
                   ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: kColorTitle,
-                    ),
-                    onPressed: () {
-                      AuthRepository().userReload();
-                      setState(() {
-                        isEmailVerified = AuthRepository().isEmailVerified();
-                      });
-                    },
-                    child: const Text('Login'),
-                  ),
+                  // TextButton(
+                  //   style: TextButton.styleFrom(
+                  //     foregroundColor: kColorTitle,
+                  //   ),
+                  //   onPressed: () {
+                  //     AuthRepository().userReload();
+                  //     setState(() {
+                  //       isEmailVerified = AuthRepository().isEmailVerified();
+                  //     });
+
+                  //     if (!isEmailVerified) {
+                  //       CustomSnackbar.error(context, 'Email is not verified');
+                  //     }
+                  //   },
+                  //   child: const Text('Login'),
+                  // ),
                 ],
               ),
             ),
