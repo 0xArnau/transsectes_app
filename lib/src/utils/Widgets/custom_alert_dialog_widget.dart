@@ -3,8 +3,8 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class CustomAlertDialogWidget extends StatelessWidget {
-  final String title;
-  final String content;
+  final String? title;
+  final String? content;
 
   final String primaryText;
   final Function() primaryFunction;
@@ -13,8 +13,8 @@ class CustomAlertDialogWidget extends StatelessWidget {
 
   const CustomAlertDialogWidget({
     super.key,
-    required this.title,
-    required this.content,
+    this.title,
+    this.content,
     required this.primaryText,
     required this.primaryFunction,
     required this.secondaryText,
@@ -43,28 +43,34 @@ class CustomAlertDialogWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                  if (title != null) ...[
+                    Text(
+                      title!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    content,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black54,
+                  ],
+                  if (content != null) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      content!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black54,
+                      ),
                     ),
-                  ),
+                  ]
                 ],
               ),
             ),
-            const Divider(height: 1),
+            if (title != null || content != null) ...[
+              const Divider(height: 1),
+            ],
             Row(
               children: [
                 Expanded(

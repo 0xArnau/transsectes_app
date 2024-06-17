@@ -183,7 +183,7 @@ class _MenuViewState extends State<MenuView> {
             Center(
               child: Column(
                 children: [
-                  logOutWidget(),
+                  logOutWidget(context),
                   const SizedBox(height: 10),
                   Text(
                     '$appName - $version($buildNumber)',
