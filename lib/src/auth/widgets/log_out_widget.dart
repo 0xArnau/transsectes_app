@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
+import 'package:transsectes_app/src/utils/Widgets/customActionSheets.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget logOutWidget() {
@@ -28,9 +29,19 @@ Widget logOutWidget() {
       builder: (context, state) {
         return ElevatedButton.icon(
           onPressed: () {
-            BlocProvider.of<AuthBloc>(context).add(SignOut());
+            customActionSheet(
+              context: context,
+              title: "Are you sure you want to log out?",
+              description:
+                  "To be able to use the app you will have to log in again",
+              primaryAction: CustomAction(
+                text: "Sign Out",
+                function: () =>
+                    BlocProvider.of<AuthBloc>(context).add(SignOut()),
+              ),
+            );
           },
-          icon: Icon(Icons.logout_outlined),
+          icon: const Icon(Icons.logout_outlined),
           label: Text(S.current.signOut),
           style: ElevatedButton.styleFrom(
             foregroundColor: kColorTitle,

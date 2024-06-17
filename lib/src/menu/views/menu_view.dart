@@ -163,11 +163,14 @@ class _MenuViewState extends State<MenuView> {
                               title: 'Remove account',
                               content:
                                   'Tis action cannot be undone!!! Please logout and login before deleting user',
-                              onPressedAccept: () {
+                              primaryText: 'Delete',
+                              primaryFunction: () {
                                 Logger().d("onPressedAccept");
                                 AuthRepository()
                                     .deleteUserAccountAndInformation(context);
                               },
+                              secondaryText: 'Cancel',
+                              secondaryFunction: () {},
                             );
                           },
                         );
