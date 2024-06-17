@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/contact/views/contact_view.dart';
@@ -11,6 +12,7 @@ import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.d
 import 'package:transsectes_app/src/menu/views/menu_view.dart';
 import 'package:transsectes_app/src/transects/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transects/views/transect_records_view.dart';
+import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -62,12 +64,24 @@ class _HomeViewState extends State<HomeView> {
                                     .add(LoadGeolocation()),
                               );
                         } else {
-                          context.push(StartStopTransecteView.path);
-                          // .whenComplete(
-                          //   () => context
-                          //       .read<GeolocationBloc>()
-                          //       .add(LoadGeolocation()),
-                          // );
+                          if (!state.backgroundPermission) {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext _) {
+                                return CustomAlertDialogWidget(
+                                  title: "GPS background service disabled",
+                                  content:
+                                      'Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app',
+                                  primaryText: 'Settings',
+                                  primaryFunction: () => openAppSettings(),
+                                  secondaryText: 'Cancel',
+                                  secondaryFunction: () {},
+                                );
+                              },
+                            );
+                          } else {
+                            context.push(StartStopTransecteView.path);
+                          }
                         }
                       },
                     );
