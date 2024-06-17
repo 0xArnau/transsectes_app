@@ -31,7 +31,7 @@ Widget logOutWidget(BuildContext context) {
           onPressed: () async {
             await showDialog<String>(
               context: context,
-              builder: (BuildContext context) {
+              builder: (BuildContext _) {
                 return CustomAlertDialogWidget(
                   content: 'Are you sure you want to log out?',
                   primaryText: 'Sign Out',
