@@ -146,6 +146,8 @@ class _MenuViewState extends State<MenuView> {
                     child: ListTile(
                       leading: const Icon(Icons.open_in_new),
                       title: const Text("Open app settings (OS)"),
+                      subtitle: const Text(
+                          "To be able to use the GPS in the background, select the GPS option: Always"),
                       onTap: () {
                         openAppSettings();
                       },
