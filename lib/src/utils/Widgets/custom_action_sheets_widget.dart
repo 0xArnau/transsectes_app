@@ -3,11 +3,13 @@ import 'package:transsectes_app/src/utils/colors.dart';
 
 class CustomAction {
   final String text;
+  final Color color;
   final Function function;
 
   const CustomAction({
     required this.text,
     required this.function,
+    this.color = kColorTitle,
   });
 }
 
@@ -30,7 +32,7 @@ Future customActionSheet({
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[350],
+                color: Colors.grey[300],
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
@@ -73,25 +75,24 @@ Future customActionSheet({
                     title: Text(
                       primaryAction.text,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.red,
+                      style: TextStyle(
+                        color: primaryAction.color,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     onTap: () {
                       primaryAction.function();
                       Navigator.pop(context);
-                      // Add your action code here
                     },
                   ),
                   if (secondaryAction != null) ...[
                     const Divider(height: 0),
                     ListTile(
                       title: Text(
-                        primaryAction.text,
+                        secondaryAction.text,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: kColorTitle,
+                        style: TextStyle(
+                          color: secondaryAction.color,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -106,10 +107,10 @@ Future customActionSheet({
                     const Divider(height: 0),
                     ListTile(
                       title: Text(
-                        primaryAction.text,
+                        tertiaryAction.text,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: kColorTitle,
+                        style: TextStyle(
+                          color: tertiaryAction.color,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -131,15 +132,14 @@ Future customActionSheet({
               },
               style: ElevatedButton.styleFrom(
                 foregroundColor: kColorTitle,
-                backgroundColor: Colors.grey[350],
+                backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
-                  side: BorderSide(color: Colors.grey.shade200),
                 ),
               ),
               child: Container(
                 alignment: Alignment.center,
-                height: 50,
+                height: 52,
                 child: const Text(
                   'Cancel',
                   style: TextStyle(

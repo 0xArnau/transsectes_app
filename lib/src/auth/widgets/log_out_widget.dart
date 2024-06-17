@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/customActionSheets.dart';
+import 'package:transsectes_app/src/utils/Widgets/custom_action_sheets_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget logOutWidget() {
@@ -36,6 +36,7 @@ Widget logOutWidget() {
                   "To be able to use the app you will have to log in again",
               primaryAction: CustomAction(
                 text: "Sign Out",
+                color: Colors.red,
                 function: () =>
                     BlocProvider.of<AuthBloc>(context).add(SignOut()),
               ),
