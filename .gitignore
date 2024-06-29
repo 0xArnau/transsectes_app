@@ -51,3 +51,12 @@ firebase_options.dart
 firebase_app_id_file.json
 google-services.json
 GoogleService-Info.plist
+
+.env
+*/.env
+.env.*
+*/.env.*
+!.env.*.example
+!*/.env.*.example
+!.env.example
+!*/.env.example
