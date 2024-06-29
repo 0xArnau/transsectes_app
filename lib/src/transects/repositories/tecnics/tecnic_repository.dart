@@ -14,14 +14,13 @@ class TecnicRepository extends BaseRepository {
     String? currentUserEmail = await AuthRepository().getUserEmail();
 
     try {
-      return await _firebaseFirestore.collection('tecnics').get().then(
+      return await _firebaseFirestore
+          .collection('tecnics')
+          .doc(currentUserEmail?.toLowerCase())
+          .get()
+          .then(
         (snapshot) {
-          for (var document in snapshot.docs) {
-            if (document.data()['email'].toString().toLowerCase() ==
-                currentUserEmail?.toLowerCase()) {
-              return true;
-            }
-          }
+          if (snapshot.exists) return true;
           return false;
         },
       );

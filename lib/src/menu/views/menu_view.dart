@@ -6,6 +6,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
+import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -24,9 +25,17 @@ class _MenuViewState extends State<MenuView> {
   String email = '';
   bool showEmail = false;
 
+  bool technician = false;
+
   @override
   void initState() {
     super.initState();
+
+    TecnicRepository().isTechnician().then((value) {
+      setState(() {
+        technician = value;
+      });
+    });
 
     BlocProvider.of<AuthBloc>(context).add(GetEmail());
 
@@ -59,6 +68,10 @@ class _MenuViewState extends State<MenuView> {
                       size: MediaQuery.of(context).size.height / 6,
                     ),
                   ),
+                  if (technician)
+                    const Center(
+                      child: Text("Technician"),
+                    ),
                   Center(
                     child: BlocConsumer<AuthBloc, AuthState>(
                       listener: (context, state) {
