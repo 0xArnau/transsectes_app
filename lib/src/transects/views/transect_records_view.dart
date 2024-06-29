@@ -223,6 +223,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
             ],
       context: context,
       title: S.current.transect_records,
+      resizeToAvoidBottomInset: true,
       body: pages.elementAt(currentPage),
       bottomNavigationBar: NavigationBar(
         // backgroundColor: kColorBackground,

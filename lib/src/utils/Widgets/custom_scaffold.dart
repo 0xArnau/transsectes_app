@@ -8,10 +8,11 @@ Widget customScaffold({
   NavigationBar? bottomNavigationBar,
   Widget? drawer,
   List<Widget>? actions,
+  bool resizeToAvoidBottomInset = false,
 }) {
   return Scaffold(
     backgroundColor: kColorBackground,
-    resizeToAvoidBottomInset: false,
+    resizeToAvoidBottomInset: resizeToAvoidBottomInset,
     drawer: drawer,
     appBar: AppBar(
       backgroundColor: kColorBackground,
