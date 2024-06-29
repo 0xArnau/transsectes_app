@@ -22,8 +22,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
   Stream<List<TransectModel>> allTransects = const Stream.empty();
   Stream<List<TransectModel>> downloadTransects = const Stream.empty();
   Stream<List<TransectModel>> userTransects = const Stream.empty();
-
-  String filter = '';
+  TextEditingController filter = TextEditingController(text: '');
 
   bool technician = false;
   int currentPage = 0;
@@ -92,11 +91,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       pages = [
         ListTransectsView(
           transects: userTransects,
-          filter: filter,
+          filter: filter.text,
         ),
         ListTransectsView(
           transects: allTransects,
-          filter: filter,
+          filter: filter.text,
         ),
         DownloadTransectsView(transects: downloadTransects),
       ];
@@ -115,11 +114,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       pages = [
         ListTransectsView(
           transects: userTransects,
-          filter: filter,
+          filter: filter.text,
         ),
         ListTransectsView(
           transects: allTransects,
-          filter: filter,
+          filter: filter.text,
         ),
       ];
     }
@@ -127,72 +126,115 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       actions: currentPage == pages.length - 1
           ? null
           : <Widget>[
-              IconButton(
-                onPressed: () async {
-                  await showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        backgroundColor: kColorBackground,
-                        title: const Text('Buscar'),
-                        content: TextField(
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            fillColor: Colors.white,
-                            focusColor: kColorTitle,
-                            hoverColor: kColorTitle,
-                            filled: true,
-                            hintText: 'Ciutat o Data...',
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: kColorTitle,
+              Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    onPressed: () {
+                      showBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: const EdgeInsets.all(16.0),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(
+                                kColorTitle.red,
+                                kColorTitle.green,
+                                kColorTitle.blue,
+                                0.0,
+                              ),
+                              border: Border.all(),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(15.0),
+                                topRight: Radius.circular(15.0),
                               ),
                             ),
-                          ),
-                          cursorColor: kColorTitle,
-                          onChanged: (value) {
-                            setState(() {
-                              filter = value;
-                            });
-                          },
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: kColorTitle,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                TextField(
+                                  controller: filter,
+                                  style: const TextStyle(
+                                      fontSize:
+                                          16.0), // Ajusta el tamaño de fuente del texto
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 12.0,
+                                        horizontal:
+                                            16.0), // Ajusta el padding interno del TextField
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          8.0), // Ajusta el radio de los bordes
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hintText: 'Ciutat o Data (YYYY-MM-DD) ...',
+                                    hintStyle: const TextStyle(
+                                        fontSize:
+                                            16.0), // Ajusta el tamaño de fuente del texto de hint
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide:
+                                          const BorderSide(color: kColorTitle),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                  cursorColor: kColorTitle,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      filter.text = value;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(height: 16.0),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        foregroundColor: kColorTitle,
+                                      ),
+                                      child: const Text('Clear'),
+                                      onPressed: () {
+                                        setState(() {
+                                          filter.clear();
+                                          filter.text = '';
+                                        });
+                                      },
+                                    ),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        foregroundColor: kColorTitle,
+                                      ),
+                                      child: const Text('Accept'),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            child: const Text('Cancelar'),
-                            onPressed: () {
-                              setState(() {
-                                filter = '';
-                              });
-
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: kColorTitle,
-                            ),
-                            child: const Text('Acceptar'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          ),
-                        ],
+                          );
+                        },
                       );
                     },
+                    icon: const Icon(Icons.search),
                   );
                 },
-                icon: const Icon(Icons.search),
               ),
             ],
       context: context,
       title: S.current.transect_records,
       body: pages.elementAt(currentPage),
       bottomNavigationBar: NavigationBar(
-        backgroundColor: kColorBackground,
-        surfaceTintColor: kColorTitle,
+        // backgroundColor: kColorBackground,
+        // surfaceTintColor: kColorTitle,
+        indicatorColor: Color.fromRGBO(
+          kColorTitle.red,
+          kColorTitle.green,
+          kColorTitle.blue,
+          0.3,
+        ),
         destinations: navigation,
         selectedIndex: currentPage,
         onDestinationSelected: (int value) {

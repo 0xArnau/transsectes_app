@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: router,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: kColorBackground),
+          colorScheme: ColorScheme.fromSeed(seedColor: kColorTitle),
           useMaterial3: true,
         ),
         supportedLocales: L10n.all,
