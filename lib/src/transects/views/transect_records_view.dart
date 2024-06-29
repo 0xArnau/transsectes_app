@@ -135,22 +135,20 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                         builder: (BuildContext context) {
                           return Container(
                             padding: const EdgeInsets.all(16.0),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(
-                                kColorTitle.red,
-                                kColorTitle.green,
-                                kColorTitle.blue,
-                                0.0,
-                              ),
-                              border: Border.all(),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(15.0),
-                                topRight: Radius.circular(15.0),
-                              ),
-                            ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
+                                Container(
+                                  width: 25,
+                                  height: 5,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.grey,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(50.0),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 16),
                                 TextField(
                                   controller: filter,
                                   style: const TextStyle(
