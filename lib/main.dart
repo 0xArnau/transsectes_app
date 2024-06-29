@@ -23,8 +23,6 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  await FlutterConfig.loadEnvVariables();
-
   //Setting SystmeUIMode
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.edgeToEdge,
@@ -39,6 +37,7 @@ Future<void> main() async {
     ),
   );
 
+  await FlutterConfig.loadEnvVariables();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());

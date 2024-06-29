@@ -59,12 +59,14 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     return customScaffold(
       context: context,
       title: title,
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: initialPosition,
-          zoom: 14,
+      body: SafeArea(
+        child: GoogleMap(
+          initialCameraPosition: CameraPosition(
+            target: initialPosition,
+            zoom: 14,
+          ),
+          markers: markers,
         ),
-        markers: markers,
       ),
     );
   }

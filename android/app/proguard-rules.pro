@@ -1,0 +1,1 @@
+-keep class cat.gepec.transsectes_app.BuildConfig { *; }
