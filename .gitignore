@@ -42,6 +42,10 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Android related stuff
+key.*.properties
+!key.*.properties.example
+
 # Firebase
 firebase_options.dart
 firebase_app_id_file.json
