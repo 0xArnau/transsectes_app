@@ -6,6 +6,7 @@ import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_reposi
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/list_transects_view.dart';
+import 'package:transsectes_app/src/transects/views/remove_transects_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -86,6 +87,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           icon: Icon(Icons.download),
           label: "Download",
         ),
+        const NavigationDestination(
+          icon: Icon(Icons.highlight_remove),
+          label: "Remove",
+        )
       ];
 
       pages = [
@@ -98,6 +103,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           filter: filter.text,
         ),
         DownloadTransectsView(transects: downloadTransects),
+        const RemoveTransectsView(),
       ];
     } else {
       navigation = [
