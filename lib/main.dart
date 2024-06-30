@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/firebase_options.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/l10n/l10n.dart';
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Logger().d(Platform.localeName);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -73,7 +76,7 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        locale: Locale(Platform.localeName),
+        locale: Locale(Platform.localeName.split("_")[0]),
       ),
     );
   }
