@@ -47,4 +47,52 @@ class TransectRepository extends BaseRepository {
       await doc.reference.delete().whenComplete(() => Logger().d("Deleted"));
     }
   }
+
+  @override
+  Future<String> findDocument(String createdBy, Timestamp createdAt) async {
+    String documentId = '';
+    try {
+      // Realizar la consulta
+      QuerySnapshot querySnapshot = await _firebaseFirestore
+          .collection('transects')
+          .where('createdBy', isEqualTo: createdBy)
+          .where('createdAt', isEqualTo: createdAt)
+          .get();
+
+      // Verificar si se encontró algún documento
+      if (querySnapshot.docs.isNotEmpty) {
+        // Obtener el primer documento encontrado
+        DocumentSnapshot documentSnapshot = querySnapshot.docs.first;
+        // Obtener el ID del documento
+        documentId = documentSnapshot.id;
+
+        Logger().i('Documento encontrado con ID: $documentId');
+      } else {
+        Logger().e(
+            'No se encontró ningún documento con los criterios especificados.');
+      }
+    } catch (e) {
+      Logger().e('Error buscando el documento: $e');
+    }
+
+    return documentId;
+  }
+
+  @override
+  Future<void> updateTransect(TransectModel transect) async {
+    String documentId =
+        await findDocument(transect.createdBy, transect.createdAt);
+
+    Logger().d(documentId);
+
+    try {
+      await _firebaseFirestore
+          .collection('transects')
+          .doc(documentId)
+          .update(transect.toDocument());
+      Logger().d('Documento actualizado con éxito.');
+    } catch (e) {
+      Logger().e('Error actualizando el documento: $e');
+    }
+  }
 }

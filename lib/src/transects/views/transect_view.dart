@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
+import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/google_maps_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
@@ -18,13 +20,31 @@ class TransectView extends StatelessWidget {
     return customScaffold(
       actions: <Widget>[
         IconButton(
-            onPressed: () {
-              FileIOController.saveReports2CSV(
-                  context: context,
-                  reports: [transect],
-                  locality: transect.localityFirst);
-            },
-            icon: const Icon(Icons.download))
+          onPressed: () {
+            FileIOController.saveReports2CSV(
+                context: context,
+                reports: [transect],
+                locality: transect.localityFirst);
+          },
+          icon: const Icon(Icons.download),
+        ),
+        IconButton(
+          onPressed: () {
+            GeolocationController()
+                .getAddress(transect.coordinates)
+                .then((listValue) {
+              transect.administrativeAreaFirst = listValue[0];
+              transect.subAdministrativeAreaFirst = listValue[1];
+              transect.localityFirst = listValue[2];
+              transect.administrativeAreaLast = listValue[3];
+              transect.subAdministrativeAreaLast = listValue[4];
+              transect.localityLast = listValue[5];
+
+              TransectRepository().updateTransect(transect);
+            });
+          },
+          icon: const Icon(Icons.update),
+        ),
       ],
       context: context,
       title: "Transect detail",
