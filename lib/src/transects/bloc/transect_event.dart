@@ -25,8 +25,10 @@ class StopTransect extends TransectEvent {
   final int informedPeople;
   final String observations;
   final GeolocationModel geolocationModel;
+  final BuildContext context;
 
   const StopTransect({
+    required this.context,
     required this.tractor,
     required this.informedPeople,
     required this.observations,

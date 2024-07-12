@@ -149,6 +149,7 @@ class _FormViewState extends State<FormView> {
                                         context
                                             .read<TransectBloc>()
                                             .add(StopTransect(
+                                              context: context,
                                               tractor: tractor,
                                               informedPeople: peopleInformed,
                                               observations: observations.text,

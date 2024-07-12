@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:transsectes_app/src/geolocation/controller/geolocation_controlle
 import 'package:transsectes_app/src/geolocation/models/geolocation_model.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
+import 'package:transsectes_app/src/utils/custom_snackbar.dart';
 
 part 'transect_event.dart';
 part 'transect_state.dart';
@@ -100,7 +102,12 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
       //   print("${element.latitude}, ${element.longitude}");
       // }
 
-      _transectRepository.addTransect(transect);
+      if (transect.coordinates.isEmpty) {
+        CustomSnackbar.error(event.context,
+            "Error: data cannot be safe due to coordinates is empty");
+      } else {
+        _transectRepository.addTransect(transect);
+      }
 
       _geolocationSubscription?.cancel();
       emit(TransectInitial());
