@@ -7,7 +7,7 @@ import 'package:transsectes_app/src/transects/views/google_maps_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
-class TransectView extends StatelessWidget {
+class TransectView extends StatefulWidget {
   final TransectModel transect;
 
   const TransectView({
@@ -16,6 +16,11 @@ class TransectView extends StatelessWidget {
   });
 
   @override
+  State<TransectView> createState() => _TransectViewState();
+}
+
+class _TransectViewState extends State<TransectView> {
+  @override
   Widget build(BuildContext context) {
     return customScaffold(
       actions: <Widget>[
@@ -23,24 +28,26 @@ class TransectView extends StatelessWidget {
           onPressed: () {
             FileIOController.saveReports2CSV(
                 context: context,
-                reports: [transect],
-                locality: transect.localityFirst);
+                reports: [widget.transect],
+                locality: widget.transect.localityFirst);
           },
           icon: const Icon(Icons.download),
         ),
         IconButton(
           onPressed: () {
             GeolocationController()
-                .getAddress(transect.coordinates)
+                .getAddress(widget.transect.coordinates)
                 .then((listValue) {
-              transect.administrativeAreaFirst = listValue[0];
-              transect.subAdministrativeAreaFirst = listValue[1];
-              transect.localityFirst = listValue[2];
-              transect.administrativeAreaLast = listValue[3];
-              transect.subAdministrativeAreaLast = listValue[4];
-              transect.localityLast = listValue[5];
+              setState(() {
+                widget.transect.administrativeAreaFirst = listValue[0];
+                widget.transect.subAdministrativeAreaFirst = listValue[1];
+                widget.transect.localityFirst = listValue[2];
+                widget.transect.administrativeAreaLast = listValue[3];
+                widget.transect.subAdministrativeAreaLast = listValue[4];
+                widget.transect.localityLast = listValue[5];
+              });
 
-              TransectRepository().updateTransect(transect);
+              TransectRepository().updateTransect(widget.transect);
             });
           },
           icon: const Icon(Icons.update),
@@ -53,42 +60,42 @@ class TransectView extends StatelessWidget {
           children: [
             _ListTile(
               title: "Date",
-              value: transect.createdAt.toDate().toIso8601String(),
+              value: widget.transect.createdAt.toDate().toIso8601String(),
             ),
             _ListTile(
               title: "Author",
-              value: transect.createdBy,
+              value: widget.transect.createdBy,
             ),
             _ListTileGeo(
               title: "Administrative Area",
-              value1: transect.administrativeAreaFirst,
-              value2: transect.administrativeAreaLast,
+              value1: widget.transect.administrativeAreaFirst,
+              value2: widget.transect.administrativeAreaLast,
             ),
             _ListTileGeo(
               title: "Subadministrative Area",
-              value1: transect.subAdministrativeAreaFirst,
-              value2: transect.subAdministrativeAreaLast,
+              value1: widget.transect.subAdministrativeAreaFirst,
+              value2: widget.transect.subAdministrativeAreaLast,
             ),
             _ListTileGeo(
               title: "Locality",
-              value1: transect.localityFirst,
-              value2: transect.localityLast,
+              value1: widget.transect.localityFirst,
+              value2: widget.transect.localityLast,
             ),
             _ListTile(
               title: "Number of people informed",
-              value: transect.informedPeople.toString(),
+              value: widget.transect.informedPeople.toString(),
             ),
             _ListTile(
               title: "Has the tractor passed?",
-              value: transect.tractor.toString(),
+              value: widget.transect.tractor.toString(),
             ),
             _ListTile(
               title: "Observations",
-              value: transect.observations,
+              value: widget.transect.observations,
             ),
             _openMap(
               context: context,
-              transectModel: transect,
+              transectModel: widget.transect,
             ),
           ],
         ),
