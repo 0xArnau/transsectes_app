@@ -22,95 +22,134 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accept": MessageLookupByLibrary.simpleMessage("Aceptar"),
+        "add_new_geopoint":
+            MessageLookupByLibrary.simpleMessage("Añadir nuevo geopunto"),
+        "add_new_marks":
+            MessageLookupByLibrary.simpleMessage("Añadir nuevas marcas"),
+        "all_transects":
+            MessageLookupByLibrary.simpleMessage("Todos los transectos"),
+        "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
+            "La aplicación Transecto seguirá recibiendo tu ubicación incluso cuando no la estés usando"),
+        "app_background_notification_title":
+            MessageLookupByLibrary.simpleMessage(
+                "Ejecutándose en segundo plano"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+        "cancel_transect": MessageLookupByLibrary.simpleMessage(
+            "Si continúas, la información se perderá y no se podrá recuperar."),
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
-            "No se puede iniciar un transecto hasta terminar el actual."),
+            "No puedes comenzar un transecto hasta que termines el actual."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
-            "No puedes detener un transecto, no hay ninguno empezado"),
+            "No puedes detener un transecto, no hay uno que haya comenzado."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
         "confirm_email": MessageLookupByLibrary.simpleMessage(
             "Confirmar correo electrónico"),
         "confirm_password":
-            MessageLookupByLibrary.simpleMessage("Confirmar Contraseña"),
-        "contact": MessageLookupByLibrary.simpleMessage("Contacta"),
+            MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
+        "contact": MessageLookupByLibrary.simpleMessage("Contacto"),
         "contact_1": MessageLookupByLibrary.simpleMessage(
-            "Si observas una tortuga en la arena, un rastro, tortuguitas, una tortuga herida, muerta o cualquier otra incidencia relacionada con una tortuga marina, llama al"),
+            "Si observas una tortuga en la arena, una huella, crías, una tortuga herida o muerta, o cualquier otro incidente relacionado con una tortuga marina, llama"),
         "contact_2": MessageLookupByLibrary.simpleMessage(
-            "Por cualquier duda o incidencia relacionada con los transectos o tortugas marinas, contacta con:"),
-        "contact_3":
-            MessageLookupByLibrary.simpleMessage("Teléfonos de urgencia"),
+            "Para cualquier duda o incidente relacionado con transectos o tortugas marinas, contacta:"),
+        "contact_3": MessageLookupByLibrary.simpleMessage(
+            "Números de teléfono de emergencia"),
         "contact_4": MessageLookupByLibrary.simpleMessage(
-            "También puedes visitar nuestra página web"),
+            "También puedes visitar nuestro sitio web"),
         "contact_clipboard_email": MessageLookupByLibrary.simpleMessage(
             "Dirección de correo electrónico copiada al portapapeles"),
         "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
             "Número de teléfono copiado al portapapeles"),
         "contact_clipboard_website": MessageLookupByLibrary.simpleMessage(
-            "La URL de la página web copiada al portapapeles"),
+            "URL del sitio web copiada al portapapeles"),
         "contact_error_email": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir la dirección de correo electrónico"),
         "contact_error_phone": MessageLookupByLibrary.simpleMessage(
-            "No puedo abrir el número de teléfono"),
+            "No se puede abrir el número de teléfono"),
         "contact_error_website": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir el sitio web"),
+        "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
+        "delete_account":
+            MessageLookupByLibrary.simpleMessage("Eliminar cuenta"),
+        "delete_account_content": MessageLookupByLibrary.simpleMessage(
+            "¡Esta acción no se puede deshacer! Por favor, cierra sesión e inicia sesión antes de eliminar el usuario."),
+        "delete_all_transects": MessageLookupByLibrary.simpleMessage(
+            "Eliminar todos los transectos"),
+        "delete_all_transects_content": MessageLookupByLibrary.simpleMessage(
+            "Esta acción no se puede deshacer, ¡ten cuidado!"),
+        "download": MessageLookupByLibrary.simpleMessage("Descargar"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
-            "Se ha enviado un correo electrónico, por favor revisa tu correo electrónico."),
+            "Se ha enviado un correo electrónico. Por favor, revisa tu correo."),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
-            "Los correos electrónicos son diferentes."),
+            "Los correos electrónicos son diferentes"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
-        "forgot_password": MessageLookupByLibrary.simpleMessage(
-            "¿Has olvidado tu contraseña?"),
+        "file_saved": MessageLookupByLibrary.simpleMessage("Archivo guardado:"),
+        "filter_clear": MessageLookupByLibrary.simpleMessage("Limpiar filtro"),
+        "filter_hint": MessageLookupByLibrary.simpleMessage(
+            "Ciudad o fecha y hora (AAAA-MM-DDTHH:MM:SS)"),
+        "forgot_password":
+            MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
+        "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
+            "Servicio de GPS en segundo plano deshabilitado"),
+        "gps_service_background_disabled_content":
+            MessageLookupByLibrary.simpleMessage(
+                "Por favor, ve a la configuración de la aplicación (SO) y habilita el servicio de GPS en \'SIEMPRE\' y reinicia la aplicación"),
+        "gps_service_disabled": MessageLookupByLibrary.simpleMessage(
+            "El servicio de GPS está deshabilitado"),
+        "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
+            "Habilita el servicio de GPS y regresa"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
-            "Las prospecciones consisten a hacer recorridos por la playa para detectar posibles rastros de nidificación de tortugas en el periodo comprendido entre el 1 de junio y el 31 de octubre."),
+            "Las encuestas implican realizar patrullajes a lo largo de la playa para detectar posibles rastros de anidación de tortugas durante el período del 1 de junio al 31 de octubre."),
         "how_to_1_2": MessageLookupByLibrary.simpleMessage(
-            "Se recomienda hacer estos recorridos entre las 22:00 h y las 8:00 h del día siguiente, a pesar de que las primeras horas de la noche son las más propicias para que las tortugas salgan a poner los huevos."),
+            "Se recomienda realizar estos patrullajes entre las 22:00 y las 8:00 del día siguiente, aunque las primeras horas de la noche son las más adecuadas para"),
         "how_to_1_title": MessageLookupByLibrary.simpleMessage("Transectos"),
         "how_to_2_1": MessageLookupByLibrary.simpleMessage(
-            "Cuando una tortuga sale del mar hacia la arena de la playa para hacer una puesta, lo hace arrastrándose utilizando las aletas como si fueran patas. Este desplazamiento deja un rastro muy particular en sentido ascendente hacia la playa."),
+            "Cuando una tortuga emerge del mar hacia la playa para anidar, se arrastra usando sus aletas como si fueran patas. Este movimiento deja una huella muy distintiva que asciende hacia la playa."),
         "how_to_2_2": MessageLookupByLibrary.simpleMessage(
-            "Cuando encuentra el lugar idóneo, excava el nido, hace la puesta, la tapa y vuelve hacia el mar, dejando un rastro de las mismas características que el de subida, pero en dirección al mar. A menudo con una raya en medio para arrastrar el tubo por dónde han salido los huevos."),
+            "Cuando encuentra un lugar adecuado, cava el nido, pone los huevos, lo cubre y regresa al mar, dejando una huella con las mismas características que la subida pero en dirección al mar, a menudo con una línea en el medio para arrastrar el tubo por el que han salido los huevos."),
         "how_to_2_3": MessageLookupByLibrary.simpleMessage(
-            "El rastro de subida puede sufrir cambios de dirección en sentido ascendente, motivados por la investigación del lugar idóneo para excavar el nido por parte de la  tortuga. El rastro de bajada es siempre más rectilíneo,directo hacia el mar."),
+            "La huella de ascenso puede cambiar de dirección mientras la tortuga busca un lugar adecuado para cavar el nido. La huella de descenso es siempre más recta, dirigiéndose directamente hacia el mar."),
         "how_to_2_title":
-            MessageLookupByLibrary.simpleMessage("¿Qué buscamos?"),
+            MessageLookupByLibrary.simpleMessage("¿Qué estamos buscando?"),
         "how_to_3_1": MessageLookupByLibrary.simpleMessage(
-            "Más difícil todavía seria encontrarnos, entre agosto y octubre, crías que salen de nidos no detectados y que andan por la arena hacia la playa. Esta es una probabilidad bajísima teniendo en cuenta que eclosionan de noche y por su reducida dimensión."),
+            "Aún más desafiante sería encontrar crías entre agosto y octubre, saliendo de nidos no detectados y caminando sobre la arena hacia la playa. Esto es extremadamente improbable ya que nacen por la noche y son muy pequeñas."),
         "how_to_3_2": MessageLookupByLibrary.simpleMessage(
-            "Si encontramos tortuguitas pequeñas o una tortuga grande viva o muerta fuera del agua, debemos llamar rápidamente al 112"),
-        "how_to_3_title": MessageLookupByLibrary.simpleMessage("Transectos"),
+            "Si encontramos crías pequeñas o una tortuga grande viva o muerta fuera del agua, debemos llamar rápidamente al 112."),
+        "how_to_3_title":
+            MessageLookupByLibrary.simpleMessage("¿Qué estamos buscando?"),
         "how_to_4_1": MessageLookupByLibrary.simpleMessage(
-            "Puedes llevar una linterna o frontal con luz roja aunque raramente es necesaria para pasear; la utilizaremos si no estamos seguros de algo durante el transecto, la luz de la luna acostumbra a ser suficiente. Siempre que sea possible, llevaremos la linterna apagada y andaremos sin hacer ruido. Si no tenemos suficiente luz para observar rastros tendremos que poner la linterna con el brazo estirado hacia el suelo para que la iluminación destaque mejor el relieve de la arena. Nunca tenemos que apuntar al agua con la linterna, puesto que si hubiera una tortuga intentando salir podríamos asustarla."),
+            "Puedes llevar una linterna o un faro con luz roja, aunque rara vez es necesario para caminar. La usaremos si no estamos seguros de algo durante el transecto, pero la luz de la luna suele ser suficiente. Siempre que sea posible, mantén la linterna apagada y camina en silencio. Si no tenemos suficiente luz para observar huellas, tendremos que sostener la linterna con el brazo extendido hacia el suelo para resaltar mejor el relieve de la arena. Nunca debemos apuntar la linterna hacia el agua, ya que podría asustar a una tortuga si hay una tratando de salir."),
         "how_to_4_2": MessageLookupByLibrary.simpleMessage(
-            "Puedes poner un papel de celofán rojo en una linterna o delante de la linterna del móvil."),
+            "Puedes poner papel celofán rojo en una linterna o frente a la linterna del teléfono móvil."),
         "how_to_4_title": MessageLookupByLibrary.simpleMessage("Iluminación"),
         "how_to_5_1": MessageLookupByLibrary.simpleMessage(
-            "We can take advantage of the walk to inform and sensitize the people or groups of people we meet on the beach (athletes, families, fishermen/women with fishing rods, and other individuals) to help us by calling 112 if they witness a nesting or tracks. Always under our own judgment and will."),
+            "Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de personas que encontremos en la playa (deportistas, familias, pescadores y otras personas) para que nos ayuden llamando al 112 si son testigos de una anidación o encuentran huellas. Siempre bajo nuestro criterio y voluntad."),
         "how_to_5_title":
             MessageLookupByLibrary.simpleMessage("Sensibilización"),
         "how_to_6_1": MessageLookupByLibrary.simpleMessage(
-            "Iniciaremos el transecto en una zona de la playa y activamos el botón \"INICIO TRANSECTO\"."),
+            "Comenzaremos el transecto en una zona específica de la playa y activaremos el botón \"COMENZAR TRANSECTO\"."),
         "how_to_6_2": MessageLookupByLibrary.simpleMessage(
-            "Andaremos por la playa, al lado del mar, observando los primeros metros de arena seca ondulada."),
+            "Caminaremos por la playa, junto a la orilla, observando los primeros metros de arena seca ondulante."),
         "how_to_6_title":
-            MessageLookupByLibrary.simpleMessage("Iniciar transecto"),
+            MessageLookupByLibrary.simpleMessage("Comenzar transecto"),
         "how_to_7_1": MessageLookupByLibrary.simpleMessage(
-            "Una vez finalizamos nuestro recorrido, accederemos en el apartado “INICIO  TRANSECTO” y pulsaremos “FINALIZAR TRANSECTO”, que nos llevará una pantalla donde tenemos que rellenar los siguientes campos: Si hemos encontrado la playa labrada por alguna máquina que pueda borrar los rastros. Anotar el número de personas informadas. Anotar observaciones que consideramos interesantes. Y pulsamos enviar."),
+            "Una vez terminemos nuestra ruta, accederemos a la sección \"COMENZAR TRANSECTO\" y presionaremos \"FINALIZAR TRANSECTO\", lo que nos llevará a una pantalla donde debemos completar los siguientes campos: si encontramos la playa arada por una máquina que podría borrar las huellas, registrar el número de personas informadas, anotar observaciones interesantes y presionar enviar."),
         "how_to_7_title":
             MessageLookupByLibrary.simpleMessage("Finalizar transecto"),
         "how_to_8_title":
-            MessageLookupByLibrary.simpleMessage("Hazte voluntario"),
+            MessageLookupByLibrary.simpleMessage("Conviértete en voluntario"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
-            "Instrucciones enviadas por correo electrónico."),
-        "invalid_email": MessageLookupByLibrary.simpleMessage("email inválido"),
+            "Instrucciones enviadas por correo electrónico"),
+        "invalid_email":
+            MessageLookupByLibrary.simpleMessage("Correo electrónico inválido"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
-            "Lee los siguientes documentos legales y marca la casilla para indicar que estar conforme y poder registrarte"),
+            "Por favor, lee los siguientes documentos legales y marca la casilla para indicar que estás de acuerdo y puedes registrarte."),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documentos legales"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
@@ -118,36 +157,73 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "note": MessageLookupByLibrary.simpleMessage("Nota"),
         "note_cancel": MessageLookupByLibrary.simpleMessage(
-            "Si presionas el botón de \'cancelar\' se perderán todos los datos referentes al transecto actual"),
+            "Si presionas el botón \'cancelar\', se perderán todos los datos del transecto actual."),
         "note_go_back": MessageLookupByLibrary.simpleMessage(
-            "Si quieres seguir con el transecto actual debes presionar el botón de arriba a la izquierda para ir atrás"),
+            "Si deseas continuar con el transecto actual, debes presionar el botón en la parte superior izquierda para regresar."),
         "note_send": MessageLookupByLibrary.simpleMessage(
-            "Si presionas el botón de \'enviar\' se enviarán los datos del transecto actual y tendrás que empezar un nuevo transecto."),
+            "Si presionas el botón \'enviar\', se enviarán los datos del transecto actual y tendrás que comenzar un nuevo transecto."),
         "observations": MessageLookupByLibrary.simpleMessage("Observaciones"),
+        "open_map":
+            MessageLookupByLibrary.simpleMessage("Ver transecto en el mapa"),
+        "open_system_settings": MessageLookupByLibrary.simpleMessage(
+            "Abrir configuración del sistema"),
         "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
-        "page_next": MessageLookupByLibrary.simpleMessage("PRÓXIMO"),
+        "page_next": MessageLookupByLibrary.simpleMessage("SIGUIENTE"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Número de personas informadas"),
-        "send": MessageLookupByLibrary.simpleMessage("Send"),
-        "signOut": MessageLookupByLibrary.simpleMessage("Desconectar"),
-        "signup": MessageLookupByLibrary.simpleMessage("Inscribirse"),
+        "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
+        "save": MessageLookupByLibrary.simpleMessage("Guardar"),
+        "save_transect": MessageLookupByLibrary.simpleMessage(
+            "Si continúas, la información se guardará y no se podrá modificar."),
+        "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "settings": MessageLookupByLibrary.simpleMessage("Configuración"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+        "signup": MessageLookupByLibrary.simpleMessage("Registrarse"),
+        "snackbar_error_delete_account": MessageLookupByLibrary.simpleMessage(
+            "Ocurrió un error al intentar eliminar tu cuenta"),
+        "snackbar_error_empty_coordinates": MessageLookupByLibrary.simpleMessage(
+            "No se puede guardar el transecto debido a que las coordenadas están vacías"),
+        "snackbar_error_requires_recent_login":
+            MessageLookupByLibrary.simpleMessage(
+                "Por favor, cierra sesión e inicia sesión antes de eliminar tu cuenta"),
+        "snackbar_error_verify_account": MessageLookupByLibrary.simpleMessage(
+            "Por favor, verifica tu cuenta. Se ha enviado un correo electrónico con instrucciones"),
+        "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
+            "Algo salió mal, por favor inténtalo de nuevo"),
         "start_transect":
-            MessageLookupByLibrary.simpleMessage("Inicia un transecto"),
+            MessageLookupByLibrary.simpleMessage("Comenzar un transecto"),
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Detener un transecto"),
+        "technician": MessageLookupByLibrary.simpleMessage("Técnico"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "transect_administrative_are":
+            MessageLookupByLibrary.simpleMessage("Área administrativa"),
+        "transect_author": MessageLookupByLibrary.simpleMessage("Autor"),
+        "transect_date": MessageLookupByLibrary.simpleMessage("Fecha"),
+        "transect_detail":
+            MessageLookupByLibrary.simpleMessage("Detalle del transecto"),
         "transect_form": MessageLookupByLibrary.simpleMessage(
-            "Rellene los siguientes campos"),
+            "Rellena los siguientes campos"),
+        "transect_locality": MessageLookupByLibrary.simpleMessage("Localidad"),
+        "transect_observations":
+            MessageLookupByLibrary.simpleMessage("Observaciones"),
+        "transect_people_informed":
+            MessageLookupByLibrary.simpleMessage("Personas informadas"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Registros de transectos"),
+        "transect_subadministrative_are":
+            MessageLookupByLibrary.simpleMessage("Subárea administrativa"),
+        "transect_tractor":
+            MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "transects": MessageLookupByLibrary.simpleMessage("Transectos"),
         "user_disabled":
-            MessageLookupByLibrary.simpleMessage("usuario deshabilitado"),
+            MessageLookupByLibrary.simpleMessage("Usuario deshabilitado"),
         "user_not_found":
-            MessageLookupByLibrary.simpleMessage("usuario no encontrado"),
+            MessageLookupByLibrary.simpleMessage("Usuario no encontrado"),
         "wrong_password":
-            MessageLookupByLibrary.simpleMessage("contraseña incorrecta"),
+            MessageLookupByLibrary.simpleMessage("Contraseña incorrecta"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?")
       };
