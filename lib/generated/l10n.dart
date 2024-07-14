@@ -230,6 +230,16 @@ class S {
     );
   }
 
+  /// `An email has been sent, please check your email.`
+  String get email_sent {
+    return Intl.message(
+      'An email has been sent, please check your email.',
+      name: 'email_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The emails are different`
   String get emails_are_different {
     return Intl.message(
@@ -755,6 +765,426 @@ class S {
     return Intl.message(
       'Already have an account?',
       name: 'yes_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GPS services is disabled`
+  String get gps_service_disabled {
+    return Intl.message(
+      'GPS services is disabled',
+      name: 'gps_service_disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable GPS service and go back`
+  String get gps_services_enable_gps {
+    return Intl.message(
+      'Enable GPS service and go back',
+      name: 'gps_services_enable_gps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enable GPS service and go back`
+  String get add_new_geopoint {
+    return Intl.message(
+      'Enable GPS service and go back',
+      name: 'add_new_geopoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Someting went wrong, please try again`
+  String get something_wrong_try_again {
+    return Intl.message(
+      'Someting went wrong, please try again',
+      name: 'something_wrong_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Running in Background`
+  String get app_background_notification_title {
+    return Intl.message(
+      'Running in Background',
+      name: 'app_background_notification_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transecte app will continue to receive your location even when you aren't using it`
+  String get app_background_notification_text {
+    return Intl.message(
+      'Transecte app will continue to receive your location even when you aren\'t using it',
+      name: 'app_background_notification_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GPS background service disabled`
+  String get gps_service_background_disabled {
+    return Intl.message(
+      'GPS background service disabled',
+      name: 'gps_service_background_disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please go to app settings (OS) an enable GPS service to: 'ALWAYS' and relaunch the app`
+  String get gps_service_background_disabled_content {
+    return Intl.message(
+      'Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app',
+      name: 'gps_service_background_disabled_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Technician`
+  String get technician {
+    return Intl.message(
+      'Technician',
+      name: 'technician',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open system settings`
+  String get open_system_settings {
+    return Intl.message(
+      'Open system settings',
+      name: 'open_system_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete account`
+  String get delete_account {
+    return Intl.message(
+      'Delete account',
+      name: 'delete_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tis action cannot be undone!!! Please logout and login before deleting user`
+  String get delete_account_content {
+    return Intl.message(
+      'Tis action cannot be undone!!! Please logout and login before deleting user',
+      name: 'delete_account_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you continue, the information will be lost and cannot be recovered.`
+  String get cancel_transect {
+    return Intl.message(
+      'If you continue, the information will be lost and cannot be recovered.',
+      name: 'cancel_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you continue, the information will be saved and cannot be modified.`
+  String get save_transect {
+    return Intl.message(
+      'If you continue, the information will be saved and cannot be modified.',
+      name: 'save_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove all transects`
+  String get delete_all_transects {
+    return Intl.message(
+      'Remove all transects',
+      name: 'delete_all_transects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This action cannot be undone, be careful!`
+  String get delete_all_transects_content {
+    return Intl.message(
+      'This action cannot be undone, be careful!',
+      name: 'delete_all_transects_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new marks`
+  String get add_new_marks {
+    return Intl.message(
+      'Add new marks',
+      name: 'add_new_marks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City or datetime (YYYY-MM-DDTHH:MM:SS)`
+  String get filter_hint {
+    return Intl.message(
+      'City or datetime (YYYY-MM-DDTHH:MM:SS)',
+      name: 'filter_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear filter`
+  String get filter_clear {
+    return Intl.message(
+      'Clear filter',
+      name: 'filter_clear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accept`
+  String get accept {
+    return Intl.message(
+      'Accept',
+      name: 'accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transect detail`
+  String get transect_detail {
+    return Intl.message(
+      'Transect detail',
+      name: 'transect_detail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Author`
+  String get transect_author {
+    return Intl.message(
+      'Author',
+      name: 'transect_author',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get transect_date {
+    return Intl.message(
+      'Date',
+      name: 'transect_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Administrative area`
+  String get transect_administrative_are {
+    return Intl.message(
+      'Administrative area',
+      name: 'transect_administrative_are',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subadministrative area`
+  String get transect_subadministrative_are {
+    return Intl.message(
+      'Subadministrative area',
+      name: 'transect_subadministrative_are',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Locality`
+  String get transect_locality {
+    return Intl.message(
+      'Locality',
+      name: 'transect_locality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `People informed`
+  String get transect_people_informed {
+    return Intl.message(
+      'People informed',
+      name: 'transect_people_informed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Has the tractor passed?`
+  String get transect_tractor {
+    return Intl.message(
+      'Has the tractor passed?',
+      name: 'transect_tractor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Observations`
+  String get transect_observations {
+    return Intl.message(
+      'Observations',
+      name: 'transect_observations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filed saved:`
+  String get file_saved {
+    return Intl.message(
+      'Filed saved:',
+      name: 'file_saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transect cannot be safe due to coordinates is empty`
+  String get snackbar_error_empty_coordinates {
+    return Intl.message(
+      'Transect cannot be safe due to coordinates is empty',
+      name: 'snackbar_error_empty_coordinates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while trying to delete your account`
+  String get snackbar_error_delete_account {
+    return Intl.message(
+      'An error occurred while trying to delete your account',
+      name: 'snackbar_error_delete_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please logout and login before deleting your account`
+  String get snackbar_error_requires_recent_login {
+    return Intl.message(
+      'Please logout and login before deleting your account',
+      name: 'snackbar_error_requires_recent_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pls verify your account. An email with instructions has been send`
+  String get snackbar_error_verify_account {
+    return Intl.message(
+      'Pls verify your account. An email with instructions has been send',
+      name: 'snackbar_error_verify_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See transect on map`
+  String get open_map {
+    return Intl.message(
+      'See transect on map',
+      name: 'open_map',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transects`
+  String get transects {
+    return Intl.message(
+      'Transects',
+      name: 'transects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All Transects`
+  String get all_transects {
+    return Intl.message(
+      'All Transects',
+      name: 'all_transects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Download`
+  String get download {
+    return Intl.message(
+      'Download',
+      name: 'download',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove`
+  String get remove {
+    return Intl.message(
+      'Remove',
+      name: 'remove',
       desc: '',
       args: [],
     );

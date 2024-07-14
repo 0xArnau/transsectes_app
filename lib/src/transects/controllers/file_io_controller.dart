@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:csv/csv.dart';
 import 'package:document_file_save_plus/document_file_save_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/utils/custom_snackbar.dart';
 
@@ -67,7 +68,7 @@ class FileIOController {
           fileName,
           "text/csv",
         )
-        .then((_) => CustomSnackbar.info(context, "File saved: $fileName "))
+        .then((_) => CustomSnackbar.info(context, "${S.current.file_saved} $fileName "))
         .onError(
             (error, stackTrace) => CustomSnackbar.error(context, "$error"));
   }

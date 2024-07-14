@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
@@ -22,7 +23,7 @@ class _GeolocationViewState extends State<GeolocationView> {
     Logger().d("GeolocationView");
     return customScaffold(
       context: context,
-      title: 'Add a new geo point',
+      title: S.current.add_new_geopoint,
       body: BlocBuilder<GeolocationBloc, GeolocationState>(
         builder: (context, state) {
           if (state is GeolocationLoaded) {
@@ -57,7 +58,7 @@ class _GeolocationViewState extends State<GeolocationView> {
                         });
                       },
                       icon: Icon(Icons.plus_one),
-                      label: Text("Add a new geopoint"),
+                      label: Text(S.current.add_new_geopoint),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: kColorTitle,
                         surfaceTintColor: kColorTitle,
@@ -77,7 +78,7 @@ class _GeolocationViewState extends State<GeolocationView> {
             );
           }
 
-          return Center(child: Text("Someting went wrong"));
+          return Center(child: Text(S.current.something_wrong_try_again));
         },
       ),
     );

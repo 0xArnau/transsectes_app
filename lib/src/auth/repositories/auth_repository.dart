@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/custom_snackbar.dart';
 
 class AuthRepository {
@@ -86,8 +87,7 @@ class AuthRepository {
       if (!isEmailVerified()) {
         await FirebaseAuth.instance.currentUser!.sendEmailVerification();
 
-        CustomSnackbar.info(context,
-            'Pls verify your account. An email with instructions has been send');
+        CustomSnackbar.info(context, S.current.snackbar_error_verify_account);
       }
     } catch (e) {
       Logger().d(e.toString());
@@ -110,12 +110,12 @@ class AuthRepository {
         // Manejo específico para la excepción 'requires-recent-login'
         Logger().d('Requires recent login');
         CustomSnackbar.error(
-            context, 'Please logout and login before deleting your account');
+            context, S.current.snackbar_error_requires_recent_login);
       } else {
         // Captura de otras excepciones
         Logger().d(e.toString());
         CustomSnackbar.error(
-            context, 'An error occurred while trying to delete your account');
+            context, S.current.snackbar_error_delete_account);
       }
     }
   }

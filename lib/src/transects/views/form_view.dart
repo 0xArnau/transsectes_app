@@ -112,9 +112,8 @@ class _FormViewState extends State<FormView> {
                                 context: context,
                                 builder: (BuildContext _) =>
                                     CustomAlertDialogWidget(
-                                  content:
-                                      'If you continue, the information will be lost and cannot be recovered.',
-                                  primaryText: 'Delete',
+                                  content: S.current.cancel_transect,
+                                  primaryText: S.current.delete,
                                   primaryFunction: () {
                                     context
                                         .read<TransectBloc>()
@@ -142,9 +141,8 @@ class _FormViewState extends State<FormView> {
                                     context: context,
                                     builder: (BuildContext _) =>
                                         CustomAlertDialogWidget(
-                                      content:
-                                          'If you continue, the information will be saved and cannot be modified.',
-                                      primaryText: 'Save',
+                                      content: S.current.save_transect,
+                                      primaryText: S.current.save,
                                       primaryFunction: () {
                                         context
                                             .read<TransectBloc>()
@@ -161,7 +159,7 @@ class _FormViewState extends State<FormView> {
                                             .add(ResetGeolocation());
                                         context.pop();
                                       },
-                                      secondaryText: 'Cancel',
+                                      secondaryText: S.current.cancel,
                                       secondaryFunction: () {},
                                     ),
                                   );

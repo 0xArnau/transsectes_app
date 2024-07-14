@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
@@ -103,8 +104,7 @@ class TransectBloc extends Bloc<TransectEvent, TransectState> {
       // }
 
       if (transect.coordinates.isEmpty) {
-        CustomSnackbar.error(event.context,
-            "Error: data cannot be safe due to coordinates is empty");
+        CustomSnackbar.error(event.context, S.current.snackbar_error_empty_coordinates);
       } else {
         _transectRepository.addTransect(transect);
       }

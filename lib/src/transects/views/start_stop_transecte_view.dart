@@ -61,7 +61,7 @@ class _StartStopTransecteViewState extends State<StartStopTransecteView> {
                       'assets/imgs/icons/start.png',
                       MediaQuery.of(context).size.width / 2,
                       state is TransectStarted
-                          ? "Add new marks"
+                          ? S.current.add_new_marks
                           : S.current.start_transect,
                       () {
                         if (state is! TransectStarted) {

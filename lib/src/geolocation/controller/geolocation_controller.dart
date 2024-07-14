@@ -6,6 +6,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class GeolocationController {
   static final GeolocationController _instance =
@@ -33,10 +34,9 @@ class GeolocationController {
           intervalDuration: const Duration(seconds: 10),
           //(Optional) Set foreground notification config to keep the app alive
           //when going to the background
-          foregroundNotificationConfig: const ForegroundNotificationConfig(
-            notificationText:
-                "Example app will continue to receive your location even when you aren't using it",
-            notificationTitle: "Running in Background",
+          foregroundNotificationConfig: ForegroundNotificationConfig(
+            notificationText: S.current.app_background_notification_text,
+            notificationTitle: S.current.app_background_notification_title,
             enableWakeLock: true,
           ));
     } else if (defaultTargetPlatform == TargetPlatform.iOS ||

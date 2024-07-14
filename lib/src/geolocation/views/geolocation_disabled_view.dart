@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 
+import '../../../generated/l10n.dart';
+
 class GeolocationDisabledView extends StatelessWidget {
   const GeolocationDisabledView({super.key});
 
@@ -10,9 +12,9 @@ class GeolocationDisabledView extends StatelessWidget {
   Widget build(BuildContext context) {
     return customScaffold(
       context: context,
-      title: 'GPS services is disabled',
-      body: const Center(
-        child: Text("Enable GPS service and go back"),
+      title: S.current.gps_service_disabled,
+      body: Center(
+        child: Text(S.current.gps_services_enable_gps),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
@@ -54,43 +55,43 @@ class _TransectViewState extends State<TransectView> {
         ),
       ],
       context: context,
-      title: "Transect detail",
+      title: S.current.transect_detail,
       body: Center(
         child: ListView(
           children: [
             _ListTile(
-              title: "Date",
+              title: S.current.transect_date,
               value: widget.transect.createdAt.toDate().toIso8601String(),
             ),
             _ListTile(
-              title: "Author",
+              title: S.current.transect_author,
               value: widget.transect.createdBy,
             ),
             _ListTileGeo(
-              title: "Administrative Area",
+              title: S.current.transect_administrative_are,
               value1: widget.transect.administrativeAreaFirst,
               value2: widget.transect.administrativeAreaLast,
             ),
             _ListTileGeo(
-              title: "Subadministrative Area",
+              title: S.current.transect_subadministrative_are,
               value1: widget.transect.subAdministrativeAreaFirst,
               value2: widget.transect.subAdministrativeAreaLast,
             ),
             _ListTileGeo(
-              title: "Locality",
+              title: S.current.transect_locality,
               value1: widget.transect.localityFirst,
               value2: widget.transect.localityLast,
             ),
             _ListTile(
-              title: "Number of people informed",
+              title: S.current.transect_people_informed,
               value: widget.transect.informedPeople.toString(),
             ),
             _ListTile(
-              title: "Has the tractor passed?",
+              title: S.current.transect_tractor,
               value: widget.transect.tractor.toString(),
             ),
             _ListTile(
-              title: "Observations",
+              title: S.current.transect_observations,
               value: widget.transect.observations,
             ),
             _openMap(
@@ -164,9 +165,7 @@ class _TransectViewState extends State<TransectView> {
           );
         },
         icon: const Icon(Icons.map),
-        label: const Text(
-          "See transect on map",
-        ),
+        label: Text(S.current.open_map),
         style: ElevatedButton.styleFrom(
           foregroundColor: kColorTitle,
           surfaceTintColor: kColorTitle,

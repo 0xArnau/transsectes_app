@@ -22,7 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+        "add_new_geopoint": MessageLookupByLibrary.simpleMessage(
+            "Enable GPS service and go back"),
+        "add_new_marks": MessageLookupByLibrary.simpleMessage("Add new marks"),
+        "all_transects": MessageLookupByLibrary.simpleMessage("All Transects"),
+        "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
+            "Transecte app will continue to receive your location even when you aren\'t using it"),
+        "app_background_notification_title":
+            MessageLookupByLibrary.simpleMessage("Running in Background"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cancel_transect": MessageLookupByLibrary.simpleMessage(
+            "If you continue, the information will be lost and cannot be recovered."),
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
             "You cannot start a transect until you finish the current one."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
@@ -53,13 +64,38 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cannot open the phone number"),
         "contact_error_website":
             MessageLookupByLibrary.simpleMessage("Cannot open the website"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "delete_account":
+            MessageLookupByLibrary.simpleMessage("Delete account"),
+        "delete_account_content": MessageLookupByLibrary.simpleMessage(
+            "Tis action cannot be undone!!! Please logout and login before deleting user"),
+        "delete_all_transects":
+            MessageLookupByLibrary.simpleMessage("Remove all transects"),
+        "delete_all_transects_content": MessageLookupByLibrary.simpleMessage(
+            "This action cannot be undone, be careful!"),
+        "download": MessageLookupByLibrary.simpleMessage("Download"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_sent": MessageLookupByLibrary.simpleMessage(
+            "An email has been sent, please check your email."),
         "emails_are_different":
             MessageLookupByLibrary.simpleMessage("The emails are different"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("There are empty fields"),
+        "file_saved": MessageLookupByLibrary.simpleMessage("Filed saved:"),
+        "filter_clear": MessageLookupByLibrary.simpleMessage("Clear filter"),
+        "filter_hint": MessageLookupByLibrary.simpleMessage(
+            "City or datetime (YYYY-MM-DDTHH:MM:SS)"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
+            "GPS background service disabled"),
+        "gps_service_background_disabled_content":
+            MessageLookupByLibrary.simpleMessage(
+                "Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app"),
+        "gps_service_disabled":
+            MessageLookupByLibrary.simpleMessage("GPS services is disabled"),
+        "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
+            "Enable GPS service and go back"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
@@ -121,24 +157,61 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_send": MessageLookupByLibrary.simpleMessage(
             "If you press the \'send\' button the data for the current transect will be sent and you will have to start a new transect."),
         "observations": MessageLookupByLibrary.simpleMessage("Observations"),
+        "open_map": MessageLookupByLibrary.simpleMessage("See transect on map"),
+        "open_system_settings":
+            MessageLookupByLibrary.simpleMessage("Open system settings"),
         "page_back": MessageLookupByLibrary.simpleMessage("PREVIOUS"),
         "page_next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "people_informed":
             MessageLookupByLibrary.simpleMessage("Number of people informed"),
+        "remove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "save_transect": MessageLookupByLibrary.simpleMessage(
+            "If you continue, the information will be saved and cannot be modified."),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "snackbar_error_delete_account": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while trying to delete your account"),
+        "snackbar_error_empty_coordinates":
+            MessageLookupByLibrary.simpleMessage(
+                "Transect cannot be safe due to coordinates is empty"),
+        "snackbar_error_requires_recent_login":
+            MessageLookupByLibrary.simpleMessage(
+                "Please logout and login before deleting your account"),
+        "snackbar_error_verify_account": MessageLookupByLibrary.simpleMessage(
+            "Pls verify your account. An email with instructions has been send"),
+        "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
+            "Someting went wrong, please try again"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Stop a transect"),
+        "technician": MessageLookupByLibrary.simpleMessage("Technician"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
+        "transect_administrative_are":
+            MessageLookupByLibrary.simpleMessage("Administrative area"),
+        "transect_author": MessageLookupByLibrary.simpleMessage("Author"),
+        "transect_date": MessageLookupByLibrary.simpleMessage("Date"),
+        "transect_detail":
+            MessageLookupByLibrary.simpleMessage("Transect detail"),
         "transect_form": MessageLookupByLibrary.simpleMessage(
             "Fill in the following fields"),
+        "transect_locality": MessageLookupByLibrary.simpleMessage("Locality"),
+        "transect_observations":
+            MessageLookupByLibrary.simpleMessage("Observations"),
+        "transect_people_informed":
+            MessageLookupByLibrary.simpleMessage("People informed"),
         "transect_records":
             MessageLookupByLibrary.simpleMessage("Transect records"),
+        "transect_subadministrative_are":
+            MessageLookupByLibrary.simpleMessage("Subadministrative area"),
+        "transect_tractor":
+            MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
+        "transects": MessageLookupByLibrary.simpleMessage("Transects"),
         "user_disabled": MessageLookupByLibrary.simpleMessage("user disabled"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("user not found"),

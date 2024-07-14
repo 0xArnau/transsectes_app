@@ -75,21 +75,21 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
     List<Widget> pages;
     if (technician) {
       navigation = [
-        const NavigationDestination(
-          icon: Icon(Icons.person),
-          label: "Transects",
+        NavigationDestination(
+          icon: const Icon(Icons.person),
+          label: S.current.transects,
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.people),
-          label: "All transects",
+        NavigationDestination(
+          icon: const Icon(Icons.people),
+          label: S.current.all_transects,
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.download),
-          label: "Download",
+        NavigationDestination(
+          icon: const Icon(Icons.download),
+          label: S.current.download,
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.highlight_remove),
-          label: "Remove",
+        NavigationDestination(
+          icon: const Icon(Icons.highlight_remove),
+          label: S.current.remove,
         )
       ];
 
@@ -171,7 +171,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                                     ),
                                     filled: true,
                                     fillColor: Colors.white,
-                                    hintText: 'Ciutat o Data (YYYY-MM-DD) ...',
+                                    hintText: S.current.filter_hint,
                                     hintStyle: const TextStyle(
                                         fontSize:
                                             16.0), // Ajusta el tamaño de fuente del texto de hint
@@ -197,7 +197,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                                       style: TextButton.styleFrom(
                                         foregroundColor: kColorTitle,
                                       ),
-                                      child: const Text('Clear'),
+                                      child: Text(S.current.filter_clear),
                                       onPressed: () {
                                         setState(() {
                                           filter.clear();
@@ -209,7 +209,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                                       style: TextButton.styleFrom(
                                         foregroundColor: kColorTitle,
                                       ),
-                                      child: const Text('Accept'),
+                                      child: Text(S.current.accept),
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },

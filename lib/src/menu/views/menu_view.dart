@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
@@ -69,8 +70,8 @@ class _MenuViewState extends State<MenuView> {
                     ),
                   ),
                   if (technician)
-                    const Center(
-                      child: Text("Technician"),
+                    Center(
+                      child: Text(S.current.technician),
                     ),
                   Center(
                     child: BlocConsumer<AuthBloc, AuthState>(
@@ -158,7 +159,7 @@ class _MenuViewState extends State<MenuView> {
                   Center(
                     child: ListTile(
                       leading: const Icon(Icons.open_in_new),
-                      title: const Text("Open app settings (OS)"),
+                      title: Text(S.current.open_system_settings),
                       onTap: () {
                         openAppSettings();
                       },
@@ -167,22 +168,21 @@ class _MenuViewState extends State<MenuView> {
                   Center(
                     child: ListTile(
                       leading: const Icon(Icons.logout),
-                      title: const Text("Delete account"),
+                      title: Text(S.current.delete_account),
                       onTap: () async {
                         await showDialog<String>(
                           context: context,
                           builder: (BuildContext context) {
                             return CustomAlertDialogWidget(
-                              title: 'Remove account',
-                              content:
-                                  'Tis action cannot be undone!!! Please logout and login before deleting user',
+                              title: S.current.delete_account,
+                              content: S.current.delete_account_content,
                               primaryText: 'Delete',
                               primaryFunction: () {
                                 Logger().d("onPressedAccept");
                                 AuthRepository()
                                     .deleteUserAccountAndInformation(context);
                               },
-                              secondaryText: 'Cancel',
+                              secondaryText: S.current.cancel,
                               secondaryFunction: () {},
                             );
                           },

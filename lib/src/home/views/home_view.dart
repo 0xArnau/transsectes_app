@@ -69,12 +69,11 @@ class _HomeViewState extends State<HomeView> {
                               context: context,
                               builder: (BuildContext _) {
                                 return CustomAlertDialogWidget(
-                                  title: "GPS background service disabled",
-                                  content:
-                                      'Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app',
-                                  primaryText: 'Settings',
+                                  title: S.current.gps_service_background_disabled,
+                                  content: S.current.gps_service_background_disabled_content,
+                                  primaryText: S.current.settings,
                                   primaryFunction: () => openAppSettings(),
-                                  secondaryText: 'Cancel',
+                                  secondaryText: S.current.cancel,
                                   secondaryFunction: () {},
                                 );
                               },

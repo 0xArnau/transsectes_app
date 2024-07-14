@@ -55,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_error_website": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir el sitio web"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "email_sent": MessageLookupByLibrary.simpleMessage(
+            "Se ha enviado un correo electrónico, por favor revisa tu correo electrónico."),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Los correos electrónicos son diferentes."),
         "empty_fields":
