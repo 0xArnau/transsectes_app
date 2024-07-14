@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `You can't stop a transect, there isn't one that's started`
+  /// `You can't stop a transect, there isn't one that's started.`
   String get cannot_stop_transect {
     return Intl.message(
-      'You can\'t stop a transect, there isn\'t one that\'s started',
+      'You can\'t stop a transect, there isn\'t one that\'s started.',
       name: 'cannot_stop_transect',
       desc: '',
       args: [],
@@ -180,10 +180,10 @@ class S {
     );
   }
 
-  /// `The Website URL copied to clipboard`
+  /// `Website URL copied to clipboard`
   String get contact_clipboard_website {
     return Intl.message(
-      'The Website URL copied to clipboard',
+      'Website URL copied to clipboard',
       name: 'contact_clipboard_website',
       desc: '',
       args: [],
@@ -230,10 +230,10 @@ class S {
     );
   }
 
-  /// `An email has been sent, please check your email.`
+  /// `An email has been sent. Please check your email.`
   String get email_sent {
     return Intl.message(
-      'An email has been sent, please check your email.',
+      'An email has been sent. Please check your email.',
       name: 'email_sent',
       desc: '',
       args: [],
@@ -290,10 +290,10 @@ class S {
     );
   }
 
-  /// `It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for`
+  /// `It is recommended to carry out these patrols between 22:00 and 8:00 the following day, although the early hours of the night are the most suitable for`
   String get how_to_1_2 {
     return Intl.message(
-      'It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for',
+      'It is recommended to carry out these patrols between 22:00 and 8:00 the following day, although the early hours of the night are the most suitable for',
       name: 'how_to_1_2',
       desc: '',
       args: [],
@@ -320,20 +320,20 @@ class S {
     );
   }
 
-  /// `When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out.`
+  /// `When it finds a suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea, often with a line in the middle to drag the tube through which the eggs have come out.`
   String get how_to_2_2 {
     return Intl.message(
-      'When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out.',
+      'When it finds a suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea, often with a line in the middle to drag the tube through which the eggs have come out.',
       name: 'how_to_2_2',
       desc: '',
       args: [],
     );
   }
 
-  /// `The ascent track may undergo changes in direction ascending, motivated by the turtle's search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea.`
+  /// `The ascent track may change direction as the turtle searches for a suitable place to dig the nest. The descent track is always more straight, heading directly towards the sea.`
   String get how_to_2_3 {
     return Intl.message(
-      'The ascent track may undergo changes in direction ascending, motivated by the turtle\'s search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea.',
+      'The ascent track may change direction as the turtle searches for a suitable place to dig the nest. The descent track is always more straight, heading directly towards the sea.',
       name: 'how_to_2_3',
       desc: '',
       args: [],
@@ -350,20 +350,20 @@ class S {
     );
   }
 
-  /// `Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size.`
+  /// `Even more challenging would be to encounter hatchlings between August and October, emerging from undetected nests and walking on the sand towards the beach. This is extremely unlikely as they hatch at night and are very small.`
   String get how_to_3_1 {
     return Intl.message(
-      'Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size.',
+      'Even more challenging would be to encounter hatchlings between August and October, emerging from undetected nests and walking on the sand towards the beach. This is extremely unlikely as they hatch at night and are very small.',
       name: 'how_to_3_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112`
+  /// `If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112.`
   String get how_to_3_2 {
     return Intl.message(
-      'If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112',
+      'If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112.',
       name: 'how_to_3_2',
       desc: '',
       args: [],
@@ -380,10 +380,10 @@ class S {
     );
   }
 
-  /// `You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.`
+  /// `You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking. We will use it if we are unsure about something during the transect, but moonlight is usually sufficient. Whenever possible, keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will hold the flashlight with our arm extended towards the ground to highlight the sand relief better. Never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.`
   String get how_to_4_1 {
     return Intl.message(
-      'You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.',
+      'You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking. We will use it if we are unsure about something during the transect, but moonlight is usually sufficient. Whenever possible, keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will hold the flashlight with our arm extended towards the ground to highlight the sand relief better. Never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out.',
       name: 'how_to_4_1',
       desc: '',
       args: [],
@@ -400,20 +400,20 @@ class S {
     );
   }
 
-  /// `Lightning`
+  /// `Lighting`
   String get how_to_4_title {
     return Intl.message(
-      'Lightning',
+      'Lighting',
       name: 'how_to_4_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.`
+  /// `We can take advantage of the walk to inform and raise awareness among people or groups we encounter on the beach (athletes, families, anglers, and others) to help us by calling 112 if they witness a nesting or find tracks. Always at our discretion and willingness.`
   String get how_to_5_1 {
     return Intl.message(
-      'Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad.',
+      'We can take advantage of the walk to inform and raise awareness among people or groups we encounter on the beach (athletes, families, anglers, and others) to help us by calling 112 if they witness a nesting or find tracks. Always at our discretion and willingness.',
       name: 'how_to_5_1',
       desc: '',
       args: [],
@@ -460,10 +460,10 @@ class S {
     );
   }
 
-  /// `Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.`
+  /// `Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: if we found the beach plowed by a machine that could erase the tracks, record the number of people informed, note interesting observations, and press send.`
   String get how_to_7_1 {
     return Intl.message(
-      'Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send.',
+      'Once we finish our route, we will access the section "START TRANSECT" and press "FINISH TRANSECT," which will take us to a screen where we must fill in the following fields: if we found the beach plowed by a machine that could erase the tracks, record the number of people informed, note interesting observations, and press send.',
       name: 'how_to_7_1',
       desc: '',
       args: [],
@@ -510,10 +510,10 @@ class S {
     );
   }
 
-  /// `invalid email`
+  /// `Invalid email`
   String get invalid_email {
     return Intl.message(
-      'invalid email',
+      'Invalid email',
       name: 'invalid_email',
       desc: '',
       args: [],
@@ -570,30 +570,30 @@ class S {
     );
   }
 
-  /// `If you press the 'cancel' button, all data regarding the current transect will be lost`
+  /// `If you press the 'cancel' button, all data regarding the current transect will be lost.`
   String get note_cancel {
     return Intl.message(
-      'If you press the \'cancel\' button, all data regarding the current transect will be lost',
+      'If you press the \'cancel\' button, all data regarding the current transect will be lost.',
       name: 'note_cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `If you want to continue with the current transect you must press the button at the top left to go back`
+  /// `If you want to continue with the current transect, you must press the button at the top left to go back.`
   String get note_go_back {
     return Intl.message(
-      'If you want to continue with the current transect you must press the button at the top left to go back',
+      'If you want to continue with the current transect, you must press the button at the top left to go back.',
       name: 'note_go_back',
       desc: '',
       args: [],
     );
   }
 
-  /// `If you press the 'send' button the data for the current transect will be sent and you will have to start a new transect.`
+  /// `If you press the 'send' button, the data for the current transect will be sent, and you will have to start a new transect.`
   String get note_send {
     return Intl.message(
-      'If you press the \'send\' button the data for the current transect will be sent and you will have to start a new transect.',
+      'If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect.',
       name: 'note_send',
       desc: '',
       args: [],
@@ -650,10 +650,10 @@ class S {
     );
   }
 
-  /// `Enviar`
+  /// `Send`
   String get send {
     return Intl.message(
-      'Enviar',
+      'Send',
       name: 'send',
       desc: '',
       args: [],
@@ -730,30 +730,30 @@ class S {
     );
   }
 
-  /// `user disabled`
+  /// `User disabled`
   String get user_disabled {
     return Intl.message(
-      'user disabled',
+      'User disabled',
       name: 'user_disabled',
       desc: '',
       args: [],
     );
   }
 
-  /// `user not found`
+  /// `User not found`
   String get user_not_found {
     return Intl.message(
-      'user not found',
+      'User not found',
       name: 'user_not_found',
       desc: '',
       args: [],
     );
   }
 
-  /// `wrong password`
+  /// `Wrong password`
   String get wrong_password {
     return Intl.message(
-      'wrong password',
+      'Wrong password',
       name: 'wrong_password',
       desc: '',
       args: [],
@@ -770,10 +770,10 @@ class S {
     );
   }
 
-  /// `GPS services is disabled`
+  /// `GPS service is disabled`
   String get gps_service_disabled {
     return Intl.message(
-      'GPS services is disabled',
+      'GPS service is disabled',
       name: 'gps_service_disabled',
       desc: '',
       args: [],
@@ -790,20 +790,20 @@ class S {
     );
   }
 
-  /// `Enable GPS service and go back`
+  /// `Add new geopoint`
   String get add_new_geopoint {
     return Intl.message(
-      'Enable GPS service and go back',
+      'Add new geopoint',
       name: 'add_new_geopoint',
       desc: '',
       args: [],
     );
   }
 
-  /// `Someting went wrong, please try again`
+  /// `Something went wrong, please try again`
   String get something_wrong_try_again {
     return Intl.message(
-      'Someting went wrong, please try again',
+      'Something went wrong, please try again',
       name: 'something_wrong_try_again',
       desc: '',
       args: [],
@@ -820,10 +820,10 @@ class S {
     );
   }
 
-  /// `Transecte app will continue to receive your location even when you aren't using it`
+  /// `Transect app will continue to receive your location even when you aren't using it`
   String get app_background_notification_text {
     return Intl.message(
-      'Transecte app will continue to receive your location even when you aren\'t using it',
+      'Transect app will continue to receive your location even when you aren\'t using it',
       name: 'app_background_notification_text',
       desc: '',
       args: [],
@@ -840,10 +840,10 @@ class S {
     );
   }
 
-  /// `Please go to app settings (OS) an enable GPS service to: 'ALWAYS' and relaunch the app`
+  /// `Please go to app settings (OS) and enable GPS service to 'ALWAYS' and relaunch the app`
   String get gps_service_background_disabled_content {
     return Intl.message(
-      'Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app',
+      'Please go to app settings (OS) and enable GPS service to \'ALWAYS\' and relaunch the app',
       name: 'gps_service_background_disabled_content',
       desc: '',
       args: [],
@@ -890,10 +890,10 @@ class S {
     );
   }
 
-  /// `Tis action cannot be undone!!! Please logout and login before deleting user`
+  /// `This action cannot be undone! Please log out and log in before deleting the user.`
   String get delete_account_content {
     return Intl.message(
-      'Tis action cannot be undone!!! Please logout and login before deleting user',
+      'This action cannot be undone! Please log out and log in before deleting the user.',
       name: 'delete_account_content',
       desc: '',
       args: [],
@@ -1090,20 +1090,20 @@ class S {
     );
   }
 
-  /// `Filed saved:`
+  /// `File saved:`
   String get file_saved {
     return Intl.message(
-      'Filed saved:',
+      'File saved:',
       name: 'file_saved',
       desc: '',
       args: [],
     );
   }
 
-  /// `Transect cannot be safe due to coordinates is empty`
+  /// `Transect cannot be saved because coordinates are empty`
   String get snackbar_error_empty_coordinates {
     return Intl.message(
-      'Transect cannot be safe due to coordinates is empty',
+      'Transect cannot be saved because coordinates are empty',
       name: 'snackbar_error_empty_coordinates',
       desc: '',
       args: [],
@@ -1120,20 +1120,20 @@ class S {
     );
   }
 
-  /// `Please logout and login before deleting your account`
+  /// `Please log out and log in before deleting your account`
   String get snackbar_error_requires_recent_login {
     return Intl.message(
-      'Please logout and login before deleting your account',
+      'Please log out and log in before deleting your account',
       name: 'snackbar_error_requires_recent_login',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pls verify your account. An email with instructions has been send`
+  /// `Please verify your account. An email with instructions has been sent`
   String get snackbar_error_verify_account {
     return Intl.message(
-      'Pls verify your account. An email with instructions has been send',
+      'Please verify your account. An email with instructions has been sent',
       name: 'snackbar_error_verify_account',
       desc: '',
       args: [],

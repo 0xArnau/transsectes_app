@@ -23,12 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
-        "add_new_geopoint": MessageLookupByLibrary.simpleMessage(
-            "Enable GPS service and go back"),
+        "add_new_geopoint":
+            MessageLookupByLibrary.simpleMessage("Add new geopoint"),
         "add_new_marks": MessageLookupByLibrary.simpleMessage("Add new marks"),
         "all_transects": MessageLookupByLibrary.simpleMessage("All Transects"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
-            "Transecte app will continue to receive your location even when you aren\'t using it"),
+            "Transect app will continue to receive your location even when you aren\'t using it"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Running in Background"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -37,7 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
             "You cannot start a transect until you finish the current one."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
-            "You can\'t stop a transect, there isn\'t one that\'s started"),
+            "You can\'t stop a transect, there isn\'t one that\'s started."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "confirm_email": MessageLookupByLibrary.simpleMessage("Confirm email"),
@@ -57,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_clipboard_phone": MessageLookupByLibrary.simpleMessage(
             "Phone number copied to clipboard"),
         "contact_clipboard_website": MessageLookupByLibrary.simpleMessage(
-            "The Website URL copied to clipboard"),
+            "Website URL copied to clipboard"),
         "contact_error_email": MessageLookupByLibrary.simpleMessage(
             "Cannot open the email address"),
         "contact_error_phone": MessageLookupByLibrary.simpleMessage(
@@ -68,7 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
         "delete_account_content": MessageLookupByLibrary.simpleMessage(
-            "Tis action cannot be undone!!! Please logout and login before deleting user"),
+            "This action cannot be undone! Please log out and log in before deleting the user."),
         "delete_all_transects":
             MessageLookupByLibrary.simpleMessage("Remove all transects"),
         "delete_all_transects_content": MessageLookupByLibrary.simpleMessage(
@@ -76,12 +76,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "download": MessageLookupByLibrary.simpleMessage("Download"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
-            "An email has been sent, please check your email."),
+            "An email has been sent. Please check your email."),
         "emails_are_different":
             MessageLookupByLibrary.simpleMessage("The emails are different"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("There are empty fields"),
-        "file_saved": MessageLookupByLibrary.simpleMessage("Filed saved:"),
+        "file_saved": MessageLookupByLibrary.simpleMessage("File saved:"),
         "filter_clear": MessageLookupByLibrary.simpleMessage("Clear filter"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
             "City or datetime (YYYY-MM-DDTHH:MM:SS)"),
@@ -91,9 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "GPS background service disabled"),
         "gps_service_background_disabled_content":
             MessageLookupByLibrary.simpleMessage(
-                "Please go to app settings (OS) an enable GPS service to: \'ALWAYS\' and relaunch the app"),
+                "Please go to app settings (OS) and enable GPS service to \'ALWAYS\' and relaunch the app"),
         "gps_service_disabled":
-            MessageLookupByLibrary.simpleMessage("GPS services is disabled"),
+            MessageLookupByLibrary.simpleMessage("GPS service is disabled"),
         "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
             "Enable GPS service and go back"),
         "how2transect":
@@ -101,29 +101,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
             "Surveys involve conducting patrols along the beach to detect possible traces of turtle nesting during the period between June 1st and October 31st."),
         "how_to_1_2": MessageLookupByLibrary.simpleMessage(
-            "It is recommended to carry out these patrols between 22:00 h and 8:00 h of the following day, although the early hours of the night are the most suitable for"),
+            "It is recommended to carry out these patrols between 22:00 and 8:00 the following day, although the early hours of the night are the most suitable for"),
         "how_to_1_title": MessageLookupByLibrary.simpleMessage("Transects"),
         "how_to_2_1": MessageLookupByLibrary.simpleMessage(
             "When a turtle emerges from the sea onto the beach to nest, it crawls using its flippers as if they were legs. This movement leaves a very distinctive track ascending towards the beach."),
         "how_to_2_2": MessageLookupByLibrary.simpleMessage(
-            "When it finds the suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea. Often with a line in the middle to drag the tube through which the eggs have come out."),
+            "When it finds a suitable place, it digs the nest, lays the eggs, covers it, and returns to the sea, leaving a track with the same characteristics as the ascent but in the direction of the sea, often with a line in the middle to drag the tube through which the eggs have come out."),
         "how_to_2_3": MessageLookupByLibrary.simpleMessage(
-            "The ascent track may undergo changes in direction ascending, motivated by the turtle\'s search for the suitable place to dig the nest. The descent track is always more straight, direct towards the sea."),
+            "The ascent track may change direction as the turtle searches for a suitable place to dig the nest. The descent track is always more straight, heading directly towards the sea."),
         "how_to_2_title":
             MessageLookupByLibrary.simpleMessage("What are we looking for?"),
         "how_to_3_1": MessageLookupByLibrary.simpleMessage(
-            "Even more challenging would be to encounter, between August and October, hatchlings coming out of undetected nests and walking on the sand towards the beach. This is an extremely low probability considering that they hatch at night and due to their small size."),
+            "Even more challenging would be to encounter hatchlings between August and October, emerging from undetected nests and walking on the sand towards the beach. This is extremely unlikely as they hatch at night and are very small."),
         "how_to_3_2": MessageLookupByLibrary.simpleMessage(
-            "If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112"),
+            "If we find small hatchlings or a large turtle alive or dead outside the water, we should quickly call 112."),
         "how_to_3_title":
             MessageLookupByLibrary.simpleMessage("What are we looking for?"),
         "how_to_4_1": MessageLookupByLibrary.simpleMessage(
-            "You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking; we will use it if we are unsure about something during the transect, moonlight is usually sufficient. Whenever possible, we will keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will have to place the flashlight with the arm stretched towards the ground so that the illumination highlights the sand relief better. We should never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out."),
+            "You can bring a flashlight or headlamp with a red light, although it is rarely necessary for walking. We will use it if we are unsure about something during the transect, but moonlight is usually sufficient. Whenever possible, keep the flashlight off and walk quietly. If we do not have enough light to observe tracks, we will hold the flashlight with our arm extended towards the ground to highlight the sand relief better. Never point the flashlight towards the water, as it could scare off a turtle if there is one trying to come out."),
         "how_to_4_2": MessageLookupByLibrary.simpleMessage(
             "You can put red cellophane paper on a flashlight or in front of the mobile phone flashlight."),
-        "how_to_4_title": MessageLookupByLibrary.simpleMessage("Lightning"),
+        "how_to_4_title": MessageLookupByLibrary.simpleMessage("Lighting"),
         "how_to_5_1": MessageLookupByLibrary.simpleMessage(
-            "Podemos aprovechar el paseo para informar y sensibilizar a las personas o grupos de  personas que nos encontramos en la playa (deportistas, familias, pescadores/as de caña y otras personas) para que nos ayuden llamando al 112 si son testigos de una nidificación o encuentran rastros. Siempre bajo nuestro criterio y voluntad."),
+            "We can take advantage of the walk to inform and raise awareness among people or groups we encounter on the beach (athletes, families, anglers, and others) to help us by calling 112 if they witness a nesting or find tracks. Always at our discretion and willingness."),
         "how_to_5_title": MessageLookupByLibrary.simpleMessage("Sensitization"),
         "how_to_6_1": MessageLookupByLibrary.simpleMessage(
             "We will start the transect in a specific area of the beach and activate the \"START TRANSECT\" button."),
@@ -132,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "how_to_6_title":
             MessageLookupByLibrary.simpleMessage("Start transect"),
         "how_to_7_1": MessageLookupByLibrary.simpleMessage(
-            "Once we finish our route, we will access the section \"START TRANSECT\" and press \"FINISH TRANSECT,\" which will take us to a screen where we must fill in the following fields: If we found the beach plowed by a machine that could erase the tracks. Record the number of people informed. Note interesting observations. And press send."),
+            "Once we finish our route, we will access the section \"START TRANSECT\" and press \"FINISH TRANSECT,\" which will take us to a screen where we must fill in the following fields: if we found the beach plowed by a machine that could erase the tracks, record the number of people informed, note interesting observations, and press send."),
         "how_to_7_title":
             MessageLookupByLibrary.simpleMessage("Finish transect"),
         "how_to_8_title":
@@ -141,7 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
         "instructions_sent":
             MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
-        "invalid_email": MessageLookupByLibrary.simpleMessage("invalid email"),
+        "invalid_email": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Please read the following legal documents and check the box to indicate that you agree and can register."),
         "legal_documents":
@@ -151,11 +151,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "note": MessageLookupByLibrary.simpleMessage("Note"),
         "note_cancel": MessageLookupByLibrary.simpleMessage(
-            "If you press the \'cancel\' button, all data regarding the current transect will be lost"),
+            "If you press the \'cancel\' button, all data regarding the current transect will be lost."),
         "note_go_back": MessageLookupByLibrary.simpleMessage(
-            "If you want to continue with the current transect you must press the button at the top left to go back"),
+            "If you want to continue with the current transect, you must press the button at the top left to go back."),
         "note_send": MessageLookupByLibrary.simpleMessage(
-            "If you press the \'send\' button the data for the current transect will be sent and you will have to start a new transect."),
+            "If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect."),
         "observations": MessageLookupByLibrary.simpleMessage("Observations"),
         "open_map": MessageLookupByLibrary.simpleMessage("See transect on map"),
         "open_system_settings":
@@ -169,7 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be saved and cannot be modified."),
-        "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
@@ -177,14 +177,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "An error occurred while trying to delete your account"),
         "snackbar_error_empty_coordinates":
             MessageLookupByLibrary.simpleMessage(
-                "Transect cannot be safe due to coordinates is empty"),
+                "Transect cannot be saved because coordinates are empty"),
         "snackbar_error_requires_recent_login":
             MessageLookupByLibrary.simpleMessage(
-                "Please logout and login before deleting your account"),
+                "Please log out and log in before deleting your account"),
         "snackbar_error_verify_account": MessageLookupByLibrary.simpleMessage(
-            "Pls verify your account. An email with instructions has been send"),
+            "Please verify your account. An email with instructions has been sent"),
         "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
-            "Someting went wrong, please try again"),
+            "Something went wrong, please try again"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),
         "stop_transect":
@@ -212,11 +212,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transects"),
-        "user_disabled": MessageLookupByLibrary.simpleMessage("user disabled"),
+        "user_disabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "user_not_found":
-            MessageLookupByLibrary.simpleMessage("user not found"),
+            MessageLookupByLibrary.simpleMessage("User not found"),
         "wrong_password":
-            MessageLookupByLibrary.simpleMessage("wrong password"),
+            MessageLookupByLibrary.simpleMessage("Wrong password"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?")
       };
