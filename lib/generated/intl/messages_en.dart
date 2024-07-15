@@ -142,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "instructions_sent":
             MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "language_change": MessageLookupByLibrary.simpleMessage(
+            "To change the language, you need to adjust the language settings on your device."),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Please read the following legal documents and check the box to indicate that you agree and can register."),
         "legal_documents":
