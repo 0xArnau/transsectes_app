@@ -76,15 +76,16 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
     if (technician) {
       navigation = [
         NavigationDestination(
-          icon: const Icon(Icons.person),
+          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
           label: S.current.transects,
         ),
         NavigationDestination(
-          icon: const Icon(Icons.people),
+          icon: Icon(currentPage == 1 ? Icons.people : Icons.people_outline),
           label: S.current.all_transects,
         ),
         NavigationDestination(
-          icon: const Icon(Icons.download),
+          icon:
+              Icon(currentPage == 2 ? Icons.download : Icons.download_outlined),
           label: S.current.download,
         ),
         NavigationDestination(
@@ -107,12 +108,13 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       ];
     } else {
       navigation = [
-        const NavigationDestination(
-          icon: Icon(Icons.person),
+        NavigationDestination(
+          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
           label: "Transects",
         ),
-        const NavigationDestination(
-          icon: Icon(Icons.download),
+        NavigationDestination(
+          icon:
+              Icon(currentPage == 1 ? Icons.download : Icons.download_outlined),
           label: "Download",
         ),
       ];
@@ -231,26 +233,30 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       title: S.current.transect_records,
       resizeToAvoidBottomInset: true,
       body: pages.elementAt(currentPage),
-      bottomNavigationBar: NavigationBar(
-        // backgroundColor: kColorBackground,
-        // surfaceTintColor: kColorTitle,
-        indicatorColor: Color.fromRGBO(
-          kColorTitle.red,
-          kColorTitle.green,
-          kColorTitle.blue,
-          0.3,
-        ),
-        destinations: navigation,
-        selectedIndex: currentPage,
-        onDestinationSelected: (int value) {
-          if (mounted) {
-            setState(
-              () {
-                currentPage = value;
-              },
-            );
-          }
+      bottomNavigationBar: BottomNavigationBar(
+        items: navigation.map((destination) {
+          return BottomNavigationBarItem(
+            icon: destination.icon,
+            label: destination.label,
+          );
+        }).toList(),
+        currentIndex: currentPage,
+        selectedItemColor: kColorTitle,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        onTap: (int index) {
+          setState(() {
+            currentPage = index;
+          });
         },
+        // elevation: 0,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 12,
+        ),
       ),
     );
   }
