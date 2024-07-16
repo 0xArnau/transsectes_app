@@ -63,6 +63,15 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
         return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
       });
 
+      if (!technician) {
+        setState(() {
+          downloadTransects =
+              TransectRepository().getUserTransects(value).map((list) {
+            return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+          });
+        });
+      }
+
       setState(() {
         userTransects = orderedStream;
       });
@@ -124,10 +133,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           transects: userTransects,
           filter: filter.text,
         ),
-        ListTransectsView(
-          transects: allTransects,
-          filter: filter.text,
-        ),
+        DownloadTransectsView(transects: downloadTransects),
       ];
     }
     return customScaffold(

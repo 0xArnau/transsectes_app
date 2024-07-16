@@ -165,12 +165,7 @@ class _MenuViewState extends State<MenuView> {
                       },
                     ),
                   ),
-                  Center(
-                    child: ListTile(
-                      leading: const Icon(Icons.open_in_new),
-                      title: Text(S.current.language_change),
-                    ),
-                  ),
+
                   Center(
                     child: ListTile(
                       leading: const Icon(Icons.logout),
@@ -194,6 +189,14 @@ class _MenuViewState extends State<MenuView> {
                           },
                         );
                       },
+                    ),
+                  ),
+                  Center(
+                    child: ListTile(
+                      title: Text(
+                        S.current.language_change,
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                     ),
                   ),
                 ],
