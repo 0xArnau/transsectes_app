@@ -29,6 +29,8 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
         stream: transects,
         builder: (BuildContext context,
             AsyncSnapshot<List<TransectModel>> snapshot) {
+          Logger().d(transects.toList());
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(
@@ -42,17 +44,21 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
 
             map['all'] = [];
 
-            for (var element in snapshot.data!) {
-              String localityKey = element.localityFirst == ''
-                  ? 'unknown'
-                  : element.localityFirst;
+            Logger().d(snapshot.data);
 
-              if (!map.containsKey(localityKey)) {
-                map[localityKey] = [];
+            if (snapshot.data != null) {
+              for (var element in snapshot.data!) {
+                String localityKey = element.localityFirst == ''
+                    ? 'unknown'
+                    : element.localityFirst;
+
+                if (!map.containsKey(localityKey)) {
+                  map[localityKey] = [];
+                }
+
+                map[localityKey]!.add(element);
+                map['all']!.add(element);
               }
-
-              map[localityKey]!.add(element);
-              map['all']!.add(element);
             }
 
             return ListView.builder(
