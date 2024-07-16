@@ -12,13 +12,13 @@ final class AuthInitial extends AuthState {}
 final class AuthLoading extends AuthState {
   final bool isLoading;
 
-  AuthLoading({required this.isLoading});
+  const AuthLoading({required this.isLoading});
 }
 
 final class AuthSuccess extends AuthState {
   final String? value;
 
-  AuthSuccess({required this.value});
+  const AuthSuccess({required this.value});
 
   @override
   List<Object> get props => [value ?? ''];
@@ -27,7 +27,7 @@ final class AuthSuccess extends AuthState {
 final class AuthFailure extends AuthState {
   final String message;
 
-  AuthFailure({required this.message});
+  const AuthFailure({required this.message});
 
   @override
   List<Object> get props => [message];

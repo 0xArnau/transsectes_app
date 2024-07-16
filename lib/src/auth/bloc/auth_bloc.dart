@@ -16,7 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     on<SignIn>((event, emit) async {
       Logger().d(event.toString());
-      emit(AuthLoading(isLoading: true));
+      emit(const AuthLoading(isLoading: true));
       try {
         await repository.signInWithEmailAndPassword(
           email: event.email,
@@ -45,11 +45,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         Logger().e(e.toString());
         emit(AuthFailure(message: 'Error: ${e.toString()}'));
       }
-      emit(AuthLoading(isLoading: false));
+      emit(const AuthLoading(isLoading: false));
     });
 
     on<SignOut>((event, emit) async {
-      emit(AuthLoading(isLoading: true));
+      emit(const AuthLoading(isLoading: true));
 
       try {
         repository.singOut();
@@ -60,7 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<GetEmail>((event, emit) async {
-      emit(AuthLoading(isLoading: true));
+      emit(const AuthLoading(isLoading: true));
 
       try {
         final String? email = await repository.getUserEmail();
@@ -73,12 +73,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<ResetPassword>((event, emit) async {
-      emit(AuthLoading(isLoading: true));
+      emit(const AuthLoading(isLoading: true));
 
       try {
         await repository.resetPassword(email: event.email);
 
-        emit(AuthSuccess(value: null));
+        emit(const AuthSuccess(value: null));
       } on FirebaseAuthException catch (e) {
         Logger().e(e.toString());
         switch (e.code) {
@@ -92,7 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<SignUp>((event, emit) async {
-      emit(AuthLoading(isLoading: true));
+      emit(const AuthLoading(isLoading: true));
 
       try {
         await repository.createUserWithEmailAndPassword(
@@ -102,7 +102,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
         // TODO: Validate email (send an email)
 
-        emit(AuthSuccess(value: null));
+        emit(const AuthSuccess(value: null));
       } on FirebaseAuthException catch (e) {
         Logger().e(e.toString());
         switch (e.code) {
