@@ -100,17 +100,17 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                                 controller: _emailController,
                                 hintText: S.current.email,
                                 obscureText: false,
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   Icons.email_outlined,
                                   color: Colors.black,
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               CustomTextForm(
                                 controller: _emailConfirmController,
                                 hintText: S.current.confirm_email,
                                 obscureText: false,
-                                prefixIcon: Icon(
+                                prefixIcon: const Icon(
                                   Icons.email_outlined,
                                   color: Colors.black,
                                 ),
@@ -161,7 +161,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                               context.pop();
                             },
                             child: Container(
-                              padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                              padding: const EdgeInsets.fromLTRB(17, 3, 17, 3),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 gradient: LinearGradient(
@@ -176,8 +176,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                                 ),
                               ),
                               child: Text(
-                                S.current.yes_account + ' ' + S.current.login,
-                                style: TextStyle(
+                                '${S.current.yes_account} ${S.current.login}',
+                                style: const TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,
                                   decorationColor: Colors.white,

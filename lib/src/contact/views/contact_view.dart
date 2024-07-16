@@ -40,7 +40,7 @@ class ContactView extends StatelessWidget {
               Text(
                 S.current.contact_1,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 18),
               ),
               GestureDetector(
                 onTap: () => _launchUrl(
@@ -61,7 +61,7 @@ class ContactView extends StatelessWidget {
                 child: Text(
                   _emergencyPhoneLaunchUri.path,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 46,
                     color: kColorTextAccent,
                   ),
@@ -71,7 +71,7 @@ class ContactView extends StatelessWidget {
               Text(
                 S.current.contact_2,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 18),
               ),
               // Emails
               GestureDetector(
@@ -93,7 +93,7 @@ class ContactView extends StatelessWidget {
                 child: Text(
                   _emailLaunchUri.path,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     color: kColorTextAccent,
                   ),
@@ -118,7 +118,7 @@ class ContactView extends StatelessWidget {
                 child: Text(
                   _emailVolunteerLaunchUri.path,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     color: kColorTextAccent,
                   ),
@@ -128,7 +128,7 @@ class ContactView extends StatelessWidget {
               Text(
                 S.current.contact_3,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 18),
               ),
               // Phone number
               GestureDetector(
@@ -150,7 +150,7 @@ class ContactView extends StatelessWidget {
                 child: Text(
                   _phoneLaunchUri.path,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     color: kColorTextAccent,
                   ),
@@ -161,7 +161,7 @@ class ContactView extends StatelessWidget {
               Text(
                 S.current.contact_4,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(fontSize: 18),
               ),
               GestureDetector(
                 onTap: () => _launchUrl(
@@ -182,7 +182,7 @@ class ContactView extends StatelessWidget {
                 child: Text(
                   _url.toString(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     color: kColorTextAccent,
                   ),

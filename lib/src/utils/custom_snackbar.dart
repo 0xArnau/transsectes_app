@@ -8,7 +8,7 @@ class CustomSnackbar {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          "$message",
+          message,
           style: const TextStyle(
             color: Colors.black,
           ),
@@ -26,7 +26,7 @@ class CustomSnackbar {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          "$message",
+          message,
           style: const TextStyle(
             color: Colors.white,
           ),

@@ -9,11 +9,11 @@ Widget customButton({
       onTap();
     },
     style: ButtonStyle(
-      padding: MaterialStateProperty.all<EdgeInsets>(
+      padding: WidgetStateProperty.all<EdgeInsets>(
         const EdgeInsets.all(10.0),
       ),
-      backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
+      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),

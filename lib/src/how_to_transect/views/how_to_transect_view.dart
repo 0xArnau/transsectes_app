@@ -32,9 +32,9 @@ class _HowToTransectViewState extends State<HowToTransectView> {
           showBackButton: true,
           isProgress: false,
           baseBtnStyle: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(kColorTitle),
-            surfaceTintColor: MaterialStateProperty.all<Color>(kColorTitle),
-            overlayColor: MaterialStateProperty.all<Color>(
+            foregroundColor: WidgetStateProperty.all<Color>(kColorTitle),
+            surfaceTintColor: WidgetStateProperty.all<Color>(kColorTitle),
+            overlayColor: WidgetStateProperty.all<Color>(
               Color.fromRGBO(
                 kColorTitle.red,
                 kColorTitle.green,
@@ -111,7 +111,7 @@ class _HowToTransectViewState extends State<HowToTransectView> {
   Widget _customText(String text) {
     return Text(
       text,
-      style: TextStyle(fontSize: 16),
+      style: const TextStyle(fontSize: 16),
       textAlign: TextAlign.center,
     );
   }

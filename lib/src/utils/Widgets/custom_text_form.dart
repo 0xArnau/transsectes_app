@@ -21,24 +21,24 @@ class CustomTextForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(10),
+        contentPadding: const EdgeInsets.all(10),
         filled: true,
         fillColor: kColorBackgroundWidthTransparency,
         prefixIcon: prefixIcon,
         labelText: hintText,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Colors.black,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.black,
             width: 2.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.black,
             width: 1.0,
           ),

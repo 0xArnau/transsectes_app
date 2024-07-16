@@ -165,10 +165,10 @@ class _LegalViewState extends State<LegalView> {
         ),
         child: Text(
           text,
-          style: TextStyle(decoration: TextDecoration.underline),
+          style: const TextStyle(decoration: TextDecoration.underline),
         ),
       ),
-      trailing: Icon(Icons.picture_as_pdf),
+      trailing: const Icon(Icons.picture_as_pdf),
     );
   }
 }

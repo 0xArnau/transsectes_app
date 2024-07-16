@@ -99,14 +99,14 @@ class _LoginViewState extends State<LoginView> {
                             controller: _emailController,
                             hintText: S.current.email,
                             obscureText: false,
-                            prefixIcon: Icon(Icons.email_outlined),
+                            prefixIcon: const Icon(Icons.email_outlined),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           CustomTextForm(
                             controller: _passwordController,
                             hintText: S.current.password,
                             obscureText: true,
-                            prefixIcon: Icon(Icons.password_outlined),
+                            prefixIcon: const Icon(Icons.password_outlined),
                           ),
                           Align(
                             alignment: Alignment.centerRight,
@@ -115,7 +115,7 @@ class _LoginViewState extends State<LoginView> {
                                 context.push('/forgot-password');
                               },
                               child: Container(
-                                padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                                padding: const EdgeInsets.fromLTRB(17, 3, 17, 3),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   gradient: LinearGradient(
@@ -131,7 +131,7 @@ class _LoginViewState extends State<LoginView> {
                                 ),
                                 child: Text(
                                   S.current.forgot_password,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     decoration: TextDecoration.underline,
                                     decorationColor: Colors.black,
@@ -180,7 +180,7 @@ class _LoginViewState extends State<LoginView> {
                               context.push(SignUpView.path);
                             },
                             child: Container(
-                              padding: EdgeInsets.fromLTRB(17, 3, 17, 3),
+                              padding: const EdgeInsets.fromLTRB(17, 3, 17, 3),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 gradient: LinearGradient(
@@ -195,8 +195,8 @@ class _LoginViewState extends State<LoginView> {
                                 ),
                               ),
                               child: Text(
-                                S.current.no_account + ' ' + S.current.signup,
-                                style: TextStyle(
+                                '${S.current.no_account} ${S.current.signup}',
+                                style: const TextStyle(
                                   color: Colors.white,
                                   decoration: TextDecoration.underline,
                                   decorationColor: Colors.white,

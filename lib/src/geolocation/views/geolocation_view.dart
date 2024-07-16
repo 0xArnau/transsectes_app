@@ -57,7 +57,7 @@ class _GeolocationViewState extends State<GeolocationView> {
                               );
                         });
                       },
-                      icon: Icon(Icons.plus_one),
+                      icon: const Icon(Icons.plus_one),
                       label: Text(S.current.add_new_geopoint),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: kColorTitle,
@@ -71,7 +71,7 @@ class _GeolocationViewState extends State<GeolocationView> {
           }
 
           if (state is GeolocationInitial) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(
                 color: kColorTitle,
               ),
