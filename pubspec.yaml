@@ -55,6 +55,8 @@ dependencies:
   document_file_save_plus: ^2.0.0
   csv: ^6.0.0
   flutter_config: ^2.0.2
+  flutter_localizations:
+    sdk: flutter
   
 
 dev_dependencies:
