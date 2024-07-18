@@ -42,7 +42,7 @@ class _HomeViewState extends State<HomeView> {
                   context,
                   'assets/imgs/icons/walk.png',
                   MediaQuery.of(context).size.width / 3,
-                  S.current.how2transect,
+                  S.of(context).how2transect,
                   () => context.push(HowToTransectView.path),
                 ),
                 BlocBuilder<GeolocationBloc, GeolocationState>(
@@ -51,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
                       context,
                       'assets/imgs/icons/route.png',
                       MediaQuery.of(context).size.width / 2,
-                      S.current.start_transect,
+                      S.of(context).start_transect,
                       () {
                         Logger().d(state);
 
@@ -69,11 +69,11 @@ class _HomeViewState extends State<HomeView> {
                               context: context,
                               builder: (BuildContext _) {
                                 return CustomAlertDialogWidget(
-                                  title: S.current.gps_service_background_disabled,
-                                  content: S.current.gps_service_background_disabled_content,
-                                  primaryText: S.current.settings,
+                                  title: S.of(context).gps_service_background_disabled,
+                                  content: S.of(context).gps_service_background_disabled_content,
+                                  primaryText: S.of(context).settings,
                                   primaryFunction: () => openAppSettings(),
-                                  secondaryText: S.current.cancel,
+                                  secondaryText: S.of(context).cancel,
                                   secondaryFunction: () {},
                                 );
                               },
@@ -90,14 +90,14 @@ class _HomeViewState extends State<HomeView> {
                   context,
                   'assets/imgs/icons/book.png',
                   MediaQuery.of(context).size.width / 2.5,
-                  S.current.transect_records,
+                  S.of(context).transect_records,
                   () => context.push(TransectRecordsView.path),
                 ),
                 _textImageWidget(
                   context,
                   'assets/imgs/icons/contact.png',
                   MediaQuery.of(context).size.width / 3.5,
-                  S.current.contact,
+                  S.of(context).contact,
                   () => context.push(ContactView.path),
                 ),
               ],
