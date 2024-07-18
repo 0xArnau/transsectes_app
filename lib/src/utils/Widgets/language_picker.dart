@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/main.dart';
 
 class CustomListWheelScrollView extends StatefulWidget {
+  const CustomListWheelScrollView({super.key});
+
   @override
   _CustomListWheelScrollViewState createState() =>
       _CustomListWheelScrollViewState();
@@ -61,7 +64,13 @@ class _CustomListWheelScrollViewState extends State<CustomListWheelScrollView> {
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut);
 
-              print(index);
+              MyApp.changeLanguage(
+                  context,
+                  _currentElement == 0
+                      ? 'en'
+                      : _currentElement == 1
+                          ? 'es'
+                          : 'ca');
             },
             childDelegate: ListWheelChildBuilderDelegate(
               childCount: 3,
@@ -118,7 +127,7 @@ void showModal(BuildContext context) {
               ),
             ),
             const SizedBox(height: 10),
-            Expanded(
+            const Expanded(
               child: CustomListWheelScrollView(),
             ),
           ],

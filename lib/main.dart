@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/firebase_options.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -13,8 +14,6 @@ import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-
 
 import 'src/router/router.dart';
 
@@ -45,8 +44,28 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static void changeLanguage(BuildContext context, String code) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    if (state != null) {
+      state.changeLanguage(code);
+    }
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var language = Locale(Platform.localeName.split("_")[0]);
+
+  void changeLanguage(String code) {
+    setState(() {
+      language = Locale(code);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +96,7 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        locale: Locale(Platform.localeName.split("_")[0]),
+        locale: language,
       ),
     );
   }

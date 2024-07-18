@@ -9,6 +9,7 @@ import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class MenuView extends StatefulWidget {
@@ -190,6 +191,18 @@ class _MenuViewState extends State<MenuView> {
                         );
                       },
                     ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.language),
+                    title: Text(
+                      S.current.language_change_2,
+                    ),
+                    subtitle: Text(
+                      S.current.language_change_2_temporal,
+                    ),
+                    onTap: () {
+                      showModal(context);
+                    },
                   ),
                   Center(
                     child: ListTile(

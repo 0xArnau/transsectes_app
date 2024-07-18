@@ -66,7 +66,9 @@
   "incorrect_fields": "Hay campos incorrectos",
   "instructions_sent": "Instrucciones enviadas por correo electrónico",
   "invalid_email": "Correo electrónico inválido",
-  "language_change": "Para cambiar el idioma, debes ajustar la configuración del idioma en tu dispositivo.",
+  "language_change": "Para cambiar el idioma permanentemente, necesitas ajustar la configuración de idioma en tu dispositivo.",
+  "language_change_2": "Cambiar idioma",
+  "language_change_2_temporal": "Este es un cambio temporal",
   "legalInfo": "Por favor, lee los siguientes documentos legales y marca la casilla para indicar que estás de acuerdo y puedes registrarte.",
   "legal_documents": "Documentos legales",
   "login": "Iniciar sesión",
@@ -114,5 +116,4 @@
   "user_not_found": "Usuario no encontrado",
   "wrong_password": "Contraseña incorrecta",
   "yes_account": "¿Ya tienes una cuenta?"
-  
 }
