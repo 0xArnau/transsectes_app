@@ -720,11 +720,31 @@ class S {
     );
   }
 
-  /// `To change the language, you need to adjust the language settings on your device.`
+  /// `To change the language permanently, you need to adjust the language settings on your device.`
   String get language_change {
     return Intl.message(
-      'To change the language, you need to adjust the language settings on your device.',
+      'To change the language permanently, you need to adjust the language settings on your device.',
       name: 'language_change',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change language`
+  String get language_change_2 {
+    return Intl.message(
+      'Change language',
+      name: 'language_change_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This is a temporary change`
+  String get language_change_2_temporal {
+    return Intl.message(
+      'This is a temporary change',
+      name: 'language_change_2_temporal',
       desc: '',
       args: [],
     );

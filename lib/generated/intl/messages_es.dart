@@ -149,7 +149,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalid_email":
             MessageLookupByLibrary.simpleMessage("Correo electrónico inválido"),
         "language_change": MessageLookupByLibrary.simpleMessage(
-            "Para cambiar el idioma, debes ajustar la configuración del idioma en tu dispositivo."),
+            "Para cambiar el idioma permanentemente, necesitas ajustar la configuración de idioma en tu dispositivo."),
+        "language_change_2":
+            MessageLookupByLibrary.simpleMessage("Cambiar idioma"),
+        "language_change_2_temporal":
+            MessageLookupByLibrary.simpleMessage("Este es un cambio temporal"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Por favor, lee los siguientes documentos legales y marca la casilla para indicar que estás de acuerdo y puedes registrarte."),
         "legal_documents":
