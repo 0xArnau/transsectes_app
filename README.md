@@ -1,16 +1,19 @@
-# transsectes_app
+<div align="center">
 
-A new Flutter project.
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/docs/logo_tiny_dark.svg">
+  <img alt="tiny corp logo" src="assets/imgs/logo/GEPEC_EdC_OFICIAL.png" width="50%" height="50%">
+</picture>
 
-## Getting Started
+Transsectes APP: mobile application for carrying out transects along the beaches to locate sea turtles or their nests
 
-This project is a starting point for a Flutter application.
+<h3>
 
-A few resources to get you started if this is your first Flutter project:
+[Homepage](https://github.com/0xArnau/transsectes_app/tree/trunk) | [Play store (comming soon)](https://play.google.com/store/apps/developer?id=GEPEC-EdC) | [App store (comming soon)](https://apps.apple.com/us/developer/elisabeth-bofill-ventosa/id1697539680)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+</h3>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+</div>
+
+---
