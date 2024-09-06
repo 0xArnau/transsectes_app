@@ -25,6 +25,8 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
   Stream<List<TransectModel>> userTransects = const Stream.empty();
   TextEditingController filter = TextEditingController(text: '');
 
+  String? userEmail;
+
   bool technician = false;
   int currentPage = 0;
 
@@ -50,33 +52,24 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
         if (mounted) {
           setState(() {
             allTransects = orderedStream;
-            downloadTransects =
-                TransectRepository().getAllTransects().map((list) {
-              return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-            });
           });
         }
       }
     });
 
     AuthRepository().getUserEmail().then((value) {
+      if (mounted) {
+        setState(() {
+          userEmail = value;
+        });
+      }
+
       Stream<List<TransectModel>> stream =
           TransectRepository().getUserTransects(value);
 
       Stream<List<TransectModel>> orderedStream = stream.map((list) {
         return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
       });
-
-      if (!technician) {
-        if (mounted) {
-          setState(() {
-            downloadTransects =
-                TransectRepository().getUserTransects(value).map((list) {
-              return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
-            });
-          });
-        }
-      }
 
       if (mounted) {
         setState(() {
@@ -120,7 +113,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           transects: allTransects,
           filter: filter.text,
         ),
-        DownloadTransectsView(transects: downloadTransects),
+        DownloadTransectsView(
+            transects: TransectRepository().getAllTransects().map((list) {
+          return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        })),
         const RemoveTransectsView(),
       ];
     } else {
@@ -141,7 +137,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           transects: userTransects,
           filter: filter.text,
         ),
-        DownloadTransectsView(transects: downloadTransects),
+        DownloadTransectsView(
+            transects:
+                TransectRepository().getUserTransects(userEmail).map((list) {
+          return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        })),
       ];
     }
     return customScaffold(
