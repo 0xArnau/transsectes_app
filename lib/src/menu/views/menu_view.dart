@@ -34,9 +34,11 @@ class _MenuViewState extends State<MenuView> {
     super.initState();
 
     TecnicRepository().isTechnician().then((value) {
-      setState(() {
-        technician = value;
-      });
+      if (mounted) {
+        setState(() {
+          technician = value;
+        });
+      }
     });
 
     BlocProvider.of<AuthBloc>(context).add(GetEmail());
@@ -47,11 +49,13 @@ class _MenuViewState extends State<MenuView> {
   _getPackageInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
-    setState(() {
-      appName = packageInfo.appName;
-      version = packageInfo.version;
-      buildNumber = packageInfo.buildNumber;
-    });
+    if (mounted) {
+      setState(() {
+        appName = packageInfo.appName;
+        version = packageInfo.version;
+        buildNumber = packageInfo.buildNumber;
+      });
+    }
   }
 
   @override
@@ -78,9 +82,11 @@ class _MenuViewState extends State<MenuView> {
                     child: BlocConsumer<AuthBloc, AuthState>(
                       listener: (context, state) {
                         if (state is AuthSuccess) {
-                          setState(() {
-                            email = state.value ?? '';
-                          });
+                          if (mounted) {
+                            setState(() {
+                              email = state.value ?? '';
+                            });
+                          }
                         }
                       },
                       builder: (context, state) {
@@ -93,9 +99,11 @@ class _MenuViewState extends State<MenuView> {
                           leading: const Icon(Icons.email),
                           trailing: GestureDetector(
                             onTap: () {
-                              setState(() {
-                                showEmail = !showEmail;
-                              });
+                              if (mounted) {
+                                setState(() {
+                                  showEmail = !showEmail;
+                                });
+                              }
                             },
                             child: Icon(
                               showEmail

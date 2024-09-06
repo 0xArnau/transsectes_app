@@ -39,14 +39,16 @@ class _TransectViewState extends State<TransectView> {
             GeolocationController()
                 .getAddress(widget.transect.coordinates)
                 .then((listValue) {
-              setState(() {
-                widget.transect.administrativeAreaFirst = listValue[0];
-                widget.transect.subAdministrativeAreaFirst = listValue[1];
-                widget.transect.localityFirst = listValue[2];
-                widget.transect.administrativeAreaLast = listValue[3];
-                widget.transect.subAdministrativeAreaLast = listValue[4];
-                widget.transect.localityLast = listValue[5];
-              });
+              if (mounted) {
+                setState(() {
+                  widget.transect.administrativeAreaFirst = listValue[0];
+                  widget.transect.subAdministrativeAreaFirst = listValue[1];
+                  widget.transect.localityFirst = listValue[2];
+                  widget.transect.administrativeAreaLast = listValue[3];
+                  widget.transect.subAdministrativeAreaLast = listValue[4];
+                  widget.transect.localityLast = listValue[5];
+                });
+              }
 
               TransectRepository().updateTransect(widget.transect);
             });

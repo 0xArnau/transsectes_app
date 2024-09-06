@@ -33,9 +33,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
     super.initState();
 
     TecnicRepository().isTechnician().then((value) {
-      setState(() {
-        technician = value;
-      });
+      if (mounted) {
+        setState(() {
+          technician = value;
+        });
+      }
 
       if (value) {
         Stream<List<TransectModel>> stream =
@@ -45,13 +47,15 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
         });
 
-        setState(() {
-          allTransects = orderedStream;
-          downloadTransects =
-              TransectRepository().getAllTransects().map((list) {
-            return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        if (mounted) {
+          setState(() {
+            allTransects = orderedStream;
+            downloadTransects =
+                TransectRepository().getAllTransects().map((list) {
+              return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+            });
           });
-        });
+        }
       }
     });
 
@@ -64,17 +68,21 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       });
 
       if (!technician) {
-        setState(() {
-          downloadTransects =
-              TransectRepository().getUserTransects(value).map((list) {
-            return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        if (mounted) {
+          setState(() {
+            downloadTransects =
+                TransectRepository().getUserTransects(value).map((list) {
+              return list..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+            });
           });
-        });
+        }
       }
 
-      setState(() {
-        userTransects = orderedStream;
-      });
+      if (mounted) {
+        setState(() {
+          userTransects = orderedStream;
+        });
+      }
     });
   }
 
@@ -191,9 +199,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                                   ),
                                   cursorColor: kColorTitle,
                                   onChanged: (value) {
-                                    setState(() {
-                                      filter.text = value;
-                                    });
+                                    if (mounted) {
+                                      setState(() {
+                                        filter.text = value;
+                                      });
+                                    }
                                   },
                                 ),
                                 const SizedBox(height: 16.0),
@@ -207,10 +217,12 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                                       ),
                                       child: Text(S.current.filter_clear),
                                       onPressed: () {
-                                        setState(() {
-                                          filter.clear();
-                                          filter.text = '';
-                                        });
+                                        if (mounted) {
+                                          setState(() {
+                                            filter.clear();
+                                            filter.text = '';
+                                          });
+                                        }
                                       },
                                     ),
                                     TextButton(
@@ -251,9 +263,11 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         onTap: (int index) {
-          setState(() {
-            currentPage = index;
-          });
+          if (mounted) {
+            setState(() {
+              currentPage = index;
+            });
+          }
         },
         // elevation: 0,
         selectedLabelStyle: const TextStyle(

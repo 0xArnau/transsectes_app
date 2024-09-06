@@ -24,9 +24,11 @@ class _VerifyViewState extends State<VerifyView> {
   void initState() {
     super.initState();
 
-    setState(() {
-      isEmailVerified = AuthRepository().isEmailVerified();
-    });
+    if (mounted) {
+      setState(() {
+        isEmailVerified = AuthRepository().isEmailVerified();
+      });
+    }
 
     _checkEmailVerified();
     if (!isEmailVerified) {

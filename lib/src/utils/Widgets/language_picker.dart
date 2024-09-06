@@ -56,9 +56,11 @@ class _CustomListWheelScrollViewState extends State<CustomListWheelScrollView> {
             controller: _controller,
             physics: const FixedExtentScrollPhysics(),
             onSelectedItemChanged: (index) {
-              setState(() {
-                _currentElement = index;
-              });
+              if (mounted) {
+                setState(() {
+                  _currentElement = index;
+                });
+              }
               //
               _controller.animateToItem(_currentElement,
                   duration: const Duration(milliseconds: 500),

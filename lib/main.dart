@@ -62,9 +62,11 @@ class _MyAppState extends State<MyApp> {
   var language = Locale(Platform.localeName.split("_")[0]);
 
   void changeLanguage(String code) {
-    setState(() {
-      language = Locale(code);
-    });
+    if (mounted) {
+      setState(() {
+        language = Locale(code);
+      });
+    }
   }
 
   @override

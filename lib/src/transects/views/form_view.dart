@@ -58,9 +58,11 @@ class _FormViewState extends State<FormView> {
                         activeColor: kColorTitle,
                         value: tractor,
                         onChanged: (value) {
-                          setState(() {
-                            tractor = value ?? false;
-                          });
+                          if (mounted) {
+                            setState(() {
+                              tractor = value ?? false;
+                            });
+                          }
                         },
                       ),
                     ),
@@ -68,9 +70,11 @@ class _FormViewState extends State<FormView> {
                     CounterButtonWidget(
                       hint: S.current.people_informed,
                       onChanged: (value) {
-                        setState(() {
-                          peopleInformed = value;
-                        });
+                        if (mounted) {
+                          setState(() {
+                            peopleInformed = value;
+                          });
+                        }
                       },
                     ),
                     const SizedBox(height: 25),
