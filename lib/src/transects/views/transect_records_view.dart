@@ -123,12 +123,12 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       navigation = [
         NavigationDestination(
           icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
-          label: "Transects",
+          label: S.current.transects,
         ),
         NavigationDestination(
           icon:
               Icon(currentPage == 1 ? Icons.download : Icons.download_outlined),
-          label: "Download",
+          label: S.current.download,
         ),
       ];
 
