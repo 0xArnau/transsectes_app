@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPreferences
 import 'package:transsectes_app/main.dart';
 
 class CustomListWheelScrollView extends StatefulWidget {
@@ -17,15 +18,44 @@ class _CustomListWheelScrollViewState extends State<CustomListWheelScrollView> {
   @override
   void initState() {
     super.initState();
-
     _controller = FixedExtentScrollController();
+    _loadLanguagePreference(); // Cargar la preferencia de idioma al iniciar
   }
 
   @override
   void dispose() {
     _controller.dispose();
-
     super.dispose();
+  }
+
+  Future<void> _loadLanguagePreference() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? savedLanguage = prefs.getString('language');
+
+    setState(() {
+      if (savedLanguage == 'en') {
+        _currentElement = 0;
+      } else if (savedLanguage == 'es') {
+        _currentElement = 1;
+      } else if (savedLanguage == 'ca') {
+        _currentElement = 2;
+      }
+    });
+
+    _controller.jumpToItem(_currentElement);
+  }
+
+  void _changeLanguage(String code, int index) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('language', code);
+
+    if (!mounted) return;
+
+    setState(() {
+      _currentElement = index;
+    });
+
+    MyApp.changeLanguage(context, code);
   }
 
   @override
@@ -50,8 +80,6 @@ class _CustomListWheelScrollViewState extends State<CustomListWheelScrollView> {
           ListWheelScrollView.useDelegate(
             itemExtent: height,
             diameterRatio: 1,
-            // useMagnifier: true,
-            // magnification: 1.5,
             squeeze: 1.75,
             controller: _controller,
             physics: const FixedExtentScrollPhysics(),
@@ -61,18 +89,20 @@ class _CustomListWheelScrollViewState extends State<CustomListWheelScrollView> {
                   _currentElement = index;
                 });
               }
-              //
-              _controller.animateToItem(_currentElement,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.easeInOut);
 
-              MyApp.changeLanguage(
-                  context,
-                  _currentElement == 0
-                      ? 'en'
-                      : _currentElement == 1
-                          ? 'es'
-                          : 'ca');
+              String selectedLanguage = index == 0
+                  ? 'en'
+                  : index == 1
+                      ? 'es'
+                      : 'ca';
+
+              _changeLanguage(selectedLanguage, index);
+
+              _controller.animateToItem(
+                _currentElement,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.easeInOut,
+              );
             },
             childDelegate: ListWheelChildBuilderDelegate(
               childCount: 3,
