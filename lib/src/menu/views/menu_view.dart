@@ -205,20 +205,9 @@ class _MenuViewState extends State<MenuView> {
                     title: Text(
                       S.current.language_change_2,
                     ),
-                    subtitle: Text(
-                      S.current.language_change_2_temporal,
-                    ),
                     onTap: () {
                       showModal(context);
                     },
-                  ),
-                  Center(
-                    child: ListTile(
-                      title: Text(
-                        S.current.language_change,
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                    ),
                   ),
                 ],
               ),

@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transsectes_app/firebase_options.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/l10n/l10n.dart';
@@ -59,20 +59,52 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var language = Locale(Platform.localeName.split("_")[0]);
+  late SharedPreferences prefs;
+
+  Locale language = Locale(Platform.localeName.split("_")[0]);
+
+  @override
+  void initState() {
+    super.initState();
+    initializeSharedPreferences();
+  }
+
+  void initializeSharedPreferences() async {
+    SharedPreferences instance = await SharedPreferences.getInstance();
+    if (mounted) {
+      setState(() {
+        prefs = instance;
+      });
+    }
+
+    String? savedLanguage = await getLanguageSharedPreference();
+
+    if (mounted) {
+      setState(() {
+        language = Locale(savedLanguage ?? Platform.localeName.split("_")[0]);
+      });
+    }
+  }
+
+  Future<String?> getLanguageSharedPreference() async {
+    return prefs.getString('language');
+  }
+
+  void setLanguageSharedPreference(String locale) async {
+    await prefs.setString('language', locale);
+  }
 
   void changeLanguage(String code) {
     if (mounted) {
       setState(() {
         language = Locale(code);
+        setLanguageSharedPreference(language.toString());
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Logger().d(Platform.localeName);
-
     return MultiBlocProvider(
       providers: [
         BlocProvider(
