@@ -9,8 +9,8 @@
 </h3>
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="/docs/logo_tiny_dark.svg">
-  <img alt="tiny corp logo" src="assets/imgs/logo/GEPEC_EdC_OFICIAL.png" width="50%" height="50%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png">
+  <img alt="GePeE-EdC logo" src="assets/imgs/logo/GEPEC_EdC_OFICIAL.png" width="50%" height="50%">
 </picture>
 </div>
 
