@@ -65,17 +65,23 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
               itemCount: map.length,
               itemBuilder: (context, index) {
                 String key = map.keys.elementAt(index);
-                return ListTile(
-                  leading: Text(map[key]!.length.toString()),
-                  title: Text(key),
-                  trailing: const Icon(Icons.download),
-                  onTap: () {
-                    FileIOController.saveReports2CSV(
-                      context: context,
-                      reports: map[key]!,
-                      locality: key,
-                    );
-                  },
+                return Card(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    vertical: 5.0,
+                  ),
+                  child: ListTile(
+                    leading: Text(map[key]!.length.toString()),
+                    title: Text(key),
+                    trailing: const Icon(Icons.download),
+                    onTap: () {
+                      FileIOController.saveReports2CSV(
+                        context: context,
+                        reports: map[key]!,
+                        locality: key,
+                      );
+                    },
+                  ),
                 );
               },
             );

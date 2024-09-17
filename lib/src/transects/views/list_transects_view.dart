@@ -49,33 +49,39 @@ class _ListTransectsViewState extends State<ListTransectsView> {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                leading: Text(
-                  snapshot.data![index].localityFirst,
-                  textAlign: TextAlign.center,
+              return Card(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                  vertical: 5.0,
                 ),
-                title: Text(
-                  snapshot.data![index].createdAt
-                      .toDate()
-                      .toIso8601String()
-                      .split('.')[0],
-                  textAlign: TextAlign.center,
+                child: ListTile(
+                  leading: Text(
+                    snapshot.data![index].localityFirst,
+                    textAlign: TextAlign.center,
+                  ),
+                  title: Text(
+                    snapshot.data![index].createdAt
+                        .toDate()
+                        .toIso8601String()
+                        .split('.')[0],
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: Text(
+                    snapshot.data![index].observations,
+                    textAlign: TextAlign.center,
+                  ),
+                  trailing: const Icon(Icons.open_in_new),
+                  onTap: () {
+                    // Go to a dedicated screen where users can see all information and map
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            TransectView(transect: snapshot.data![index]),
+                      ),
+                    );
+                  },
                 ),
-                subtitle: Text(
-                  snapshot.data![index].observations,
-                  textAlign: TextAlign.center,
-                ),
-                trailing: const Icon(Icons.open_in_new),
-                onTap: () {
-                  // Go to a dedicated screen where users can see all information and map
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          TransectView(transect: snapshot.data![index]),
-                    ),
-                  );
-                },
               );
             },
           );
