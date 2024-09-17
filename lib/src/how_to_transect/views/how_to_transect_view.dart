@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
-import 'package:transsectes_app/src/utils/colors.dart';
 
 class HowToTransectView extends StatefulWidget {
   const HowToTransectView({super.key});
@@ -20,88 +17,109 @@ class _HowToTransectViewState extends State<HowToTransectView> {
     super.initState();
   }
 
+  final PageController _sliderController = PageController(initialPage: 0);
+
+  int _currentSlider = 0;
+
+  final List<Widget> _sliders = [
+    _sliderWidget(
+      title: S.current.how_to_1_title,
+      pre: S.current.how_to_1_1,
+      post: S.current.how_to_1_2,
+      image: 'assets/imgs/explanation/1.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_2_title,
+      pre: S.current.how_to_2_1,
+      post: S.current.how_to_2_2,
+      image: 'assets/imgs/explanation/2.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_3_title,
+      pre: S.current.how_to_3_1,
+      post: S.current.how_to_3_2,
+      image: 'assets/imgs/explanation/3.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_4_title,
+      pre: S.current.how_to_4_1,
+      post: S.current.how_to_4_2,
+      image: 'assets/imgs/explanation/4.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_5_title,
+      pre: S.current.how_to_5_1,
+      image: 'assets/imgs/explanation/5.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_6_title,
+      pre: S.current.how_to_6_1,
+      post: S.current.how_to_6_2,
+      image: 'assets/imgs/explanation/6.png',
+    ),
+    _sliderWidget(
+      title: S.current.how_to_7_title,
+      pre: S.current.how_to_7_1,
+      image: 'assets/imgs/explanation/7.png',
+    ),
+    Image.asset(
+      'assets/imgs/explanation/8.png',
+      fit: BoxFit.fitHeight,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return customScaffold(
       context: context,
       title: S.current.how2transect,
       body: SafeArea(
-        child: IntroductionScreen(
-          showDoneButton: true,
-          showNextButton: true,
-          showBackButton: true,
-          isProgress: false,
-          baseBtnStyle: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(kColorTitle),
-            surfaceTintColor: MaterialStateProperty.all<Color>(kColorTitle),
-            overlayColor: MaterialStateProperty.all<Color>(
-              Color.fromRGBO(
-                kColorTitle.red,
-                kColorTitle.green,
-                kColorTitle.blue,
-                .2,
+        child: Stack(
+          children: [
+            PageView.builder(
+              controller: _sliderController,
+              itemCount: _sliders.length,
+              itemBuilder: ((context, index) {
+                return _sliders[index];
+              }),
+              onPageChanged: (value) {
+                setState(() {
+                  _currentSlider = value;
+                });
+              },
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                color: Colors.transparent,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(
+                    _sliders.length,
+                    (index) => Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: InkWell(
+                        onTap: () {
+                          _sliderController.animateToPage(
+                            index,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: CircleAvatar(
+                          radius: _currentSlider == index ? 6 : 3,
+                          backgroundColor: _currentSlider == index
+                              ? Colors.black
+                              : Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-          back: Theme.of(context).platform == TargetPlatform.iOS
-              ? const Icon(Icons.arrow_back_ios)
-              : const Icon(Icons.arrow_back),
-          next: Theme.of(context).platform == TargetPlatform.iOS
-              ? const Icon(Icons.arrow_forward_ios)
-              : const Icon(Icons.arrow_forward),
-          done: const Icon(Icons.done),
-          onDone: () {
-            context.pop();
-          },
-          pages: [
-            myPageViewModel(
-              title: S.current.how_to_1_title,
-              textBefore: S.current.how_to_1_1,
-              textAfter: S.current.how_to_1_2,
-              image: 'assets/imgs/explanation/1.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_2_title,
-              textBefore: S.current.how_to_2_1,
-              textAfter: S.current.how_to_2_2,
-              image: 'assets/imgs/explanation/2.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_3_title,
-              textBefore: S.current.how_to_3_1,
-              textAfter: S.current.how_to_3_2,
-              image: 'assets/imgs/explanation/3.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_4_title,
-              textBefore: S.current.how_to_4_1,
-              textAfter: S.current.how_to_4_2,
-              image: 'assets/imgs/explanation/4.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_5_title,
-              textBefore: S.current.how_to_5_1,
-              textAfter: '',
-              image: 'assets/imgs/explanation/5.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_6_title,
-              textBefore: S.current.how_to_6_1,
-              textAfter: S.current.how_to_6_2,
-              image: 'assets/imgs/explanation/6.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_7_title,
-              textBefore: S.current.how_to_7_1,
-              textAfter: '',
-              image: 'assets/imgs/explanation/7.png',
-            ),
-            myPageViewModel(
-              title: S.current.how_to_8_title,
-              textBefore: '',
-              textAfter: '',
-              image: 'assets/imgs/explanation/8.png',
-            ),
+            )
           ],
         ),
       ),
@@ -117,29 +135,54 @@ class _HowToTransectViewState extends State<HowToTransectView> {
   }
 }
 
-PageViewModel myPageViewModel({
-  required String title,
-  required String textBefore,
-  required String textAfter,
-  required String image,
-}) =>
-    PageViewModel(
-      title: title,
-      bodyWidget: Column(
+Widget _sliderWidget({
+  String? title,
+  String? pre,
+  String? post,
+  String? image,
+}) {
+  return SingleChildScrollView(
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            textBefore,
-            style: const TextStyle(
-              fontSize: 18,
+          if (title != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            textAlign: TextAlign.justify,
-          ),
-          Image.asset(image),
-          Text(
-            textAfter,
-            style: const TextStyle(fontSize: 18),
-            textAlign: TextAlign.justify,
-          ),
+          if (pre != null)
+            Text(
+              pre,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.black87,
+              ),
+            ),
+          if (image != null)
+            Image.asset(
+              image,
+              fit: BoxFit.fitWidth,
+              width: double.infinity,
+            ),
+          if (post != null)
+            Text(
+              post,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.black87,
+              ),
+            ),
+          const SizedBox(height: 30),
         ],
       ),
-    );
+    ),
+  );
+}
