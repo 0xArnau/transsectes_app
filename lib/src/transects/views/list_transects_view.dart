@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_chevron_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class ListTransectsView extends StatefulWidget {
@@ -49,39 +50,23 @@ class _ListTransectsViewState extends State<ListTransectsView> {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
-              return Card(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                  vertical: 5.0,
+              return ListTileChevronWidget(
+                leading: Text(
+                  snapshot.data![index].localityFirst,
+                  textAlign: TextAlign.center,
                 ),
-                child: ListTile(
-                  leading: Text(
-                    snapshot.data![index].localityFirst,
-                    textAlign: TextAlign.center,
-                  ),
-                  title: Text(
-                    snapshot.data![index].createdAt
-                        .toDate()
-                        .toIso8601String()
-                        .split('.')[0],
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: Text(
-                    snapshot.data![index].observations,
-                    textAlign: TextAlign.center,
-                  ),
-                  trailing: const Icon(Icons.open_in_new),
-                  onTap: () {
-                    // Go to a dedicated screen where users can see all information and map
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            TransectView(transect: snapshot.data![index]),
-                      ),
-                    );
-                  },
+                title: Text(
+                  snapshot.data![index].createdAt
+                      .toDate()
+                      .toIso8601String()
+                      .split('.')[0],
+                  textAlign: TextAlign.center,
                 ),
+                subtitle: Text(
+                  snapshot.data![index].observations,
+                  textAlign: TextAlign.center,
+                ),
+                goto: () => TransectView(transect: snapshot.data![index]),
               );
             },
           );

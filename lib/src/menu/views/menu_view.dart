@@ -9,6 +9,7 @@ import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -90,7 +91,7 @@ class _MenuViewState extends State<MenuView> {
                         }
                       },
                       builder: (context, state) {
-                        return ListTile(
+                        return ListTileWidget(
                           title: Text(
                             showEmail ? email : '',
                             textAlign: TextAlign.center,
@@ -115,58 +116,8 @@ class _MenuViewState extends State<MenuView> {
                       },
                     ),
                   ),
-                  // Center(
-                  //   child: BlocBuilder<GeolocationBloc, GeolocationState>(
-                  //     builder: (context, state) {
-                  //       return ListTile(
-                  //         leading: const Icon(Icons.gps_fixed),
-                  //         title: const Text("GPS (Foreground)"),
-                  //         trailing: Switch(
-                  //           value: state.foregroundPermission,
-                  //           onChanged: (value) {
-                  //             Logger().d("value: $value");
-                  //             if (value) {
-                  //               context
-                  //                   .read<GeolocationBloc>()
-                  //                   .add(RequestForegroundGeolocation());
-                  //             } else {
-                  //               openAppSettings();
-                  //             }
-                  //           },
-                  //           activeColor: kColorBackgroundWave,
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
-                  // Center(
-                  //   child: BlocBuilder<GeolocationBloc, GeolocationState>(
-                  //     builder: (context, state) {
-                  //       return ListTile(
-                  //         leading: const Icon(Icons.gps_fixed),
-                  //         title: const Text("GPS (Background)"),
-                  //         subtitle: const Text(
-                  //             "Required to get automatically the position"),
-                  //         trailing: Switch(
-                  //           value: state.backgroundPermission,
-                  //           onChanged: (value) {
-                  //             Logger().d("value: $value");
-                  //             if (value) {
-                  //               context
-                  //                   .read<GeolocationBloc>()
-                  //                   .add(RequestBackgroundGeolocation());
-                  //             } else {
-                  //               openAppSettings();
-                  //             }
-                  //           },
-                  //           activeColor: kColorBackgroundWave,
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                   Center(
-                    child: ListTile(
+                    child: ListTileWidget(
                       leading: const Icon(Icons.open_in_new),
                       title: Text(S.current.open_system_settings),
                       onTap: () {
@@ -174,9 +125,8 @@ class _MenuViewState extends State<MenuView> {
                       },
                     ),
                   ),
-
                   Center(
-                    child: ListTile(
+                    child: ListTileWidget(
                       leading: const Icon(Icons.delete_forever),
                       title: Text(S.current.delete_account),
                       onTap: () => AlertDialogWidget.showAlertDialog(
@@ -194,7 +144,7 @@ class _MenuViewState extends State<MenuView> {
                       ),
                     ),
                   ),
-                  ListTile(
+                  ListTileWidget(
                     leading: const Icon(Icons.language),
                     title: Text(
                       S.current.language_change_2,

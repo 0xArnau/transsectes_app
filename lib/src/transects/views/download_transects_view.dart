@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class DownloadTransectsView extends StatefulWidget {
@@ -65,23 +66,17 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
               itemCount: map.length,
               itemBuilder: (context, index) {
                 String key = map.keys.elementAt(index);
-                return Card(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 10.0,
-                    vertical: 5.0,
-                  ),
-                  child: ListTile(
-                    leading: Text(map[key]!.length.toString()),
-                    title: Text(key),
-                    trailing: const Icon(Icons.download),
-                    onTap: () {
-                      FileIOController.saveReports2CSV(
-                        context: context,
-                        reports: map[key]!,
-                        locality: key,
-                      );
-                    },
-                  ),
+                return ListTileWidget(
+                  leading: Text(map[key]!.length.toString()),
+                  title: Text(key),
+                  trailing: const Icon(Icons.download),
+                  onTap: () {
+                    FileIOController.saveReports2CSV(
+                      context: context,
+                      reports: map[key]!,
+                      locality: key,
+                    );
+                  },
                 );
               },
             );
