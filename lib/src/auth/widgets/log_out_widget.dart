@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget logOutWidget(BuildContext context) {
@@ -28,21 +28,15 @@ Widget logOutWidget(BuildContext context) {
       },
       builder: (context, state) {
         return ElevatedButton.icon(
-          onPressed: () async {
-            await showDialog<String>(
-              context: context,
-              builder: (BuildContext _) {
-                return CustomAlertDialogWidget(
-                  content: 'Are you sure you want to log out?',
-                  primaryText: 'Sign Out',
-                  primaryFunction: () =>
-                      BlocProvider.of<AuthBloc>(context).add(SignOut()),
-                  secondaryText: 'Cancel',
-                  secondaryFunction: () {},
-                );
-              },
-            );
-          },
+          onPressed: () => AlertDialogWidget.showAlertDialog(
+            context: context,
+            title: 'Want to logout?',
+            primaryText: 'Sign Out',
+            primaryFunction: () =>
+                BlocProvider.of<AuthBloc>(context).add(SignOut()),
+            secondaryText: 'Cancel',
+            secondaryFunction: () {},
+          ),
           icon: const Icon(Icons.logout_outlined),
           label: Text(S.current.signOut),
           style: ElevatedButton.styleFrom(

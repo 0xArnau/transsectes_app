@@ -8,7 +8,7 @@ import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -177,27 +177,21 @@ class _MenuViewState extends State<MenuView> {
 
                   Center(
                     child: ListTile(
-                      leading: const Icon(Icons.logout),
+                      leading: const Icon(Icons.delete_forever),
                       title: Text(S.current.delete_account),
-                      onTap: () async {
-                        await showDialog<String>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return CustomAlertDialogWidget(
-                              title: S.current.delete_account,
-                              content: S.current.delete_account_content,
-                              primaryText: 'Delete',
-                              primaryFunction: () {
-                                Logger().d("onPressedAccept");
-                                AuthRepository()
-                                    .deleteUserAccountAndInformation(context);
-                              },
-                              secondaryText: S.current.cancel,
-                              secondaryFunction: () {},
-                            );
-                          },
-                        );
-                      },
+                      onTap: () => AlertDialogWidget.showAlertDialog(
+                        context: context,
+                        title: S.current.delete_account,
+                        content: S.current.delete_account_content,
+                        primaryText: 'Delete',
+                        primaryFunction: () {
+                          Logger().d("onPressedAccept");
+                          AuthRepository()
+                              .deleteUserAccountAndInformation(context);
+                        },
+                        secondaryText: S.current.cancel,
+                        secondaryFunction: () {},
+                      ),
                     ),
                   ),
                   ListTile(

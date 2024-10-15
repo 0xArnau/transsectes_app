@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/counter_button_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_buttom_trailing.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
@@ -110,30 +110,24 @@ class _FormViewState extends State<FormView> {
                       children: [
                         customButton(
                           text: S.current.cancel,
-                          onTap: () async {
-                            if (state is TransectStarted) {
-                              await showDialog<String>(
-                                context: context,
-                                builder: (BuildContext _) =>
-                                    CustomAlertDialogWidget(
-                                  content: S.current.cancel_transect,
-                                  primaryText: S.current.delete,
-                                  primaryFunction: () {
-                                    context
-                                        .read<TransectBloc>()
-                                        .add(CancelTransect());
+                          onTap: () => AlertDialogWidget.showAlertDialog(
+                            context: context,
+                            title: 'Cancel transect',
+                            content: S.current.cancel_transect,
+                            primaryText: S.current.delete,
+                            primaryFunction: () {
+                              context
+                                  .read<TransectBloc>()
+                                  .add(CancelTransect());
 
-                                    context
-                                        .read<GeolocationBloc>()
-                                        .add(ResetGeolocation());
-                                    context.pop();
-                                  },
-                                  secondaryText: 'Cancel',
-                                  secondaryFunction: () {},
-                                ),
-                              );
-                            }
-                          },
+                              context
+                                  .read<GeolocationBloc>()
+                                  .add(ResetGeolocation());
+                              context.pop();
+                            },
+                            secondaryText: 'Cancel',
+                            secondaryFunction: () {},
+                          ),
                         ),
                         BlocBuilder<GeolocationBloc, GeolocationState>(
                           builder: (context, state) {
@@ -141,31 +135,28 @@ class _FormViewState extends State<FormView> {
                               text: S.current.send,
                               onTap: () async {
                                 if (state is GeolocationLoaded) {
-                                  await showDialog<String>(
+                                  AlertDialogWidget.showAlertDialog(
                                     context: context,
-                                    builder: (BuildContext _) =>
-                                        CustomAlertDialogWidget(
-                                      content: S.current.save_transect,
-                                      primaryText: S.current.save,
-                                      primaryFunction: () {
-                                        context
-                                            .read<TransectBloc>()
-                                            .add(StopTransect(
-                                              context: context,
-                                              tractor: tractor,
-                                              informedPeople: peopleInformed,
-                                              observations: observations.text,
-                                              geolocationModel:
-                                                  state.geolocation,
-                                            ));
-                                        context
-                                            .read<GeolocationBloc>()
-                                            .add(ResetGeolocation());
-                                        context.pop();
-                                      },
-                                      secondaryText: S.current.cancel,
-                                      secondaryFunction: () {},
-                                    ),
+                                    title: 'Save transect',
+                                    content: S.current.save_transect,
+                                    primaryText: S.current.save,
+                                    primaryFunction: () {
+                                      context
+                                          .read<TransectBloc>()
+                                          .add(StopTransect(
+                                            context: context,
+                                            tractor: tractor,
+                                            informedPeople: peopleInformed,
+                                            observations: observations.text,
+                                            geolocationModel: state.geolocation,
+                                          ));
+                                      context
+                                          .read<GeolocationBloc>()
+                                          .add(ResetGeolocation());
+                                      context.pop();
+                                    },
+                                    secondaryText: S.current.cancel,
+                                    secondaryFunction: () {},
                                   );
                                 }
                               },

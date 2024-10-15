@@ -12,7 +12,7 @@ import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.d
 import 'package:transsectes_app/src/menu/views/menu_view.dart';
 import 'package:transsectes_app/src/transects/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transects/views/transect_records_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -65,18 +65,17 @@ class _HomeViewState extends State<HomeView> {
                               );
                         } else {
                           if (!state.backgroundPermission) {
-                            showDialog<String>(
+                            AlertDialogWidget.showAlertDialog(
                               context: context,
-                              builder: (BuildContext _) {
-                                return CustomAlertDialogWidget(
-                                  title: S.of(context).gps_service_background_disabled,
-                                  content: S.of(context).gps_service_background_disabled_content,
-                                  primaryText: S.of(context).settings,
-                                  primaryFunction: () => openAppSettings(),
-                                  secondaryText: S.of(context).cancel,
-                                  secondaryFunction: () {},
-                                );
-                              },
+                              title:
+                                  S.of(context).gps_service_background_disabled,
+                              content: S
+                                  .of(context)
+                                  .gps_service_background_disabled_content,
+                              primaryText: S.of(context).settings,
+                              primaryFunction: () => openAppSettings(),
+                              secondaryText: S.of(context).cancel,
+                              secondaryFunction: () {},
                             );
                           } else {
                             context.push(StartStopTransecteView.path);
