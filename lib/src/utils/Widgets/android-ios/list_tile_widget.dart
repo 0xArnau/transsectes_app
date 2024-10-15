@@ -29,7 +29,7 @@ class ListTileWidget extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       trailing: trailing,
-      onTap: () => onTap,
+      onTap: () => onTap != null ? onTap!() : null,
     );
   }
 
@@ -39,7 +39,7 @@ class ListTileWidget extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       trailing: trailing,
-      onTap: () => onTap,
+      onTap: () => onTap != null ? onTap!() : null,
     );
   }
 }
