@@ -39,7 +39,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthFailure(message: S.current.user_not_found));
             break;
           default:
-            emit(AuthFailure(message: e.message.toString()));
+            emit(AuthFailure(
+                message:
+                    'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.message.toString()}'));
         }
       } catch (e) {
         Logger().e(e.toString());
@@ -55,7 +57,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         repository.singOut();
       } catch (e) {
         Logger().e(e.toString());
-        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+        emit(AuthFailure(
+            message:
+                'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.toString()}'));
       }
     });
 
@@ -68,7 +72,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthSuccess(value: email));
       } catch (e) {
         Logger().e(e.toString());
-        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+        emit(AuthFailure(
+            message:
+                'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.toString()}'));
       }
     });
 
@@ -87,7 +93,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } catch (e) {
         Logger().e(e.toString());
-        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+        emit(AuthFailure(
+            message:
+                'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.toString()}'));
       }
     });
 
@@ -107,11 +115,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         Logger().e(e.toString());
         switch (e.code) {
           default:
-            emit(AuthFailure(message: e.message.toString()));
+            emit(AuthFailure(
+                message:
+                    'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.message.toString()}'));
         }
       } catch (e) {
         Logger().e(e.toString());
-        emit(AuthFailure(message: 'Error: ${e.toString()}'));
+        emit(AuthFailure(
+            message:
+                'Ha habido un error, reinicia la app\n Si el error persiste contacta con nosotros\n${e.toString()}'));
       }
     });
   }
