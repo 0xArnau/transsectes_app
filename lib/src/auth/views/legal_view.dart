@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/widget_tree.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/Widgets/pdf_viewer_widget.dart';

@@ -5,8 +5,8 @@ import 'package:transsectes_app/src/transects/controllers/file_io_controller.dar
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/transects/views/google_maps_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_chevron_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_chevron_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 
 class TransectView extends StatefulWidget {

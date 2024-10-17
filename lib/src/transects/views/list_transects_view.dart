@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
 import 'package:transsectes_app/src/transects/views/transect_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_chevron_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_chevron_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class ListTransectsView extends StatefulWidget {

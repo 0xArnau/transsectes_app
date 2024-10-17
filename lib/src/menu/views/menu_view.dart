@@ -8,8 +8,8 @@ import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 

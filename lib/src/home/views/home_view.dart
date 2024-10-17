@@ -12,7 +12,7 @@ import 'package:transsectes_app/src/how_to_transect/views/how_to_transect_view.d
 import 'package:transsectes_app/src/menu/views/menu_view.dart';
 import 'package:transsectes_app/src/transects/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transects/views/transect_records_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 

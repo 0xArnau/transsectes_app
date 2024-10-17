@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 
 class RemoveTransectsView extends StatelessWidget {
   const RemoveTransectsView({super.key});

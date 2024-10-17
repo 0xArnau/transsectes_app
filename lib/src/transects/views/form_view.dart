@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/counter_button_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_buttom_trailing.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';

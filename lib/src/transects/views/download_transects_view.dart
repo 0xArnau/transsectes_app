@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/list_tile_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class DownloadTransectsView extends StatefulWidget {

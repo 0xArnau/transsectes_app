@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/android-ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget logOutWidget(BuildContext context) {
