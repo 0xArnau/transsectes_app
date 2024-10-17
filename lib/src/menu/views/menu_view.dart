@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
@@ -9,6 +10,7 @@ import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
 import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/icon_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
@@ -70,8 +72,9 @@ class _MenuViewState extends State<MenuView> {
               child: ListView(
                 children: [
                   Center(
-                    child: Icon(
-                      Icons.person,
+                    child: IconWidget(
+                      android: Icons.person,
+                      ios: CupertinoIcons.person,
                       size: MediaQuery.of(context).size.height / 6,
                     ),
                   ),
@@ -97,7 +100,10 @@ class _MenuViewState extends State<MenuView> {
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          leading: const Icon(Icons.email),
+                          leading: const IconWidget(
+                            android: Icons.email,
+                            ios: CupertinoIcons.mail,
+                          ),
                           trailing: GestureDetector(
                             onTap: () {
                               if (mounted) {
@@ -106,10 +112,13 @@ class _MenuViewState extends State<MenuView> {
                                 });
                               }
                             },
-                            child: Icon(
-                              showEmail
+                            child: IconWidget(
+                              android: showEmail
                                   ? Icons.visibility_off
                                   : Icons.visibility,
+                              ios: showEmail
+                                  ? CupertinoIcons.eye
+                                  : CupertinoIcons.eye_slash,
                             ),
                           ),
                         );
@@ -118,7 +127,10 @@ class _MenuViewState extends State<MenuView> {
                   ),
                   Center(
                     child: ListTileWidget(
-                      leading: const Icon(Icons.open_in_new),
+                      leading: const IconWidget(
+                        android: Icons.open_in_new,
+                        ios: CupertinoIcons.arrow_right,
+                      ),
                       title: Text(S.current.open_system_settings),
                       onTap: () {
                         openAppSettings();
@@ -127,7 +139,10 @@ class _MenuViewState extends State<MenuView> {
                   ),
                   Center(
                     child: ListTileWidget(
-                      leading: const Icon(Icons.delete_forever),
+                      leading: const IconWidget(
+                        android: Icons.delete_forever,
+                        ios: CupertinoIcons.delete,
+                      ),
                       title: Text(S.current.delete_account),
                       onTap: () => AlertDialogWidget.showAlertDialog(
                         context: context,
@@ -145,7 +160,10 @@ class _MenuViewState extends State<MenuView> {
                     ),
                   ),
                   ListTileWidget(
-                    leading: const Icon(Icons.language),
+                    leading: const IconWidget(
+                      android: Icons.language,
+                      ios: Icons.language,
+                    ),
                     title: Text(
                       S.current.language_change_2,
                     ),

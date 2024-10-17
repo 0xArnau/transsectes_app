@@ -2,12 +2,13 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/icon_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String text;
   final Function action;
-  final Icon? icon;
+  final IconWidget? icon;
 
   const ButtonWidget({
     super.key,
@@ -26,7 +27,7 @@ class ButtonWidget extends StatelessWidget {
   Widget _android({
     required String text,
     required Function action,
-    Icon? icon,
+    IconWidget? icon,
   }) {
     return TextButton(
       onPressed: () => action(),
@@ -50,7 +51,7 @@ class ButtonWidget extends StatelessWidget {
   Widget _ios({
     required String text,
     required Function action,
-    Icon? icon,
+    IconWidget? icon,
   }) {
     return CupertinoButton(
       onPressed: () => action(),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +8,7 @@ import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/button_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/icon_widget.dart';
 
 Widget logOutWidget(BuildContext context) {
   return BlocProvider(
@@ -29,7 +31,10 @@ Widget logOutWidget(BuildContext context) {
       builder: (context, state) {
         return ButtonWidget(
           text: S.current.signOut,
-          icon: const Icon(Icons.logout),
+          icon: const IconWidget(
+            android: Icons.logout,
+            ios: CupertinoIcons.arrow_right_to_line,
+          ) ,
           action: () => AlertDialogWidget.showAlertDialog(
             context: context,
             title: 'Want to logout?',

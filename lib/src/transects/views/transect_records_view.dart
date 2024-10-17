@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
@@ -7,6 +8,7 @@ import 'package:transsectes_app/src/transects/repositories/transects/transect_re
 import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/list_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/remove_transects_view.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/icon_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -86,20 +88,40 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
     if (technician) {
       navigation = [
         NavigationDestination(
-          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
+          icon: IconWidget(
+            android: currentPage == 0 ? Icons.person : Icons.person_outline,
+            ios: currentPage == 0
+                ? CupertinoIcons.person_fill
+                : CupertinoIcons.person,
+          ),
           label: S.current.transects,
         ),
         NavigationDestination(
-          icon: Icon(currentPage == 1 ? Icons.people : Icons.people_outline),
+          icon: IconWidget(
+            android: currentPage == 1 ? Icons.people : Icons.people_outline,
+            ios: currentPage == 1
+                ? CupertinoIcons.person_2_fill
+                : CupertinoIcons.person_2,
+          ),
           label: S.current.all_transects,
         ),
         NavigationDestination(
-          icon:
-              Icon(currentPage == 2 ? Icons.download : Icons.download_outlined),
+          icon: IconWidget(
+            android:
+                currentPage == 2 ? Icons.download : Icons.download_outlined,
+            ios: currentPage == 2
+                ? CupertinoIcons.download_circle_fill
+                : CupertinoIcons.download_circle,
+          ),
           label: S.current.download,
         ),
         NavigationDestination(
-          icon: const Icon(Icons.highlight_remove),
+          icon: IconWidget(
+            android: Icons.highlight_remove,
+            ios: currentPage == 3
+                ? CupertinoIcons.delete_solid
+                : CupertinoIcons.delete,
+          ),
           label: S.current.remove,
         )
       ];
@@ -122,12 +144,22 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
     } else {
       navigation = [
         NavigationDestination(
-          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
+          icon: IconWidget(
+            android: currentPage == 0 ? Icons.person : Icons.person_outline,
+            ios: currentPage == 0
+                ? CupertinoIcons.person_fill
+                : CupertinoIcons.person,
+          ),
           label: S.current.transects,
         ),
         NavigationDestination(
-          icon:
-              Icon(currentPage == 1 ? Icons.download : Icons.download_outlined),
+          icon: IconWidget(
+            android:
+                currentPage == 2 ? Icons.download : Icons.download_outlined,
+            ios: currentPage == 2
+                ? CupertinoIcons.download_circle_fill
+                : CupertinoIcons.download_circle,
+          ),
           label: S.current.download,
         ),
       ];
@@ -242,7 +274,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
                         },
                       );
                     },
-                    icon: const Icon(Icons.search),
+                    icon: const IconWidget(
+                      android: Icons.search,
+                      ios: CupertinoIcons.search,
+                    ),
                   );
                 },
               ),

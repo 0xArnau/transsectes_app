@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/src/transects/controllers/file_io_controller.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/icon_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -69,7 +71,10 @@ class _DownloadTransectsViewState extends State<DownloadTransectsView> {
                 return ListTileWidget(
                   leading: Text(map[key]!.length.toString()),
                   title: Text(key),
-                  trailing: const Icon(Icons.download),
+                  trailing: const IconWidget(
+                    android: Icons.download,
+                    ios: CupertinoIcons.cloud_download,
+                  ),
                   onTap: () {
                     FileIOController.saveReports2CSV(
                       context: context,
