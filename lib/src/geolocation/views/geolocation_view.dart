@@ -5,6 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/button_filled_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
@@ -44,8 +45,8 @@ class _GeolocationViewState extends State<GeolocationView> {
                     ),
                   ),
                   Center(
-                    child: ElevatedButton.icon(
-                      onPressed: () {
+                    child: ButtonFilledWidget(
+                      action: () {
                         GeolocationController.getLocation().then((value) {
                           Logger().d([value.latitude, value.longitude]);
 
@@ -58,11 +59,7 @@ class _GeolocationViewState extends State<GeolocationView> {
                         });
                       },
                       icon: const Icon(Icons.plus_one),
-                      label: Text(S.current.add_new_geopoint),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: kColorTitle,
-                        surfaceTintColor: kColorTitle,
-                      ),
+                      text: S.current.add_new_geopoint,
                     ),
                   ),
                 ],

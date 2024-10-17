@@ -6,7 +6,7 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/bloc/auth_bloc.dart';
 import 'package:transsectes_app/src/auth/views/login_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
-import 'package:transsectes_app/src/utils/colors.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/button_widget.dart';
 
 Widget logOutWidget(BuildContext context) {
   return BlocProvider(
@@ -27,8 +27,10 @@ Widget logOutWidget(BuildContext context) {
         }
       },
       builder: (context, state) {
-        return ElevatedButton.icon(
-          onPressed: () => AlertDialogWidget.showAlertDialog(
+        return ButtonWidget(
+          text: S.current.signOut,
+          icon: const Icon(Icons.logout),
+          action: () => AlertDialogWidget.showAlertDialog(
             context: context,
             title: 'Want to logout?',
             primaryText: 'Sign Out',
@@ -36,12 +38,6 @@ Widget logOutWidget(BuildContext context) {
                 BlocProvider.of<AuthBloc>(context).add(SignOut()),
             secondaryText: 'Cancel',
             secondaryFunction: () {},
-          ),
-          icon: const Icon(Icons.logout_outlined),
-          label: Text(S.current.signOut),
-          style: ElevatedButton.styleFrom(
-            foregroundColor: kColorTitle,
-            surfaceTintColor: kColorTitle,
           ),
         );
       },

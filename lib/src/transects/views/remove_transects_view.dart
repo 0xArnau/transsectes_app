@@ -3,6 +3,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/repositories/transects/transect_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/button_filled_widget.dart';
 
 class RemoveTransectsView extends StatelessWidget {
   const RemoveTransectsView({super.key});
@@ -13,8 +14,8 @@ class RemoveTransectsView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-            onPressed: () => AlertDialogWidget.showAlertDialog(
+          ButtonFilledWidget(
+            action: () => AlertDialogWidget.showAlertDialog(
               context: context,
               title: S.current.delete_all_transects,
               content: S.current.delete_all_transects_content,
@@ -26,7 +27,7 @@ class RemoveTransectsView extends StatelessWidget {
               secondaryText: S.current.cancel,
               secondaryFunction: () {},
             ),
-            child: Text(S.current.delete_all_transects),
+            text: S.current.delete_all_transects,
           ),
           const SizedBox(height: 10),
           Text(

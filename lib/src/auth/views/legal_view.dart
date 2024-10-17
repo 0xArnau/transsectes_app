@@ -160,7 +160,7 @@ class _LegalViewState extends State<LegalView> {
             ),
           );
         },
-        style: ElevatedButton.styleFrom(
+        style: TextButton.styleFrom(
           foregroundColor: kColorTitle,
           surfaceTintColor: kColorTitle,
         ),
