@@ -25,14 +25,25 @@
 
 ## Google Maps- iOS
 
-- Create the file `ios/Release.xcconfig` and `ios/Debug.xcconfig` and add the following code:
+- Create the file `ios/Runner/AppDelegate.swift` and add the following code:
 
-```xconfig
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
+```swift
+import UIKit
+import Flutter
+import GoogleMaps
 
-GOOGLE_MAPS_API_KEY_IOS = your_google_maps_ios_api_key
-****
+@main
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GeneratedPluginRegistrant.register(with: self)
+    GMSServices.provideAPIKey("GOOGLE_MAPS_API_KEY_IOS")
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+
 ```
 
 - Change the value of `GOOGLE_MAPS_API_KEY_IOS` to your actual API Key.

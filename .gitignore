@@ -68,3 +68,4 @@ android/app/src/main/res/values/string.xml
 ios/Common.xcconfig
 ios/Release.xcconfig
 ios/Debug.xcconfig
+ios/Runner/AppDelegate.swift
