@@ -60,3 +60,12 @@ GoogleService-Info.plist
 !*/.env.*.example
 !.env.example
 !*/.env.example
+
+# Android
+android/app/src/main/res/values/string.xml
+
+# iOS
+ios/Common.xcconfig
+ios/Release.xcconfig
+ios/Debug.xcconfig
+ios/Runner/AppDelegate.swift

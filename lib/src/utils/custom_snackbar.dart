@@ -14,7 +14,7 @@ class CustomSnackbar {
           ),
           textAlign: TextAlign.center,
         ),
-        duration: const Duration(seconds: 5),
+        duration: const Duration(seconds: 10),
         backgroundColor: Colors.red[200],
       ),
     );
@@ -32,7 +32,7 @@ class CustomSnackbar {
           ),
           textAlign: TextAlign.center,
         ),
-        duration: const Duration(seconds: 5),
+        duration: const Duration(seconds: 10),
       ),
     );
   }
