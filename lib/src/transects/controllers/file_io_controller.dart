@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:csv/csv.dart';
-import 'package:document_file_save_plus/document_file_save_plus.dart';
+// import 'package:document_file_save_plus/document_file_save_plus.dart';
+import 'package:file_saver/file_saver.dart';
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
@@ -62,14 +63,40 @@ class FileIOController {
 
     csv = const ListToCsvConverter().convert(rows);
 
-    DocumentFileSavePlus()
+    // DocumentFileSavePlus()
+    //     .saveFile(
+    //       Uint8List.fromList(utf8.encode(csv)),
+    //       fileName,
+    //       "text/csv",
+    //     )
+    //     .then((_) =>
+    //         CustomSnackbar.info(context, "${S.current.file_saved} $fileName "))
+    //     .onError(
+    //         (error, stackTrace) => CustomSnackbar.error(context, "$error"));
+
+    await FileSaver.instance
         .saveFile(
-          Uint8List.fromList(utf8.encode(csv)),
-          fileName,
-          "text/csv",
+          name: fileName,
+          bytes: Uint8List.fromList(utf8.encode(csv)),
+          ext: 'csv',
+          mimeType: MimeType.csv,
         )
-        .then((_) => CustomSnackbar.info(context, "${S.current.file_saved} $fileName "))
+        .then((_) =>
+            CustomSnackbar.info(context, "${S.current.file_saved} $fileName "))
         .onError(
             (error, stackTrace) => CustomSnackbar.error(context, "$error"));
+
+    // await FileSaver.instance.saveFile({
+    //   required String name,
+    //   Uint8List? bytes,
+    //   File? file,
+    //   String? filePath,
+    //   LinkDetails? link,
+    //   String ext = "",
+    //   MimeType mimeType = MimeType.other,
+    //   String? customMimeType,
+    //   Dio? dioClient,
+    //   Uint8List Function(Uint8List)? transformDioResponse,
+    //   });
   }
 }
