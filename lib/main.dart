@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_config/flutter_config.dart';
+// import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transsectes_app/firebase_options.dart';
@@ -38,7 +38,7 @@ Future<void> main() async {
     ),
   );
 
-  await FlutterConfig.loadEnvVariables();
+  // await FlutterConfig.loadEnvVariables();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
