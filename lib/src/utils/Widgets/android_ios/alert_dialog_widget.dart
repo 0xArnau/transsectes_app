@@ -1,7 +1,16 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'
+    show CupertinoAlertDialog, CupertinoDialogAction, showCupertinoDialog;
+import 'package:flutter/material.dart'
+    show
+        AlertDialog,
+        TextButton,
+        showDialog,
+        Text,
+        BuildContext,
+        Navigator,
+        Widget;
 
 class AlertDialogWidget {
   static void showAlertDialog({
@@ -39,7 +48,7 @@ class AlertDialogWidget {
   static void _alertDialogIos({
     required BuildContext context,
     required String title,
-    required String? content,
+    String? content,
     required String primaryText,
     required Function() primaryFunction,
     String? secondaryText,
@@ -55,7 +64,7 @@ class AlertDialogWidget {
             CupertinoDialogAction(
               onPressed: () {
                 secondaryFunction();
-                Navigator.pop(context, primaryText);
+                Navigator.pop(context);
               },
               child: Text(secondaryText),
             ),
@@ -63,7 +72,7 @@ class AlertDialogWidget {
             isDefaultAction: true,
             onPressed: () {
               primaryFunction();
-              Navigator.pop(context, primaryText);
+              Navigator.pop(context);
             },
             child: Text(primaryText),
           ),
@@ -75,7 +84,7 @@ class AlertDialogWidget {
   static void _alertDialogAndroid({
     required BuildContext context,
     required String title,
-    required String? content,
+    String? content,
     required String primaryText,
     required Function() primaryFunction,
     String? secondaryText,
@@ -91,14 +100,14 @@ class AlertDialogWidget {
             TextButton(
               onPressed: () {
                 secondaryFunction();
-                Navigator.pop(context, secondaryText);
+                Navigator.pop(context);
               },
               child: Text(secondaryText),
             ),
           TextButton(
             onPressed: () {
               primaryFunction();
-              Navigator.pop(context, primaryText);
+              Navigator.pop(context);
             },
             child: Text(primaryText),
           ),

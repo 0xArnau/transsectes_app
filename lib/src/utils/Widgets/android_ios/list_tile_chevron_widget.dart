@@ -1,7 +1,17 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'
+    show CupertinoListTile, CupertinoListTileChevron;
+import 'package:flutter/material.dart'
+    show
+        BuildContext,
+        Icon,
+        Icons,
+        ListTile,
+        MaterialPageRoute,
+        Navigator,
+        StatelessWidget,
+        Widget;
 
 class ListTileChevronWidget extends StatelessWidget {
   final Widget? leading;
@@ -32,9 +42,6 @@ class ListTileChevronWidget extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          // CupertinoPageRoute(
-          //   builder: (context) => goto(),
-          // ),
           MaterialPageRoute(
             builder: (context) => goto(),
           ),

@@ -1,7 +1,8 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' show CupertinoListTile;
+import 'package:flutter/material.dart'
+    show BuildContext, ListTile, StatelessWidget, Widget;
 
 class ListTileWidget extends StatelessWidget {
   final Widget? leading;
@@ -10,13 +11,14 @@ class ListTileWidget extends StatelessWidget {
   final Widget? trailing;
   final Function? onTap;
 
-  const ListTileWidget(
-      {super.key,
-      this.leading,
-      required this.title,
-      this.subtitle,
-      this.trailing,
-      this.onTap});
+  const ListTileWidget({
+    super.key,
+    this.leading,
+    required this.title,
+    this.subtitle,
+    this.trailing,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class ListTileWidget extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       trailing: trailing,
-      onTap: () => onTap != null ? onTap!() : null,
+      onTap: () => onTap?.call(),
     );
   }
 
@@ -39,7 +41,7 @@ class ListTileWidget extends StatelessWidget {
       title: title,
       subtitle: subtitle,
       trailing: trailing,
-      onTap: () => onTap != null ? onTap!() : null,
+      onTap: () => onTap?.call(),
     );
   }
 }

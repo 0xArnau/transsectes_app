@@ -1,7 +1,18 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'
+    show CupertinoButton, Row, Text, SizedBox;
+import 'package:flutter/material.dart'
+    show
+        BuildContext,
+        Icon,
+        MainAxisSize,
+        Row,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        TextButton,
+        Widget;
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class ButtonWidget extends StatelessWidget {

@@ -1,7 +1,17 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart'
+    show
+        BuildContext,
+        Container,
+        CupertinoNavigationBar,
+        CupertinoPageScaffold,
+        MainAxisSize,
+        Row,
+        SafeArea,
+        TextStyle;
+import 'package:flutter/material.dart'
+    show AppBar, Scaffold, Text, TextOverflow, Widget;
 import 'package:transsectes_app/src/utils/colors.dart';
 
 Widget scaffoldWidget({
@@ -13,27 +23,25 @@ Widget scaffoldWidget({
   List<Widget>? actions,
   bool resizeToAvoidBottomInset = false,
 }) {
-  if (Platform.isIOS) {
-    return _scaffoldIos(
-      context: context,
-      title: title,
-      body: body,
-      bottomNavigationBar: bottomNavigationBar,
-      drawer: drawer,
-      actions: actions,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-    );
-  } else {
-    return _scaffoldAndroid(
-      context: context,
-      title: title,
-      body: body,
-      bottomNavigationBar: bottomNavigationBar,
-      drawer: drawer,
-      actions: actions,
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-    );
-  }
+  return Platform.isIOS
+      ? _scaffoldIos(
+          context: context,
+          title: title,
+          body: body,
+          bottomNavigationBar: bottomNavigationBar,
+          drawer: drawer,
+          actions: actions,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+        )
+      : _scaffoldAndroid(
+          context: context,
+          title: title,
+          body: body,
+          bottomNavigationBar: bottomNavigationBar,
+          drawer: drawer,
+          actions: actions,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+        );
 }
 
 Widget _scaffoldAndroid({

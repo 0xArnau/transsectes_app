@@ -1,7 +1,17 @@
 import 'dart:io' show Platform;
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' show BorderRadius, CupertinoButton;
+import 'package:flutter/material.dart'
+    show
+        BuildContext,
+        ElevatedButton,
+        Icon,
+        MainAxisSize,
+        Row,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        Widget;
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class ButtonFilledWidget extends StatelessWidget {
