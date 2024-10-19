@@ -58,6 +58,7 @@
 	<string>Location required when app is in use to be able to capture the transect</string>
 	<key>Privacy - Location Always and When in Use Usage Description</key>
 	<string>Location required in the background to be able to capture the transect</string>
-	
+	<key>GoogleMapsApiKey</key>
+	<string>$(GOOGLE_MAPS_API_KEY_IOS)</string>
 </dict>
 </plist>

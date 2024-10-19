@@ -66,3 +66,5 @@ android/app/src/main/res/values/string.xml
 
 # iOS
 ios/Common.xcconfig
+ios/Release.xcconfig
+ios/Debug.xcconfig

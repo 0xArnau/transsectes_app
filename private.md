@@ -25,7 +25,7 @@
 
 ## Google Maps- iOS
 
-- Create the file `ios/Common.xcconfig` and add the following code:
+- Create the file `ios/Release.xcconfig` and `ios/Debug.xcconfig` and add the following code:
 
 ```xconfig
 // Configuration settings file format documentation can be found at:
