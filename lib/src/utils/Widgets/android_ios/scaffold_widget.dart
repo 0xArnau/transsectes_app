@@ -91,6 +91,6 @@ Widget _scaffoldIos({
         children: actions ?? [],
       ),
     ),
-    child: body ?? Container(),
+    child: Scaffold(body: body ?? Container()),
   );
 }
