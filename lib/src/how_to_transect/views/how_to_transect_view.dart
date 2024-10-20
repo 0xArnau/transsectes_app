@@ -1,6 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 
 class HowToTransectView extends StatefulWidget {
   const HowToTransectView({super.key});
@@ -70,7 +73,7 @@ class _HowToTransectViewState extends State<HowToTransectView> {
 
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: S.current.how2transect,
       body: SafeArea(
@@ -88,38 +91,70 @@ class _HowToTransectViewState extends State<HowToTransectView> {
                 });
               },
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: Colors.transparent,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(
-                    _sliders.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: InkWell(
-                        onTap: () {
-                          _sliderController.animateToPage(
-                            index,
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                        child: CircleAvatar(
-                          radius: _currentSlider == index ? 6 : 3,
-                          backgroundColor: _currentSlider == index
-                              ? Colors.black
-                              : Colors.grey,
+            Platform.isIOS
+                ? Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      color: Colors.transparent,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List<Widget>.generate(
+                          _sliders.length,
+                          (index) => CupertinoButton(
+                            padding:
+                                EdgeInsets.zero, // Elimina el padding del botón
+                            onPressed: () {
+                              _sliderController.animateToPage(
+                                index,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                            child: CircleAvatar(
+                              radius: _currentSlider == index ? 6 : 3,
+                              backgroundColor: _currentSlider == index
+                                  ? Colors.black
+                                  : Colors.grey,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-            )
+                  )
+                : Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      color: Colors.transparent,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List<Widget>.generate(
+                          _sliders.length,
+                          (index) => Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: InkWell(
+                              onTap: () {
+                                _sliderController.animateToPage(
+                                  index,
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              },
+                              child: CircleAvatar(
+                                radius: _currentSlider == index ? 6 : 3,
+                                backgroundColor: _currentSlider == index
+                                    ? Colors.black
+                                    : Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
           ],
         ),
       ),
