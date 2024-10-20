@@ -81,12 +81,12 @@ Widget _scaffoldIos({
   bool resizeToAvoidBottomInset = false,
 }) {
   return CupertinoPageScaffold(
-    backgroundColor: kColorBackground,
+    // backgroundColor: kColorBackground,
     navigationBar: CupertinoNavigationBar(
-      backgroundColor: kColorBackground,
+      // backgroundColor: kColorBackground,
       middle: Text(
         title,
-        style: const TextStyle(color: kColorTitle),
+        // style: const TextStyle(color: kColorTitle),
       ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
