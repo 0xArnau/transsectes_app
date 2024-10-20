@@ -93,8 +93,6 @@ Widget _scaffoldIos({
         children: actions ?? [],
       ),
     ),
-    child: SafeArea(
-      child: body ?? Container(),
-    ),
+    child: body ?? Container(),
   );
 }
