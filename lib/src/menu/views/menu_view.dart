@@ -99,19 +99,19 @@ class _MenuViewState extends State<MenuView> {
                           ),
                           leading: const Icon(Icons.email),
                           trailing: GestureDetector(
-                            onTap: () {
-                              if (mounted) {
-                                setState(() {
-                                  showEmail = !showEmail;
-                                });
-                              }
-                            },
                             child: Icon(
                               showEmail
                                   ? Icons.visibility_off
                                   : Icons.visibility,
                             ),
                           ),
+                          onTap: () {
+                            if (mounted) {
+                              setState(() {
+                                showEmail = !showEmail;
+                              });
+                            }
+                          },
                         );
                       },
                     ),
