@@ -7,7 +7,7 @@ import 'package:transsectes_app/src/transects/repositories/transects/transect_re
 import 'package:transsectes_app/src/transects/views/google_maps_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_chevron_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 
 class TransectView extends StatefulWidget {
   final TransectModel transect;
@@ -24,7 +24,7 @@ class TransectView extends StatefulWidget {
 class _TransectViewState extends State<TransectView> {
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       actions: <Widget>[
         IconButton(
           onPressed: () {

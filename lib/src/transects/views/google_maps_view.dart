@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:transsectes_app/src/transects/models/transect_model.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 
 class GoogleMapsView extends StatefulWidget {
   final TransectModel transectModel;
@@ -58,7 +58,7 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
 
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: title,
       body: SafeArea(
