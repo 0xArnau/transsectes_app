@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +10,7 @@ import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/views/geolocation_view.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/transects/views/form_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_small_wave_shape.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 import 'package:transsectes_app/src/utils/custom_snackbar.dart';
@@ -24,7 +27,7 @@ class StartStopTransecteView extends StatefulWidget {
 class _StartStopTransecteViewState extends State<StartStopTransecteView> {
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: S.current.start_transect,
       body: BlocBuilder<TransectBloc, TransectState>(
@@ -98,33 +101,64 @@ Widget _imageTextWidget(
   String text,
   Function()? goTo,
 ) {
-  return InkWell(
-    onTap: goTo,
-    child: Container(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(
-              imgSrc,
-              width: imgSize,
-            ),
-            const SizedBox(width: 10),
-            Flexible(
-              child: Text(
-                text,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: kColorText,
-                ),
-                overflow: TextOverflow.clip,
+  return Platform.isIOS
+      ? CupertinoButton(
+          padding: EdgeInsets.zero,
+          onPressed: goTo,
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    imgSrc,
+                    width: imgSize,
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(
+                    child: Text(
+                      text,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: kColorText,
+                      ),
+                      overflow: TextOverflow.clip,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    ),
-  );
+          ),
+        )
+      : InkWell(
+          onTap: goTo,
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Image.asset(
+                    imgSrc,
+                    width: imgSize,
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(
+                    child: Text(
+                      text,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: kColorText,
+                      ),
+                      overflow: TextOverflow.clip,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
 }

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -5,10 +8,10 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/transects/bloc/transect_bloc.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/button_filled_widget.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/counter_button_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_buttom_trailing.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_button.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_small_wave_shape.dart';
 import 'package:transsectes_app/src/utils/Widgets/custom_text_form.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
@@ -36,7 +39,7 @@ class _FormViewState extends State<FormView> {
 
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: S.current.transect_form,
       body: BlocBuilder<TransectBloc, TransectState>(
@@ -54,17 +57,27 @@ class _FormViewState extends State<FormView> {
                     const SizedBox(height: 25),
                     CustomButtonTrailing(
                       hint: S.current.tractor,
-                      trailing: Checkbox(
-                        activeColor: kColorTitle,
-                        value: tractor,
-                        onChanged: (value) {
-                          if (mounted) {
-                            setState(() {
-                              tractor = value ?? false;
-                            });
-                          }
-                        },
-                      ),
+                      trailing: Platform.isIOS
+                          ? CupertinoCheckbox(
+                              value: tractor,
+                              onChanged: (value) {
+                                if (mounted) {
+                                  setState(() {
+                                    tractor = value ?? false;
+                                  });
+                                }
+                              })
+                          : Checkbox(
+                              activeColor: kColorTitle,
+                              value: tractor,
+                              onChanged: (value) {
+                                if (mounted) {
+                                  setState(() {
+                                    tractor = value ?? false;
+                                  });
+                                }
+                              },
+                            ),
                     ),
                     const SizedBox(height: 25),
                     CounterButtonWidget(
@@ -108,9 +121,9 @@ class _FormViewState extends State<FormView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        customButton(
+                        ButtonFilledWidget(
                           text: S.current.cancel,
-                          onTap: () => AlertDialogWidget.showAlertDialog(
+                          action: () => AlertDialogWidget.showAlertDialog(
                             context: context,
                             title: 'Cancel transect',
                             content: S.current.cancel_transect,
@@ -131,9 +144,9 @@ class _FormViewState extends State<FormView> {
                         ),
                         BlocBuilder<GeolocationBloc, GeolocationState>(
                           builder: (context, state) {
-                            return customButton(
+                            return ButtonFilledWidget(
                               text: S.current.send,
-                              onTap: () async {
+                              action: () async {
                                 if (state is GeolocationLoaded) {
                                   AlertDialogWidget.showAlertDialog(
                                     context: context,

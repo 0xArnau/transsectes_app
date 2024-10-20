@@ -6,7 +6,7 @@ import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/geolocation/bloc/geolocation_bloc.dart';
 import 'package:transsectes_app/src/geolocation/controller/geolocation_controller.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/button_filled_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class GeolocationView extends StatefulWidget {
@@ -22,7 +22,7 @@ class _GeolocationViewState extends State<GeolocationView> {
   @override
   Widget build(BuildContext context) {
     Logger().d("GeolocationView");
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: S.current.add_new_geopoint,
       body: BlocBuilder<GeolocationBloc, GeolocationState>(
