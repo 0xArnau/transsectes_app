@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:transsectes_app/generated/l10n.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 import 'package:transsectes_app/src/utils/custom_snackbar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,7 +29,7 @@ class ContactView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return customScaffold(
+    return scaffoldWidget(
       context: context,
       title: S.current.contact,
       body: SafeArea(
