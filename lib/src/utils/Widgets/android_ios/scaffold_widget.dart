@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart'
         Container,
         CupertinoNavigationBar,
         CupertinoPageScaffold,
+        CupertinoTabScaffold,
         MainAxisSize,
         Row;
 import 'package:flutter/material.dart'
@@ -17,20 +18,28 @@ Widget scaffoldWidget({
   required String title,
   required Widget? body,
   Widget? bottomNavigationBar,
+  CupertinoTabScaffold? cts,
   Widget? drawer,
   List<Widget>? actions,
   bool resizeToAvoidBottomInset = false,
 }) {
   return Platform.isIOS
-      ? _scaffoldIos(
-          context: context,
-          title: title,
-          body: body,
-          bottomNavigationBar: bottomNavigationBar,
-          drawer: drawer,
-          actions: actions,
-          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        )
+      ? cts != null
+          ? _tabScaffoldIos(
+              context: context,
+              title: title,
+              body: body,
+              bottomNavigationBar: cts,
+              actions: actions,
+              resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+            )
+          : _scaffoldIos(
+              context: context,
+              title: title,
+              body: body,
+              actions: actions,
+              resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+            )
       : _scaffoldAndroid(
           context: context,
           title: title,
@@ -73,8 +82,6 @@ Widget _scaffoldIos({
   required BuildContext context,
   required String title,
   required Widget? body,
-  Widget? bottomNavigationBar,
-  Widget? drawer,
   List<Widget>? actions,
   bool resizeToAvoidBottomInset = false,
 }) {
@@ -92,5 +99,27 @@ Widget _scaffoldIos({
       ),
     ),
     child: Scaffold(body: body ?? Container()),
+  );
+}
+
+Widget _tabScaffoldIos({
+  required BuildContext context,
+  required String title,
+  required Widget? body,
+  required CupertinoTabScaffold bottomNavigationBar,
+  List<Widget>? actions,
+  bool resizeToAvoidBottomInset = false,
+}) {
+  return Scaffold(
+    appBar: CupertinoNavigationBar(
+      middle: Text(
+        title,
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: actions ?? [],
+      ),
+    ),
+    body: bottomNavigationBar,
   );
 }

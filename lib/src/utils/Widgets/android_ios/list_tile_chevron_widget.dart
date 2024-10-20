@@ -35,7 +35,7 @@ class ListTileChevronWidget extends StatelessWidget {
   Widget _listTileIos(BuildContext context) {
     return CupertinoListTile.notched(
       leading: leading,
-      leadingSize: 65,
+      leadingSize: 70,
       title: title,
       subtitle: subtitle,
       trailing: const CupertinoListTileChevron(),

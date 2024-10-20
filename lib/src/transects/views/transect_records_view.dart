@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/src/auth/repositories/auth_repository.dart';
@@ -7,7 +8,7 @@ import 'package:transsectes_app/src/transects/repositories/transects/transect_re
 import 'package:transsectes_app/src/transects/views/download_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/list_transects_view.dart';
 import 'package:transsectes_app/src/transects/views/remove_transects_view.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class TransectRecordsView extends StatefulWidget {
@@ -82,7 +83,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
   @override
   Widget build(BuildContext context) {
     List<NavigationDestination> navigation;
+    List<BottomNavigationBarItem> cupertinoNavigation;
+
     List<Widget> pages;
+
     if (technician) {
       navigation = [
         NavigationDestination(
@@ -99,6 +103,26 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
           label: S.current.download,
         ),
         NavigationDestination(
+          icon: const Icon(Icons.highlight_remove),
+          label: S.current.remove,
+        )
+      ];
+
+      cupertinoNavigation = [
+        BottomNavigationBarItem(
+          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
+          label: S.current.transects,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(currentPage == 1 ? Icons.people : Icons.people_outline),
+          label: S.current.all_transects,
+        ),
+        BottomNavigationBarItem(
+          icon:
+              Icon(currentPage == 2 ? Icons.download : Icons.download_outlined),
+          label: S.current.download,
+        ),
+        BottomNavigationBarItem(
           icon: const Icon(Icons.highlight_remove),
           label: S.current.remove,
         )
@@ -132,6 +156,18 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
         ),
       ];
 
+      cupertinoNavigation = [
+        BottomNavigationBarItem(
+          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
+          label: S.current.transects,
+        ),
+        BottomNavigationBarItem(
+          icon:
+              Icon(currentPage == 1 ? Icons.download : Icons.download_outlined),
+          label: S.current.download,
+        ),
+      ];
+
       pages = [
         ListTransectsView(
           transects: userTransects,
@@ -144,7 +180,7 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
         })),
       ];
     }
-    return customScaffold(
+    return scaffoldWidget(
       actions: currentPage == pages.length - 1
           ? null
           : <Widget>[
@@ -251,6 +287,10 @@ class _TransectRecordsViewState extends State<TransectRecordsView> {
       title: S.current.transect_records,
       resizeToAvoidBottomInset: true,
       body: pages.elementAt(currentPage),
+      cts: CupertinoTabScaffold(
+        tabBar: CupertinoTabBar(items: cupertinoNavigation),
+        tabBuilder: (context, index) => pages[index],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: navigation.map((destination) {
           return BottomNavigationBarItem(
