@@ -7,9 +7,7 @@ import 'package:flutter/cupertino.dart'
         CupertinoNavigationBar,
         CupertinoPageScaffold,
         MainAxisSize,
-        Row,
-        SafeArea,
-        TextStyle;
+        Row;
 import 'package:flutter/material.dart'
     show AppBar, Scaffold, Text, TextOverflow, Widget;
 import 'package:transsectes_app/src/utils/colors.dart';
