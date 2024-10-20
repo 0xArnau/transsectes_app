@@ -10,17 +10,17 @@ import 'package:transsectes_app/src/auth/widgets/log_out_widget.dart';
 import 'package:transsectes_app/src/transects/repositories/tecnics/tecnic_repository.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/list_tile_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/Widgets/language_picker.dart';
+import 'package:transsectes_app/src/utils/colors.dart';
 
-class MenuView extends StatefulWidget {
-  const MenuView({super.key});
+class MenuDrawer extends StatefulWidget {
+  const MenuDrawer({super.key});
 
   @override
-  State<MenuView> createState() => _MenuViewState();
+  State<MenuDrawer> createState() => _MenuDrawerState();
 }
 
-class _MenuViewState extends State<MenuView> {
+class _MenuDrawerState extends State<MenuDrawer> {
   late String appName = '';
   late String version = '';
   late String buildNumber = '';
@@ -61,8 +61,9 @@ class _MenuViewState extends State<MenuView> {
 
   @override
   Widget build(BuildContext context) {
-    return scaffoldWidget(
-      body: SafeArea(
+    return Drawer(
+      backgroundColor: kColorBackground,
+      child: SafeArea(
         child: Column(
           children: [
             Expanded(
@@ -170,8 +171,6 @@ class _MenuViewState extends State<MenuView> {
           ],
         ),
       ),
-      title: 'Settings',
-      context: context,
     );
   }
 }

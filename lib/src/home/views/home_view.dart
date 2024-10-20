@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +16,7 @@ import 'package:transsectes_app/src/menu/views/menu_view.dart';
 import 'package:transsectes_app/src/transects/views/start_stop_transecte_view.dart';
 import 'package:transsectes_app/src/transects/views/transect_records_view.dart';
 import 'package:transsectes_app/src/utils/Widgets/android_ios/alert_dialog_widget.dart';
-import 'package:transsectes_app/src/utils/Widgets/custom_scaffold.dart';
+import 'package:transsectes_app/src/utils/Widgets/android_ios/scaffold_widget.dart';
 import 'package:transsectes_app/src/utils/colors.dart';
 
 class HomeView extends StatefulWidget {
@@ -28,96 +31,112 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthBloc(),
-      child: customScaffold(
-        context: context,
-        drawer: const MenuView(),
-        title: 'Transsectes APP',
-        body: Stack(
-          children: [
-            ListView(
-              children: [
-                _imageTextWidget(
-                  context,
-                  'assets/imgs/icons/walk.png',
-                  MediaQuery.of(context).size.width / 3,
-                  S.of(context).how2transect,
-                  () => context.push(HowToTransectView.path),
-                ),
-                BlocBuilder<GeolocationBloc, GeolocationState>(
-                  builder: (context, state) {
-                    return _textImageWidget(
-                      context,
-                      'assets/imgs/icons/route.png',
-                      MediaQuery.of(context).size.width / 2,
-                      S.of(context).start_transect,
-                      () {
-                        Logger().d(state);
-
-                        if (state is GeolocationServiceDisabled) {
-                          context
-                              .push(GeolocationDisabledView.path)
-                              .whenComplete(
-                                () => context
-                                    .read<GeolocationBloc>()
-                                    .add(LoadGeolocation()),
-                              );
-                        } else {
-                          if (!state.backgroundPermission) {
-                            AlertDialogWidget.showAlertDialog(
-                              context: context,
-                              title:
-                                  S.of(context).gps_service_background_disabled,
-                              content: S
-                                  .of(context)
-                                  .gps_service_background_disabled_content,
-                              primaryText: S.of(context).settings,
-                              primaryFunction: () => openAppSettings(),
-                              secondaryText: S.of(context).cancel,
-                              secondaryFunction: () {},
-                            );
-                          } else {
-                            context.push(StartStopTransecteView.path);
-                          }
-                        }
-                      },
-                    );
-                  },
-                ),
-                _imageTextWidget(
-                  context,
-                  'assets/imgs/icons/book.png',
-                  MediaQuery.of(context).size.width / 2.5,
-                  S.of(context).transect_records,
-                  () => context.push(TransectRecordsView.path),
-                ),
-                _textImageWidget(
-                  context,
-                  'assets/imgs/icons/contact.png',
-                  MediaQuery.of(context).size.width / 3.5,
-                  S.of(context).contact,
-                  () => context.push(ContactView.path),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: kColorBackground,
-                ),
-                child: SafeArea(
-                  child: Image.asset(
-                    'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
-                    fit: BoxFit.fitWidth,
+    return scaffoldWidget(
+      context: context,
+      // drawer: const MenuDrawer(),
+      actions: [
+        GestureDetector(
+          child:
+              Icon(Platform.isIOS ? CupertinoIcons.settings : Icons.settings),
+          onTap: () => Navigator.push(
+            context,
+            Platform.isIOS
+                ? CupertinoPageRoute(
+                    builder: (context) => BlocProvider(
+                      create: (context) => AuthBloc(),
+                      child: const MenuView(),
+                    ),
+                  )
+                : MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                      create: (context) => AuthBloc(),
+                      child: const MenuView(),
+                    ),
                   ),
-                ),
+          ),
+        )
+      ],
+      title: 'Transsectes APP',
+      body: Stack(
+        children: [
+          ListView(
+            children: [
+              _imageTextWidget(
+                context,
+                'assets/imgs/icons/walk.png',
+                MediaQuery.of(context).size.width / 3,
+                S.of(context).how2transect,
+                () => context.push(HowToTransectView.path),
+              ),
+              BlocBuilder<GeolocationBloc, GeolocationState>(
+                builder: (context, state) {
+                  return _textImageWidget(
+                    context,
+                    'assets/imgs/icons/route.png',
+                    MediaQuery.of(context).size.width / 2,
+                    S.of(context).start_transect,
+                    () {
+                      Logger().d(state);
+
+                      if (state is GeolocationServiceDisabled) {
+                        context.push(GeolocationDisabledView.path).whenComplete(
+                              () => context
+                                  .read<GeolocationBloc>()
+                                  .add(LoadGeolocation()),
+                            );
+                      } else {
+                        if (!state.backgroundPermission) {
+                          AlertDialogWidget.showAlertDialog(
+                            context: context,
+                            title:
+                                S.of(context).gps_service_background_disabled,
+                            content: S
+                                .of(context)
+                                .gps_service_background_disabled_content,
+                            primaryText: S.of(context).settings,
+                            primaryFunction: () => openAppSettings(),
+                            secondaryText: S.of(context).cancel,
+                            secondaryFunction: () {},
+                          );
+                        } else {
+                          context.push(StartStopTransecteView.path);
+                        }
+                      }
+                    },
+                  );
+                },
+              ),
+              _imageTextWidget(
+                context,
+                'assets/imgs/icons/book.png',
+                MediaQuery.of(context).size.width / 2.5,
+                S.of(context).transect_records,
+                () => context.push(TransectRecordsView.path),
+              ),
+              _textImageWidget(
+                context,
+                'assets/imgs/icons/contact.png',
+                MediaQuery.of(context).size.width / 3.5,
+                S.of(context).contact,
+                () => context.push(ContactView.path),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: const EdgeInsets.only(bottom: 30),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: kColorBackground,
+              ),
+              child: Image.asset(
+                'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
+                fit: BoxFit.fitWidth,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
