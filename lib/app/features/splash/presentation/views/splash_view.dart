@@ -1,11 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/app/features/auth/presentation/auth_view.dart';
 import 'package:transsectes_app/app/shared/presentation/widgets/wave_shape_widget.dart';
 
 /// A Splash screen view that shows the app's logo and a background animation.
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   static const String path = '/';
+
+  @override
+  State<StatefulWidget> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToAuthView();
+  }
+
+  /// Navigate to AuthView after a delay of 1 second
+  Future<void> _navigateToAuthView() async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const AuthView()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

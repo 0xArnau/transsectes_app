@@ -49,4 +49,16 @@ abstract class AuthRepository {
   /// Returns a [Result] containing a [void] if the operation succeeds,
   /// or a [DataError] if the operation fails.
   Future<Result<void, DataError>> forgotPassword(String email);
+
+  /// Checks if the user is currently authenticated.
+  ///
+  /// Returns a [Result] containing a [bool] indicating whether the user is authenticated
+  /// or a [DataError] if the operation fails.
+  Result<bool, DataError> isUserAuthenticated();
+
+  /// Retrieves the current authenticated user.
+  ///
+  /// Returns a [Result] containing the [UserEntity] of the currently authenticated user
+  /// or a [DataError] if the operation fails.
+  Result<UserEntity, DataError> getCurrentUser();
 }

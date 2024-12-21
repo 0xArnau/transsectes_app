@@ -23,7 +23,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
   Future<Result<void, DataError>> forgotPassword(String email) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
-      
+
       return Result.success(null);
     } catch (e) {
       Logger().e(e);
@@ -134,6 +134,33 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
 
       userEntity = userEntity.copyWith(isTechnician: isTechnicianResult.value!);
 
+      return Result.success(userEntity);
+    } catch (e) {
+      Logger().e(e);
+      return Result.failure(RemoteError(RemoteErrorType.unknown));
+    }
+  }
+
+  @override
+  Result<bool, DataError> isUserAuthenticated() {
+    try {
+      return Result.success(_firebaseAuth.currentUser != null);
+    } catch (e) {
+      Logger().e(e);
+      return Result.failure(RemoteError(RemoteErrorType.unknown));
+    }
+  }
+
+  @override
+  Result<UserEntity, DataError> getCurrentUser() {
+    try {
+      User? userFirebase = _firebaseAuth.currentUser;
+
+      if (userFirebase == null) {
+        return Result.failure(RemoteError(RemoteErrorType.unknown));
+      }
+
+      UserEntity userEntity = UserMapper.toUserEntity(userFirebase);
       return Result.success(userEntity);
     } catch (e) {
       Logger().e(e);

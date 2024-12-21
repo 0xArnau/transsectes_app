@@ -48,4 +48,14 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<UserEntity, DataError>> signUp(String email, String password) {
     return _authDatasource.signUp(email, password);
   }
+
+  @override
+  Result<bool, DataError> isUserAuthenticated() {
+    return _authDatasource.isUserAuthenticated();
+  }
+
+  @override
+  Result<UserEntity, DataError> getCurrentUser() {
+    return _authDatasource.getCurrentUser();
+  }
 }
