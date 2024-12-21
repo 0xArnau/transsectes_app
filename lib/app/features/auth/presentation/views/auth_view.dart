@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/auth_view_model_provider.dart';
+import 'package:transsectes_app/app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:transsectes_app/app/shared/presentation/providers/user_provider.dart';
 
 /// A widget responsible for displaying the authentication state of the user.
@@ -45,11 +46,11 @@ class _AuthViewState extends ConsumerState<AuthView> {
       );
     }
 
-    // // Handle navigation based on user state
-    // if (userState.user == null) {
-    //   // If no user is authenticated, navigate to the SignInView
-    //   return const SignInView();
-    // }
+    // Handle navigation based on user state
+    if (userState.user == null) {
+      // If no user is authenticated, navigate to the SignInView
+      return const SignInView();
+    }
 
     // // If the user is authenticated but email is not verified, navigate to VerifyEmailView
     // if (userState.user!.isAuthenticated && !userState.user!.isEmailVerified) {
