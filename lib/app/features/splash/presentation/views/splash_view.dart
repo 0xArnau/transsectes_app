@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transsectes_app/app/features/auth/presentation/auth_view.dart';
+import 'package:transsectes_app/app/features/auth/presentation/views/auth_view.dart';
 import 'package:transsectes_app/app/shared/presentation/widgets/wave_shape_widget.dart';
 
 /// A Splash screen view that shows the app's logo and a background animation.
