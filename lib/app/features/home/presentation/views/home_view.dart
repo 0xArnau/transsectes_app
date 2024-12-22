@@ -12,7 +12,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Transsectes APP"),
+        title: const Text('Transsectes APP'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
         ],

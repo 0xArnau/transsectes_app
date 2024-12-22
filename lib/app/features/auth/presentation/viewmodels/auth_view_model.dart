@@ -71,7 +71,7 @@ class AuthViewModel {
     if (result.isFailure) {
       _updateState((state) => state.copyWith(
             errorMessage:
-                "There has been an error while getting the current user",
+                'There has been an error while getting the current user',
           ));
     }
 

@@ -66,7 +66,7 @@ class _AuthViewState extends ConsumerState<AuthView> {
     // In case no conditions match (shouldn't reach here normally)
     return const Scaffold(
       body: Center(
-        child: Text("Unexpected Error Occurred. Please try again."),
+        child: Text('Unexpected Error Occurred. Please try again.'),
       ),
     );
   }
