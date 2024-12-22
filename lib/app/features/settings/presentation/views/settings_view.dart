@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/features/settings/presentation/widgets/app_info_widget.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 class SettingsView extends ConsumerStatefulWidget {
@@ -52,6 +54,15 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 }
               },
             ),
+          // TODO: open system settings
+
+          // TODO: delete account
+
+          // TODO: change language
+
+          // TODO sign out
+
+          const AppInfoWidget(),
         ],
       ),
     );
@@ -82,8 +93,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
     required String email,
     required VoidCallback toggle,
   }) {
-    Logger().d([showEmail, email, _obfuscateString(email)]);
-
     return ListTile(
       title: Text(
         showEmail ? email : _obfuscateString(email),
