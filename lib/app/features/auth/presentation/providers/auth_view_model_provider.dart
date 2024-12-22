@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/auth/presentation/viewmodels/auth_view_model.dart';
-import 'package:transsectes_app/app/shared/presentation/providers/use_case_providers.dart';
+import 'package:transsectes_app/app/core/providers/use_case_providers.dart';
 
 /// A Riverpod provider for the AuthViewModel.
 ///

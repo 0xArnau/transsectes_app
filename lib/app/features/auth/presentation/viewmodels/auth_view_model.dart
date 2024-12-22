@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authenticated_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
-import 'package:transsectes_app/app/shared/presentation/providers/user_provider.dart';
-import 'package:transsectes_app/app/shared/presentation/states/user_state.dart';
+import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/core/states/user_state.dart';
 
 /// ViewModel responsible for handling user authentication state.
 ///

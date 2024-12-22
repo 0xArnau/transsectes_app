@@ -1,6 +1,6 @@
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
-import 'package:transsectes_app/app/shared/domain/data_error.dart';
-import 'package:transsectes_app/app/shared/domain/result.dart';
+import 'package:transsectes_app/app/core/errors/data_error.dart';
+import 'package:transsectes_app/app/core/results/result.dart';
 
 /// Interface for the authentication repository.
 ///

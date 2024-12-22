@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/auth_view_model_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/views/sign_in_view.dart';
-import 'package:transsectes_app/app/shared/presentation/providers/user_provider.dart';
+import 'package:transsectes_app/app/core/providers/user_provider.dart';
 
 /// A widget responsible for displaying the authentication state of the user.
 ///

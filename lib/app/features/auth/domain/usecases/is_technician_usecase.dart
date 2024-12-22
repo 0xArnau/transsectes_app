@@ -1,6 +1,6 @@
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
-import 'package:transsectes_app/app/shared/domain/data_error.dart';
-import 'package:transsectes_app/app/shared/domain/result.dart';
+import 'package:transsectes_app/app/core/errors/data_error.dart';
+import 'package:transsectes_app/app/core/results/result.dart';
 
 /// Use case for checking if the user is a technician.
 ///

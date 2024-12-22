@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/splash/presentation/views/splash_view.dart';
-import 'package:transsectes_app/app/theme/theme.dart';
+import 'package:transsectes_app/app/config/theme/theme.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/l10n/l10n.dart';
 

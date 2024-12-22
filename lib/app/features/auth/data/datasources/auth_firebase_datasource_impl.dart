@@ -4,8 +4,8 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/auth/data/mapper/user_mapper.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
-import 'package:transsectes_app/app/shared/domain/data_error.dart';
-import 'package:transsectes_app/app/shared/domain/result.dart';
+import 'package:transsectes_app/app/core/errors/data_error.dart';
+import 'package:transsectes_app/app/core/results/result.dart';
 
 /// Implementation of the [AuthDatasource] interface for Firebase.
 class AuthFirebaseDatasourceImpl implements AuthDatasource {

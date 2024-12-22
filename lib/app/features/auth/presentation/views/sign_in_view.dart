@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:transsectes_app/app/shared/presentation/widgets/custom_button.dart';
-import 'package:transsectes_app/app/shared/presentation/widgets/custom_text_form.dart';
-import 'package:transsectes_app/app/shared/presentation/widgets/wave_shape_widget.dart';
+import 'package:transsectes_app/app/core/widgets/custom_button.dart';
+import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// SignInView is the main view for the sign-in screen.
