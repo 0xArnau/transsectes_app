@@ -249,7 +249,9 @@ class _SignInViewState extends ConsumerState<SignInView> {
       child: SizedBox(
         width: double.infinity,
         child: Image.asset(
-          'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png',
+          Theme.of(context).brightness == Brightness.dark
+              ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
+              : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
           fit: BoxFit.fitWidth,
         ),
       ),
