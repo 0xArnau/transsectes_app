@@ -93,7 +93,7 @@ class AuthViewModel {
     if (result.isFailure) {
       _updateState((state) => state.copyWith(
             errorMessage:
-                "There has been an error while checking if the user is authenticated",
+                'There has been an error while checking if the user is authenticated',
           ));
     }
 

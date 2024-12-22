@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
 import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
+import 'package:transsectes_app/app/features/auth/presentation/providers/sign_in_view_model_provider.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// SignInView is the main view for the sign-in screen.
 /// It provides a user interface for email and password input, and navigation to
 /// forgot password and sign-up screens.
-class SignInView extends StatefulWidget {
+class SignInView extends ConsumerStatefulWidget {
   const SignInView({super.key});
 
-  static const path = "/sign-in";
+  static const path = '/sign-in';
 
   @override
-  State<SignInView> createState() => _SignInViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SignInViewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _SignInViewState extends ConsumerState<SignInView> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -29,6 +33,19 @@ class _SignInViewState extends State<SignInView> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<UserState>(currentUserStateProvider, (prev, next) {
+      if (next.errorMessage != null && next.errorMessage!.isNotEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(next.errorMessage!),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+
+        ref.read(signinViewModelProvider).clearMessages();
+      }
+    });
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -190,6 +207,9 @@ class _SignInViewState extends State<SignInView> {
           text: S.current.login,
           onTap: () {
             // Handle login action.
+            ref
+                .read(signinViewModelProvider)
+                .signIn(_emailController.text, _passwordController.text);
           },
         ),
         TextButton(
