@@ -21,12 +21,19 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    avoid_print: true # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true # Uncomment to enable the `prefer_single_quotes` rule
+    cancel_subscriptions: true
+    await_only_futures: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
 
+custom_rules:
+  cyclomatic_complexity: 10
+  maximum_nesting_level: 3
+
 analyzer:
+  exclude: ["**/*.g.dart", "**.freezed.dart", "build/**", "lib/generated/**"]
   plugins:
     - custom_lint
