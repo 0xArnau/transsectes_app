@@ -36,7 +36,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
     return Card(
       surfaceTintColor: Theme.of(context).colorScheme.onSurface,
       shadowColor: Colors.transparent,
-      margin: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(top: 16),
       elevation: 2,
       child: Column(
         children: [
