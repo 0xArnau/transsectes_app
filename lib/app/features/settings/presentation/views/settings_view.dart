@@ -63,38 +63,45 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-        child: ListView(
+        child: Column(
           children: [
-            _userIcon(context),
-            if (isUserTechnician) _showRole(),
-            if (userEmail != null)
-              _userEmail(
-                context: context,
-                showEmail: showEmail,
-                email: userEmail,
-                toggle: () {
-                  if (mounted) {
-                    setState(() {
-                      showEmail = !showEmail;
-                      Logger().d(showEmail);
-                    });
-                  }
-                },
+            Expanded(
+              child: ListView(
+                children: [
+                  _userIcon(context),
+                  if (isUserTechnician) _showRole(),
+                  if (userEmail != null)
+                    _userEmail(
+                      context: context,
+                      showEmail: showEmail,
+                      email: userEmail,
+                      toggle: () {
+                        if (mounted) {
+                          setState(() {
+                            showEmail = !showEmail;
+                            Logger().d(showEmail);
+                          });
+                        }
+                      },
+                    ),
+
+                  // TODO: open system settings
+
+                  // TODO: delete account
+
+                  // TODO: change language
+                ],
               ),
-            // TODO: open system settings
-
-            // TODO: delete account
-
-            // TODO: change language
-
-            // Sign out button
+            ),
+            const SizedBox(height: 16),
             CustomButton(
-                text: S.current.signOut,
-                onTap: () {
-                  ref.read(settingsViewModelProvider).signOut();
-                }),
-
+              text: S.current.signOut,
+              onTap: () {
+                ref.read(settingsViewModelProvider).signOut();
+              },
+            ),
             const AppInfoWidget(),
+            const SizedBox(height: 16),
           ],
         ),
       ),
