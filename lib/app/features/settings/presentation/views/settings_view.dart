@@ -53,6 +53,9 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
+        actions: const [
+          AppInfoWidget(),
+        ],
       ),
       bottomNavigationBar: SafeArea(
         child: Image.asset(
@@ -107,7 +110,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 ref.read(settingsViewModelProvider).signOut();
               },
             ),
-            const AppInfoWidget(),
             const SizedBox(height: 16),
           ],
         ),

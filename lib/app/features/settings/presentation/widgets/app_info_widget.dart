@@ -12,7 +12,6 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
   late String appName = '';
   late String version = '';
   late String buildNumber = '';
-  bool _isExpanded = false;
 
   @override
   void initState() {
@@ -33,55 +32,52 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      surfaceTintColor: Theme.of(context).colorScheme.onSurface,
-      shadowColor: Colors.transparent,
-      margin: const EdgeInsets.only(top: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32),
+    return IconButton(
+      icon: Icon(
+        Icons.info_outline,
+        color: Theme.of(context).colorScheme.primary,
       ),
-      elevation: 2,
-      child: Column(
-        children: [
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: Text(
-              'App Info',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
-            trailing: Icon(
-              _isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            onTap: () {
-              setState(() {
-                _isExpanded = !_isExpanded;
-              });
-            },
-          ),
-          if (_isExpanded)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: Column(
-                children: [
-                  _infoTile(context, 'App Name', appName),
-                  _infoTile(context, 'Version', version),
-                  _infoTile(context, 'Build Number', buildNumber),
-                  _infoTile(context, 'Creator', 'Arnau + GePeC-EdC'),
-                  _infoTile(context, 'Source Code',
-                      'github.com/0xArnau/transsectes_app'),
-                ],
-              ),
-            ),
-        ],
-      ),
+      onPressed: () {
+        _showAppInfoModal(context);
+      },
     );
   }
 
+  /// Displays a modal with the app information.
+  void _showAppInfoModal(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: const Text('App Info'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _infoTile(context, 'Name', appName),
+              _infoTile(context, 'Version', version),
+              _infoTile(context, 'Build Number', buildNumber),
+              _infoTile(context, 'Creator', 'Arnau + GePeC-EdC'),
+              _infoTile(
+                  context, 'Source Code', 'github.com/0xArnau/transsectes_app'),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the modal
+              },
+              child: const Text('Accept'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// Helper widget to display a title and subtitle in the app info modal.
   Widget _infoTile(BuildContext context, String title, String subtitle) {
     return ListTile(
       dense: true,
