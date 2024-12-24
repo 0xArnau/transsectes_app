@@ -37,6 +37,9 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
       surfaceTintColor: Theme.of(context).colorScheme.onSurface,
       shadowColor: Colors.transparent,
       margin: const EdgeInsets.only(top: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32),
+      ),
       elevation: 2,
       child: Column(
         children: [

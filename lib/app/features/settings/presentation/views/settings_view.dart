@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
@@ -85,13 +86,19 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       },
                     ),
 
-                  // TODO: open system settings
-
-                  // TODO: delete account
+                  _openSettings()
 
                   // TODO: change language
                 ],
               ),
+            ),
+
+            // TODO: delete account
+            const SizedBox(height: 16),
+            CustomButton(
+              text: S.current.delete_account,
+              isADestructiveAction: true,
+              onTap: () {},
             ),
             const SizedBox(height: 16),
             CustomButton(
@@ -153,6 +160,18 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
         child: Icon(
           showEmail ? Icons.visibility_off : Icons.visibility,
         ),
+      ),
+    );
+  }
+
+  Widget _openSettings() {
+    return Center(
+      child: ListTile(
+        leading: const Icon(Icons.open_in_new),
+        title: Text(S.current.open_system_settings),
+        onTap: () {
+          openAppSettings();
+        },
       ),
     );
   }
