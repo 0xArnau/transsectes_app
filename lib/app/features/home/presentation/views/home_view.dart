@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/app/features/contact/presentation/views/contact_view.dart';
 import 'package:transsectes_app/app/features/settings/presentation/views/settings_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -68,7 +69,9 @@ class _HomeViewState extends State<HomeView> {
             imgSize: MediaQuery.of(context).size.width / 3.5,
             text: S.of(context).contact,
             textFirst: true,
-            onTap: () {},
+            onTap: () {
+              _navigateToView(context, (context) => ContactView());
+            },
           ),
         ],
       ),
@@ -80,6 +83,34 @@ class _HomeViewState extends State<HomeView> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SettingsView()),
+    );
+  }
+
+  /// Navigates to a new view by pushing a [MaterialPageRoute] onto the navigation stack.
+  ///
+  /// This function is a helper for navigating to a new screen in the app. It creates
+  /// a new `MaterialPageRoute` using the provided [builder] function and pushes it
+  /// onto the navigation stack.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// _navigateToView(context, (context) => MyNewScreen());
+  /// ```
+  ///
+  /// - [context]: The `BuildContext` of the current widget.
+  /// - [builder]: A function that returns the widget to display as the new screen.
+  ///
+  /// Parameters:
+  /// * [BuildContext] context: The current widget's build context.
+  /// * [Widget Function(BuildContext)] builder: A callback that builds the target widget.
+  ///
+  /// Returns:
+  /// This method doesn't return a value. It triggers navigation to the target view.
+  void _navigateToView(
+      BuildContext context, Widget Function(BuildContext) builder) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: builder),
     );
   }
 }
