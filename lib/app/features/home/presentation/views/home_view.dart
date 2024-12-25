@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transsectes_app/app/features/contact/presentation/views/contact_view.dart';
+import 'package:transsectes_app/app/features/how-to/presentation/views/how_to_view.dart';
 import 'package:transsectes_app/app/features/settings/presentation/views/settings_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -45,7 +46,9 @@ class _HomeViewState extends State<HomeView> {
             imgSize: MediaQuery.of(context).size.width / 3,
             text: S.of(context).how2transect,
             textFirst: false,
-            onTap: () {},
+            onTap: () {
+              _navigateToView(context, (context) => const HowToView());
+            },
           ),
           _buildRowWidget(
             context: context,
