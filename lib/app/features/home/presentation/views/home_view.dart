@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:transsectes_app/app/features/contact/presentation/views/contact_view.dart';
 import 'package:transsectes_app/app/features/how-to/presentation/views/how_to_view.dart';
 import 'package:transsectes_app/app/features/settings/presentation/views/settings_view.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/records/record_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// HomeView represents the main screen of the application.
@@ -64,7 +65,9 @@ class _HomeViewState extends State<HomeView> {
             imgSize: MediaQuery.of(context).size.width / 2.5,
             text: S.of(context).transect_records,
             textFirst: false,
-            onTap: () {},
+            onTap: () {
+              _navigateToView(context, (context) => RecordView());
+            },
           ),
           _buildRowWidget(
             context: context,
