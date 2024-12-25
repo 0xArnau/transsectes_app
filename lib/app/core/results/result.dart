@@ -34,4 +34,26 @@ class Result<T, E> {
   /// final result = Result.failure("An error occurred");
   /// ```
   factory Result.failure(E error) => Result._(null, error);
+
+  /// Applies the appropriate function depending on whether the result is a success or failure.
+  ///
+  /// The [onSuccess] function is applied if the result is a success and the [onFailure] function is applied
+  /// if the result is a failure.
+  ///
+  /// Example:
+  /// ```dart
+  /// result.fold(
+  ///   (value) => print("Success: $value"),
+  ///   (error) => print("Error: $error")
+  /// );
+  /// ```
+  R fold<R>(R Function(T value) onSuccess, R Function(E error) onFailure) {
+    if (isSuccess) {
+      // Apply onSuccess function if the result is successful
+      return onSuccess(value as T);
+    } else {
+      // Apply onFailure function if the result is a failure
+      return onFailure(error as E);
+    }
+  }
 }
