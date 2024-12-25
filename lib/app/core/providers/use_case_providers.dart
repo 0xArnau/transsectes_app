@@ -8,17 +8,44 @@ import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authen
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
+import 'package:transsectes_app/app/features/transects/data/datasources/remote/transect_firebase_datasource_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/repositories/transect_repository_impl.dart';
+import 'package:transsectes_app/app/features/transects/domain/datasources/transect_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/repositories/transect_repository.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/add_transect_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/find_document_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_transects_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
+
+// DataSources
 
 /// Provider for AuthDatasource
 final authDataSourceProvider = Provider<AuthDatasource>((ref) {
   return AuthFirebaseDatasourceImpl();
 });
 
+/// Provider for TransectDataSource
+final transectDataSourceProvider = Provider<TransectDataSource>((ref) {
+  return TransectFirebaseDatasourceImpl();
+});
+
+// Repositories
+
 /// Provider for AuthRepository, which depends on AuthDatasource
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
   final authDataSource = ref.watch(authDataSourceProvider);
   return AuthRepositoryImpl(authDatasource: authDataSource);
 });
+
+/// Provider for TransectRepository, which depends on AuthDatasource
+final transectRepositoryProvider = Provider<TransectRepository>((ref) {
+  final transectDataSource = ref.watch(transectDataSourceProvider);
+  return TransectRepositoryImpl(transectDataSource: transectDataSource);
+});
+
+// UseCases
 
 /// Provider for SignUpUseCase, which depends on AuthRepository
 final signUpUseCaseProvider = Provider<SignUpUseCase>((ref) {
@@ -39,7 +66,8 @@ final signOutUseCaseProvider = Provider<SignOutUseCase>((ref) {
 });
 
 /// Provider for SignOutUseCase, which depends on AuthRepository
-final isUserAuthenticatedUseCaseProvider = Provider<IsUserAuthenticatedUseCase>((ref) {
+final isUserAuthenticatedUseCaseProvider =
+    Provider<IsUserAuthenticatedUseCase>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return IsUserAuthenticatedUseCase(authRepository);
 });
@@ -48,4 +76,42 @@ final isUserAuthenticatedUseCaseProvider = Provider<IsUserAuthenticatedUseCase>(
 final getCurrentUserUseCaseProvider = Provider<GetCurrentUserUseCase>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return GetCurrentUserUseCase(authRepository);
+});
+
+/// Provider for GetAllTransectsUseCase, which depends on TransectRepository
+final getAllTransectsUseCaseProvider = Provider<GetAllTransectsUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return GetAllTransectsUseCase(transectRepository);
+});
+
+/// Provider for GetUserTransectsUseCase, which depends on TransectRepository
+final getUserTransectsUseCaseProvider =
+    Provider<GetUserTransectsUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return GetUserTransectsUseCase(transectRepository);
+});
+
+/// Provider for AddTransectUseCase, which depends on TransectRepository
+final addTransectUseCaseProvider = Provider<AddTransectUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return AddTransectUseCase(transectRepository);
+});
+
+/// Provider for RemoveAllTransectsUseCase, which depends on TransectRepository
+final removeAllTransectsUseCaseProvider =
+    Provider<RemoveAllTransectsUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return RemoveAllTransectsUseCase(transectRepository);
+});
+
+/// Provider for FindDocumentUseCase, which depends on TransectRepository
+final findDocumentUseCaseProvider = Provider<FindDocumentUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return FindDocumentUseCase(transectRepository);
+});
+
+/// Provider for UpdateTransectUseCase, which depends on TransectRepository
+final updateTransectUseCaseProvider = Provider<UpdateTransectUseCase>((ref) {
+  final transectRepository = ref.watch(transectRepositoryProvider);
+  return UpdateTransectUseCase(transectRepository);
 });
