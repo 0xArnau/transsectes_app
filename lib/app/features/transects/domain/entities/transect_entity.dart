@@ -74,7 +74,7 @@ class TransectEntity {
 
     return TransectEntity(
       createdAt: documentSnapshot['createdAt'],
-      updatedAt: documentSnapshot['updatedAt'],
+      // updatedAt: documentSnapshot['updatedAt'], // Ignorar temporalmente porque los transects que hay en la db no contienen esto y peta
       createdBy: documentSnapshot['createdBy'],
       coordinates: points,
       tractor: documentSnapshot['tractor'],

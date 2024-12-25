@@ -65,7 +65,7 @@ class _RecordViewState extends ConsumerState<RecordView> {
     if (isTechnician) {
       return [
         const ListTransectsView(),
-        const ListTransectsView(),
+        const ListTransectsView(viewAll: true),
         const RemoveTransectsView(),
       ];
     } else {
