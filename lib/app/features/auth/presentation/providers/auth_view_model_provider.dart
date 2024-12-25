@@ -10,9 +10,11 @@ final authViewModelProvider = Provider<AuthViewModel>((ref) {
   final getCurrentUserUseCase = ref.read(getCurrentUserUseCaseProvider);
   final isUserAuthenticatedUseCase =
       ref.read(isUserAuthenticatedUseCaseProvider);
+  final isTechnicianUseCase = ref.read(isTechnicianUseCaseProvider);
   return AuthViewModel(
     ref: ref,
     isUserAuthenticatedUseCase: isUserAuthenticatedUseCase,
     getCurrentUserUseCase: getCurrentUserUseCase,
+    isTechnicianUseCase: isTechnicianUseCase,
   );
 });

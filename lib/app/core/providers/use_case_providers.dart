@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/auth/data/repositories/auth_reposit
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/is_technician_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authenticated_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
@@ -46,6 +47,12 @@ final transectRepositoryProvider = Provider<TransectRepository>((ref) {
 });
 
 // UseCases
+
+/// Provider for IsTechnicianUseCase, which depends on AuthRepository
+final isTechnicianUseCaseProvider = Provider<IsTechnicianUseCase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return IsTechnicianUseCase(authRepository);
+});
 
 /// Provider for SignUpUseCase, which depends on AuthRepository
 final signUpUseCaseProvider = Provider<SignUpUseCase>((ref) {

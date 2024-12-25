@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/is_technician_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authenticated_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
@@ -14,6 +15,7 @@ class AuthViewModel {
   final Ref _ref;
   final IsUserAuthenticatedUseCase _isUserAuthenticatedUseCase;
   final GetCurrentUserUseCase _getCurrentUserUseCase;
+  final IsTechnicianUseCase _isTechnicianUseCase;
 
   /// Constructor for the ViewModel.
   ///
@@ -24,9 +26,11 @@ class AuthViewModel {
     required Ref ref,
     required IsUserAuthenticatedUseCase isUserAuthenticatedUseCase,
     required GetCurrentUserUseCase getCurrentUserUseCase,
+    required IsTechnicianUseCase isTechnicianUseCase,
   })  : _ref = ref,
         _isUserAuthenticatedUseCase = isUserAuthenticatedUseCase,
-        _getCurrentUserUseCase = getCurrentUserUseCase;
+        _getCurrentUserUseCase = getCurrentUserUseCase,
+        _isTechnicianUseCase = isTechnicianUseCase;
 
   /// Initializes the ViewModel by checking if the user is authenticated
   /// and retrieving the current user information if authenticated.
@@ -34,7 +38,7 @@ class AuthViewModel {
   /// This method updates the state to show loading initially. Then, it checks
   /// if the user is authenticated. If authenticated, it fetches the user details
   /// and updates the state accordingly. Otherwise, it stops loading.
-  void initialize() {
+  void initialize() async {
     _updateState((state) => state.copyWith(
           isLoading: true,
         ));
@@ -49,11 +53,42 @@ class AuthViewModel {
     }
 
     // If authenticated, fetch the current user
-    final user = _getCurrentUser();
+    UserEntity? user = _getCurrentUser();
+
+    if (user != null) {
+      user = user.copyWith(isTechnician: await _isUserTechnician(user.email));
+    }
     _updateState((state) => state.copyWith(
           isLoading: false,
           user: user,
         ));
+  }
+
+  /// Checks if the user is a technician by executing the provided use case.
+  ///
+  /// This method checks if the user, identified by their `email`, is a technician.
+  /// It uses the `_isTechnicianUseCase` to execute the necessary logic to determine
+  /// the user's technician status. If successful, it returns `true` if the user is a technician,
+  /// or `false` if the user is not. In case of failure, it updates the state with an error message.
+  ///
+  /// Returns:
+  /// - `true` if the user is a technician.
+  /// - `false` if the user is not a technician or if there is an error while checking.
+  Future<bool> _isUserTechnician(String email) async {
+    final result = await _isTechnicianUseCase.execute(email);
+
+    if (result.isSuccess) {
+      return result.value ?? false;
+    }
+
+    if (result.isFailure) {
+      _updateState((state) => state.copyWith(
+            errorMessage:
+                'There has been an error while checking if the user is technician or not',
+          ));
+    }
+
+    return false;
   }
 
   /// Retrieves the current user information from the use case.
