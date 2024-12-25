@@ -51,45 +51,58 @@ class TransectFirebaseDatasourceImpl implements TransectDataSource {
   }
 
   @override
-  Stream<Result<List<TransectEntity>, DataError>> fetchAllTransects() {
+  Result<Stream<List<TransectEntity>>, DataError> fetchAllTransects() {
     try {
-      return _firebaseFirestore
-          .collection('transects')
-          .snapshots()
-          .map((event) {
-        // Transform the Firestore documents into TransectEntity objects
+      // Return a Result.success containing the Stream of transects
+      final stream =
+          _firebaseFirestore.collection('transects').snapshots().map((event) {
+        // Transform Firestore documents into TransectEntity objects
         final transects =
             event.docs.map((e) => TransectEntity.fromSnapshot(e)).toList();
-        return Result.success(transects);
+        return transects; // Return the list of transects
       });
+
+      // Return the stream wrapped in a Result.success
+      return Result.success(stream);
     } catch (e) {
+      // Log the error
       Logger().e(e);
-      return Stream.value(Result.failure(RemoteError(RemoteErrorType.unknown)));
+
+      // Return a Result.failure with an unknown RemoteError in case of failure
+      return Result.failure(RemoteError(RemoteErrorType.unknown));
     }
   }
 
   @override
-  Stream<Result<List<TransectEntity>, DataError>> fetchUserTransects(
+  Result<Stream<List<TransectEntity>>, DataError> fetchUserTransects(
       String? userEmail) {
     if (userEmail == null) {
+      // Log and return a failure if the user email is null
       Logger().e('Email is null');
-      return Stream.value(Result.failure(RemoteError(RemoteErrorType.unknown)));
+      return Result.failure(RemoteError(RemoteErrorType.unknown));
     }
 
     try {
-      return _firebaseFirestore
+      // Return a Result.success containing the Stream of user-specific transects
+      final stream = _firebaseFirestore
           .collection('transects')
           .where('createdBy', isEqualTo: userEmail)
           .snapshots()
           .map((event) {
-        // Transform the Firestore documents into TransectEntity objects
+        // Transform Firestore documents into TransectEntity objects
         final transects =
             event.docs.map((e) => TransectEntity.fromSnapshot(e)).toList();
-        return Result.success(transects);
+        return transects; // Return the list of transects
       });
+
+      // Return the stream wrapped in a Result.success
+      return Result.success(stream);
     } catch (e) {
+      // Log the error
       Logger().e(e);
-      return Stream.value(Result.failure(RemoteError(RemoteErrorType.unknown)));
+
+      // Return a Result.failure with an unknown RemoteError in case of failure
+      return Result.failure(RemoteError(RemoteErrorType.unknown));
     }
   }
 

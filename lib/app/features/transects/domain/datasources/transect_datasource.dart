@@ -7,16 +7,26 @@ import 'package:transsectes_app/app/features/transects/domain/entities/transect_
 abstract class TransectDataSource {
   /// Fetches all transects from the database.
   ///
-  /// Returns a [Stream] of [Result] containing either a [List] of [TransectEntity]
-  /// on success or an error message on failure.
-  Stream<Result<List<TransectEntity>, DataError>> fetchAllTransects();
+  /// This method retrieves all transects from the Firestore database as a stream.
+  /// On success, it returns a [Stream] of [Result] containing a [List] of [TransectEntity].
+  /// On failure, it returns a [Result.failure] containing an error message.
+  ///
+  /// Returns:
+  /// - [Result.success] containing a [Stream] of [List<TransectEntity>] on success.
+  /// - [Result.failure] containing a [DataError] if an error occurs.
+  Result<Stream<List<TransectEntity>>, DataError> fetchAllTransects();
 
   /// Fetches all transects created by a specific user from the database.
   ///
-  /// [userEmail]: The email of the user whose transects are to be fetched.
-  /// Returns a [Stream] of [Result] containing either a [List] of [TransectEntity]
-  /// on success or an error message on failure.
-  Stream<Result<List<TransectEntity>, DataError>> fetchUserTransects(
+  /// This method retrieves the transects created by a specific user based on their email.
+  /// It returns a stream that will emit either a [List] of [TransectEntity] on success or an error message on failure.
+  ///
+  /// [userEmail]: The email address of the user whose transects should be fetched.
+  ///
+  /// Returns:
+  /// - [Result.success] containing a [Stream] of [List<TransectEntity>] on success.
+  /// - [Result.failure] containing a [DataError] if the [userEmail] is invalid or any other error occurs.
+  Result<Stream<List<TransectEntity>>, DataError> fetchUserTransects(
       String? userEmail);
 
   /// Adds a new transect to the database.

@@ -23,12 +23,12 @@ class TransectRepositoryImpl implements TransectRepository {
   }
 
   @override
-  Stream<Result<List<TransectEntity>, DataError>> getAllTransects() {
+  Result<Stream<List<TransectEntity>>, DataError> getAllTransects() {
     return _transectDataSource.fetchAllTransects();
   }
 
   @override
-  Stream<Result<List<TransectEntity>, DataError>> getUserTransects(
+  Result<Stream<List<TransectEntity>>, DataError> getUserTransects(
       String? userEmail) {
     return _transectDataSource.fetchUserTransects(userEmail);
   }

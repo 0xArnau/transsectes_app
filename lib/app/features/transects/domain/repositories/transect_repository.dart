@@ -5,18 +5,28 @@ import 'package:transsectes_app/app/features/transects/domain/entities/transect_
 
 /// The repository interface for handling domain-level transect operations.
 abstract class TransectRepository {
-  /// Retrieves all transects.
+  /// Retrieves all transects from the database.
   ///
-  /// Returns a [Stream] of [Result] containing a [List] of [TransectEntity] on success
-  /// or an error message on failure.
-  Stream<Result<List<TransectEntity>, DataError>> getAllTransects();
+  /// This method fetches all transects from the Firestore database as a stream.
+  /// On success, it returns a [Stream] of [Result] containing a [List] of [TransectEntity].
+  /// On failure, it returns a [Result.failure] containing a [DataError] message.
+  ///
+  /// Returns:
+  /// - [Result.success] containing a [Stream] of [List<TransectEntity>] on success.
+  /// - [Result.failure] containing a [DataError] if an error occurs.
+  Result<Stream<List<TransectEntity>>, DataError> getAllTransects();
 
-  /// Retrieves all transects for a specific user.
+  /// Retrieves all transects created by a specific user from the database.
   ///
-  /// [userEmail]: The email of the user whose transects are to be retrieved.
-  /// Returns a [Stream] of [Result] containing a [List] of [TransectEntity] on success
-  /// or an error message on failure.
-  Stream<Result<List<TransectEntity>, DataError>> getUserTransects(
+  /// [userEmail]: The email address of the user whose transects should be retrieved.
+  ///
+  /// This method returns a [Stream] of [Result] that emits either a [List] of [TransectEntity] on success
+  /// or a [Result.failure] containing a [DataError] if the user’s transects cannot be fetched.
+  ///
+  /// Returns:
+  /// - [Result.success] containing a [Stream] of [List<TransectEntity>] on success.
+  /// - [Result.failure] containing a [DataError] if an error occurs or the [userEmail] is invalid.
+  Result<Stream<List<TransectEntity>>, DataError> getUserTransects(
       String? userEmail);
 
   /// Adds a new transect.
