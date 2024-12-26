@@ -17,55 +17,64 @@ class _HowToViewState extends State<HowToView> {
   int _currentSlider = 0;
 
   /// List of slider widgets to display the guide steps.
-  final List<Widget> _sliders = List.unmodifiable([
-    _createSliderWidget(
-      title: S.current.how_to_1_title,
-      pre: S.current.how_to_1_1,
-      post: S.current.how_to_1_2,
-      image: 'assets/imgs/explanation/1.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_2_title,
-      pre: S.current.how_to_2_1,
-      post: S.current.how_to_2_2,
-      image: 'assets/imgs/explanation/2.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_3_title,
-      pre: S.current.how_to_3_1,
-      post: S.current.how_to_3_2,
-      image: 'assets/imgs/explanation/3.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_4_title,
-      pre: S.current.how_to_4_1,
-      post: S.current.how_to_4_2,
-      image: 'assets/imgs/explanation/4.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_5_title,
-      pre: S.current.how_to_5_1,
-      image: 'assets/imgs/explanation/5.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_6_title,
-      pre: S.current.how_to_6_1,
-      post: S.current.how_to_6_2,
-      image: 'assets/imgs/explanation/6.png',
-    ),
-    _createSliderWidget(
-      title: S.current.how_to_7_title,
-      pre: S.current.how_to_7_1,
-      image: 'assets/imgs/explanation/7.png',
-    ),
-    Image.asset(
-      'assets/imgs/explanation/8.png',
-      fit: BoxFit.fitHeight,
-    ),
-  ]);
+  late List<Widget> _sliders;
 
   @override
   Widget build(BuildContext context) {
+    _sliders = List.unmodifiable([
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_1_title,
+        pre: S.current.how_to_1_1,
+        post: S.current.how_to_1_2,
+        image: 'assets/imgs/explanation/1.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_2_title,
+        pre: S.current.how_to_2_1,
+        post: S.current.how_to_2_2,
+        image: 'assets/imgs/explanation/2.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_3_title,
+        pre: S.current.how_to_3_1,
+        post: S.current.how_to_3_2,
+        image: 'assets/imgs/explanation/3.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_4_title,
+        pre: S.current.how_to_4_1,
+        post: S.current.how_to_4_2,
+        image: 'assets/imgs/explanation/4.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_5_title,
+        pre: S.current.how_to_5_1,
+        image: 'assets/imgs/explanation/5.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_6_title,
+        pre: S.current.how_to_6_1,
+        post: S.current.how_to_6_2,
+        image: 'assets/imgs/explanation/6.png',
+      ),
+      _createSliderWidget(
+        context: context,
+        title: S.current.how_to_7_title,
+        pre: S.current.how_to_7_1,
+        image: 'assets/imgs/explanation/7.png',
+      ),
+      Image.asset(
+        'assets/imgs/explanation/8.png',
+        fit: BoxFit.fitHeight,
+      ),
+    ]);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(S.current.how2transect),
@@ -125,7 +134,8 @@ class _HowToViewState extends State<HowToView> {
       ),
       child: CircleAvatar(
         radius: isActive ? 6 : 3,
-        backgroundColor: isActive ? Colors.black : Colors.grey,
+        backgroundColor:
+            isActive ? Theme.of(context).colorScheme.primary : Colors.grey,
       ),
     );
   }
@@ -133,6 +143,7 @@ class _HowToViewState extends State<HowToView> {
 
 /// Creates a widget for a single slider page.
 Widget _createSliderWidget({
+  required BuildContext context,
   String? title,
   String? pre,
   String? post,
@@ -145,9 +156,9 @@ Widget _createSliderWidget({
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if (title != null) _buildTitle(title),
-          if (pre != null) _buildText(pre),
+          if (pre != null) _buildText(context, pre),
           if (image != null) _buildImage(image),
-          if (post != null) _buildText(post),
+          if (post != null) _buildText(context, post),
           const SizedBox(height: 30),
         ],
       ),
@@ -170,12 +181,12 @@ Widget _buildTitle(String title) {
 }
 
 /// Builds a text widget for the slider.
-Widget _buildText(String text) {
+Widget _buildText(BuildContext context, String text) {
   return Text(
     text,
-    style: const TextStyle(
+    style: TextStyle(
       fontSize: 18,
-      color: Colors.black87,
+      color: Theme.of(context).colorScheme.onSurface,
     ),
   );
 }

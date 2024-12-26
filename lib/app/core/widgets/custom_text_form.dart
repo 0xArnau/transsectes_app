@@ -55,24 +55,24 @@ class CustomTextForm extends StatelessWidget {
         prefixIcon: prefixIcon,
         labelText: hintText,
         labelStyle: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.onSurface,
             width: 2.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.onSurface,
             width: 1.0,
           ),
         ),
       ),
-      cursorColor: Theme.of(context).colorScheme.primary,
+      cursorColor: Theme.of(context).colorScheme.onSurface,
       obscureText: obscureText,
       controller: controller,
       onTap: onTap,

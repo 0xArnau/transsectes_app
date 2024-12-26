@@ -88,7 +88,7 @@ class _SignInViewState extends ConsumerState<SignInView> {
               style: TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onSurface,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),

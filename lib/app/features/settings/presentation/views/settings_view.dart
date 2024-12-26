@@ -57,7 +57,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
           AppInfoWidget(),
         ],
       ),
-      bottomNavigationBar: SafeArea(
+      bottomNavigationBar: BottomAppBar(
         child: Image.asset(
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
