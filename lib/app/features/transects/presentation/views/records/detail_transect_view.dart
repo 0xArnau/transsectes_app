@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/google_maps_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -131,27 +132,21 @@ class _DetailTransectViewState extends State<DetailTransectView> {
 
   Widget _openMap(
       {required BuildContext context, required TransectEntity transectEntity}) {
-    return Container(
-      margin: const EdgeInsets.all(15.0),
-      child: ElevatedButton.icon(
-        onPressed: () {
-          // CustomSnackbar.error(context, "This feature is not working yet");
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return GoogleMapsView(transectEntity: transectEntity);
-              },
-            ),
-          );
-        },
-        icon: const Icon(Icons.map),
-        label: Text(S.current.open_map),
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Theme.of(context).colorScheme.onSurface,
-          surfaceTintColor: Theme.of(context).colorScheme.surface,
-        ),
-      ),
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: CustomButton(
+          text: S.current.open_map,
+          onTap: () {
+            // CustomSnackbar.error(context, "This feature is not working yet");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return GoogleMapsView(transectEntity: transectEntity);
+                },
+              ),
+            );
+          }),
     );
   }
 }
