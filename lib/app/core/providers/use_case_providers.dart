@@ -9,15 +9,20 @@ import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authen
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
+import 'package:transsectes_app/app/features/transects/data/datasources/local/file_datasource_impl.dart';
 import 'package:transsectes_app/app/features/transects/data/datasources/remote/transect_firebase_datasource_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/repositories/file_repository_impl.dart';
 import 'package:transsectes_app/app/features/transects/data/repositories/transect_repository_impl.dart';
+import 'package:transsectes_app/app/features/transects/domain/datasources/file_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/transect_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/repositories/file_repository.dart';
 import 'package:transsectes_app/app/features/transects/domain/repositories/transect_repository.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/add_transect_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/find_document_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/save_transects_as_csv_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
 
 // DataSources
@@ -32,6 +37,11 @@ final transectDataSourceProvider = Provider<TransectDataSource>((ref) {
   return TransectFirebaseDatasourceImpl();
 });
 
+/// Provider for TransectDataSource
+final fileDatasourceProvider = Provider<FileDatasource>((ref) {
+  return FileDatasourceImpl();
+});
+
 // Repositories
 
 /// Provider for AuthRepository, which depends on AuthDatasource
@@ -44,6 +54,12 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 final transectRepositoryProvider = Provider<TransectRepository>((ref) {
   final transectDataSource = ref.watch(transectDataSourceProvider);
   return TransectRepositoryImpl(transectDataSource: transectDataSource);
+});
+
+/// Provider for FileRepository, which depends on FileDatasource
+final fileRepositoryProvider = Provider<FileRepository>((ref) {
+  final fileDatasource = ref.watch(fileDatasourceProvider);
+  return FileRepositoryImpl(fileDatasource: fileDatasource);
 });
 
 // UseCases
@@ -121,4 +137,11 @@ final findDocumentUseCaseProvider = Provider<FindDocumentUseCase>((ref) {
 final updateTransectUseCaseProvider = Provider<UpdateTransectUseCase>((ref) {
   final transectRepository = ref.watch(transectRepositoryProvider);
   return UpdateTransectUseCase(transectRepository);
+});
+
+/// Provider for UpdateTransectUseCase, which depends on TransectRepository
+final saveTransectsAsCsvUsecaseProvider =
+    Provider<SaveTransectsAsCsvUsecase>((ref) {
+  final fileRepository = ref.watch(fileRepositoryProvider);
+  return SaveTransectsAsCsvUsecase(fileRepository);
 });
