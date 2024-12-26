@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/features/transects/presentation/providers/tr
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/transect_list_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/records/detail_transect_view.dart';
 
 /// A view that displays a list of transects.
 ///
@@ -164,8 +165,12 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
         subtitle: Text(transect.observations),
         trailing: const Icon(Icons.chevron_right, color: Colors.grey),
         onTap: () {
-          // TODO
-          Logger().d('Transect tapped: ${transect.createdBy}');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailTransectView(transect: transect),
+            ),
+          );
         },
       ),
     );
