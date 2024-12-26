@@ -66,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
             text: S.of(context).transect_records,
             textFirst: false,
             onTap: () {
-              _navigateToView(context, (context) => RecordView());
+              _navigateToView(context, (context) => const RecordView());
             },
           ),
           _buildRowWidget(

@@ -1,6 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_transects_usecase.dart';
-import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';

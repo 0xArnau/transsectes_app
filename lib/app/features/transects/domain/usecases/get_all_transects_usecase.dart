@@ -1,4 +1,3 @@
-import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/transects/domain/repositories/transect_repository.dart';
 import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/results/result.dart';
