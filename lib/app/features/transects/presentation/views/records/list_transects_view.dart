@@ -140,6 +140,11 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
     final hasDifferentLocalities =
         transect.localityFirst != transect.localityLast;
 
+    final date = transect.createdAt.toDate();
+
+    final formattedDate =
+        '${date.year}-${date.month}-${date.day}T${date.hour}:${date.minute}';
+
     return Card(
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -153,7 +158,7 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
               : transect.localityFirst,
         ),
         title: Text(
-          transect.createdAt.toDate().toIso8601String(),
+          formattedDate,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         subtitle: Text(transect.observations),
