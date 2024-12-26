@@ -104,12 +104,38 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
             : ListView.builder(
                 itemCount: transects.length,
                 itemBuilder: (context, index) {
-                  TransectEntity transect = transects[index];
-                  return ListTile(
-                    title: Text(transect.createdBy),
-                    subtitle: const Text('Transect Details...'),
-                  );
+                  return _itemCard(transects[index]);
                 },
               );
+  }
+
+  Widget _itemCard(TransectEntity transect) {
+    final hasDifferentLocalities =
+        transect.localityFirst != transect.localityLast;
+
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        leading: Text(
+          hasDifferentLocalities
+              ? '${transect.localityFirst} - ${transect.localityLast}'
+              : transect.localityFirst,
+        ),
+        title: Text(
+          transect.createdAt.toDate().toIso8601String(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(transect.observations),
+        trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+        onTap: () {
+          // TODO
+          Logger().d('Transect tapped: ${transect.createdBy}');
+        },
+      ),
+    );
   }
 }
