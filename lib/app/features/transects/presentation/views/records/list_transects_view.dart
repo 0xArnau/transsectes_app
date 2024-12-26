@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/transect_list_view_model_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/transect_list_view_model.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/transect_list_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/transect_list_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/detail_transect_view.dart';
 
 /// A view that displays a list of transects.
@@ -149,6 +149,7 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
     return Card(
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      surfaceTintColor: Theme.of(context).colorScheme.tertiary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
