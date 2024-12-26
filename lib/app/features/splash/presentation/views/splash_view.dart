@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:transsectes_app/app/features/auth/presentation/views/auth_view.dart';
 import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
+import 'package:transsectes_app/app/features/auth/presentation/views/auth_view.dart';
 
 /// A Splash screen view that shows the app's logo and a background animation.
 class SplashView extends StatefulWidget {
@@ -88,7 +88,7 @@ class _SplashViewState extends State<SplashView> {
         style: TextStyle(
           fontSize: 48,
           fontWeight: FontWeight.bold,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );
