@@ -64,12 +64,12 @@ class _RecordViewState extends ConsumerState<RecordView> {
   List<Widget> _buildPages() {
     if (isTechnician) {
       return [
-        const ListTransectsView(),
-        const ListTransectsView(viewAll: true),
+        const ListTransectsView(key: ValueKey(1)),
+        const ListTransectsView(key: ValueKey(2), viewAll: true),
         const RemoveTransectsView(),
       ];
     } else {
-      return [const ListTransectsView()];
+      return [const ListTransectsView(key: ValueKey(1))];
     }
   }
 
