@@ -39,8 +39,7 @@ class TransectListViewModel {
       final result = getAllTransectsUseCase.execute();
 
       await result.fold(
-        (stream) async {
-          final transects = await stream.first;
+        (transects) async {
           _updateAllTransectState(
             (state) => state.copyWith(
               isLoading: false,
@@ -77,8 +76,7 @@ class TransectListViewModel {
       final result = getUserTransectsUseCase.execute(userEmail);
 
       await result.fold(
-        (stream) async {
-          final transects = await stream.first;
+        (transects) async {
           _updateUserTransectState(
             (state) => state.copyWith(
               isLoading: false,

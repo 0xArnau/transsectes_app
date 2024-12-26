@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TransectState {
-  List<TransectEntity> get transects =>
+  Stream<List<TransectEntity>> get transects =>
       throw _privateConstructorUsedError; // The list of transects
   bool get isLoading =>
       throw _privateConstructorUsedError; // Whether the data is still loading
@@ -38,7 +38,7 @@ abstract class $TransectStateCopyWith<$Res> {
       _$TransectStateCopyWithImpl<$Res, TransectState>;
   @useResult
   $Res call(
-      {List<TransectEntity> transects,
+      {Stream<List<TransectEntity>> transects,
       bool isLoading,
       String? okMessage,
       String? errorMessage});
@@ -68,7 +68,7 @@ class _$TransectStateCopyWithImpl<$Res, $Val extends TransectState>
       transects: null == transects
           ? _value.transects
           : transects // ignore: cast_nullable_to_non_nullable
-              as List<TransectEntity>,
+              as Stream<List<TransectEntity>>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -94,7 +94,7 @@ abstract class _$$TransectStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<TransectEntity> transects,
+      {Stream<List<TransectEntity>> transects,
       bool isLoading,
       String? okMessage,
       String? errorMessage});
@@ -120,9 +120,9 @@ class __$$TransectStateImplCopyWithImpl<$Res>
   }) {
     return _then(_$TransectStateImpl(
       transects: null == transects
-          ? _value._transects
+          ? _value.transects
           : transects // ignore: cast_nullable_to_non_nullable
-              as List<TransectEntity>,
+              as Stream<List<TransectEntity>>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -143,20 +143,13 @@ class __$$TransectStateImplCopyWithImpl<$Res>
 
 class _$TransectStateImpl implements _TransectState {
   const _$TransectStateImpl(
-      {required final List<TransectEntity> transects,
+      {required this.transects,
       required this.isLoading,
       required this.okMessage,
-      required this.errorMessage})
-      : _transects = transects;
+      required this.errorMessage});
 
-  final List<TransectEntity> _transects;
   @override
-  List<TransectEntity> get transects {
-    if (_transects is EqualUnmodifiableListView) return _transects;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_transects);
-  }
-
+  final Stream<List<TransectEntity>> transects;
 // The list of transects
   @override
   final bool isLoading;
@@ -177,8 +170,8 @@ class _$TransectStateImpl implements _TransectState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TransectStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._transects, _transects) &&
+            (identical(other.transects, transects) ||
+                other.transects == transects) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.okMessage, okMessage) ||
@@ -188,12 +181,8 @@ class _$TransectStateImpl implements _TransectState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_transects),
-      isLoading,
-      okMessage,
-      errorMessage);
+  int get hashCode =>
+      Object.hash(runtimeType, transects, isLoading, okMessage, errorMessage);
 
   /// Create a copy of TransectState
   /// with the given fields replaced by the non-null parameter values.
@@ -206,13 +195,13 @@ class _$TransectStateImpl implements _TransectState {
 
 abstract class _TransectState implements TransectState {
   const factory _TransectState(
-      {required final List<TransectEntity> transects,
+      {required final Stream<List<TransectEntity>> transects,
       required final bool isLoading,
       required final String? okMessage,
       required final String? errorMessage}) = _$TransectStateImpl;
 
   @override
-  List<TransectEntity> get transects; // The list of transects
+  Stream<List<TransectEntity>> get transects; // The list of transects
   @override
   bool get isLoading; // Whether the data is still loading
   @override

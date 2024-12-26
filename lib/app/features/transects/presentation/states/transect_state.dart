@@ -9,7 +9,7 @@ part 'transect_state.freezed.dart';
 @freezed
 class TransectState with _$TransectState {
   const factory TransectState({
-    required List<TransectEntity> transects, // The list of transects
+    required Stream<List<TransectEntity>> transects, // The list of transects
     required bool isLoading, // Whether the data is still loading
     required String? okMessage, // Success message, if any
     required String? errorMessage, // Error message, if any
@@ -20,7 +20,7 @@ class TransectState with _$TransectState {
   /// The initial state represents the state when no action has occurred yet.
   factory TransectState.initial() => const TransectState(
         isLoading: false,
-        transects: [],
+        transects: Stream.empty(),
         okMessage: null,
         errorMessage: null,
       );

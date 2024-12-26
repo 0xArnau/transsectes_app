@@ -13,6 +13,8 @@ import 'package:transsectes_app/app/features/transects/domain/entities/transect_
 /// depending on the value of the [viewAll] parameter.
 class ListTransectsView extends ConsumerStatefulWidget {
   /// A flag to determine whether to fetch all transects or only the user's transects.
+  ///
+  /// If `true`, fetches all transects. If `false`, fetches only the user's transects.
   final bool viewAll;
 
   /// Creates an instance of [ListTransectsView].
@@ -31,7 +33,6 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
   @override
   void initState() {
     Logger().d('_ListTransectsViewState initialized');
-
     super.initState();
 
     // Initialize the ViewModel
@@ -72,10 +73,6 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
         ? allTransectState.isLoading
         : userTransectState.isLoading;
 
-    final transects = widget.viewAll
-        ? allTransectState.transects
-        : userTransectState.transects;
-
     final errorMessage = widget.viewAll
         ? allTransectState.errorMessage
         : userTransectState.errorMessage;
@@ -96,19 +93,49 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
       });
     }
 
-    // Build the UI
-    return isLoading
-        ? const Center(child: CircularProgressIndicator())
-        : transects.isEmpty
-            ? const Center(child: Text('No transects available'))
-            : ListView.builder(
-                itemCount: transects.length,
-                itemBuilder: (context, index) {
-                  return _itemCard(transects[index]);
-                },
-              );
+    // Use StreamBuilder to handle the Stream of transects
+    return StreamBuilder<List<TransectEntity>>(
+      stream: widget.viewAll
+          ? allTransectState.transects // Stream from all transects
+          : userTransectState.transects, // Stream from user-specific transects
+      builder: (context, snapshot) {
+        // Show loading indicator while data is being fetched
+        if (isLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        // Handle different connection states of the stream
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        // Show error message if the stream encountered an error
+        if (snapshot.hasError) {
+          return const Center(child: Text('Failed to load transects.'));
+        }
+
+        // If the snapshot has no data or the list is empty, show a "No transects available" message
+        if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('No transects available'));
+        }
+
+        // Get the list of transects from the stream
+        final transects = snapshot.data!;
+
+        // Display the list of transects using a ListView
+        return ListView.builder(
+          itemCount: transects.length,
+          itemBuilder: (context, index) {
+            return _itemCard(transects[index]);
+          },
+        );
+      },
+    );
   }
 
+  /// Builds a card widget to display a single transect.
+  ///
+  /// The card displays the transect's locality and other relevant information.
   Widget _itemCard(TransectEntity transect) {
     final hasDifferentLocalities =
         transect.localityFirst != transect.localityLast;
