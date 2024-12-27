@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/detail_transect_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/transect_list_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/detail_transect_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/transect_list_view_model.dart';
 
 /// A view for downloading transects grouped by their locality.
 class DownloadTransectsView extends ConsumerStatefulWidget {
@@ -16,12 +18,21 @@ class DownloadTransectsView extends ConsumerStatefulWidget {
 
 class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
   /// ViewModel instance for handling business logic and state management.
-  late DetailTransectViewModel _viewModel;
+  late DetailTransectViewModel _detailTransectViewModel;
+  late TransectListViewModel _transectListViewModel;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = ref.read(detailTransectViewModelProvider);
+
+    // Initialize the ViewModel
+    _detailTransectViewModel = ref.read(detailTransectViewModelProvider);
+    _transectListViewModel = ref.read(transectListViewModelProvider);
+
+    // Fetch transects after the first frame is rendered
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _transectListViewModel.executeGetAllTransects();
+    });
   }
 
   @override
@@ -120,7 +131,8 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
     List<TransectEntity> transects,
     String locality,
   ) async {
-    final response = await _viewModel.saveTransectsAsCsv(transects, locality);
+    final response =
+        await _detailTransectViewModel.saveTransectsAsCsv(transects, locality);
 
     response.fold(
       (okMessage) => _showSnackbar(context, okMessage, false),
