@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/records/download_transects_view.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/list_transects_view.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/remove_transects_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -53,6 +54,11 @@ class _RecordViewState extends ConsumerState<RecordView> {
           label: S.current.all_transects,
         ),
         NavigationDestination(
+          icon:
+              Icon(currentPage == 2 ? Icons.download : Icons.download_outlined),
+          label: S.current.download,
+        ),
+        NavigationDestination(
           icon: const Icon(Icons.highlight_remove),
           label: S.current.remove,
         ),
@@ -66,6 +72,7 @@ class _RecordViewState extends ConsumerState<RecordView> {
       return [
         const ListTransectsView(key: ValueKey(1)),
         const ListTransectsView(key: ValueKey(2), viewAll: true),
+        const DownloadTransectsView(),
         const RemoveTransectsView(),
       ];
     } else {
