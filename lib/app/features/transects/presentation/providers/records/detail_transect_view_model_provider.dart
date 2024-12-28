@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/providers/use_case_providers.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/detail_transect_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/detail_transect_view_model.dart';
 
 /// Provider for the [DetailTransectViewModel].
 ///

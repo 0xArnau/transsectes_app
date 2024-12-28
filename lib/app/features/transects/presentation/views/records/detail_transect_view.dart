@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/detail_transect_view_model_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/detail_transect_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/detail_transect_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/detail_transect_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/google_maps_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/detail_transect_view_model_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/transect_list_view_model_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/detail_transect_view_model.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/transect_list_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/detail_transect_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_list_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/detail_transect_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/transect_list_view_model.dart';
 
 /// A view for downloading transects grouped by their locality.
 class DownloadTransectsView extends ConsumerStatefulWidget {

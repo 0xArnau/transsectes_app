@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/transect_provider.dart';
-import 'package:transsectes_app/app/features/transects/presentation/states/transect_state.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/states/records/transect_state.dart';
 
 /// ViewModel specific to the transects list view.
 ///
