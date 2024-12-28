@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:transsectes_app/app/features/contact/presentation/views/contact_view.dart';
 import 'package:transsectes_app/app/features/how-to/presentation/views/how_to_view.dart';
 import 'package:transsectes_app/app/features/settings/presentation/views/settings_view.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/gps/verify_gps_permissions_view.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/record_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -57,7 +58,10 @@ class _HomeViewState extends State<HomeView> {
             imgSize: MediaQuery.of(context).size.width / 2,
             text: S.of(context).start_transect,
             textFirst: true,
-            onTap: () {},
+            onTap: () {
+              _navigateToView(
+                  context, (context) => const VerifyGpsPermissionsView());
+            },
           ),
           _buildRowWidget(
             context: context,

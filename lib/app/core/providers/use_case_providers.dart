@@ -3,19 +3,31 @@ import 'package:transsectes_app/app/features/auth/data/datasources/auth_firebase
 import 'package:transsectes_app/app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/get_address_from_coordinates_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_position_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_technician_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authenticated_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/get_location_stream_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/request_location_permissions_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
 import 'package:transsectes_app/app/features/transects/data/datasources/local/file_datasource_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/datasources/local/geocoding_datasoure_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/datasources/local/geolocation_datasource_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/datasources/local/permission_datasource_impl.dart';
 import 'package:transsectes_app/app/features/transects/data/datasources/remote/transect_firebase_datasource_impl.dart';
 import 'package:transsectes_app/app/features/transects/data/repositories/file_repository_impl.dart';
+import 'package:transsectes_app/app/features/transects/data/repositories/geolocation_repository_impl.dart';
 import 'package:transsectes_app/app/features/transects/data/repositories/transect_repository_impl.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/file_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/datasources/geocoding_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/datasources/geolocation_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/datasources/permission_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/transect_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/repositories/file_repository.dart';
+import 'package:transsectes_app/app/features/transects/domain/repositories/geolocation_repository.dart';
 import 'package:transsectes_app/app/features/transects/domain/repositories/transect_repository.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/add_transect_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/find_document_usecase.dart';
@@ -42,6 +54,21 @@ final fileDatasourceProvider = Provider<FileDatasource>((ref) {
   return FileDatasourceImpl();
 });
 
+/// Provider for GeocodingDataSource
+final geocodingDatasourceProvider = Provider<GeocodingDataSource>((ref) {
+  return GeocodingDatasourceImpl();
+});
+
+/// Provider for GeolocationDataSource
+final geolocationDatasourceProvider = Provider<GeolocationDataSource>((ref) {
+  return GeolocationDatasourceImpl();
+});
+
+/// Provider for PermissionDataSource
+final permissionDatasourceProvider = Provider<PermissionDataSource>((ref) {
+  return PermissionDatasourceImpl();
+});
+
 // Repositories
 
 /// Provider for AuthRepository, which depends on AuthDatasource
@@ -60,6 +87,19 @@ final transectRepositoryProvider = Provider<TransectRepository>((ref) {
 final fileRepositoryProvider = Provider<FileRepository>((ref) {
   final fileDatasource = ref.watch(fileDatasourceProvider);
   return FileRepositoryImpl(fileDatasource: fileDatasource);
+});
+
+/// Provider for GeolocationRepository, which depends on
+/// PermissionDataSource, GeolocationDataSource & GeocodingDataSource
+final geolocationRepositoryProvider = Provider<GeolocationRepository>((ref) {
+  final permissionDatasource = ref.watch(permissionDatasourceProvider);
+  final geolocationDatasource = ref.watch(geolocationDatasourceProvider);
+  final geocodingDatasource = ref.watch(geocodingDatasourceProvider);
+  return GeolocationRepositoryImpl(
+    geolocationDataSource: geolocationDatasource,
+    permissionDataSource: permissionDatasource,
+    geocodingDataSource: geocodingDatasource,
+  );
 });
 
 // UseCases
@@ -144,4 +184,32 @@ final saveTransectsAsCsvUsecaseProvider =
     Provider<SaveTransectsAsCsvUsecase>((ref) {
   final fileRepository = ref.watch(fileRepositoryProvider);
   return SaveTransectsAsCsvUsecase(fileRepository);
+});
+
+/// Provider for GetCurrentPositionUseCase, which depends on GeolocationRepository
+final getCurrentPositionUseCaseProvider =
+    Provider<GetCurrentPositionUseCase>((ref) {
+  final geolocationRepository = ref.watch(geolocationRepositoryProvider);
+  return GetCurrentPositionUseCase(geolocationRepository);
+});
+
+/// Provider for GetLocationStreamUseCase, which depends on GeolocationRepository
+final getLocationStreamUseCaseProvider =
+    Provider<GetLocationStreamUseCase>((ref) {
+  final geolocationRepository = ref.watch(geolocationRepositoryProvider);
+  return GetLocationStreamUseCase(geolocationRepository);
+});
+
+/// Provider for RequestLocationPermissionsUseCase, which depends on GeolocationRepository
+final requestLocationPermissionsUseCaseProvider =
+    Provider<RequestLocationPermissionsUseCase>((ref) {
+  final geolocationRepository = ref.watch(geolocationRepositoryProvider);
+  return RequestLocationPermissionsUseCase(geolocationRepository);
+});
+
+/// Provider for GetAddressFromCoordinatesUseCase, which depends on GeolocationRepository
+final getAddressFromCoordinatesUseCaseProvider =
+    Provider<GetAddressFromCoordinatesUseCase>((ref) {
+  final geolocationRepository = ref.watch(geolocationRepositoryProvider);
+  return GetAddressFromCoordinatesUseCase(geolocationRepository);
 });
