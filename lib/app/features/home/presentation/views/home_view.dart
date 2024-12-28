@@ -144,7 +144,7 @@ Widget _buildRowWidget({
       text,
       style: TextStyle(
         fontSize: 20,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
       overflow: TextOverflow.clip,
     ),
