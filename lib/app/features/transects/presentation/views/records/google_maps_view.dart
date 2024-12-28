@@ -121,7 +121,13 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     // Copy the URL to the clipboard
     Clipboard.setData(ClipboardData(text: url));
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Google Maps URL copied to clipboard!')),
+      SnackBar(
+        content: Text(
+          'Google Maps URL copied to clipboard!',
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+      ),
     );
   }
 }

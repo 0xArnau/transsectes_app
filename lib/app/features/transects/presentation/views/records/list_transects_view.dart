@@ -123,6 +123,9 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
         // Get the list of transects from the stream
         final transects = snapshot.data!;
 
+        // Sort by date, most recent first
+        transects.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+
         // Display the list of transects using a ListView
         return ListView.builder(
           itemCount: transects.length,

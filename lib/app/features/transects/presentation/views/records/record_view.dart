@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/records/download_transects_view.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/list_transects_view.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/remove_transects_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -37,6 +38,7 @@ class _RecordViewState extends ConsumerState<RecordView> {
   /// Builds the BottomNavigationBar for technician users using Material 3's NavigationBar.
   NavigationBar _buildNavigationBar() {
     return NavigationBar(
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
       selectedIndex: currentPage,
       onDestinationSelected: (index) {
         setState(() {
@@ -45,15 +47,23 @@ class _RecordViewState extends ConsumerState<RecordView> {
       },
       destinations: [
         NavigationDestination(
-          icon: Icon(currentPage == 0 ? Icons.person : Icons.person_outline),
+          icon: const Icon(Icons.person_outline),
+          selectedIcon: const Icon(Icons.person),
           label: S.current.transects,
         ),
         NavigationDestination(
-          icon: Icon(currentPage == 1 ? Icons.people : Icons.people_outline),
+          icon: const Icon(Icons.people_outline),
+          selectedIcon: const Icon(Icons.people),
           label: S.current.all_transects,
         ),
         NavigationDestination(
+          icon: const Icon(Icons.download_outlined),
+          selectedIcon: const Icon(Icons.download),
+          label: S.current.download,
+        ),
+        NavigationDestination(
           icon: const Icon(Icons.highlight_remove),
+          selectedIcon: const Icon(Icons.highlight_remove),
           label: S.current.remove,
         ),
       ],
@@ -66,6 +76,7 @@ class _RecordViewState extends ConsumerState<RecordView> {
       return [
         const ListTransectsView(key: ValueKey(1)),
         const ListTransectsView(key: ValueKey(2), viewAll: true),
+        const DownloadTransectsView(),
         const RemoveTransectsView(),
       ];
     } else {

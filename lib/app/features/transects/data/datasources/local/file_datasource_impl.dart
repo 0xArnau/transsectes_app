@@ -114,7 +114,7 @@ class FileDatasourceImpl implements FileDatasource {
     if (Platform.isAndroid) {
       return "${S.current.file_saved} 'Files > Menu > device name > Android > data > cat.gepec.transsectes_app > files > $fileName'";
     } else if (Platform.isIOS) {
-      return "${S.current.file_saved} 'Files > Browse > On My iPhone > Transsectes $fileName'";
+      return "${S.current.file_saved} 'Files > Browse > On My iPhone > Transsectes > $fileName'";
     } else {
       return '${S.current.file_saved} $fileName'; // Default for other platforms
     }
