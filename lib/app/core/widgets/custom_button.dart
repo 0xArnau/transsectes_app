@@ -49,7 +49,7 @@ class CustomButton extends StatelessWidget {
       },
       style: ButtonStyle(
         padding: WidgetStateProperty.all<EdgeInsets>(
-          const EdgeInsets.all(16.0),
+          const EdgeInsets.all(8.0),
         ),
         backgroundColor: _isADestructiveAction
             ? WidgetStateProperty.all<Color>(Colors.redAccent)
