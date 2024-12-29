@@ -4,7 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/gps_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/verify_gps_permissions_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/gps/gps_state.dart';
-import 'package:transsectes_app/app/features/transects/presentation/viewmodels/gps/verify_gps_permissions_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/start-stop/start_stop_transect_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// A view that displays the current GPS permissions status and reacts to changes
@@ -98,17 +98,7 @@ class _VerifyGpsPermissionsViewState
 
   /// Builds a view shown when location permission is granted.
   Widget _buildPermissionGrantedView() {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Verify GPS Permissions'),
-      ),
-      body: const Center(
-        child: Text(
-          'Location permission granted. GPS is enabled.',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-    );
+    return const StartStopTransectView();
   }
 
   /// Handles the button press to request location permissions again.
