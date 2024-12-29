@@ -24,6 +24,7 @@ class CustomButton extends StatelessWidget {
     required String text,
     required Function onTap,
     bool isADestructiveAction = false,
+    this.minWidth = 150.0, // Default minimum width
   })  : _text = text,
         _onTap = onTap,
         _isADestructiveAction = isADestructiveAction;
@@ -34,7 +35,11 @@ class CustomButton extends StatelessWidget {
   /// The callback executed when the button is pressed.
   final Function _onTap;
 
+  /// Determines if the button represents a destructive action.
   final bool _isADestructiveAction;
+
+  /// The minimum width of the button.
+  final double minWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +61,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(32.0),
           ),
         ),
+        minimumSize: WidgetStateProperty.all<Size>(Size(minWidth, 50)),
       ),
       child: Center(
         child: Text(
