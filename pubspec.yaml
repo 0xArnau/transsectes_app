@@ -55,7 +55,7 @@ dependencies:
   # flutter_config: ^2.0.2
   flutter_localizations:
     sdk: flutter
-  shared_preferences: ^2.2.3
+  shared_preferences: ^2.3.4
   file_saver: ^0.2.14
   path_provider: ^2.1.4
   freezed_annotation: ^2.4.4
