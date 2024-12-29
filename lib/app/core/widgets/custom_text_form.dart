@@ -48,6 +48,7 @@ class CustomTextForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: null,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(10),
         filled: true,
