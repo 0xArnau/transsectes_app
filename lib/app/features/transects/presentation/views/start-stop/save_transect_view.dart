@@ -4,12 +4,21 @@ import 'package:transsectes_app/app/core/widgets/counter_button_widget.dart';
 import 'package:transsectes_app/app/core/widgets/custom_buttom_trailing.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/save_transect_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/start_stop_transect_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/viewmodels/start-stop/save_transect_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/start-stop/start_stop_transect_view_model.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
+/// A view for saving transect information.
+///
+/// This view provides a form for users to input details about a transect,
+/// including whether a tractor was used, the number of people informed,
+/// and any observations. It integrates with the [SaveTransectViewModel]
+/// to handle saving the transect.
 class SaveTransectView extends ConsumerStatefulWidget {
+  /// Constructs a [SaveTransectView].
   const SaveTransectView({super.key});
 
   @override
@@ -19,9 +28,15 @@ class SaveTransectView extends ConsumerStatefulWidget {
 
 class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
   late final StartStopTransectViewModel _startStopTransectViewModel;
+  late final SaveTransectViewModel _viewModel;
 
+  /// Whether a tractor was used.
   bool tractor = false;
+
+  /// The number of people informed during the transect.
   int peopleInformed = 0;
+
+  /// Controller for the observation input field.
   TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -29,28 +44,25 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
     super.initState();
 
     _startStopTransectViewModel = ref.read(startStopTransectViewModelProvider);
+    _viewModel = ref.read(saveTransectViewModelProvider);
   }
 
   @override
   void dispose() {
     textEditingController.dispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final transectState = ref.watch(transectCoordinatesStateProvider);
-
-    // return _buildStoppedScreen(transectState);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Send Inform'),
         actions: [
           TextButton(
-              onPressed: _startStopTransectViewModel.startTransect,
-              child: const Text('Resume'))
+            onPressed: _startStopTransectViewModel.startTransect,
+            child: const Text('Resume'),
+          ),
         ],
       ),
       body: SafeArea(
@@ -73,6 +85,7 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
     );
   }
 
+  /// Builds the widget for selecting whether a tractor was used.
   Widget _tractor() {
     return CustomButtonTrailing(
       hint: S.current.tractor,
@@ -90,6 +103,7 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
     );
   }
 
+  /// Builds the widget for selecting the number of people informed.
   Widget _people() {
     return CounterButtonWidget(
       hint: S.current.people_informed,
@@ -103,6 +117,7 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
     );
   }
 
+  /// Builds the widget for entering observations about the transect.
   Widget _observation() {
     return CustomTextForm(
       hintText: S.current.observations,
@@ -112,6 +127,7 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
     );
   }
 
+  /// Builds the widgets for saving or canceling the transect.
   Widget _saveOrRemove() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,7 +142,12 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
         CustomButton(
           text: S.current.save,
           onTap: () {
-            // TODO
+            _viewModel.saveTransect(
+              tractor,
+              peopleInformed,
+              textEditingController.text,
+              ref.read(transectCoordinatesStateProvider).coordinates,
+            );
           },
         ),
       ],
