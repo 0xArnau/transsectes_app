@@ -1,4 +1,4 @@
-import 'package:transsectes_app/app/features/auth/domain/usecases/request_location_permissions_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/request_location_permissions_usecase.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/gps_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/gps/gps_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

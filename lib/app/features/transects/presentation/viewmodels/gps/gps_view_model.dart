@@ -1,7 +1,7 @@
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_address_from_coordinates_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_position_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_location_stream_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/request_location_permissions_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_current_position_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_location_stream_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/request_location_permissions_usecase.dart';
 
 class GpsViewModel {
   final GetAddressFromCoordinatesUseCase getAddressFromCoordinatesUseCase;

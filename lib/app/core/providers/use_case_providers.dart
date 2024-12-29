@@ -3,13 +3,13 @@ import 'package:transsectes_app/app/features/auth/data/datasources/auth_firebase
 import 'package:transsectes_app/app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_address_from_coordinates_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_position_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_current_position_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_technician_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authenticated_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/get_location_stream_usecase.dart';
-import 'package:transsectes_app/app/features/auth/domain/usecases/request_location_permissions_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_location_stream_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/request_location_permissions_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
