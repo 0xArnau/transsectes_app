@@ -10,17 +10,19 @@ import 'package:transsectes_app/app/features/transects/presentation/states/start
 /// ViewModel that manages the start and stop of a transect, including subscribing to
 /// location updates and updating the state with coordinates.
 class StartStopTransectViewModel {
-  final Ref ref;
-  final GetLocationStreamUseCase getLocationStreamUseCase;
-  final GetCurrentPositionUseCase getCurrentPositionUseCase;
+  final Ref _ref;
+  final GetLocationStreamUseCase _getLocationStreamUseCase;
+  final GetCurrentPositionUseCase _getCurrentPositionUseCase;
 
   StreamSubscription<GeoPointEntity?>? _coordinatesSubscription;
 
   StartStopTransectViewModel({
-    required this.ref,
-    required this.getLocationStreamUseCase,
-    required this.getCurrentPositionUseCase,
-  });
+    required Ref ref,
+    required GetLocationStreamUseCase getLocationStreamUseCase,
+    required GetCurrentPositionUseCase getCurrentPositionUseCase,
+  })  : _ref = ref,
+        _getLocationStreamUseCase = getLocationStreamUseCase,
+        _getCurrentPositionUseCase = getCurrentPositionUseCase;
 
   /// Starts the transect by subscribing to the location stream.
   ///
@@ -54,7 +56,7 @@ class StartStopTransectViewModel {
   /// If successful, it adds the current position to the state. If an error occurs, the state is updated
   /// with an error message.
   Future<void> _startCurrentLocation() async {
-    final responseCurrent = await getCurrentPositionUseCase.execute();
+    final responseCurrent = await _getCurrentPositionUseCase.execute();
 
     responseCurrent.fold(
       (value) => _addCoordinateToState(value),
@@ -66,7 +68,7 @@ class StartStopTransectViewModel {
   ///
   /// It adds each new coordinate to the state. If the stream ends, it logs the stream closure.
   Future<void> _subscribeToLocationStream() async {
-    final responseStream = await getLocationStreamUseCase.execute();
+    final responseStream = await _getLocationStreamUseCase.execute();
 
     responseStream.fold(
       (stream) {
@@ -138,8 +140,8 @@ class StartStopTransectViewModel {
   /// [updateFn] is a function that takes the current state and returns the updated state.
   void _updateTransectCoordinatesState(
       TransectCoordinatesState Function(TransectCoordinatesState) updateFn) {
-    final currentState = ref.read(transectCoordinatesStateProvider);
-    ref.read(transectCoordinatesStateProvider.notifier).state =
+    final currentState = _ref.read(transectCoordinatesStateProvider);
+    _ref.read(transectCoordinatesStateProvider.notifier).state =
         updateFn(currentState);
   }
 
