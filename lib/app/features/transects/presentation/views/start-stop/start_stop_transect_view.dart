@@ -5,8 +5,13 @@ import 'package:transsectes_app/app/features/transects/presentation/providers/st
 import 'package:transsectes_app/app/features/transects/presentation/states/start-stop/transect_coordinates_state.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/start-stop/start_stop_transect_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/start-stop/save_transect_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
+/// A stateful widget for managing the start and stop of a transect.
+///
+/// This view listens to the state of the transect and dynamically displays
+/// different UI screens based on the state (loading, stopped, or main screen).
 class StartStopTransectView extends ConsumerStatefulWidget {
   const StartStopTransectView({super.key});
 
@@ -34,7 +39,7 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
     }
 
     if (transectState.isStopped) {
-      return _buildStoppedScreen(transectState);
+      return const SaveTransectView();
     }
 
     return _buildMainScreen(transectState);
@@ -52,51 +57,6 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
         child: CircularProgressIndicator(),
       ),
     );
-  }
-
-  /// Builds the screen shown when the transect is stopped.
-  ///
-  /// Displays the list of coordinates or a message indicating there are no coordinates available.
-  Widget _buildStoppedScreen(TransectCoordinatesState transectState) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Send Inform'),
-        actions: [
-          TextButton(
-              onPressed: _viewModel.startTransect, child: const Text('Resume'))
-        ],
-      ),
-      body: ListView(
-        children: [
-          SizedBox(height: MediaQuery.of(context).size.height / 20),
-          const Text(
-            'Coordinates:',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 10),
-          if (transectState.coordinates.isEmpty)
-            const Text(
-              'No coordinates available.',
-              style: TextStyle(fontSize: 16, color: Colors.red),
-            )
-          else
-            ..._buildCoordinatesList(transectState),
-        ],
-      ),
-    );
-  }
-
-  /// Builds the list of coordinates to be displayed on the screen.
-  ///
-  /// This function takes the transect state and returns a list of ListTile widgets for each coordinate.
-  List<Widget> _buildCoordinatesList(TransectCoordinatesState transectState) {
-    return transectState.coordinates.map((coordinate) {
-      return ListTile(
-        title: Text(
-          'Latitude: ${coordinate.latitude}, Longitude: ${coordinate.longitude}',
-        ),
-      );
-    }).toList();
   }
 
   /// Builds the main screen when the transect is neither loading nor stopped.
