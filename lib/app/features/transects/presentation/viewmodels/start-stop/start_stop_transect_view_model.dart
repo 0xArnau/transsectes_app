@@ -1,8 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/geo_point_entity.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/get_current_position_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_location_stream_usecase.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/start-stop/transect_coordinates_state.dart';
@@ -12,96 +12,152 @@ import 'package:transsectes_app/app/features/transects/presentation/states/start
 class StartStopTransectViewModel {
   final Ref ref;
   final GetLocationStreamUseCase getLocationStreamUseCase;
+  final GetCurrentPositionUseCase getCurrentPositionUseCase;
+
   StreamSubscription<GeoPointEntity?>? _coordinatesSubscription;
 
   StartStopTransectViewModel({
     required this.ref,
     required this.getLocationStreamUseCase,
+    required this.getCurrentPositionUseCase,
   });
 
   /// Starts the transect by subscribing to the location stream.
   ///
-  /// This method initializes the state, subscribes to the location stream provided by
-  /// [getLocationStreamUseCase], and listens for new coordinates to add to the state.
-  /// When the stream emits coordinates, they are added to the list in the state.
-  /// If an error occurs, the state is updated with an error message.
+  /// This method initializes the state, subscribes to the location stream, and listens for
+  /// new coordinates. Coordinates are added to the state, and the state is updated accordingly.
   Future<void> startTransect() async {
-    // Reset the state to initial before starting the transect
-    _updateTransectCoordinatesState(
-        (state) => TransectCoordinatesState.initial());
-    _updateTransectCoordinatesState((state) => state.copyWith(isLoading: true));
-
-    // Get the location stream
-    final response = await getLocationStreamUseCase.execute();
-
-    response.fold(
-      (stream) {
-        // Subscribe to the stream and add coordinates to the list
-        _coordinatesSubscription = stream.listen(
-          (coordinate) {
-            if (coordinate != null) {
-              // Add coordinates to the list in the state
-              Logger().d([
-                DateTime.now().toIso8601String(),
-                coordinate.latitude,
-                coordinate.longitude,
-              ]);
-              _updateTransectCoordinatesState(
-                (state) => state.copyWith(
-                  coordinates: List.from(state.coordinates)..add(coordinate),
-                ),
-              );
-            }
-          },
-          onDone: () {
-            // Called when the stream is done
-            Logger().d('Stream closed');
-          },
-        );
-
-        // Update the state to indicate the transect has started
-        _updateTransectCoordinatesState(
-          (state) => state.copyWith(
-            isLoading: false,
-            isStarted: true,
-            isStopped: false,
-            okMessage: 'Started a transect',
-          ),
-        );
-      },
-      (error) {
-        // If there was an error, update the state
-        _updateTransectCoordinatesState(
-          (state) => state.copyWith(
-            coordinates: [],
-            isLoading: false,
-            isStarted: false,
-            isStopped: false,
-            errorMessage: 'Error while starting a transect',
-          ),
-        );
-      },
-    );
+    _initializeTransect();
+    await _startCurrentLocation();
+    await _subscribeToLocationStream();
   }
 
   /// Stops the transect, cancels the subscription, and updates the state.
   ///
-  /// This method cancels the location stream subscription and updates the state to
-  /// reflect that the transect has stopped. The list of coordinates will no longer
-  /// be updated.
+  /// This method cancels the location stream subscription and updates the state to reflect that
+  /// the transect has stopped.
   Future<void> stopTransect() async {
+    _setLoadingState(true);
+    Logger().d('stopTransect');
+    await _cancelLocationStreamSubscription();
+    _updateStateOnStop();
+  }
+
+  /// Initializes the transect by resetting the state and setting it to loading.
+  void _initializeTransect() {
+    _updateTransectCoordinatesState(
+        (state) => TransectCoordinatesState.initial());
+    _setLoadingState(true);
+  }
+
+  /// Starts fetching the current position and adds it to the state.
+  ///
+  /// If successful, it adds the current position to the state. If an error occurs, the state is updated
+  /// with an error message.
+  Future<void> _startCurrentLocation() async {
+    final responseCurrent = await getCurrentPositionUseCase.execute();
+
+    responseCurrent.fold(
+      (value) => _addCoordinateToState(value),
+      (error) => _updateStateOnError('Error while starting a transect'),
+    );
+  }
+
+  /// Subscribes to the location stream and listens for new coordinates.
+  ///
+  /// It adds each new coordinate to the state. If the stream ends, it logs the stream closure.
+  Future<void> _subscribeToLocationStream() async {
+    final responseStream = await getLocationStreamUseCase.execute();
+
+    responseStream.fold(
+      (stream) {
+        _coordinatesSubscription = stream.listen(
+          (coordinate) {
+            if (coordinate != null) {
+              _addCoordinateToState(coordinate);
+            }
+          },
+          onDone: _logStreamClosed,
+        );
+        _updateStateOnStart();
+      },
+      (error) => _updateStateOnError('Error while starting a transect'),
+    );
+  }
+
+  /// Adds a new coordinate to the state and logs it.
+  void _addCoordinateToState(GeoPointEntity coordinate) {
+    Logger().d([
+      DateTime.now().toIso8601String(),
+      coordinate.latitude,
+      coordinate.longitude,
+    ]);
     _updateTransectCoordinatesState(
       (state) => state.copyWith(
-        isLoading: true,
-        okMessage: 'Transect stopped',
+        coordinates: List.from(state.coordinates)..add(coordinate),
       ),
     );
-    Logger().d('stopTransect');
+  }
 
-    // Cancel the stream subscription
+  /// Logs when the location stream is closed.
+  void _logStreamClosed() {
+    Logger().d('Stream closed');
+  }
+
+  /// Updates the state to indicate that the transect has started.
+  void _updateStateOnStart() {
+    _updateTransectCoordinatesState(
+      (state) => state.copyWith(
+        isLoading: false,
+        isStarted: true,
+        isStopped: false,
+        okMessage: 'Started a transect',
+      ),
+    );
+  }
+
+  /// Updates the state to reflect that an error occurred while starting a transect.
+  void _updateStateOnError(String errorMessage) {
+    _updateTransectCoordinatesState(
+      (state) => state.copyWith(
+        coordinates: [],
+        isLoading: false,
+        isStarted: false,
+        isStopped: false,
+        errorMessage: errorMessage,
+      ),
+    );
+  }
+
+  /// Cancels the location stream subscription.
+  Future<void> _cancelLocationStreamSubscription() async {
     await _coordinatesSubscription?.cancel();
+  }
 
-    // Update the state to reflect the transect has stopped
+  /// Updates the state of the transect coordinates in the provider.
+  ///
+  /// [updateFn] is a function that takes the current state and returns the updated state.
+  void _updateTransectCoordinatesState(
+      TransectCoordinatesState Function(TransectCoordinatesState) updateFn) {
+    final currentState = ref.read(transectCoordinatesStateProvider);
+    ref.read(transectCoordinatesStateProvider.notifier).state =
+        updateFn(currentState);
+  }
+
+  /// Sets the loading state of the transect.
+  ///
+  /// This method sets the loading state of the transect, showing a loading spinner when the
+  /// transect is in progress.
+  void _setLoadingState(bool isLoading) {
+    _updateTransectCoordinatesState(
+      (state) => state.copyWith(
+        isLoading: isLoading,
+      ),
+    );
+  }
+
+  /// Updates the state to reflect that the transect has stopped.
+  void _updateStateOnStop() {
     _updateTransectCoordinatesState(
       (state) => state.copyWith(
         isLoading: false,
@@ -110,17 +166,5 @@ class StartStopTransectViewModel {
         okMessage: 'Transect stopped',
       ),
     );
-  }
-
-  /// Updates the state of the transect coordinates in the provider.
-  ///
-  /// This method reads the current state from the provider and updates it by
-  /// applying the function [updateFn] passed as an argument. It is used to modify
-  /// the state, such as adding coordinates to the list or updating other flags.
-  void _updateTransectCoordinatesState(
-      TransectCoordinatesState Function(TransectCoordinatesState) updateFn) {
-    final currentState = ref.read(transectCoordinatesStateProvider);
-    ref.read(transectCoordinatesStateProvider.notifier).state =
-        updateFn(currentState);
   }
 }

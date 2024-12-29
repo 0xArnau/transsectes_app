@@ -9,9 +9,11 @@ import 'package:transsectes_app/app/features/transects/presentation/viewmodels/s
 final startStopTransectViewModelProvider =
     Provider<StartStopTransectViewModel>((ref) {
   final getLocationStreamUseCase = ref.read(getLocationStreamUseCaseProvider);
+  final getCurrentPositionUseCase = ref.read(getCurrentPositionUseCaseProvider);
 
   return StartStopTransectViewModel(
     ref: ref,
     getLocationStreamUseCase: getLocationStreamUseCase,
+    getCurrentPositionUseCase: getCurrentPositionUseCase,
   );
 });
