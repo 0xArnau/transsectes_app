@@ -43,8 +43,8 @@ class SaveTransectViewModel {
       return;
     }
 
-    final firstCoordinate = coordinates.first;
-    final lastCoordinate = coordinates.last;
+    final firstCoordinate = coordinates.firstOrNull;
+    final lastCoordinate = coordinates.lastOrNull;
 
     if (firstCoordinate == null || lastCoordinate == null) {
       _updateErrorState(true);
