@@ -61,6 +61,10 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Send Inform'),
+        actions: [
+          TextButton(
+              onPressed: _viewModel.startTransect, child: const Text('Resume'))
+        ],
       ),
       body: ListView(
         children: [

@@ -27,7 +27,6 @@ class StartStopTransectViewModel {
   /// This method initializes the state, subscribes to the location stream, and listens for
   /// new coordinates. Coordinates are added to the state, and the state is updated accordingly.
   Future<void> startTransect() async {
-    _initializeTransect();
     await _startCurrentLocation();
     await _subscribeToLocationStream();
   }
@@ -44,7 +43,7 @@ class StartStopTransectViewModel {
   }
 
   /// Initializes the transect by resetting the state and setting it to loading.
-  void _initializeTransect() {
+  void initializeTransect() {
     _updateTransectCoordinatesState(
         (state) => TransectCoordinatesState.initial());
     _setLoadingState(true);
