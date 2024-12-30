@@ -85,11 +85,12 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
 
       // Verify if the user is a technician and update the field
       final isTechnicianResult = await isTechnician(userEntity.email);
-      if (!isTechnicianResult.isSuccess) {
-        return Result.failure(RemoteError(RemoteErrorType.unknown));
+      bool isTechnicianValue = false;
+      if (isTechnicianResult.isSuccess) {
+        isTechnicianValue = true;
       }
 
-      userEntity = userEntity.copyWith(isTechnician: isTechnicianResult.value!);
+      userEntity = userEntity.copyWith(isTechnician: isTechnicianValue);
 
       return Result.success(userEntity);
     } catch (e) {
