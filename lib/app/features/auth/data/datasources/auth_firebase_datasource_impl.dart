@@ -88,7 +88,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
       final isTechnicianResult = await isTechnician(userEntity.email);
       bool isTechnicianValue = false;
       if (isTechnicianResult.isSuccess) {
-        isTechnicianValue = true;
+        isTechnicianValue = isTechnicianResult.value ?? false;
       }
 
       userEntity = userEntity.copyWith(isTechnician: isTechnicianValue);
