@@ -3,6 +3,7 @@ import 'package:transsectes_app/app/features/auth/data/datasources/auth_firebase
 import 'package:transsectes_app/app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/delete_user_account_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_current_position_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
@@ -139,6 +140,13 @@ final isUserAuthenticatedUseCaseProvider =
 final getCurrentUserUseCaseProvider = Provider<GetCurrentUserUseCase>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return GetCurrentUserUseCase(authRepository);
+});
+
+/// Provider for DeleteUserAccountUsecase, which depends on AuthRepository
+final deleteUserAccountUsecaseProvider =
+    Provider<DeleteUserAccountUsecase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return DeleteUserAccountUsecase(authRepository);
 });
 
 /// Provider for GetAllTransectsUseCase, which depends on TransectRepository

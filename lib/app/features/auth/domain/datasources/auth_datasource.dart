@@ -50,4 +50,16 @@ abstract class AuthDatasource {
   /// Returns a [Result] containing the [UserEntity] of the currently authenticated user or a [DataError]
   /// if the operation fails.
   Result<UserEntity, DataError> getCurrentUser();
+
+  /// Deletes the user's account and all associated information from Firebase.
+  ///
+  /// This method attempts to delete the currently authenticated user's account. If
+  /// the operation fails due to insufficient authentication, it throws a
+  /// [RequiresRecentLoginException]. For other errors, a [DeleteUserAccountException]
+  /// is thrown.
+  ///
+  /// Throws:
+  /// - [RequiresRecentLoginException]: If the user needs to reauthenticate.
+  /// - [DeleteUserAccountException]: For other unexpected errors.
+  Future<void> deleteUserAccountAndInformation();
 }
