@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // For clipboard functionality
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -89,9 +90,23 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     final coordinates = widget.transectEntity.coordinates;
     if (coordinates.isEmpty) return '';
 
-    final origin = coordinates.first;
-    final destination = coordinates.last;
-    final waypoints = coordinates.skip(1).take(coordinates.length - 2);
+    GeoPoint origin;
+    GeoPoint destination;
+    Iterable<GeoPoint> waypoints;
+
+    if (coordinates.length == 1) {
+      origin = coordinates.first;
+      destination = coordinates.first;
+      waypoints = [];
+    } else if (coordinates.length == 2) {
+      origin = coordinates.first;
+      destination = coordinates.last;
+      waypoints = [];
+    } else {
+      origin = coordinates.first;
+      destination = coordinates.last;
+      waypoints = coordinates.skip(1).take(coordinates.length - 2);
+    }
 
     // Generate the waypoints string
     final waypointsString = waypoints
