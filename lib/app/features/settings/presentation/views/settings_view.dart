@@ -101,7 +101,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
               text: S.current.delete_account,
               isADestructiveAction: true,
               onTap: () {
-                _handleDeleteAccount(context, ref);
+                _showConfirmationDialog(context, ref);
               },
             ),
             const SizedBox(height: 16),
@@ -185,6 +185,39 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
 /// This function ensures that the email is hidden for privacy unless the user explicitly requests to view it.
 String _obfuscateString(String text) {
   return '*' * text.length;
+}
+
+// Function to show the confirmation dialog
+Future<void> _showConfirmationDialog(
+    BuildContext context, WidgetRef ref) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(S.current.delete_account),
+        content: Text(S.current.delete_account_content),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(S.current.cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _handleDeleteAccount(context, ref);
+            },
+            child: Text(
+              S.current.remove,
+              style: TextStyle(color: Theme.of(context).colorScheme.error),
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }
 
 /// Handles the logic for deleting the user account.
