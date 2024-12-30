@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/delete_user_account_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
 
 /// ViewModel for the settings screen that manages the user's sign-out process
@@ -9,15 +10,20 @@ import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_useca
 class SettingsViewModel {
   final Ref _ref;
   final SignOutUseCase _signOutUseCase;
+  final DeleteUserAccountUsecase _deleteUserAccountUsecase;
 
   /// Creates an instance of [SettingsViewModel].
   ///
   /// Takes a [ref] to the Riverpod reference and an instance of the [SignOutUseCase].
   /// The [ref] is used to interact with Riverpod providers, and the [signOutUseCase]
   /// handles the logic for signing out the user.
-  SettingsViewModel({required Ref ref, required SignOutUseCase signOutUseCase})
+  SettingsViewModel(
+      {required Ref ref,
+      required SignOutUseCase signOutUseCase,
+      required DeleteUserAccountUsecase deleteUserAccountUsecase})
       : _ref = ref,
-        _signOutUseCase = signOutUseCase;
+        _signOutUseCase = signOutUseCase,
+        _deleteUserAccountUsecase = deleteUserAccountUsecase;
 
   /// Signs the user out.
   ///
@@ -46,6 +52,48 @@ class SettingsViewModel {
     // Update the state with an error message if sign-out fails
     _updateState((state) => state.copyWith(
         isLoading: false, errorMessage: 'Cannot sign out. Please try again'));
+  }
+
+  /// Deletes the user account and updates the state accordingly.
+  ///
+  /// This method invokes the use case to delete the user's account.
+  /// It handles the loading state and propagates errors for further handling.
+  ///
+  /// Workflow:
+  /// - Sets the loading state to true.
+  /// - Attempts to delete the user account via the use case.
+  /// - Updates the state to reflect the changes after the operation.
+  ///
+  /// Throws:
+  /// - Any exception thrown during the account deletion process.
+  Future<void> deleteUserAccount() async {
+    try {
+      _updateState(
+        (state) => state.copyWith(
+          isLoading: true,
+        ),
+      );
+
+      await _deleteUserAccountUsecase.execute();
+
+      _updateState(
+        (state) => state.copyWith(
+          isLoading: false,
+          user: null,
+        ),
+      );
+    } catch (e) {
+      _updateState(
+        (state) => state.copyWith(
+          isLoading: false,
+        ),
+      );
+
+      Logger().e(e);
+
+      // Propagate the error for further handling by the UI.
+      rethrow;
+    }
   }
 
   /// Clears any error or success messages in the state.

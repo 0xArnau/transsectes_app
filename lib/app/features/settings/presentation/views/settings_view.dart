@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:transsectes_app/app/core/exceptions/exception.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
@@ -95,13 +96,13 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 ],
               ),
             ),
-
-            // TODO: delete account
             const SizedBox(height: 16),
             CustomButton(
               text: S.current.delete_account,
               isADestructiveAction: true,
-              onTap: () {},
+              onTap: () {
+                _handleDeleteAccount(context, ref);
+              },
             ),
             const SizedBox(height: 16),
             CustomButton(
@@ -184,4 +185,74 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
 /// This function ensures that the email is hidden for privacy unless the user explicitly requests to view it.
 String _obfuscateString(String text) {
   return '*' * text.length;
+}
+
+/// Handles the logic for deleting the user account.
+///
+/// This function interacts with the ViewModel to delete the account and provides
+/// appropriate feedback to the user via SnackBars based on the type of error.
+///
+/// Parameters:
+/// - [BuildContext] context: The context for showing SnackBars.
+/// - [WidgetRef] ref: The Riverpod ref to access the ViewModel.
+void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
+  try {
+    await ref.read(settingsViewModelProvider).deleteUserAccount();
+
+    // Show success snackbar
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // content: Text(S.current.account_deleted_successfully),
+          content: Text('Account removed'),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
+  } on RequiresNonTechnicianException catch (_) {
+    // Show snackbar for unexpected account deletion error
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // content: Text(S.current.unexpected_error_deleting_account),
+          content: Text(
+              'Esta acción solo puede ser realizada por usuarios no técnicos'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  } on RequiresRecentLoginException catch (_) {
+    // Show snackbar for reauthentication requirement
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // content: Text(S.current.requires_recent_login),
+          content: Text('Requires recent sign-in'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+    }
+  } on DeleteUserAccountException catch (_) {
+    // Show snackbar for unexpected account deletion error
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // content: Text(S.current.unexpected_error_deleting_account),
+          content: Text('Unexpected error'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  } catch (_) {
+    // Show generic error snackbar
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          // content: Text(S.current.generic_error_message),
+          content: Text('General error'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
 }

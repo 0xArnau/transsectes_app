@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:transsectes_app/app/features/transects/presentation/states/transect_state.dart';
+import 'package:transsectes_app/app/features/transects/presentation/states/records/transect_state.dart';
 
 // Provider for user transects
 final userTransectsStateProvider =

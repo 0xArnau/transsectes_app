@@ -11,10 +11,12 @@ import 'package:transsectes_app/app/features/settings/presentation/viewmodels/se
 final settingsViewModelProvider = Provider<SettingsViewModel>((ref) {
   // Get the SignOutUseCase from the use case provider
   final signOutUseCase = ref.read(signOutUseCaseProvider);
+  final deleteUserAccountUsecase = ref.read(deleteUserAccountUsecaseProvider);
 
   // Return an instance of SettingsViewModel with necessary dependencies
   return SettingsViewModel(
     ref: ref,
     signOutUseCase: signOutUseCase,
+    deleteUserAccountUsecase: deleteUserAccountUsecase,
   );
 });

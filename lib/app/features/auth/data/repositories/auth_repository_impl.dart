@@ -1,3 +1,5 @@
+import 'package:logger/logger.dart';
+import 'package:transsectes_app/app/core/exceptions/exception.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
@@ -57,5 +59,10 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Result<UserEntity, DataError> getCurrentUser() {
     return _authDatasource.getCurrentUser();
+  }
+
+  @override
+  Future<void> deleteUserAccountAndInformation() {
+    return _authDatasource.deleteUserAccountAndInformation();
   }
 }

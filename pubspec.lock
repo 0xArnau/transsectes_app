@@ -62,14 +62,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  bloc:
-    dependency: "direct main"
-    description:
-      name: bloc
-      sha256: "106842ad6569f0b60297619e9e0b1885c2fb9bf84812935490e6c5275777804e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.1.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -306,10 +298,10 @@ packages:
     dependency: transitive
     description:
       name: device_info_plus
-      sha256: "77f757b789ff68e4eaf9c56d1752309bd9f7ad557cb105b938a7f8eb89e59110"
+      sha256: a7fd703482b391a87d60b6061d04dfdeab07826b96f9abd8f5ed98068acc0074
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.2"
+    version: "10.1.2"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -346,10 +338,10 @@ packages:
     dependency: "direct main"
     description:
       name: email_validator
-      sha256: e9a90f27ab2b915a27d7f9c2a7ddda5dd752d6942616ee83529b686fc086221b
+      sha256: b19aa5d92fdd76fbc65112060c94d45ba855105a28bb6e462de7ff03b12fa1fb
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.17"
+    version: "3.0.0"
   equatable:
     dependency: "direct main"
     description:
@@ -451,14 +443,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_bloc
-      sha256: b594505eac31a0518bdcb4b5b79573b8d9117b193cc80cc12e17d639b10aa27a
-      url: "https://pub.dev"
-    source: hosted
-    version: "8.1.6"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -511,26 +495,26 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_launcher_icons
-      sha256: "526faf84284b86a4cb36d20a5e45147747b7563d921373d4ee0559c54fcdbcea"
+      sha256: "31cd0885738e87c72d6f055564d37fabcdacee743b396b78c7636c169cac64f5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.1"
+    version: "0.14.2"
   flutter_lints:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: "9e8c3858111da373efc5aa341de011d9bd23e2c5c5e0c62bccf32438e192d7b1"
+      sha256: "5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "5.0.0"
   flutter_localization:
     dependency: "direct main"
     description:
       name: flutter_localization
-      sha256: "972eb337dcc27480e575accf9eadcdd80f52755ba05efcfdb585b869f29ad3d6"
+      sha256: "09ba1346e2fb0da970e23c6d2558c826c1dbc126a8dfc25923df30852605e722"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3"
+    version: "0.3.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -622,10 +606,10 @@ packages:
     dependency: "direct main"
     description:
       name: geolocator
-      sha256: "6cb9fb6e5928b58b9a84bdf85012d757fd07aab8215c5205337021c4999bad27"
+      sha256: d2ec66329cab29cb297d51d96c067d457ca519dca8589665fa0b82ebacb7dbe4
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.0"
+    version: "13.0.2"
   geolocator_android:
     dependency: transitive
     description:
@@ -654,10 +638,10 @@ packages:
     dependency: transitive
     description:
       name: geolocator_web
-      sha256: "49d8f846ebeb5e2b6641fe477a7e97e5dd73f03cbfef3fd5c42177b7300fb0ed"
+      sha256: "2ed69328e05cd94e7eb48bb0535f5fc0c0c44d1c4fa1e9737267484d05c29b5e"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "4.1.1"
   geolocator_windows:
     dependency: transitive
     description:
@@ -678,10 +662,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: b465e99ce64ba75e61c8c0ce3d87b66d8ac07f0b35d0a7e0263fcfc10f99e836
+      sha256: "2fd11229f59e23e967b0775df8d5948a519cd7e1e8b6e849729e010587b46539"
       url: "https://pub.dev"
     source: hosted
-    version: "13.2.5"
+    version: "14.6.2"
   google_maps:
     dependency: transitive
     description:
@@ -854,10 +838,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: cbf8d4b858bb0134ef3ef87841abdf8d63bfc255c266b7bf6b39daa1085c4290
+      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "5.1.1"
   logger:
     dependency: "direct main"
     description:
@@ -914,14 +898,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   package_config:
     dependency: transitive
     description:
@@ -1090,14 +1066,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.1"
-  provider:
-    dependency: transitive
-    description:
-      name: provider
-      sha256: c8a055ee5ce3fd98d6fc872478b03823ffdb448699c6ebdbbc71d59b596fd48c
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.1.2"
   pub_semver:
     dependency: transitive
     description:
@@ -1299,66 +1267,66 @@ packages:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "7666506885ebc8f62bb928ad4588a73e20caaff2b2cf2b2b56f67d98f4113525"
+      sha256: "853069545b718aa13d466bfc3e7b4cfa2cadcbb3c06f531d0053177dc6f1a092"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_flutter_pdf:
     dependency: transitive
     description:
       name: syncfusion_flutter_pdf
-      sha256: a9e85bbfd574bb262733b33494240fda38bfeb58553537560ba4b3f54a31418b
+      sha256: a88a71d88a6474ae1cf369fc6802687a6ee5612e007025b99f21e4c24a7d73df
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_flutter_pdfviewer:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_pdfviewer
-      sha256: "2acc70e8f4bf23e4bdef1810d92ccbc5011d596a89d91fd35c0199617ca43980"
+      sha256: "883635d22ed4b58104f60e2d4f9c92893833120385dc5d804d9b23ee477da1e4"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_flutter_signaturepad:
     dependency: transitive
     description:
       name: syncfusion_flutter_signaturepad
-      sha256: "2ab2c81176ed6779a0e5f7724645c9af2a1656eec3f53ef6b10d67d9d65f0b4a"
+      sha256: "0f02902984af07b0dbccc2abf9796636932583ff6a26cb1073821c4fce344988"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_pdfviewer_macos:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_macos
-      sha256: "6dad65d36d32e679e7666be438a5a75d870e0b1b9cd010ddcfc7475b9063a89d"
+      sha256: "73a912311349c1de4ed8553becaaece8a57eb671c14e8f3ff9bec010bddc48f5"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_pdfviewer_platform_interface:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_platform_interface
-      sha256: "6a1bf9fe0648daa77e3c76052f7d02b50f1208ae1d751f648100e46100bf8711"
+      sha256: "667b979d50d52e5dacdff8d34066c9c52821b985ca8e70275ca47ecb9ff10895"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_pdfviewer_web:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_web
-      sha256: e16aa5569770e9a08e3b1a110d4812532546ab4932f86e8b16e2008c592b5651
+      sha256: db08ce4d19305bddf296fc86319cec4418aa83d7753c4081820f276a55767511
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   syncfusion_pdfviewer_windows:
     dependency: transitive
     description:
       name: syncfusion_pdfviewer_windows
-      sha256: "6e33562967828feeebc1b5cb0e5f1ec23abb86007dce37773501f9f18bfe3a36"
+      sha256: e10b464892e19cb423e840040e5617122adbf173b2289efb1250e3ed97c18b2d
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "28.1.36"
   term_glyph:
     dependency: transitive
     description:
