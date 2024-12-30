@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // For clipboard functionality
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -41,18 +42,32 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
         // Prepare markers for each coordinate in the transect
         markers = widget.transectEntity.coordinates
             .asMap()
-            .map((index, geoPoint) => MapEntry(
-                  index,
-                  Marker(
-                    markerId: MarkerId(index.toString()),
-                    position: LatLng(geoPoint.latitude, geoPoint.longitude),
-                    infoWindow: InfoWindow(
-                      title: 'Marker $index',
-                      snippet:
-                          'Lat: ${geoPoint.latitude}, Lng: ${geoPoint.longitude}',
-                    ),
+            .map((index, geoPoint) {
+              // Set the color of the first and last marker to blue
+              BitmapDescriptor markerIcon;
+              if (index == 0 ||
+                  index == widget.transectEntity.coordinates.length - 1) {
+                markerIcon = BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueBlue);
+              } else {
+                markerIcon = BitmapDescriptor.defaultMarker;
+              }
+
+              return MapEntry(
+                index,
+                Marker(
+                  markerId: MarkerId(index.toString()),
+                  position: LatLng(geoPoint.latitude, geoPoint.longitude),
+                  icon: markerIcon, // Set the custom icon
+                  infoWindow: InfoWindow(
+                    title: 'Marker $index',
+                    snippet:
+                        'Lat: ${geoPoint.latitude}, Lng: ${geoPoint.longitude}',
                   ),
-                ))
+                  onTap: () => _onMarkerTapped(index, geoPoint),
+                ),
+              );
+            })
             .values
             .toSet();
       });
@@ -128,6 +143,30 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
         ),
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
+    );
+  }
+
+  /// Handles the marker tap event.
+  ///
+  /// This shows a dialog with information about the tapped marker.
+  void _onMarkerTapped(int index, GeoPoint geoPoint) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Marker $index'),
+          content:
+              Text('Lat: ${geoPoint.latitude}\nLng: ${geoPoint.longitude}'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
