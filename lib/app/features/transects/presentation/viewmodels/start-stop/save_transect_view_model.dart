@@ -103,6 +103,9 @@ class SaveTransectViewModel {
         subAdministrativeAreaLast,
       );
 
+      // Si no hay conexión a internet se queda pillado en el `await` y no reinicia el estado del transecto,
+      // forzar el reinicio tratándolo como un success
+      _handleSaveSuccess(); // TODO: only if there is not internet connection
       final response = await _addTransectUseCase.execute(transect);
 
       response.fold(
