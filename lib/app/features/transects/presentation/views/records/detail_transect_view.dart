@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/detail_transect_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/detail_transect_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/google_maps_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -27,28 +28,63 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
   /// ViewModel instance for handling business logic and state management.
   late DetailTransectViewModel _viewModel;
 
+  late TransectEntity transectEntity;
+
   @override
   void initState() {
     super.initState();
 
     _viewModel = ref.read(detailTransectViewModelProvider);
+
+    if (mounted) {
+      setState(() {
+        transectEntity = widget.transect;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(
+      transectViewModelProvider,
+      (prev, next) {
+        if (next.errorMessage != null && next.errorMessage!.isNotEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(next.errorMessage!),
+              backgroundColor: Colors.redAccent,
+            ),
+          );
+
+          // Clear any error messages after showing them.
+          ref.read(transectViewModelProvider).errorMessage = null;
+        }
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              _save(context, [widget.transect], widget.transect.localityFirst);
+              _save(context, [transectEntity], transectEntity.localityFirst);
             },
             icon: const Icon(Icons.download),
           ),
-          // IconButton(
-          //   onPressed: () {},
-          //   icon: const Icon(Icons.update),
-          // ),
+          IconButton(
+            onPressed: () async {
+              final response = await ref
+                  .read(transectViewModelProvider)
+                  .updateTransect(transectEntity);
+
+              if (response != null && mounted) {
+                setState(() {
+                  transectEntity = response;
+                });
+              }
+            },
+            icon: const Icon(Icons.update),
+          ),
         ],
         title: Text(S.current.transect_detail),
       ),
@@ -57,42 +93,42 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
           children: [
             _listTile(
               title: S.current.transect_date,
-              value: widget.transect.createdAt.toDate().toIso8601String(),
+              value: transectEntity.createdAt.toDate().toIso8601String(),
             ),
             _listTile(
               title: S.current.transect_author,
-              value: widget.transect.createdBy,
+              value: transectEntity.createdBy,
             ),
             _listTileGeo(
               title: S.current.transect_administrative_are,
-              value1: widget.transect.administrativeAreaFirst,
-              value2: widget.transect.administrativeAreaLast,
+              value1: transectEntity.administrativeAreaFirst,
+              value2: transectEntity.administrativeAreaLast,
             ),
             _listTileGeo(
               title: S.current.transect_subadministrative_are,
-              value1: widget.transect.subAdministrativeAreaFirst,
-              value2: widget.transect.subAdministrativeAreaLast,
+              value1: transectEntity.subAdministrativeAreaFirst,
+              value2: transectEntity.subAdministrativeAreaLast,
             ),
             _listTileGeo(
               title: S.current.transect_locality,
-              value1: widget.transect.localityFirst,
-              value2: widget.transect.localityLast,
+              value1: transectEntity.localityFirst,
+              value2: transectEntity.localityLast,
             ),
             _listTile(
               title: S.current.transect_people_informed,
-              value: widget.transect.informedPeople.toString(),
+              value: transectEntity.informedPeople.toString(),
             ),
             _listTile(
               title: S.current.transect_tractor,
-              value: widget.transect.tractor.toString(),
+              value: transectEntity.tractor.toString(),
             ),
             _listTile(
               title: S.current.transect_observations,
-              value: widget.transect.observations,
+              value: transectEntity.observations,
             ),
             _openMap(
               context: context,
-              transectEntity: widget.transect,
+              transectEntity: transectEntity,
             ),
           ],
         ),

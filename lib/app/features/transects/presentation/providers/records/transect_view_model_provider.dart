@@ -12,11 +12,14 @@ final transectViewModelProvider = Provider<TransectViewModel>((ref) {
   // Reading the required use cases from the Riverpod container.
   final updateTransectUseCase = ref.read(updateTransectUseCaseProvider);
   final removeAllTransectsUseCase = ref.read(removeAllTransectsUseCaseProvider);
+  final getAddressFromCoordinatesUseCase =
+      ref.read(getAddressFromCoordinatesUseCaseProvider);
 
   // Returning a new instance of [TransectViewModel] with the injected use cases.
   return TransectViewModel(
     ref: ref,
     updateTransectUseCase: updateTransectUseCase,
     removeAllTransectsUseCase: removeAllTransectsUseCase,
+    getAddressFromCoordinatesUseCase: getAddressFromCoordinatesUseCase,
   );
 });
