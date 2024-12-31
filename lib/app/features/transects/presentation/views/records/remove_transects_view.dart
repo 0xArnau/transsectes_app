@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:transsectes_app/app/core/providers/use_case_providers.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -61,11 +62,22 @@ class _RemoveTransectsViewState extends ConsumerState<RemoveTransectsView> {
   }
 
   // Function to handle the deletion logic (can be replaced with actual deletion logic)
-  void _deleteAllTransects() {
-    // Replace this with your actual deletion logic
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('All transects deleted successfully!'), // TODO: i18n
+  void _deleteAllTransects() async {
+    final usecase = ref.read(removeAllTransectsUseCaseProvider);
+    final response = await usecase.execute();
+
+    response.fold(
+      (_) => ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('All transects deleted successfully!'), // TODO: i18n
+        ),
+      ),
+      (_) => ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content:
+              Text('An error occurred while deleting transects!'), // TODO: i18n
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
       ),
     );
   }
