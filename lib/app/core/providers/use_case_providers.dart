@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/auth/data/repositories/auth_reposit
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/delete_user_account_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_email_verified_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/send_email_verification_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
@@ -235,4 +236,11 @@ final sendEmailVerificationUsecaseProvider =
     Provider<SendEmailVerificationUsecase>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return SendEmailVerificationUsecase(authRepository);
+});
+
+/// Provider for ForgotPasswordUseCase, which depends on AuthRepository
+final forgotPasswordUseCaseProvider =
+    Provider<ForgotPasswordUseCase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return ForgotPasswordUseCase(authRepository);
 });
