@@ -33,8 +33,9 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(
+      icon: Icon(
         Icons.info_outline,
+        color: Theme.of(context).colorScheme.secondaryContainer,
       ),
       onPressed: () {
         _showAppInfoModal(context);

@@ -22,7 +22,7 @@ class WavePainter extends CustomPainter {
 
   /// Constructor that accepts the primary container color from the theme.
   WavePainter(BuildContext context)
-      : color = Theme.of(context).colorScheme.secondaryContainer;
+      : color = Theme.of(context).colorScheme.tertiaryContainer;
 
   @override
   void paint(Canvas canvas, Size size) {
