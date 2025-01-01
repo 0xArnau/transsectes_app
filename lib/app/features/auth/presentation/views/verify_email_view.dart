@@ -16,9 +16,11 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
 
   /// Toggles the loading state to show feedback during async operations.
   void _setLoading(bool value) {
-    setState(() {
-      _isLoading = value;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoading = value;
+      });
+    }
   }
 
   /// Handles the async operation and displays the result in a SnackBar.
