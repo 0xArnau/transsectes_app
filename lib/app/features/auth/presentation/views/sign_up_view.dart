@@ -74,7 +74,15 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
         _clausulaInformativa,
       );
 
-      await viewModel.createAccount();
+      await viewModel.createAccount(
+        email: _emailController.text,
+        emailCopy: _emailConfirmController.text,
+        password: _passwordController.text,
+        passwordCopy: _passwordConfirmController.text,
+        avis: _avisLegal,
+        clausulaInformativa: _clausulaInformativa,
+        privacitat: _privacitat,
+      );
       _showSnackBar('Sign up successful', false);
     } catch (e) {
       _showSnackBar(e.toString(), true);

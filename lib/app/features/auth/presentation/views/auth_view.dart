@@ -4,6 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/auth_view_model_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/features/auth/presentation/views/verify_email_view.dart';
 import 'package:transsectes_app/app/features/home/presentation/views/home_view.dart';
 
 /// A widget responsible for displaying the authentication state of the user.
@@ -53,10 +54,10 @@ class _AuthViewState extends ConsumerState<AuthView> {
       return const SignInView();
     }
 
-    // // If the user is authenticated but email is not verified, navigate to VerifyEmailView
-    // if (userState.user!.isAuthenticated && !userState.user!.isEmailVerified) {
-    //   return const VerifyEmailView();
-    // }
+    // If the user is authenticated but email is not verified, navigate to VerifyEmailView
+    if (userState.user!.isAuthenticated && !userState.user!.isEmailVerified) {
+      return const VerifyEmailView();
+    }
 
     // If the user is authenticated and email is verified, navigate to HomeView
     if (userState.user!.isAuthenticated && userState.user!.isEmailVerified) {

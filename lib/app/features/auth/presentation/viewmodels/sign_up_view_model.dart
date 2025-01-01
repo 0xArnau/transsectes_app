@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
+import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -29,8 +32,34 @@ class SignUpViewModel {
   ///
   /// This method is responsible for invoking the sign-up use case.
   /// As of now, this method is a placeholder and does not perform any actions.
-  Future<void> createAccount() async {
-    // TODO
+  Future<void> createAccount({
+    required String email,
+    required String emailCopy,
+    required String password,
+    required String passwordCopy,
+    required bool avis,
+    required bool clausulaInformativa,
+    required bool privacitat,
+  }) async {
+    validateCredentials(
+      email: email,
+      emailCopy: emailCopy,
+      password: password,
+      passwordCopy: passwordCopy,
+    );
+
+    validateLegal(avis, clausulaInformativa, privacitat);
+
+    final response = await _signUpUseCase.execute(email, password);
+
+    Logger().d(response.value?.toString());
+
+    response.fold(
+      (entity) => _updateState(
+        (state) => state.copyWith(isLoading: false, user: entity),
+      ),
+      (_) => throw AuthException('Unknown error, cannot create user account'),
+    );
   }
 
   /// Validates the user credentials (email and password).
@@ -87,5 +116,15 @@ class SignUpViewModel {
     if (!a || !b || !c) {
       throw EmptyFieldException('All legal fields mut be accepted');
     }
+  }
+
+  /// Updates the state using a function that modifies the current state.
+  ///
+  /// This function is used to modify the current state by applying changes
+  /// returned by [updateFn]. It helps keep the UI in sync with the current
+  /// authentication state.
+  void _updateState(UserState Function(UserState) updateFn) {
+    final currentState = _ref.read(currentUserStateProvider);
+    _ref.read(currentUserStateProvider.notifier).state = updateFn(currentState);
   }
 }
