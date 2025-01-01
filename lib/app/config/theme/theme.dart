@@ -6,9 +6,9 @@ ThemeData lightMode = ThemeData(
   colorScheme: ColorScheme.light(
     primary: const Color.fromRGBO(78, 101, 245, 1),
     onPrimary: Colors.black,
-    secondary: const Color.fromRGBO(246, 199, 62, 1),
+    secondary: const Color.fromRGBO(135, 105, 83, 1),
     onSecondary: Colors.black,
-    tertiary: const Color.fromRGBO(135, 105, 83, 1),
+    tertiary: const Color.fromRGBO(246, 199, 62, 1),
     onTertiary: Colors.black,
     primaryContainer: Colors.white,
     onPrimaryContainer: Colors.black,
