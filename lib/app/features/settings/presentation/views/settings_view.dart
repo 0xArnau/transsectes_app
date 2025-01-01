@@ -193,20 +193,20 @@ Future<void> _showConfirmationDialog(
   return showDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (BuildContext context) {
+    builder: (BuildContext ctx) {
       return AlertDialog(
         title: Text(S.current.delete_account),
         content: Text(S.current.delete_account_content),
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(ctx).pop();
             },
             child: Text(S.current.cancel),
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(ctx).pop();
               _handleDeleteAccount(context, ref);
             },
             child: Text(
