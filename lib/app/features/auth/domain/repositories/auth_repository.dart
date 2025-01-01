@@ -38,6 +38,9 @@ abstract class AuthRepository {
   /// or a [DataError] if the check operation fails.
   Future<Result<bool, DataError>> isEmailVerified(String email);
 
+  /// Send an email verification for the current user
+  Future<void> verifyEmailForCurrentUser();
+
   /// Checks if the user is a technician.
   ///
   /// Returns a [Result] containing a [bool] indicating whether the user is a technician

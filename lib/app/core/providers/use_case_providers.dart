@@ -4,6 +4,8 @@ import 'package:transsectes_app/app/features/auth/data/repositories/auth_reposit
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/delete_user_account_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/is_email_verified_usecase.dart';
+import 'package:transsectes_app/app/features/auth/domain/usecases/send_email_verification_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_current_position_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
@@ -220,4 +222,17 @@ final getAddressFromCoordinatesUseCaseProvider =
     Provider<GetAddressFromCoordinatesUseCase>((ref) {
   final geolocationRepository = ref.watch(geolocationRepositoryProvider);
   return GetAddressFromCoordinatesUseCase(geolocationRepository);
+});
+
+/// Provider for IsEmailVerifiedUseCase, which depends on AuthRepository
+final isEmailVerifiedUseCaseProvider = Provider<IsEmailVerifiedUseCase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return IsEmailVerifiedUseCase(authRepository);
+});
+
+/// Provider for SendEmailVerificationUsecase, which depends on AuthRepository
+final sendEmailVerificationUsecaseProvider =
+    Provider<SendEmailVerificationUsecase>((ref) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return SendEmailVerificationUsecase(authRepository);
 });

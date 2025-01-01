@@ -29,6 +29,9 @@ abstract class AuthDatasource {
   /// Returns a [Result] containing a [bool] indicating whether the user's email is verified or a [DataError] if the operation fails.
   Future<Result<bool, DataError>> isEmailVerified(String email);
 
+  /// Send an email verification for the current user
+  Future<void> verifyEmailForCurrentUser();
+
   /// Sends a password reset request to the given [email].
   ///
   /// Returns a [Result] containing [void] in case of success or a [DataError] if the operation fails.

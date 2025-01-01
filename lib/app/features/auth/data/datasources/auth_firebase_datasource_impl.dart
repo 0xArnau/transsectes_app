@@ -7,6 +7,7 @@ import 'package:transsectes_app/app/features/auth/domain/datasources/auth_dataso
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
 import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/results/result.dart';
+import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 
 /// Implementation of the [AuthDatasource] interface for Firebase.
 class AuthFirebaseDatasourceImpl implements AuthDatasource {
@@ -235,6 +236,17 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
           .d('Unexpected error during account deletion: ${error.toString()}');
       throw DeleteUserAccountException(
           'An unexpected error occurred while deleting the account.');
+    }
+  }
+
+  @override
+  Future<void> verifyEmailForCurrentUser() async {
+    try {
+      User? userFirebase = _firebaseAuth.currentUser;
+      await userFirebase!.sendEmailVerification();
+    } catch (e) {
+      Logger().e(e.toString());
+      throw AuthException('Current user is missing');
     }
   }
 }
