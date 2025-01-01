@@ -40,7 +40,7 @@ class VerifyEmailViewModel {
         _signOutUseCase = signOutUseCase;
 
 
-    /// Signs the user out.
+  /// Signs the user out.
   ///
   /// This function initiates the sign-out process by calling the [SignOutUseCase].
   /// It updates the state to indicate the loading state while the sign-out request
@@ -88,19 +88,36 @@ class VerifyEmailViewModel {
   ///
   /// Throws:
   /// - [AuthException] if an unknown error occurs during the reload process.
-  Future<void> reload() async {
+  Future<void> reload({int executionNumber = 0}) async {
+    _updateState((state) => state.copyWith(isLoading: true));
+
     // Email parameter is not necessary
     final response = await _isEmailVerifiedUseCase.execute('');
 
     response.fold(
-      (value) => _updateState(
-        (state) {
-          final user = state.user?.copyWith(isEmailVerified: value);
-          return state.copyWith(user: user);
-        },
-      ),
+      (value) async {
+        Logger().d(value);
+        if (value) {
+          _updateState(
+            (state) {
+              final user = state.user?.copyWith(isEmailVerified: value);
+              return state.copyWith(user: user);
+            },
+          );
+        } else {
+          // TODO
+          // Por algún motivo la primera vez que se hace el reload devuelve false
+          // Pero si se vuelve a hacer otra vez el reload por una segunda vez devuelve true
+          // Por ahora ejecutarlo recursivamente un máximo de 3 veces
+          if (executionNumber < 3) {
+            await reload(executionNumber: executionNumber + 1);
+          }
+        }
+      },
       (_) => throw AuthException('Unknown error, cannot reload'),
     );
+
+    _updateState((state) => state.copyWith(isLoading: false));
   }
 
   /// Updates the state using a function that modifies the current state.
