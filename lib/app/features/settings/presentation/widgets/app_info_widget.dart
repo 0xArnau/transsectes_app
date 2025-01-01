@@ -85,14 +85,12 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
       subtitle: SelectableText(
         subtitle,
         style: TextStyle(
           fontSize: 14,
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
       ),
     );
