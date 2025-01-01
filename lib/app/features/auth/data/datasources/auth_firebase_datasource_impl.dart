@@ -62,7 +62,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
 
       final currentEmail = _firebaseAuth.currentUser?.email;
       if (currentEmail == null || currentEmail.isEmpty) {
-        return Result.failure(RemoteError(RemoteErrorType.unknown));
+        return Result.success(false);
       }
 
       final documentSnapshot = await _firebaseFirestore
@@ -73,7 +73,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
       return Result.success(documentSnapshot.exists);
     } catch (e) {
       Logger().e(e);
-      return Result.failure(RemoteError(RemoteErrorType.unknown));
+      return Result.success(false);
     }
   }
 
