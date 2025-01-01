@@ -57,7 +57,7 @@ class VerifyEmailViewModel {
 
     if (response.isSuccess) {
       // Update the state after successful sign out
-      Logger().d("signout ok");
+      Logger().d('signout ok');
       _updateState((state) => state.copyWith(
             isLoading: false,
             user: null,

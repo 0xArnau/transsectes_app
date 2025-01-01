@@ -4,7 +4,6 @@ import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
-import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel for handling user sign-up logic.
 ///
