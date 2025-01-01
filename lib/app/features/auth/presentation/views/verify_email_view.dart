@@ -64,7 +64,10 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
                 'Error, cannot sign out',
               );
             },
-            child: Text('Exit'),
+            child: Text(
+              'Exit',
+              style: TextStyle(color: Colors.red),
+            ),
           ),
         ],
       ),
