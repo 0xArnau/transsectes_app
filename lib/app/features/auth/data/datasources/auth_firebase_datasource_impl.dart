@@ -11,7 +11,7 @@ import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_excepti
 
 /// Implementation of the [AuthDatasource] interface for Firebase.
 class AuthFirebaseDatasourceImpl implements AuthDatasource {
-  final FirebaseAuth _firebaseAuth;
+  FirebaseAuth _firebaseAuth;
   final FirebaseFirestore _firebaseFirestore;
 
   /// Constructor to initialize [FirebaseAuth] and [FirebaseFirestore] instances.
@@ -33,14 +33,21 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
     }
   }
 
+  void _updateFirebaseAuth() {
+    _firebaseAuth = FirebaseAuth.instance;
+  }
+
   @override
   Future<Result<bool, DataError>> isEmailVerified(String email) async {
     try {
+      _updateFirebaseAuth();
+
       final user = _firebaseAuth.currentUser;
       if (user == null) {
         return Result.failure(RemoteError(RemoteErrorType.unknown));
       }
-
+      await user.reload();
+      Logger().d(user.emailVerified);
       return Result.success(user.emailVerified);
     } catch (e) {
       Logger().e(e);
@@ -51,6 +58,8 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
   @override
   Future<Result<bool, DataError>> isTechnician(String email) async {
     try {
+      _updateFirebaseAuth();
+
       final currentEmail = _firebaseAuth.currentUser?.email;
       if (currentEmail == null || currentEmail.isEmpty) {
         return Result.failure(RemoteError(RemoteErrorType.unknown));
