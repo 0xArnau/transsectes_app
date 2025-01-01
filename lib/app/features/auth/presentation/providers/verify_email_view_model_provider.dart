@@ -25,10 +25,12 @@ final verifyEmailViewModelProvider = Provider<VerifyEmailViewModel>((ref) {
   final sendEmailVerificationUsecase =
       ref.read(sendEmailVerificationUsecaseProvider);
   final isEmailVerifiedUseCase = ref.read(isEmailVerifiedUseCaseProvider);
+  final signOutUseCase = ref.read(signOutUseCaseProvider);
 
   return VerifyEmailViewModel(
     ref: ref,
     sendEmailVerificationUsecase: sendEmailVerificationUsecase,
     isEmailVerifiedUseCase: isEmailVerifiedUseCase,
+    signOutUseCase: signOutUseCase,
   );
 });

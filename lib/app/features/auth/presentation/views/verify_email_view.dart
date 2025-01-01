@@ -54,6 +54,19 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Verify Email'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _handleAsyncAction(
+                context,
+                viewModel.signOut(),
+                'Sign out successfully!',
+                'Error, cannot sign out',
+              );
+            },
+            child: Text('Exit'),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
