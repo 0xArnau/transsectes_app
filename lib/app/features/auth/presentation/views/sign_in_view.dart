@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
 import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/sign_in_view_model_provider.dart';
+import 'package:transsectes_app/app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// SignInView is the main view for the sign-in screen.
@@ -214,7 +215,10 @@ class _SignInViewState extends ConsumerState<SignInView> {
         ),
         TextButton(
           onPressed: () {
-            // Navigate to the sign-up screen.
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SignUpView()),
+            );
           },
           child: Container(
             padding: const EdgeInsets.fromLTRB(17, 3, 17, 3),
