@@ -24,10 +24,12 @@ class CustomButton extends StatelessWidget {
     required String text,
     required Function onTap,
     bool isADestructiveAction = false,
+    bool isMainAction = false,
     this.minWidth = 150.0, // Default minimum width
   })  : _text = text,
         _onTap = onTap,
-        _isADestructiveAction = isADestructiveAction;
+        _isADestructiveAction = isADestructiveAction,
+        _isMainAction = isMainAction;
 
   /// The text displayed on the button.
   final String _text;
@@ -37,6 +39,9 @@ class CustomButton extends StatelessWidget {
 
   /// Determines if the button represents a destructive action.
   final bool _isADestructiveAction;
+
+  /// Determines if the button represents the main action.
+  final bool _isMainAction;
 
   /// The minimum width of the button.
   final double minWidth;
@@ -52,10 +57,13 @@ class CustomButton extends StatelessWidget {
           const EdgeInsets.all(8.0),
         ),
         backgroundColor: _isADestructiveAction
-            ? WidgetStateProperty.all<Color>(Colors.redAccent)
-            : WidgetStateProperty.all<Color>(
-                Theme.of(context).colorScheme.primaryContainer,
-              ),
+            ? WidgetStateProperty.all<Color>(
+                Theme.of(context).colorScheme.error)
+            : _isMainAction
+                ? WidgetStateProperty.all<Color>(
+                    Theme.of(context).colorScheme.primary)
+                : WidgetStateProperty.all<Color>(
+                    Theme.of(context).colorScheme.primaryContainer),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32.0),
@@ -69,7 +77,11 @@ class CustomButton extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
-            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            color: _isADestructiveAction
+                ? Theme.of(context).colorScheme.onError
+                : _isMainAction
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Theme.of(context).colorScheme.onPrimaryContainer,
           ),
         ),
       ),
