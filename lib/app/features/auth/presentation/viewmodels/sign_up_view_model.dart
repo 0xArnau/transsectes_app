@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel for handling user sign-up logic.
 ///
@@ -28,7 +29,9 @@ class SignUpViewModel {
   ///
   /// This method is responsible for invoking the sign-up use case.
   /// As of now, this method is a placeholder and does not perform any actions.
-  Future<void> createAccount() async {}
+  Future<void> createAccount() async {
+    // TODO
+  }
 
   /// Validates the user credentials (email and password).
   ///
@@ -78,5 +81,11 @@ class SignUpViewModel {
   /// Throws [IncorrectPasswordException] if the passwords do not match.
   void _validatePassword(String a, String b) {
     if (a != b) throw IncorrectPasswordException('Password must be the same');
+  }
+
+  void validateLegal(bool a, bool b, bool c) {
+    if (!a || !b || !c) {
+      throw EmptyFieldException('All legal fields mut be accepted');
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/core/widgets/pdf_viewer_widget.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/sign_up_view_model_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/viewmodels/sign_up_view_model.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -30,7 +31,9 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
   bool _isFirstPhase = true;
 
   /// Tracks whether the user has accepted the terms and conditions.
-  bool _termsAccepted = false;
+  bool _avisLegal = false;
+  bool _clausulaInformativa = false;
+  bool _privacitat = false;
 
   @override
   void dispose() {
@@ -64,16 +67,17 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
   /// Handles the final sign-up action by validating terms acceptance and
   /// interacting with the view model to create an account.
   Future<void> _onSignUp(SignUpViewModel viewModel) async {
-    if (!_termsAccepted) {
-      _showSnackBar('You must accept the terms and conditions', true);
-      return;
-    }
-
     try {
+      viewModel.validateLegal(
+        _avisLegal,
+        _clausulaInformativa,
+        _clausulaInformativa,
+      );
+
       await viewModel.createAccount();
       _showSnackBar('Sign up successful', false);
     } catch (e) {
-      _showSnackBar('Failed to sign up: $e', true);
+      _showSnackBar(e.toString(), true);
     }
   }
 
@@ -160,14 +164,44 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        CheckboxListTile(
-          value: _termsAccepted,
+        _checkboxPdfTile(
+          context: context,
+          checkbox: _avisLegal,
           onChanged: (value) {
-            setState(() {
-              _termsAccepted = value ?? false;
-            });
+            if (mounted) {
+              setState(() {
+                _avisLegal = value;
+              });
+            }
           },
-          title: const Text('I accept the terms and conditions'), // TODO
+          text: 'Avís legal',
+          path: 'assets/docs/legal/avis-legal.pdf',
+        ),
+        _checkboxPdfTile(
+          context: context,
+          checkbox: _clausulaInformativa,
+          onChanged: (value) {
+            if (mounted) {
+              setState(() {
+                _clausulaInformativa = value;
+              });
+            }
+          },
+          text: 'Clausula informativa',
+          path: 'assets/docs/legal/clausula-informativa.pdf',
+        ),
+        _checkboxPdfTile(
+          context: context,
+          checkbox: _privacitat,
+          onChanged: (value) {
+            if (mounted) {
+              setState(() {
+                _privacitat = value;
+              });
+            }
+          },
+          text: 'Privacitat',
+          path: 'assets/docs/legal/privacitat.pdf',
         ),
         const SizedBox(height: 16),
         CustomButton(
@@ -185,6 +219,40 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
           },
         ),
       ],
+    );
+  }
+
+  Widget _checkboxPdfTile({
+    required BuildContext context,
+    required bool checkbox,
+    required Function(bool) onChanged,
+    required String text,
+    required String path,
+  }) {
+    return ListTile(
+      leading: Checkbox(
+        activeColor: Theme.of(context).colorScheme.primary,
+        value: checkbox,
+        onChanged: (value) => onChanged(value ?? false),
+      ),
+      title: TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PdfViewerWidget(title: text, asset: path),
+            ),
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Theme.of(context).colorScheme.primary,
+          surfaceTintColor: Theme.of(context).colorScheme.primary,
+        ),
+        child: Text(
+          text,
+        ),
+      ),
+      trailing: const Icon(Icons.picture_as_pdf),
     );
   }
 }
