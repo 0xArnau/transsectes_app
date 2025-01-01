@@ -23,6 +23,7 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
 
   /// Handles the async operation and displays the result in a SnackBar.
   Future<void> _handleAsyncAction(
+    BuildContext context,
     Future<void> action,
     String successMessage,
     String errorMessage,
@@ -66,6 +67,7 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
                       text: 'Send Verification Email',
                       onTap: () {
                         _handleAsyncAction(
+                          context,
                           viewModel.sendEmail(),
                           'Verification email sent!',
                           'Error sending verification email',
@@ -78,6 +80,7 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
                       text: 'Reload',
                       onTap: () {
                         _handleAsyncAction(
+                          context,
                           viewModel.reload(),
                           'Email status reloaded!',
                           'Error reloading email status',
