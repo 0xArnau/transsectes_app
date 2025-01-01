@@ -66,7 +66,10 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
 
   /// Handles the final sign-up action by validating terms acceptance and
   /// interacting with the view model to create an account.
-  Future<void> _onSignUp(SignUpViewModel viewModel) async {
+  Future<void> _onSignUp(
+    SignUpViewModel viewModel,
+    BuildContext context,
+  ) async {
     try {
       viewModel.validateLegal(
         _avisLegal,
@@ -83,7 +86,12 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
         clausulaInformativa: _clausulaInformativa,
         privacitat: _privacitat,
       );
-      _showSnackBar('Sign up successful', false);
+      _showSnackBar(
+          'Sign up successful. Click to \'Send verification email\'', false);
+
+      if (context.mounted && Navigator.canPop(context)) {
+        Navigator.pop(context);
+      }
     } catch (e) {
       _showSnackBar(e.toString(), true);
     }
@@ -214,7 +222,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
         const SizedBox(height: 16),
         CustomButton(
           text: 'Sign Up',
-          onTap: () => _onSignUp(viewModel),
+          onTap: () => _onSignUp(viewModel, context),
           isMainAction: true,
         ),
         const SizedBox(height: 16),
