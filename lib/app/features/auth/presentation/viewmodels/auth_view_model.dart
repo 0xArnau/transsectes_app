@@ -5,6 +5,7 @@ import 'package:transsectes_app/app/features/auth/domain/usecases/is_user_authen
 import 'package:transsectes_app/app/features/auth/domain/usecases/get_current_user_usecase.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel responsible for handling user authentication state.
 ///
@@ -84,7 +85,7 @@ class AuthViewModel {
     if (result.isFailure) {
       _updateState((state) => state.copyWith(
             errorMessage:
-                'There has been an error while checking if the user is technician or not',
+                S.current.errorWhileCheckingUserIsTechnician,
           ));
     }
 
@@ -106,7 +107,7 @@ class AuthViewModel {
     if (result.isFailure) {
       _updateState((state) => state.copyWith(
             errorMessage:
-                'There has been an error while getting the current user',
+                S.current.errorWhileGettingCurrentUser,
           ));
     }
 
@@ -128,7 +129,7 @@ class AuthViewModel {
     if (result.isFailure) {
       _updateState((state) => state.copyWith(
             errorMessage:
-                'There has been an error while checking if the user is authenticated',
+                S.current.errorWhileCheckingIfUserIsAuthenticated,
           ));
     }
 

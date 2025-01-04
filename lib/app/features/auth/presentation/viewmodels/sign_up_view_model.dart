@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_up_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel for handling user sign-up logic.
 ///
@@ -57,7 +58,7 @@ class SignUpViewModel {
       (entity) => _updateState(
         (state) => state.copyWith(isLoading: false, user: entity),
       ),
-      (_) => throw AuthException('Unknown error, cannot create user account'),
+      (_) => throw AuthException(S.current.unknownErrorCreateUserAccount),
     );
   }
 
@@ -84,7 +85,7 @@ class SignUpViewModel {
         emailCopy.isEmpty ||
         password.isEmpty ||
         passwordCopy.isEmpty) {
-      throw EmptyFieldException('Some fields are empty');
+      throw EmptyFieldException(S.current.someFieldsAreEmpty);
     }
 
     _validateEmail(email, emailCopy);
@@ -98,7 +99,7 @@ class SignUpViewModel {
   ///
   /// Throws [IncorrectEmailException] if the email addresses do not match.
   void _validateEmail(String a, String b) {
-    if (a != b) throw IncorrectEmailException('Emails must be the same');
+    if (a != b) throw IncorrectEmailException(S.current.emailsMustBeTheSame);
   }
 
   /// Validates that the password fields match.
@@ -108,12 +109,12 @@ class SignUpViewModel {
   ///
   /// Throws [IncorrectPasswordException] if the passwords do not match.
   void _validatePassword(String a, String b) {
-    if (a != b) throw IncorrectPasswordException('Password must be the same');
+    if (a != b) throw IncorrectPasswordException(S.current.passwordMustBeTheSame);
   }
 
   void validateLegal(bool a, bool b, bool c) {
     if (!a || !b || !c) {
-      throw EmptyFieldException('All legal fields mut be accepted');
+      throw EmptyFieldException(S.current.allLegalFieldsMustBeAccepted);
     }
   }
 

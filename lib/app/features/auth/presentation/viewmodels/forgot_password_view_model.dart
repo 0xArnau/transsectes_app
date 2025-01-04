@@ -1,5 +1,6 @@
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/forgot_password_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel responsible for handling the logic related to password recovery.
 class ForgotPasswordViewModel {
@@ -20,7 +21,7 @@ class ForgotPasswordViewModel {
     result.fold(
       (_) {},
       (_) => throw AuthException(
-        'Unexpected error. Cannot send email to restore password',
+        S.current.unexpectedErrorRestorePasswordEmail,
       ),
     );
   }

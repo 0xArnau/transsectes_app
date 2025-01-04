@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `All legal fields must be accepted.`
+  String get allLegalFieldsMustBeAccepted {
+    return Intl.message(
+      'All legal fields must be accepted.',
+      name: 'allLegalFieldsMustBeAccepted',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `All Transects`
   String get all_transects {
     return Intl.message(
@@ -380,6 +390,16 @@ class S {
     );
   }
 
+  /// `Emails must be the same.`
+  String get emailsMustBeTheSame {
+    return Intl.message(
+      'Emails must be the same.',
+      name: 'emailsMustBeTheSame',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The emails are different`
   String get emails_are_different {
     return Intl.message(
@@ -395,6 +415,36 @@ class S {
     return Intl.message(
       'There are empty fields',
       name: 'empty_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There has been an error while checking if the user is authenticated.`
+  String get errorWhileCheckingIfUserIsAuthenticated {
+    return Intl.message(
+      'There has been an error while checking if the user is authenticated.',
+      name: 'errorWhileCheckingIfUserIsAuthenticated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There has been an error while checking if the user is a technician or not.`
+  String get errorWhileCheckingUserIsTechnician {
+    return Intl.message(
+      'There has been an error while checking if the user is a technician or not.',
+      name: 'errorWhileCheckingUserIsTechnician',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There has been an error while getting the current user.`
+  String get errorWhileGettingCurrentUser {
+    return Intl.message(
+      'There has been an error while getting the current user.',
+      name: 'errorWhileGettingCurrentUser',
       desc: '',
       args: [],
     );
@@ -910,6 +960,16 @@ class S {
     );
   }
 
+  /// `Password must be the same.`
+  String get passwordMustBeTheSame {
+    return Intl.message(
+      'Password must be the same.',
+      name: 'passwordMustBeTheSame',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Number of people informed`
   String get people_informed {
     return Intl.message(
@@ -1035,6 +1095,16 @@ class S {
     return Intl.message(
       'Please verify your account. An email with instructions has been sent',
       name: 'snackbar_error_verify_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Some fields are empty.`
+  String get someFieldsAreEmpty {
+    return Intl.message(
+      'Some fields are empty.',
+      name: 'someFieldsAreEmpty',
       desc: '',
       args: [],
     );
@@ -1210,11 +1280,31 @@ class S {
     );
   }
 
+  /// `Unexpected error. Cannot send email to restore password.`
+  String get unexpectedErrorRestorePasswordEmail {
+    return Intl.message(
+      'Unexpected error. Cannot send email to restore password.',
+      name: 'unexpectedErrorRestorePasswordEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `An unexpected error occurred while deleting the account.`
   String get unexpectedErrorWhileDeletingAccount {
     return Intl.message(
       'An unexpected error occurred while deleting the account.',
       name: 'unexpectedErrorWhileDeletingAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error, cannot create user account.`
+  String get unknownErrorCreateUserAccount {
+    return Intl.message(
+      'Unknown error, cannot create user account.',
+      name: 'unknownErrorCreateUserAccount',
       desc: '',
       args: [],
     );

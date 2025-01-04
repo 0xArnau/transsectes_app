@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Afegeix un nou geopunt"),
         "add_new_marks":
             MessageLookupByLibrary.simpleMessage("Afegir noves marques"),
+        "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
+            "Tots els camps legals han d\'ésser acceptats."),
         "all_transects":
             MessageLookupByLibrary.simpleMessage("Tots els transsectes"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
@@ -82,10 +84,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "S\'ha enviat un correu electrònic. Si us plau, revisa el teu correu."),
+        "emailsMustBeTheSame": MessageLookupByLibrary.simpleMessage(
+            "Els correus electrònics han de ser iguals."),
         "emails_are_different": MessageLookupByLibrary.simpleMessage(
             "Els correus electrònics són diferents"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
+        "errorWhileCheckingIfUserIsAuthenticated":
+            MessageLookupByLibrary.simpleMessage(
+                "Ha hagut un error en comprovar si l\'usuari està autenticat."),
+        "errorWhileCheckingUserIsTechnician":
+            MessageLookupByLibrary.simpleMessage(
+                "Ha hagut un error en comprovar si l\'usuari és tècnic o no."),
+        "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
+            "Ha hagut un error en obtenir l\'usuari actual."),
         "file_saved": MessageLookupByLibrary.simpleMessage("Fitxer guardat:"),
         "filter_clear": MessageLookupByLibrary.simpleMessage("Netejar filtre"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
@@ -179,6 +191,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
         "page_next": MessageLookupByLibrary.simpleMessage("SEGÜENT"),
         "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
+        "passwordMustBeTheSame": MessageLookupByLibrary.simpleMessage(
+            "La contrasenya ha de ser la mateixa."),
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Nombre de persones informades"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
@@ -200,6 +214,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Si us plau, tanca la sessió i inicia sessió abans d\'eliminar el teu compte"),
         "snackbar_error_verify_account": MessageLookupByLibrary.simpleMessage(
             "Si us plau, verifica el teu compte. S\'ha enviat un correu electrònic amb instruccions"),
+        "someFieldsAreEmpty":
+            MessageLookupByLibrary.simpleMessage("Alguns camps estan buits."),
         "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
             "Alguna cosa ha anat malament, si us plau, intenta-ho de nou"),
         "start_transect":
@@ -229,9 +245,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("Ha passat el tractor?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transsectes"),
+        "unexpectedErrorRestorePasswordEmail": MessageLookupByLibrary.simpleMessage(
+            "Error inesperat. No es pot enviar el correu electrònic per restaurar la contrasenya."),
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "S\'ha produït un error inesperat en eliminar el compte."),
+        "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
+            "Error desconegut, no es pot crear el compte d\'usuari."),
         "userEmailMissing": MessageLookupByLibrary.simpleMessage(
             "Falta el correu electrònic de l\'usuari."),
         "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
