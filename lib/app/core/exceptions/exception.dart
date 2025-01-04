@@ -5,7 +5,7 @@ class RequiresRecentLoginException implements Exception {
   RequiresRecentLoginException(this.message);
 
   @override
-  String toString() => 'RequiresRecentLoginException: $message';
+  String toString() => message;
 }
 
 /// Exception thrown for other unexpected errors during the account deletion process.
@@ -14,7 +14,7 @@ class DeleteUserAccountException implements Exception {
   DeleteUserAccountException(this.message);
 
   @override
-  String toString() => 'DeleteUserAccountException: $message';
+  String toString() => message;
 }
 
 /// Exception thrown when the action is performed by a technician and can only be performed by a non-technician
@@ -23,5 +23,5 @@ class RequiresNonTechnicianException implements Exception {
   RequiresNonTechnicianException(this.message);
 
   @override
-  String toString() => 'RequiresNonTechnicianException: $message';
+  String toString() => message;
 }

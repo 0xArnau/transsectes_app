@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
+import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/exceptions/exception.dart';
+import 'package:transsectes_app/app/core/results/result.dart';
 import 'package:transsectes_app/app/features/auth/data/mapper/user_mapper.dart';
 import 'package:transsectes_app/app/features/auth/domain/datasources/auth_datasource.dart';
 import 'package:transsectes_app/app/features/auth/domain/entities/user_entity.dart';
-import 'package:transsectes_app/app/core/errors/data_error.dart';
-import 'package:transsectes_app/app/core/results/result.dart';
 import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_exceptions.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// Implementation of the [AuthDatasource] interface for Firebase.
 class AuthFirebaseDatasourceImpl implements AuthDatasource {
@@ -190,7 +191,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
 
       // Ensure a user is authenticated
       if (user == null) {
-        throw DeleteUserAccountException('No user is currently authenticated.');
+        throw DeleteUserAccountException(S.current.noUserAuthenticated);
       }
 
       // Verify technician status
@@ -209,7 +210,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
   /// Throws a [RequiresNonTechnicianException] if the user is a technician.
   Future<void> _verifyNonTechnicianStatus(String? email) async {
     if (email == null) {
-      throw DeleteUserAccountException('User email is missing.');
+      throw DeleteUserAccountException(S.current.userEmailMissing);
     }
 
     final isTechnicianResult = await isTechnician(email);
@@ -219,7 +220,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
         if (isTechnician) {
           Logger().e('User is a technician and cannot perform this action.');
           throw RequiresNonTechnicianException(
-              'Requires a non-technician to perform this action.');
+              S.current.requiresNonTechnician);
         }
       },
       (error) {},
@@ -236,15 +237,15 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
         error.code == 'requires-recent-login') {
       Logger().d('Account deletion requires recent login.');
       throw RequiresRecentLoginException(
-          'User must reauthenticate to delete their account.');
+          S.current.userMustReauthenticate);
     } else if (error is RequiresNonTechnicianException) {
       throw RequiresNonTechnicianException(
-          'Requires a non-technician to perform this action.');
+          S.current.requiresNonTechnician);
     } else {
       Logger()
           .d('Unexpected error during account deletion: ${error.toString()}');
       throw DeleteUserAccountException(
-          'An unexpected error occurred while deleting the account.');
+          S.current.unexpectedErrorWhileDeletingAccount);
     }
   }
 
@@ -255,7 +256,7 @@ class AuthFirebaseDatasourceImpl implements AuthDatasource {
       await userFirebase!.sendEmailVerification();
     } catch (e) {
       Logger().e(e.toString());
-      throw AuthException('Current user is missing');
+      throw AuthException(S.current.currentUserMissing);
     }
   }
 }

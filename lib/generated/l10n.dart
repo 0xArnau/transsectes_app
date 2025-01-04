@@ -290,6 +290,16 @@ class S {
     );
   }
 
+  /// `Current user is missing.`
+  String get currentUserMissing {
+    return Intl.message(
+      'Current user is missing.',
+      name: 'currentUserMissing',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete`
   String get delete {
     return Intl.message(
@@ -780,6 +790,16 @@ class S {
     );
   }
 
+  /// `No user is currently authenticated.`
+  String get noUserAuthenticated {
+    return Intl.message(
+      'No user is currently authenticated.',
+      name: 'noUserAuthenticated',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Don't have an account?`
   String get no_account {
     return Intl.message(
@@ -905,6 +925,16 @@ class S {
     return Intl.message(
       'Remove',
       name: 'remove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Requires a non-technician to perform this action.`
+  String get requiresNonTechnician {
+    return Intl.message(
+      'Requires a non-technician to perform this action.',
+      name: 'requiresNonTechnician',
       desc: '',
       args: [],
     );
@@ -1175,6 +1205,36 @@ class S {
     return Intl.message(
       'Transects',
       name: 'transects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred while deleting the account.`
+  String get unexpectedErrorWhileDeletingAccount {
+    return Intl.message(
+      'An unexpected error occurred while deleting the account.',
+      name: 'unexpectedErrorWhileDeletingAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User email is missing.`
+  String get userEmailMissing {
+    return Intl.message(
+      'User email is missing.',
+      name: 'userEmailMissing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User must reauthenticate to delete their account.`
+  String get userMustReauthenticate {
+    return Intl.message(
+      'User must reauthenticate to delete their account.',
+      name: 'userMustReauthenticate',
       desc: '',
       args: [],
     );

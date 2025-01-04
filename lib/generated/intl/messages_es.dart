@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "No se puede abrir el número de teléfono"),
         "contact_error_website": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir el sitio web"),
+        "currentUserMissing":
+            MessageLookupByLibrary.simpleMessage("Falta el usuario actual."),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Eliminar cuenta"),
@@ -159,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documentos legales"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
+        "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
+            "Ningún usuario está autenticado actualmente."),
         "no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "note": MessageLookupByLibrary.simpleMessage("Nota"),
@@ -179,6 +183,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Número de personas informadas"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
+        "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
+            "Requiere que un no técnico realice esta acción."),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "Si continúas, la información se guardará y no se podrá modificar."),
@@ -224,6 +230,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transectos"),
+        "unexpectedErrorWhileDeletingAccount":
+            MessageLookupByLibrary.simpleMessage(
+                "Ocurrió un error inesperado al eliminar la cuenta."),
+        "userEmailMissing": MessageLookupByLibrary.simpleMessage(
+            "Falta el correo electrónico del usuario."),
+        "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
+            "El usuario debe reautenticarse para eliminar su cuenta."),
         "user_disabled":
             MessageLookupByLibrary.simpleMessage("Usuario deshabilitado"),
         "user_not_found":

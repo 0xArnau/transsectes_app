@@ -64,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cannot open the phone number"),
         "contact_error_website":
             MessageLookupByLibrary.simpleMessage("Cannot open the website"),
+        "currentUserMissing":
+            MessageLookupByLibrary.simpleMessage("Current user is missing."),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -153,6 +155,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Legal documents"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
+            "No user is currently authenticated."),
         "no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "note": MessageLookupByLibrary.simpleMessage("Note"),
@@ -172,6 +176,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "people_informed":
             MessageLookupByLibrary.simpleMessage("Number of people informed"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
+            "Requires a non-technician to perform this action."),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be saved and cannot be modified."),
@@ -218,6 +224,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transects"),
+        "unexpectedErrorWhileDeletingAccount":
+            MessageLookupByLibrary.simpleMessage(
+                "An unexpected error occurred while deleting the account."),
+        "userEmailMissing":
+            MessageLookupByLibrary.simpleMessage("User email is missing."),
+        "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
+            "User must reauthenticate to delete their account."),
         "user_disabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("User not found"),
