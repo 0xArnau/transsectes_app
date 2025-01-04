@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/features/auth/domain/exceptions/auth_excepti
 import 'package:transsectes_app/app/features/auth/domain/usecases/is_email_verified_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/send_email_verification_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// A ViewModel responsible for managing email verification logic.
 ///
@@ -67,7 +68,7 @@ class VerifyEmailViewModel {
 
     // Update the state with an error message if sign-out fails
     _updateState((state) => state.copyWith(
-        isLoading: false, errorMessage: 'Cannot sign out. Please try again'));
+        isLoading: false, errorMessage: S.current.cannotSignOutTryAgain));
   }
 
   /// Sends an email verification to the current user's email.
@@ -114,7 +115,7 @@ class VerifyEmailViewModel {
           }
         }
       },
-      (_) => throw AuthException('Unknown error, cannot reload'),
+      (_) => throw AuthException(S.current.unknownErrorCannotReload),
     );
 
     _updateState((state) => state.copyWith(isLoading: false));

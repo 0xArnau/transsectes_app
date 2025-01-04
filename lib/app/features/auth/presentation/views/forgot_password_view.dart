@@ -96,13 +96,13 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
                     ),
                     const SizedBox(height: 16),
                     CustomButton(
-                      text: 'Send Verification Email',
+                      text: S.current.sendVerificationEmail,
                       onTap: () {
                         _handleAsyncAction(
                           context,
                           viewModel.sendEmail(_emailController.text),
-                          'Email sent',
-                          'Error sending the email',
+                          S.current.emailSent,
+                          S.current.errorSendingEmail,
                         );
                       },
                     ),

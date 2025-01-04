@@ -33,9 +33,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Transect app will continue to receive your location even when you aren\'t using it"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Running in Background"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be lost and cannot be recovered."),
+        "cannotSignIn": MessageLookupByLibrary.simpleMessage("Cannot sign in."),
+        "cannotSignOutTryAgain": MessageLookupByLibrary.simpleMessage(
+            "Cannot sign out. Please try again."),
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
             "You cannot start a transect until you finish the current one."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
@@ -79,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This action cannot be undone, be careful!"),
         "download": MessageLookupByLibrary.simpleMessage("Download"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "An email has been sent. Please check your email."),
         "emailsMustBeTheSame":
@@ -87,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The emails are different"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("There are empty fields"),
+        "errorSendingEmail":
+            MessageLookupByLibrary.simpleMessage("Error sending the email"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "There has been an error while checking if the user is authenticated."),
@@ -152,6 +159,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Become a volunteer"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
+        "informativeClause":
+            MessageLookupByLibrary.simpleMessage("Informative clause"),
         "instructions_sent":
             MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("Invalid email"),
@@ -163,9 +172,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("This is a temporary change"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Please read the following legal documents and check the box to indicate that you agree and can register."),
+        "legalNotice": MessageLookupByLibrary.simpleMessage("Legal notice"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Legal documents"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "No user is currently authenticated."),
         "no_account":
@@ -188,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password must be the same."),
         "people_informed":
             MessageLookupByLibrary.simpleMessage("Number of people informed"),
+        "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requires a non-technician to perform this action."),
@@ -195,8 +207,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be saved and cannot be modified."),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "sendVerificationEmail":
+            MessageLookupByLibrary.simpleMessage("Send Verification Email"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signUpSuccessfulClickToSendVerificationEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "Sign up successful. Click to \'Send verification email\'"),
         "signup": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "snackbar_error_delete_account": MessageLookupByLibrary.simpleMessage(
             "An error occurred while trying to delete your account"),
@@ -239,12 +256,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transects"),
+        "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
+            "Unexpected error occurred. Please try again."),
         "unexpectedErrorRestorePasswordEmail":
             MessageLookupByLibrary.simpleMessage(
                 "Unexpected error. Cannot send email to restore password."),
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "An unexpected error occurred while deleting the account."),
+        "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
+            "Unknown error, cannot reload."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
             "Unknown error, cannot create user account."),
         "userEmailMissing":

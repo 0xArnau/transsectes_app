@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_in_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class SignInViewModel {
   final Ref _ref;
@@ -24,7 +25,7 @@ class SignInViewModel {
     }
 
     _updateState((state) =>
-        state.copyWith(isLoading: false, errorMessage: 'Cannot sign in'));
+        state.copyWith(isLoading: false, errorMessage: S.current.cannotSignIn));
   }
 
   /// Clears any error or success messages in the state.

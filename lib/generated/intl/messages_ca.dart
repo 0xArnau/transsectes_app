@@ -35,9 +35,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "L\'aplicació Transsecte continuarà rebent la teva ubicació fins i tot quan no l\'estiguis utilitzant"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Executant-se en segon pla"),
+        "back": MessageLookupByLibrary.simpleMessage("Enrere"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "Si continues, la informació es perd i no es pot recuperar."),
+        "cannotSignIn": MessageLookupByLibrary.simpleMessage(
+            "No es pot iniciar la sessió."),
+        "cannotSignOutTryAgain": MessageLookupByLibrary.simpleMessage(
+            "No es pot tancar la sessió. Si us plau, intenta-ho de nou."),
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
             "No pots començar un transsecte fins que acabis l\'actual."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
@@ -82,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Aquesta acció no es pot desfer, vigila!"),
         "download": MessageLookupByLibrary.simpleMessage("Descarregar"),
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Correu enviat"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "S\'ha enviat un correu electrònic. Si us plau, revisa el teu correu."),
         "emailsMustBeTheSame": MessageLookupByLibrary.simpleMessage(
@@ -90,6 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els correus electrònics són diferents"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
+        "errorSendingEmail":
+            MessageLookupByLibrary.simpleMessage("Error en enviar el correu"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "Ha hagut un error en comprovar si l\'usuari està autenticat."),
@@ -157,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fes-te voluntari"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
+        "informativeClause":
+            MessageLookupByLibrary.simpleMessage("Clàusula informativa"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instruccions enviades per correu electrònic"),
         "invalid_email":
@@ -169,9 +179,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Aquest és un canvi temporal"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Si us plau, llegeix els següents documents legals i marca la casella per indicar que estàs d\'acord i pots registrar-te."),
+        "legalNotice": MessageLookupByLibrary.simpleMessage("Avís legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documents legals"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
+        "next": MessageLookupByLibrary.simpleMessage("Següent"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "Cap usuari està actualment autenticat."),
         "no_account":
@@ -195,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "La contrasenya ha de ser la mateixa."),
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Nombre de persones informades"),
+        "privacy": MessageLookupByLibrary.simpleMessage("Privacitat"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requereix que un no tècnic realitzi aquesta acció."),
@@ -202,8 +215,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "Si continues, la informació es guardarà i no es podrà modificar."),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "sendVerificationEmail":
+            MessageLookupByLibrary.simpleMessage("Envia correu de verificació"),
         "settings": MessageLookupByLibrary.simpleMessage("Configuració"),
         "signOut": MessageLookupByLibrary.simpleMessage("Tancar sessió"),
+        "signUpSuccessfulClickToSendVerificationEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "Registre correcte. Feu clic a \'Envia correu de verificació\'"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrar-se"),
         "snackbar_error_delete_account": MessageLookupByLibrary.simpleMessage(
             "Hi ha hagut un error en intentar eliminar el teu compte"),
@@ -245,11 +263,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("Ha passat el tractor?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transsectes"),
+        "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
+            "Ha ocorregut un error inesperat. Si us plau, intenta-ho de nou."),
         "unexpectedErrorRestorePasswordEmail": MessageLookupByLibrary.simpleMessage(
             "Error inesperat. No es pot enviar el correu electrònic per restaurar la contrasenya."),
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "S\'ha produït un error inesperat en eliminar el compte."),
+        "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
+            "Error desconegut, no es pot recarregar."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
             "Error desconegut, no es pot crear el compte d\'usuari."),
         "userEmailMissing": MessageLookupByLibrary.simpleMessage(

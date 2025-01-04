@@ -36,9 +36,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage(
                 "Ejecutándose en segundo plano"),
+        "back": MessageLookupByLibrary.simpleMessage("Atrás"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "Si continúas, la información se perderá y no se podrá recuperar."),
+        "cannotSignIn":
+            MessageLookupByLibrary.simpleMessage("No se puede iniciar sesión."),
+        "cannotSignOutTryAgain": MessageLookupByLibrary.simpleMessage(
+            "No se puede cerrar sesión. Por favor, inténtelo de nuevo."),
         "cannot_start_transect": MessageLookupByLibrary.simpleMessage(
             "No puedes comenzar un transecto hasta que termines el actual."),
         "cannot_stop_transect": MessageLookupByLibrary.simpleMessage(
@@ -83,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Esta acción no se puede deshacer, ¡ten cuidado!"),
         "download": MessageLookupByLibrary.simpleMessage("Descargar"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Correo enviado"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "Se ha enviado un correo electrónico. Por favor, revisa tu correo."),
         "emailsMustBeTheSame": MessageLookupByLibrary.simpleMessage(
@@ -91,6 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los correos electrónicos son diferentes"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
+        "errorSendingEmail":
+            MessageLookupByLibrary.simpleMessage("Error al enviar el correo"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "Ha habido un error al comprobar si el usuario está autenticado."),
@@ -158,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Conviértete en voluntario"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
+        "informativeClause":
+            MessageLookupByLibrary.simpleMessage("Cláusula informativa"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instrucciones enviadas por correo electrónico"),
         "invalid_email":
@@ -170,9 +180,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Este es un cambio temporal"),
         "legalInfo": MessageLookupByLibrary.simpleMessage(
             "Por favor, lee los siguientes documentos legales y marca la casilla para indicar que estás de acuerdo y puedes registrarte."),
+        "legalNotice": MessageLookupByLibrary.simpleMessage("Aviso legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documentos legales"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
+        "next": MessageLookupByLibrary.simpleMessage("Siguiente"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "Ningún usuario está autenticado actualmente."),
         "no_account":
@@ -203,8 +215,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "Si continúas, la información se guardará y no se podrá modificar."),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "sendVerificationEmail": MessageLookupByLibrary.simpleMessage(
+            "Enviar correo de verificación"),
         "settings": MessageLookupByLibrary.simpleMessage("Configuración"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+        "signUpSuccessfulClickToSendVerificationEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "Registro exitoso. Haz clic en \'Enviar correo de verificación\'"),
         "signup": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "snackbar_error_delete_account": MessageLookupByLibrary.simpleMessage(
             "Ocurrió un error al intentar eliminar tu cuenta"),
@@ -246,11 +263,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "transect_tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
         "transects": MessageLookupByLibrary.simpleMessage("Transectos"),
+        "unexpectedErrorOccurred": MessageLookupByLibrary.simpleMessage(
+            "Ocurrió un error inesperado. Por favor, inténtelo de nuevo."),
         "unexpectedErrorRestorePasswordEmail": MessageLookupByLibrary.simpleMessage(
             "Error inesperado. No se puede enviar el correo electrónico para restaurar la contraseña."),
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "Ocurrió un error inesperado al eliminar la cuenta."),
+        "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
+            "Error desconocido, no se puede recargar."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
             "Error desconocido, no se puede crear la cuenta de usuario."),
         "userEmailMissing": MessageLookupByLibrary.simpleMessage(

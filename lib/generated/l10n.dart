@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message(
@@ -135,6 +145,26 @@ class S {
     return Intl.message(
       'If you continue, the information will be lost and cannot be recovered.',
       name: 'cancel_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot sign in.`
+  String get cannotSignIn {
+    return Intl.message(
+      'Cannot sign in.',
+      name: 'cannotSignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot sign out. Please try again.`
+  String get cannotSignOutTryAgain {
+    return Intl.message(
+      'Cannot sign out. Please try again.',
+      name: 'cannotSignOutTryAgain',
       desc: '',
       args: [],
     );
@@ -380,6 +410,16 @@ class S {
     );
   }
 
+  /// `Email sent`
+  String get emailSent {
+    return Intl.message(
+      'Email sent',
+      name: 'emailSent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `An email has been sent. Please check your email.`
   String get email_sent {
     return Intl.message(
@@ -415,6 +455,16 @@ class S {
     return Intl.message(
       'There are empty fields',
       name: 'empty_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error sending the email`
+  String get errorSendingEmail {
+    return Intl.message(
+      'Error sending the email',
+      name: 'errorSendingEmail',
       desc: '',
       args: [],
     );
@@ -760,6 +810,16 @@ class S {
     );
   }
 
+  /// `Informative clause`
+  String get informativeClause {
+    return Intl.message(
+      'Informative clause',
+      name: 'informativeClause',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions sent by email`
   String get instructions_sent {
     return Intl.message(
@@ -820,6 +880,16 @@ class S {
     );
   }
 
+  /// `Legal notice`
+  String get legalNotice {
+    return Intl.message(
+      'Legal notice',
+      name: 'legalNotice',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Legal documents`
   String get legal_documents {
     return Intl.message(
@@ -835,6 +905,16 @@ class S {
     return Intl.message(
       'Login',
       name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
       desc: '',
       args: [],
     );
@@ -980,6 +1060,16 @@ class S {
     );
   }
 
+  /// `Privacy`
+  String get privacy {
+    return Intl.message(
+      'Privacy',
+      name: 'privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Remove`
   String get remove {
     return Intl.message(
@@ -1030,6 +1120,16 @@ class S {
     );
   }
 
+  /// `Send Verification Email`
+  String get sendVerificationEmail {
+    return Intl.message(
+      'Send Verification Email',
+      name: 'sendVerificationEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Settings`
   String get settings {
     return Intl.message(
@@ -1045,6 +1145,16 @@ class S {
     return Intl.message(
       'Sign Out',
       name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up successful. Click to 'Send verification email'`
+  String get signUpSuccessfulClickToSendVerificationEmail {
+    return Intl.message(
+      'Sign up successful. Click to \'Send verification email\'',
+      name: 'signUpSuccessfulClickToSendVerificationEmail',
       desc: '',
       args: [],
     );
@@ -1280,6 +1390,16 @@ class S {
     );
   }
 
+  /// `Unexpected error occurred. Please try again.`
+  String get unexpectedErrorOccurred {
+    return Intl.message(
+      'Unexpected error occurred. Please try again.',
+      name: 'unexpectedErrorOccurred',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Unexpected error. Cannot send email to restore password.`
   String get unexpectedErrorRestorePasswordEmail {
     return Intl.message(
@@ -1295,6 +1415,16 @@ class S {
     return Intl.message(
       'An unexpected error occurred while deleting the account.',
       name: 'unexpectedErrorWhileDeletingAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown error, cannot reload.`
+  String get unknownErrorCannotReload {
+    return Intl.message(
+      'Unknown error, cannot reload.',
+      name: 'unknownErrorCannotReload',
       desc: '',
       args: [],
     );

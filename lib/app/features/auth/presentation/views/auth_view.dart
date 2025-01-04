@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/features/auth/presentation/views/sign_in_vie
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/views/verify_email_view.dart';
 import 'package:transsectes_app/app/features/home/presentation/views/home_view.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// A widget responsible for displaying the authentication state of the user.
 ///
@@ -65,9 +66,9 @@ class _AuthViewState extends ConsumerState<AuthView> {
     }
 
     // In case no conditions match (shouldn't reach here normally)
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Unexpected Error Occurred. Please try again.'),
+        child: Text(S.current.unexpectedErrorOccurred),
       ),
     );
   }

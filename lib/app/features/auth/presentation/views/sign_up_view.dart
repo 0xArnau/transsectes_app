@@ -87,7 +87,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
         privacitat: _privacitat,
       );
       _showSnackBar(
-          'Sign up successful. Click to \'Send verification email\'', false);
+          S.current.signUpSuccessfulClickToSendVerificationEmail, false);
 
       if (context.mounted && Navigator.canPop(context)) {
         Navigator.pop(context);
@@ -141,34 +141,34 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
       children: [
         CustomTextForm(
           controller: _emailController,
-          hintText: 'Email',
+          hintText: S.current.email,
           obscureText: false,
           prefixIcon: const Icon(Icons.email_outlined),
         ),
         const SizedBox(height: 16),
         CustomTextForm(
           controller: _emailConfirmController,
-          hintText: 'Confirm Email',
+          hintText: S.current.confirm_email,
           obscureText: false,
           prefixIcon: const Icon(Icons.email_outlined),
         ),
         const SizedBox(height: 16),
         CustomTextForm(
           controller: _passwordController,
-          hintText: 'Password',
+          hintText: S.current.password,
           obscureText: true,
           prefixIcon: const Icon(Icons.lock_outline),
         ),
         const SizedBox(height: 16),
         CustomTextForm(
           controller: _passwordConfirmController,
-          hintText: 'Confirm Password',
+          hintText: S.current.confirm_password,
           obscureText: true,
           prefixIcon: const Icon(Icons.lock_outline),
         ),
         const SizedBox(height: 16),
         CustomButton(
-          text: 'Next',
+          text: S.current.next,
           onTap: () => _goToNextPhase(viewModel),
         ),
       ],
@@ -190,7 +190,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
               });
             }
           },
-          text: 'Avís legal',
+          text: S.current.legalNotice,
           path: 'assets/docs/legal/avis-legal.pdf',
         ),
         _checkboxPdfTile(
@@ -203,7 +203,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
               });
             }
           },
-          text: 'Clausula informativa',
+          text: S.current.informativeClause,
           path: 'assets/docs/legal/clausula-informativa.pdf',
         ),
         _checkboxPdfTile(
@@ -216,18 +216,18 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
               });
             }
           },
-          text: 'Privacitat',
+          text: S.current.privacy,
           path: 'assets/docs/legal/privacitat.pdf',
         ),
         const SizedBox(height: 16),
         CustomButton(
-          text: 'Sign Up',
+          text: S.current.signup,
           onTap: () => _onSignUp(viewModel, context),
           isMainAction: true,
         ),
         const SizedBox(height: 16),
         CustomButton(
-          text: 'Back',
+          text: S.current.back,
           onTap: () {
             setState(() {
               _isFirstPhase = true;
