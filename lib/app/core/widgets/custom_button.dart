@@ -63,7 +63,7 @@ class CustomButton extends StatelessWidget {
                 ? WidgetStateProperty.all<Color>(
                     Theme.of(context).colorScheme.primary)
                 : WidgetStateProperty.all<Color>(
-                    Theme.of(context).colorScheme.surfaceContainer),
+                    Theme.of(context).colorScheme.onSurface),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32.0),
@@ -81,7 +81,7 @@ class CustomButton extends StatelessWidget {
                 ? Theme.of(context).colorScheme.onError
                 : _isMainAction
                     ? Theme.of(context).colorScheme.onPrimary
-                    : Theme.of(context).colorScheme.onPrimaryContainer,
+                    : Theme.of(context).colorScheme.surface,
           ),
         ),
       ),
