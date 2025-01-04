@@ -18,12 +18,12 @@ ThemeData lightMode = ThemeData(
     onTertiaryContainer: Colors.black,
     surface: Colors.white,
     onSurface: Colors.black,
-    surfaceBright: const Color.fromRGBO(242, 242, 247, 1),
-    surfaceDim: const Color.fromRGBO(229, 229, 234, 1),
-    surfaceContainerLowest: const Color.fromRGBO(209, 209, 214, 1),
-    surfaceContainerLow: const Color.fromRGBO(199, 199, 204, 1),
-    surfaceContainer: const Color.fromRGBO(174, 174, 178, 1),
-    surfaceContainerHigh: const Color.fromRGBO(142, 142, 147, 1),
+    surfaceBright: const Color.fromRGBO(252, 252, 254, 1),
+    surfaceDim: const Color.fromRGBO(245, 245, 250, 1),
+    surfaceContainerLowest: const Color.fromRGBO(240, 240, 245, 1),
+    surfaceContainerLow: const Color.fromRGBO(235, 235, 240, 1),
+    surfaceContainer: const Color.fromRGBO(215, 215, 220, 1),
+    surfaceContainerHigh: const Color.fromRGBO(250, 250, 250, 1),
   ),
 );
 
