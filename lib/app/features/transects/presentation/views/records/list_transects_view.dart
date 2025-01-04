@@ -152,7 +152,6 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
     return Card(
       elevation: 3,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      surfaceTintColor: Theme.of(context).colorScheme.tertiary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),

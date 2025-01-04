@@ -28,7 +28,10 @@ class _HomeViewState extends State<HomeView> {
             onPressed: () {
               _navigateToSettings(context);
             },
-            icon: const Icon(Icons.settings),
+            icon: Icon(
+              Icons.settings,
+              color: Theme.of(context).colorScheme.secondaryContainer,
+            ),
           ),
         ],
       ),

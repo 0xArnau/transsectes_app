@@ -33,8 +33,9 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(
+      icon: Icon(
         Icons.info_outline,
+        color: Theme.of(context).colorScheme.secondaryContainer,
       ),
       onPressed: () {
         _showAppInfoModal(context);
@@ -85,14 +86,12 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
       subtitle: SelectableText(
         subtitle,
         style: TextStyle(
           fontSize: 14,
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
         ),
       ),
     );

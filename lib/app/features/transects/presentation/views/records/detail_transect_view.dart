@@ -69,7 +69,10 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
             onPressed: () {
               _save(context, [transectEntity], transectEntity.localityFirst);
             },
-            icon: const Icon(Icons.download),
+            icon: Icon(
+              Icons.download,
+              color: Theme.of(context).colorScheme.secondaryContainer,
+            ),
           ),
           IconButton(
             onPressed: () async {
@@ -83,7 +86,10 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
                 });
               }
             },
-            icon: const Icon(Icons.update),
+            icon: Icon(
+              Icons.update,
+              color: Theme.of(context).colorScheme.secondaryContainer,
+            ),
           ),
         ],
         title: Text(S.current.transect_detail),
