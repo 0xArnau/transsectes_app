@@ -29,3 +29,15 @@ class PermanentlyDeniedException extends GpsException {
   /// such as instructions for the user to re-enable permissions.
   PermanentlyDeniedException(super.message);
 }
+
+/// Represents an exception thrown when the GPS service is disabled.
+///
+/// This exception is thrown when the GPS service is turned off or unavailable,
+/// indicating that the application cannot access location services.
+class GpsServiceDisabled extends GpsException {
+  /// Creates a [GpsServiceDisabled] exception with the provided [message].
+  ///
+  /// The [message] should describe the state of the GPS service (e.g., turned off)
+  /// and guide the user on how to enable the service if necessary.
+  GpsServiceDisabled(super.message);
+}
