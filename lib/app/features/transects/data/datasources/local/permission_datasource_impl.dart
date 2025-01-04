@@ -1,5 +1,7 @@
+import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/permission_datasource.dart';
+import 'package:transsectes_app/app/features/transects/domain/exceptions/gps_exception.dart';
 
 /// Implementation of the `PermissionDataSource` interface.
 ///
@@ -28,7 +30,17 @@ class PermissionDatasourceImpl implements PermissionDataSource {
     /// Permission.locationAlways.request().
     await requestLocationForegroundPermission();
 
-    return (await Permission.locationAlways.request()).isGranted;
+    final request = await Permission.locationAlways.request();
+
+    Logger().d(request);
+
+    if (request.isPermanentlyDenied) {
+      Logger().e(request);
+      throw PermanentlyDeniedException(
+          'Location background permissions is permanently denied');
+    }
+
+    return request.isGranted;
   }
 
   @override

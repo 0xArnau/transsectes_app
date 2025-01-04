@@ -1,6 +1,6 @@
-import 'package:transsectes_app/app/features/transects/domain/repositories/geolocation_repository.dart';
 import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/results/result.dart';
+import 'package:transsectes_app/app/features/transects/domain/repositories/geolocation_repository.dart';
 
 /// Use case for requesting location permissions.
 ///
@@ -17,11 +17,7 @@ class RequestLocationPermissionsUseCase {
   ///
   /// Returns a [Result] containing `true` if permissions are granted or a [DataError] if permissions are not granted.
   Future<Result<bool, DataError>> execute() async {
-    try {
-      final permissionsGranted = await repository.requestLocationPermissions();
-      return Result.success(permissionsGranted);
-    } catch (e) {
-      return Result.failure(LocalError(LocalErrorType.unknown));
-    }
+    final permissionsGranted = await repository.requestLocationPermissions();
+    return Result.success(permissionsGranted);
   }
 }

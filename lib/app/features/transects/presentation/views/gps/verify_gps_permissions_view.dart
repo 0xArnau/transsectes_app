@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:transsectes_app/app/features/transects/domain/exceptions/gps_exception.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/gps_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/verify_gps_permissions_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/gps/gps_state.dart';
@@ -24,9 +26,7 @@ class _VerifyGpsPermissionsViewState
     super.initState();
     // Request location permissions on view load
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(verifyGpsPermissionsViewModelProvider)
-          .requestLocationPermissions();
+      _onRequestPermissionPressed();
     });
   }
 
@@ -87,8 +87,10 @@ class _VerifyGpsPermissionsViewState
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _onRequestPermissionPressed,
-              child: const Text('Request Permission'),
+              onPressed: () async {
+                _onRequestPermissionPressed();
+              },
+              child: const Text('Reload'),
             ),
           ],
         ),
@@ -102,9 +104,60 @@ class _VerifyGpsPermissionsViewState
   }
 
   /// Handles the button press to request location permissions again.
-  void _onRequestPermissionPressed() {
-    ref
-        .read(verifyGpsPermissionsViewModelProvider)
-        .requestLocationPermissions();
+  ///
+  /// This method attempts to request location permissions. If the permissions
+  /// are permanently denied, it catches the `PermanentlyDeniedException` and
+  /// displays an alert dialog to guide the user to the app settings.
+  void _onRequestPermissionPressed() async {
+    try {
+      // Request location permissions from the ViewModel
+      await ref
+          .read(verifyGpsPermissionsViewModelProvider)
+          .requestLocationPermissions();
+    } on PermanentlyDeniedException catch (e) {
+      // Log the exception details for debugging
+      Logger().e(e);
+
+      // Ensure the widget is still mounted before interacting with the context
+      if (!mounted) return;
+
+      // Show an alert dialog to inform the user about the permanently denied permission
+      await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(e.message),
+            content: const Text(
+              'Location permissions are permanently denied. '
+              'Please go to the settings and enable "Always" for location access.',
+            ),
+            actions: [
+              // Close button to dismiss the dialog
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Close'),
+              ),
+              // Button to open app settings
+              TextButton(
+                onPressed: () async {
+                  Navigator.of(context).pop(); // Close the dialog
+                  await openAppSettings(); // Open app settings
+                  Logger().d('after await');
+                },
+                child: Text(
+                  S.current.open_system_settings,
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    } catch (e, stackTrace) {
+      // Log any unexpected exceptions for debugging purposes
+      Logger().e(['Unexpected exception', e, stackTrace]);
+    }
   }
 }

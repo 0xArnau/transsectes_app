@@ -1,7 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/request_location_permissions_usecase.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/gps/gps_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/gps/gps_state.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel for verifying GPS permissions.
@@ -34,24 +35,33 @@ class VerifyGpsPermissionsViewModel {
     // Indicate that the request process is ongoing.
     _updateGpsState((state) => state.copyWith(isLoading: true));
 
-    // Execute the permission request.
-    final response = await requestLocationPermissionsUseCase.execute();
+    try {
+      // Execute the permission request.
+      final response = await requestLocationPermissionsUseCase.execute();
 
-    // Handle the response.
-    response.fold(
-      (value) {
-        // On success, update the state with the granted status.
-        _updateGpsState((state) => state.copyWith(
-            isLoading: false, isLocationPermissionEnabled: value));
-      },
-      (error) {
-        // On error, update the state with an error message.
-        _updateGpsState((state) => state.copyWith(
-              isLoading: false,
-              message: S.current.gps_service_background_disabled,
-            ));
-      },
-    );
+      // Handle the response.
+      response.fold(
+        (value) {
+          // On success, update the state with the granted status.
+          _updateGpsState((state) => state.copyWith(
+              isLoading: false, isLocationPermissionEnabled: value));
+        },
+        (error) {
+          // On error, update the state with an error message.
+          _updateGpsState((state) => state.copyWith(
+                isLoading: false,
+                message: S.current.gps_service_background_disabled,
+              ));
+        },
+      );
+    } catch (e) {
+      Logger().e(e.toString());
+      _updateGpsState((state) => state.copyWith(
+            isLoading: false,
+            message: S.current.gps_service_background_disabled,
+          ));
+      rethrow;
+    }
   }
 
   /// Updates the state of the GPS through the [gpsStateProvider].
