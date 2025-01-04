@@ -22,6 +22,7 @@
     - [Screenshots](#screenshots)
     - [Installation](#installation)
     - [Usage](#usage)
+      - [i10n](#i10n)
     - [Features](#features)
       - [Users](#users)
       - [Technicians](#technicians)
@@ -57,6 +58,14 @@ coming soon...
 ### Usage
 
 coming soon...
+
+#### i10n
+
+To generate Dart code for using translations, run the following command:
+
+```bash
+flutter pub global run intl_utils:generate
+```
 
 ### Features
 
