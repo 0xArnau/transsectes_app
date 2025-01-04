@@ -50,6 +50,7 @@ class VerifyGpsPermissionsViewModel {
           // On error, update the state with an error message.
           _updateGpsState((state) => state.copyWith(
                 isLoading: false,
+                isLocationPermissionEnabled: false,
                 message: S.current.gps_service_background_disabled,
               ));
         },
@@ -58,6 +59,7 @@ class VerifyGpsPermissionsViewModel {
       Logger().e(e.toString());
       _updateGpsState((state) => state.copyWith(
             isLoading: false,
+            isLocationPermissionEnabled: false,
             message: S.current.gps_service_background_disabled,
           ));
       rethrow;
