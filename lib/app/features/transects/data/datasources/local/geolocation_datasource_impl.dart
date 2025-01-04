@@ -14,7 +14,7 @@ class GeolocationDatasourceImpl implements GeolocationDataSource {
   @override
   Future<GeoPointEntity> getCurrentPosition() async {
     final position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
+      locationSettings: _getLocationSettings(),
     );
 
     return GeoPointEntity(
@@ -48,9 +48,9 @@ class GeolocationDatasourceImpl implements GeolocationDataSource {
     if (defaultTargetPlatform == TargetPlatform.android) {
       locationSettings = AndroidSettings(
         accuracy: LocationAccuracy.high,
-        // the minimum distance (measured in meters) a device must 
+        // the minimum distance (measured in meters) a device must
         // move horizontally before an update event is generated;
-        distanceFilter: 5, 
+        distanceFilter: 5,
         forceLocationManager: true,
         intervalDuration: const Duration(seconds: 10),
         foregroundNotificationConfig: const ForegroundNotificationConfig(
