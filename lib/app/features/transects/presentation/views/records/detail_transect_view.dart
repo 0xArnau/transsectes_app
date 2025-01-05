@@ -181,11 +181,11 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '$value1 (inici)',
+                      '$value1 ${S.current.startPoint}',
                       textAlign: TextAlign.right,
                     ),
                     Text(
-                      '$value2 (final)',
+                      '$value2 ${S.current.endPoint}',
                       textAlign: TextAlign.right,
                     )
                   ],
@@ -242,7 +242,7 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
       (error) => {
         _snackbar(
           context,
-          'Error while saving the transects',
+          S.current.errorWhileSavingTransects,
           true,
         )
       },

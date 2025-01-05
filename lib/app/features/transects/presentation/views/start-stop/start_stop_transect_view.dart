@@ -51,7 +51,7 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
   Widget _buildLoadingScreen() {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Start/Stop Transect'),
+        title: Text(S.current.startStopTransect),
       ),
       body: const Center(
         child: CircularProgressIndicator(),
@@ -65,7 +65,7 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
   Widget _buildMainScreen(TransectCoordinatesState transectState) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Start/Stop Transect'),
+        title: Text(S.current.startStopTransect),
       ),
       body: Stack(
         children: [

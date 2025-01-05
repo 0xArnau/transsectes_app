@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `All transects deleted successfully!`
+  String get allTransectsDeleted {
+    return Intl.message(
+      'All transects deleted successfully!',
+      name: 'allTransectsDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `All transects loaded successfully.`
   String get allTransectsLoadedSuccessfully {
     return Intl.message(
@@ -295,6 +305,16 @@ class S {
     return Intl.message(
       'Change password',
       name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
       desc: '',
       args: [],
     );
@@ -570,11 +590,31 @@ class S {
     );
   }
 
+  /// `(end)`
+  String get endPoint {
+    return Intl.message(
+      '(end)',
+      name: 'endPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error, cannot sign out`
   String get errorCannotSignOut {
     return Intl.message(
       'Error, cannot sign out',
       name: 'errorCannotSignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error: No coordinates available to generate the URL.`
+  String get errorNoCoordinatesForURL {
+    return Intl.message(
+      'Error: No coordinates available to generate the URL.',
+      name: 'errorNoCoordinatesForURL',
       desc: '',
       args: [],
     );
@@ -630,11 +670,41 @@ class S {
     );
   }
 
+  /// `An error occurred while deleting transects!`
+  String get errorWhileDeletingTransects {
+    return Intl.message(
+      'An error occurred while deleting transects!',
+      name: 'errorWhileDeletingTransects',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `There has been an error while getting the current user.`
   String get errorWhileGettingCurrentUser {
     return Intl.message(
       'There has been an error while getting the current user.',
       name: 'errorWhileGettingCurrentUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while saving the transects.`
+  String get errorWhileSavingTransects {
+    return Intl.message(
+      'Error while saving the transects.',
+      name: 'errorWhileSavingTransects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while starting a transect.`
+  String get errorWhileStartingTransect {
+    return Intl.message(
+      'Error while starting a transect.',
+      name: 'errorWhileStartingTransect',
       desc: '',
       args: [],
     );
@@ -750,11 +820,41 @@ class S {
     );
   }
 
+  /// `Google Maps URL copied to clipboard!`
+  String get googleMapsURLCopied {
+    return Intl.message(
+      'Google Maps URL copied to clipboard!',
+      name: 'googleMapsURLCopied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GPS Permission Denied`
+  String get gpsPermissionDenied {
+    return Intl.message(
+      'GPS Permission Denied',
+      name: 'gpsPermissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `GPS service is disabled, please enable it before continuing`
   String get gpsServiceDisabled {
     return Intl.message(
       'GPS service is disabled, please enable it before continuing',
       name: 'gpsServiceDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The GPS service is disabled. Please enable GPS to continue.`
+  String get gpsServiceDisabledMessage {
+    return Intl.message(
+      'The GPS service is disabled. Please enable GPS to continue.',
+      name: 'gpsServiceDisabledMessage',
       desc: '',
       args: [],
     );
@@ -1140,6 +1240,26 @@ class S {
     );
   }
 
+  /// `Location permissions are permanently denied.`
+  String get locationPermissionsPermanentlyDenied {
+    return Intl.message(
+      'Location permissions are permanently denied.',
+      name: 'locationPermissionsPermanentlyDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please go to the settings and enable 'Always' for location access.`
+  String get locationPermissionsSettingsMessage {
+    return Intl.message(
+      'Please go to the settings and enable \'Always\' for location access.',
+      name: 'locationPermissionsSettingsMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Location Service`
   String get locationService {
     return Intl.message(
@@ -1165,6 +1285,16 @@ class S {
     return Intl.message(
       'Next',
       name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No transects available.`
+  String get noTransectsAvailable {
+    return Intl.message(
+      'No transects available.',
+      name: 'noTransectsAvailable',
       desc: '',
       args: [],
     );
@@ -1235,6 +1365,16 @@ class S {
     return Intl.message(
       'Observations',
       name: 'observations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
       desc: '',
       args: [],
     );
@@ -1340,11 +1480,31 @@ class S {
     );
   }
 
+  /// `Requesting GPS Permissions`
+  String get requestingGpsPermissions {
+    return Intl.message(
+      'Requesting GPS Permissions',
+      name: 'requestingGpsPermissions',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Requires a non-technician to perform this action.`
   String get requiresNonTechnician {
     return Intl.message(
       'Requires a non-technician to perform this action.',
       name: 'requiresNonTechnician',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resume`
+  String get resume {
+    return Intl.message(
+      'Resume',
+      name: 'resume',
       desc: '',
       args: [],
     );
@@ -1500,11 +1660,41 @@ class S {
     );
   }
 
+  /// `(start)`
+  String get startPoint {
+    return Intl.message(
+      '(start)',
+      name: 'startPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start/Stop Transect`
+  String get startStopTransect {
+    return Intl.message(
+      'Start/Stop Transect',
+      name: 'startStopTransect',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Start a transect`
   String get start_transect {
     return Intl.message(
       'Start a transect',
       name: 'start_transect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Started a transect.`
+  String get startedATransect {
+    return Intl.message(
+      'Started a transect.',
+      name: 'startedATransect',
       desc: '',
       args: [],
     );
@@ -1535,6 +1725,16 @@ class S {
     return Intl.message(
       'Has the tractor passed?',
       name: 'tractor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transect stopped.`
+  String get transectStopped {
+    return Intl.message(
+      'Transect stopped.',
+      name: 'transectStopped',
       desc: '',
       args: [],
     );

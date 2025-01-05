@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Afegir noves marques"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "Tots els camps legals han d\'ésser acceptats."),
+        "allTransectsDeleted": MessageLookupByLibrary.simpleMessage(
+            "Tots els transectes eliminats amb èxit!"),
         "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Tots els transectes s\'han carregat correctament."),
         "all_transects":
@@ -73,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No pots aturar un transsecte, no n\'hi ha cap que hagi començat."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Canviar contrasenya"),
+        "close": MessageLookupByLibrary.simpleMessage("Tancar"),
         "confirm_email":
             MessageLookupByLibrary.simpleMessage("Confirmar correu electrònic"),
         "confirm_password":
@@ -122,8 +125,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els correus electrònics són diferents"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
+        "endPoint": MessageLookupByLibrary.simpleMessage("(final)"),
         "errorCannotSignOut": MessageLookupByLibrary.simpleMessage(
             "Error, no es pot tancar la sessió"),
+        "errorNoCoordinatesForURL": MessageLookupByLibrary.simpleMessage(
+            "Error: No hi ha coordenades disponibles per generar la URL."),
         "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
             "Error en recarregar l\'estat del correu"),
         "errorSendingEmail":
@@ -136,8 +142,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorWhileCheckingUserIsTechnician":
             MessageLookupByLibrary.simpleMessage(
                 "Ha hagut un error en comprovar si l\'usuari és tècnic o no."),
+        "errorWhileDeletingTransects": MessageLookupByLibrary.simpleMessage(
+            "Ha ocurrit un error en eliminar els transectes!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha hagut un error en obtenir l\'usuari actual."),
+        "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
+            "Error en guardar els transectes."),
+        "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(
+            "Error en iniciar el transecte."),
         "exit": MessageLookupByLibrary.simpleMessage("Sortir"),
         "failedToLoadTransects": MessageLookupByLibrary.simpleMessage(
             "Error en carregar els transectes."),
@@ -154,8 +166,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ciutat o data i hora (AAAA-MM-DDTHH:MM:SS)"),
         "forgot_password": MessageLookupByLibrary.simpleMessage(
             "Has oblidat la teva contrasenya?"),
+        "googleMapsURLCopied": MessageLookupByLibrary.simpleMessage(
+            "URL de Google Maps copiada al portapapers!"),
+        "gpsPermissionDenied":
+            MessageLookupByLibrary.simpleMessage("Permís de GPS denegat"),
         "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
             "El servei de GPS està desactivat, si us plau, habiliteu-lo abans de continuar"),
+        "gpsServiceDisabledMessage": MessageLookupByLibrary.simpleMessage(
+            "El servei de GPS està desactivat. Si us plau, habiliteu el GPS per continuar."),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "Servei de GPS en segon pla deshabilitat"),
         "gps_service_background_disabled_content":
@@ -230,10 +248,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els permisos d\'ubicació en segon pla estan permanentment denegats"),
         "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
             "Els permisos d\'ubicació no han estat atorgats"),
+        "locationPermissionsPermanentlyDenied":
+            MessageLookupByLibrary.simpleMessage(
+                "Els permisos d\'ubicació estan permanentment denegats."),
+        "locationPermissionsSettingsMessage": MessageLookupByLibrary.simpleMessage(
+            "Si us plau, vagi a la configuració i habiliti \'Sempre\' per a l\'accés a la ubicació."),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Servei d\'ubicació"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
         "next": MessageLookupByLibrary.simpleMessage("Següent"),
+        "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
+            "No hi ha transectes disponibles."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "Cap usuari està actualment autenticat."),
         "no_account":
@@ -246,6 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_send": MessageLookupByLibrary.simpleMessage(
             "Si prems el botó \'enviar\', s\'enviaran les dades del transsecte actual i hauràs de començar un nou transsecte."),
         "observations": MessageLookupByLibrary.simpleMessage("Observacions"),
+        "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
         "open_map":
             MessageLookupByLibrary.simpleMessage("Veure transsecte al mapa"),
         "open_system_settings": MessageLookupByLibrary.simpleMessage(
@@ -260,8 +286,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy": MessageLookupByLibrary.simpleMessage("Privacitat"),
         "reload": MessageLookupByLibrary.simpleMessage("Recàrrega"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
+        "requestingGpsPermissions": MessageLookupByLibrary.simpleMessage(
+            "Sol·licitant permisos de GPS"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requereix que un no tècnic realitzi aquesta acció."),
+        "resume": MessageLookupByLibrary.simpleMessage("Reprendre"),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "Si continues, la informació es guardarà i no es podrà modificar."),
@@ -289,13 +318,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Alguns camps estan buits."),
         "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
             "Alguna cosa ha anat malament, si us plau, intenta-ho de nou"),
+        "startPoint": MessageLookupByLibrary.simpleMessage("(inici)"),
+        "startStopTransect":
+            MessageLookupByLibrary.simpleMessage("Iniciar/Aturar Transecte"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Començar un transsecte"),
+        "startedATransect":
+            MessageLookupByLibrary.simpleMessage("Transecte iniciat."),
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Aturar un transsecte"),
         "technician": MessageLookupByLibrary.simpleMessage("Tècnic"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("Ha passat el tractor?"),
+        "transectStopped":
+            MessageLookupByLibrary.simpleMessage("Transecte aturat."),
         "transect_administrative_are":
             MessageLookupByLibrary.simpleMessage("Àrea administrativa"),
         "transect_author": MessageLookupByLibrary.simpleMessage("Autor"),

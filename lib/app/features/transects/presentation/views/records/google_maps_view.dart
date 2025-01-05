@@ -4,6 +4,7 @@ import 'package:flutter/services.dart'; // For clipboard functionality
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// View for displaying the map with markers based on transect coordinates.
 class GoogleMapsView extends StatefulWidget {
@@ -141,7 +142,7 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     if (url.isEmpty) {
       floatSnackbar(
         context: context,
-        message: 'Error: No coordinates available to generate the URL',
+        message: S.current.errorNoCoordinatesForURL,
         isError: true,
       );
       return;
@@ -151,7 +152,7 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     Clipboard.setData(ClipboardData(text: url));
     floatSnackbar(
       context: context,
-      message: 'Google Maps URL copied to clipboard!',
+      message: S.current.googleMapsURLCopied,
     );
   }
 
@@ -171,7 +172,7 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Close'),
+              child: Text(S.current.close),
             ),
           ],
         );

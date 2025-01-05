@@ -60,7 +60,7 @@ class _VerifyGpsPermissionsViewState
   Widget _buildLoadingView() {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Requesting GPS Permissions'),
+        title: Text(S.current.requestingGpsPermissions),
       ),
       body: const Center(
         child: CircularProgressIndicator(),
@@ -72,7 +72,7 @@ class _VerifyGpsPermissionsViewState
   Widget _buildPermissionDeniedView(String? message) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GPS Permission Denied'),
+        title: Text(S.current.gpsPermissionDenied),
       ),
       body: Center(
         child: Column(
@@ -90,7 +90,7 @@ class _VerifyGpsPermissionsViewState
               onPressed: () async {
                 _onRequestPermissionPressed();
               },
-              child: const Text('Reload'),
+              child: Text(S.current.reload),
             ),
           ],
         ),
@@ -103,94 +103,93 @@ class _VerifyGpsPermissionsViewState
     return const StartStopTransectView();
   }
 
-/// Handles the button press to request location permissions again.
-///
-/// This method attempts to request location permissions. It delegates the handling
-/// of specific exceptions to external functions to reduce complexity and improve clarity.
-void _onRequestPermissionPressed() async {
-  try {
-    // Request location permissions from the ViewModel
-    await ref
-        .read(verifyGpsPermissionsViewModelProvider)
-        .requestLocationPermissions();
-  } on GpsServiceDisabled catch (e) {
-    Logger().e(e);
-    _handleGpsServiceDisabled();
-  } on PermanentlyDeniedException catch (e) {
-    Logger().e(e);
-    _handlePermanentlyDeniedException(e);
-  } catch (e, stackTrace) {
-    // Log any unexpected exceptions for debugging purposes
-    Logger().e(['Unexpected exception', e, stackTrace]);
+  /// Handles the button press to request location permissions again.
+  ///
+  /// This method attempts to request location permissions. It delegates the handling
+  /// of specific exceptions to external functions to reduce complexity and improve clarity.
+  void _onRequestPermissionPressed() async {
+    try {
+      // Request location permissions from the ViewModel
+      await ref
+          .read(verifyGpsPermissionsViewModelProvider)
+          .requestLocationPermissions();
+    } on GpsServiceDisabled catch (e) {
+      Logger().e(e);
+      _handleGpsServiceDisabled();
+    } on PermanentlyDeniedException catch (e) {
+      Logger().e(e);
+      _handlePermanentlyDeniedException(e);
+    } catch (e, stackTrace) {
+      // Log any unexpected exceptions for debugging purposes
+      Logger().e(['Unexpected exception', e, stackTrace]);
+    }
   }
-}
 
-/// Handles the case when the GPS service is disabled.
-///
-/// Displays an alert dialog to inform the user that GPS needs to be enabled.
-Future<void> _handleGpsServiceDisabled() async {
-  if (!mounted) return; // Ensure the widget is still mounted
-  await showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('GPS Service Disabled'),
-        content: const Text(
-          'The GPS service is disabled. Please enable GPS to continue.',
-        ),
-        actions: [
-          // Close button to dismiss the dialog
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('OK'),
+  /// Handles the case when the GPS service is disabled.
+  ///
+  /// Displays an alert dialog to inform the user that GPS needs to be enabled.
+  Future<void> _handleGpsServiceDisabled() async {
+    if (!mounted) return; // Ensure the widget is still mounted
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(S.current.gpsServiceDisabled),
+          content: Text(
+            S.current.gpsServiceDisabledMessage,
           ),
-        ],
-      );
-    },
-  );
-}
-
-/// Handles the case when location permissions are permanently denied.
-///
-/// Displays an alert dialog to guide the user to the app settings.
-Future<void> _handlePermanentlyDeniedException(
-    PermanentlyDeniedException e) async {
-  if (!mounted) return; // Ensure the widget is still mounted
-  await showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: Text(e.message),
-        content: const Text(
-          'Location permissions are permanently denied. '
-          'Please go to the settings and enable "Always" for location access.',
-        ),
-        actions: [
-          // Close button to dismiss the dialog
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Close'),
-          ),
-          // Button to open app settings
-          TextButton(
-            onPressed: () async {
-              Navigator.of(context).pop(); // Close the dialog
-              await openAppSettings(); // Open app settings
-              Logger().d('after await');
-            },
-            child: Text(
-              S.current.open_system_settings,
-              style: TextStyle(color: Theme.of(context).colorScheme.error),
+          actions: [
+            // Close button to dismiss the dialog
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(S.current.ok),
             ),
-          ),
-        ],
-      );
-    },
-  );
-}
+          ],
+        );
+      },
+    );
+  }
 
+  /// Handles the case when location permissions are permanently denied.
+  ///
+  /// Displays an alert dialog to guide the user to the app settings.
+  Future<void> _handlePermanentlyDeniedException(
+      PermanentlyDeniedException e) async {
+    if (!mounted) return; // Ensure the widget is still mounted
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(e.message),
+          // TODO: revisar este cambio
+          content: Text(
+            '${S.current.locationPermissionsPermanentlyDenied} ${S.current.locationPermissionsSettingsMessage}',
+          ),
+          actions: [
+            // Close button to dismiss the dialog
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(S.current.close),
+            ),
+            // Button to open app settings
+            TextButton(
+              onPressed: () async {
+                Navigator.of(context).pop(); // Close the dialog
+                await openAppSettings(); // Open app settings
+                Logger().d('after await');
+              },
+              child: Text(
+                S.current.open_system_settings,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

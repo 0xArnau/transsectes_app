@@ -70,12 +70,12 @@ class _RemoveTransectsViewState extends ConsumerState<RemoveTransectsView> {
     response.fold(
       (_) => floatSnackbar(
         context: context,
-        message: 'All transects deleted successfully!',
+        message: S.current.allTransectsDeleted,
         isSuccess: true,
       ),
       (_) => floatSnackbar(
         context: context,
-        message: 'An error occurred while deleting transects!',
+        message: S.current.errorWhileDeletingTransects,
         isError: true,
       ),
     );

@@ -8,6 +8,7 @@ import 'package:transsectes_app/app/features/transects/presentation/providers/re
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/transect_list_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/detail_transect_view.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// A view that displays a list of transects.
 ///
@@ -112,12 +113,12 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
 
         // Show error message if the stream encountered an error
         if (snapshot.hasError) {
-          return const Center(child: Text('Failed to load transects.'));
+          return Center(child: Text(S.current.failedToLoadTransects));
         }
 
         // If the snapshot has no data or the list is empty, show a "No transects available" message
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No transects available'));
+          return  Center(child: Text(S.current.noTransectsAvailable));
         }
 
         // Get the list of transects from the stream

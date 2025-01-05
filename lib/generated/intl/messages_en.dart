@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_marks": MessageLookupByLibrary.simpleMessage("Add new marks"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "All legal fields must be accepted."),
+        "allTransectsDeleted": MessageLookupByLibrary.simpleMessage(
+            "All transects deleted successfully!"),
         "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "All transects loaded successfully."),
         "all_transects": MessageLookupByLibrary.simpleMessage("All Transects"),
@@ -68,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can\'t stop a transect, there isn\'t one that\'s started."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirm_email": MessageLookupByLibrary.simpleMessage("Confirm email"),
         "confirm_password":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
@@ -116,8 +119,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The emails are different"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("There are empty fields"),
+        "endPoint": MessageLookupByLibrary.simpleMessage("(end)"),
         "errorCannotSignOut":
             MessageLookupByLibrary.simpleMessage("Error, cannot sign out"),
+        "errorNoCoordinatesForURL": MessageLookupByLibrary.simpleMessage(
+            "Error: No coordinates available to generate the URL."),
         "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
             "Error reloading email status"),
         "errorSendingEmail":
@@ -129,8 +135,14 @@ class MessageLookup extends MessageLookupByLibrary {
                 "There has been an error while checking if the user is authenticated."),
         "errorWhileCheckingUserIsTechnician": MessageLookupByLibrary.simpleMessage(
             "There has been an error while checking if the user is a technician or not."),
+        "errorWhileDeletingTransects": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while deleting transects!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "There has been an error while getting the current user."),
+        "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
+            "Error while saving the transects."),
+        "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(
+            "Error while starting a transect."),
         "exit": MessageLookupByLibrary.simpleMessage("Exit"),
         "failedToLoadTransects":
             MessageLookupByLibrary.simpleMessage("Failed to load transects."),
@@ -147,8 +159,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "City or datetime (YYYY-MM-DDTHH:MM:SS)"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "googleMapsURLCopied": MessageLookupByLibrary.simpleMessage(
+            "Google Maps URL copied to clipboard!"),
+        "gpsPermissionDenied":
+            MessageLookupByLibrary.simpleMessage("GPS Permission Denied"),
         "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
             "GPS service is disabled, please enable it before continuing"),
+        "gpsServiceDisabledMessage": MessageLookupByLibrary.simpleMessage(
+            "The GPS service is disabled. Please enable GPS to continue."),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "GPS background service disabled"),
         "gps_service_background_disabled_content":
@@ -222,10 +240,17 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Location background permissions are permanently denied"),
         "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
             "Location permissions are not granted"),
+        "locationPermissionsPermanentlyDenied":
+            MessageLookupByLibrary.simpleMessage(
+                "Location permissions are permanently denied."),
+        "locationPermissionsSettingsMessage": MessageLookupByLibrary.simpleMessage(
+            "Please go to the settings and enable \'Always\' for location access."),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noTransectsAvailable":
+            MessageLookupByLibrary.simpleMessage("No transects available."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "No user is currently authenticated."),
         "no_account":
@@ -238,6 +263,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_send": MessageLookupByLibrary.simpleMessage(
             "If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect."),
         "observations": MessageLookupByLibrary.simpleMessage("Observations"),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open_map": MessageLookupByLibrary.simpleMessage("See transect on map"),
         "open_system_settings":
             MessageLookupByLibrary.simpleMessage("Open system settings"),
@@ -251,8 +277,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "reload": MessageLookupByLibrary.simpleMessage("Reload"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
+        "requestingGpsPermissions":
+            MessageLookupByLibrary.simpleMessage("Requesting GPS Permissions"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requires a non-technician to perform this action."),
+        "resume": MessageLookupByLibrary.simpleMessage("Resume"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be saved and cannot be modified."),
@@ -281,13 +310,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Some fields are empty."),
         "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
             "Something went wrong, please try again"),
+        "startPoint": MessageLookupByLibrary.simpleMessage("(start)"),
+        "startStopTransect":
+            MessageLookupByLibrary.simpleMessage("Start/Stop Transect"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Start a transect"),
+        "startedATransect":
+            MessageLookupByLibrary.simpleMessage("Started a transect."),
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Stop a transect"),
         "technician": MessageLookupByLibrary.simpleMessage("Technician"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
+        "transectStopped":
+            MessageLookupByLibrary.simpleMessage("Transect stopped."),
         "transect_administrative_are":
             MessageLookupByLibrary.simpleMessage("Administrative area"),
         "transect_author": MessageLookupByLibrary.simpleMessage("Author"),

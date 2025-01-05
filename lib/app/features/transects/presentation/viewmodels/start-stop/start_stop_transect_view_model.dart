@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/features/transects/domain/usecases/get_curre
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_location_stream_usecase.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/start-stop/transect_coordinates_state.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel that manages the start and stop of a transect, including subscribing to
 /// location updates and updating the state with coordinates.
@@ -61,7 +62,7 @@ class StartStopTransectViewModel {
 
     responseCurrent.fold(
       (value) => _addCoordinateToState(value),
-      (error) => _updateStateOnError('Error while starting a transect'),
+      (error) => _updateStateOnError(S.current.errorWhileStartingTransect),
     );
   }
 
@@ -83,7 +84,7 @@ class StartStopTransectViewModel {
         );
         _updateStateOnStart();
       },
-      (error) => _updateStateOnError('Error while starting a transect'),
+      (error) => _updateStateOnError(S.current.errorWhileStartingTransect),
     );
   }
 
@@ -113,7 +114,7 @@ class StartStopTransectViewModel {
         isLoading: false,
         isStarted: true,
         isStopped: false,
-        okMessage: 'Started a transect',
+        okMessage: S.current.startedATransect
       ),
     );
   }
@@ -165,7 +166,7 @@ class StartStopTransectViewModel {
         isLoading: false,
         isStarted: false,
         isStopped: true,
-        okMessage: 'Transect stopped',
+        okMessage: S.current.transectStopped,
       ),
     );
   }

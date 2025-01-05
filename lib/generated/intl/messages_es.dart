@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Añadir nuevas marcas"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "Todos los campos legales deben ser aceptados."),
+        "allTransectsDeleted": MessageLookupByLibrary.simpleMessage(
+            "¡Todos los transectos eliminados con éxito!"),
         "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Todos los transectos se han cargado con éxito."),
         "all_transects":
@@ -74,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No puedes detener un transecto, no hay uno que haya comenzado."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
+        "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
         "confirm_email": MessageLookupByLibrary.simpleMessage(
             "Confirmar correo electrónico"),
         "confirm_password":
@@ -123,8 +126,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los correos electrónicos son diferentes"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
+        "endPoint": MessageLookupByLibrary.simpleMessage("(final)"),
         "errorCannotSignOut": MessageLookupByLibrary.simpleMessage(
             "Error, no se puede cerrar sesión"),
+        "errorNoCoordinatesForURL": MessageLookupByLibrary.simpleMessage(
+            "Error: No hay coordenadas disponibles para generar la URL."),
         "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
             "Error al recargar el estado del correo"),
         "errorSendingEmail":
@@ -137,8 +143,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorWhileCheckingUserIsTechnician":
             MessageLookupByLibrary.simpleMessage(
                 "Ha habido un error al comprobar si el usuario es técnico o no."),
+        "errorWhileDeletingTransects": MessageLookupByLibrary.simpleMessage(
+            "¡Ocurrió un error al eliminar los transectos!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha habido un error al obtener el usuario actual."),
+        "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
+            "Error al guardar los transectos."),
+        "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(
+            "Error al iniciar el transecto."),
         "exit": MessageLookupByLibrary.simpleMessage("Salir"),
         "failedToLoadTransects": MessageLookupByLibrary.simpleMessage(
             "Error al cargar los transectos."),
@@ -155,8 +167,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ciudad o fecha y hora (AAAA-MM-DDTHH:MM:SS)"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
+        "googleMapsURLCopied": MessageLookupByLibrary.simpleMessage(
+            "¡URL de Google Maps copiada al portapapeles!"),
+        "gpsPermissionDenied":
+            MessageLookupByLibrary.simpleMessage("Permiso de GPS denegado"),
         "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
             "El servicio de GPS está desactivado, por favor, actívalo antes de continuar"),
+        "gpsServiceDisabledMessage": MessageLookupByLibrary.simpleMessage(
+            "El servicio de GPS está desactivado. Por favor, habilite el GPS para continuar."),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "Servicio de GPS en segundo plano deshabilitado"),
         "gps_service_background_disabled_content":
@@ -231,10 +249,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los permisos de ubicación en segundo plano están permanentemente denegados"),
         "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
             "Los permisos de ubicación no han sido otorgados"),
+        "locationPermissionsPermanentlyDenied":
+            MessageLookupByLibrary.simpleMessage(
+                "Los permisos de ubicación están permanentemente denegados."),
+        "locationPermissionsSettingsMessage": MessageLookupByLibrary.simpleMessage(
+            "Por favor, vaya a la configuración y habilite \'Siempre\' para el acceso a la ubicación."),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Servicio de ubicación"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "next": MessageLookupByLibrary.simpleMessage("Siguiente"),
+        "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
+            "No hay transectos disponibles."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
             "Ningún usuario está autenticado actualmente."),
         "no_account":
@@ -247,6 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_send": MessageLookupByLibrary.simpleMessage(
             "Si presionas el botón \'enviar\', se enviarán los datos del transecto actual y tendrás que comenzar un nuevo transecto."),
         "observations": MessageLookupByLibrary.simpleMessage("Observaciones"),
+        "ok": MessageLookupByLibrary.simpleMessage("Aceptar"),
         "open_map":
             MessageLookupByLibrary.simpleMessage("Ver transecto en el mapa"),
         "open_system_settings": MessageLookupByLibrary.simpleMessage(
@@ -260,8 +286,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Número de personas informadas"),
         "reload": MessageLookupByLibrary.simpleMessage("Recargar"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
+        "requestingGpsPermissions":
+            MessageLookupByLibrary.simpleMessage("Solicitando permisos de GPS"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requiere que un no técnico realice esta acción."),
+        "resume": MessageLookupByLibrary.simpleMessage("Reanudar"),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "save_transect": MessageLookupByLibrary.simpleMessage(
             "Si continúas, la información se guardará y no se podrá modificar."),
@@ -289,13 +318,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Algunos campos están vacíos."),
         "something_wrong_try_again": MessageLookupByLibrary.simpleMessage(
             "Algo salió mal, por favor inténtalo de nuevo"),
+        "startPoint": MessageLookupByLibrary.simpleMessage("(inicio)"),
+        "startStopTransect":
+            MessageLookupByLibrary.simpleMessage("Iniciar/Detener Transecto"),
         "start_transect":
             MessageLookupByLibrary.simpleMessage("Comenzar un transecto"),
+        "startedATransect":
+            MessageLookupByLibrary.simpleMessage("Transecto iniciado."),
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Detener un transecto"),
         "technician": MessageLookupByLibrary.simpleMessage("Técnico"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "transectStopped":
+            MessageLookupByLibrary.simpleMessage("Transecto detenido."),
         "transect_administrative_are":
             MessageLookupByLibrary.simpleMessage("Área administrativa"),
         "transect_author": MessageLookupByLibrary.simpleMessage("Autor"),

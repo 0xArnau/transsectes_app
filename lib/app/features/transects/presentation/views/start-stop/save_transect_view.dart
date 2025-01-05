@@ -57,11 +57,11 @@ class _SaveTransectViewState extends ConsumerState<SaveTransectView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Send Inform'),
+        title:  Text(S.current.save_transect),
         actions: [
           TextButton(
             onPressed: _startStopTransectViewModel.startTransect,
-            child: const Text('Resume'),
+            child:  Text(S.current.resume),
           ),
         ],
       ),

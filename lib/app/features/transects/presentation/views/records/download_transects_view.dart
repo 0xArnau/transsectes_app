@@ -7,6 +7,7 @@ import 'package:transsectes_app/app/features/transects/presentation/providers/re
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/detail_transect_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/records/transect_list_view_model.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// A view for downloading transects grouped by their locality.
 class DownloadTransectsView extends ConsumerStatefulWidget {
@@ -57,11 +58,11 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
         }
 
         if (snapshot.hasError) {
-          return const Center(child: Text('Failed to load transects.'));
+          return  Center(child: Text(S.current.failedToLoadTransects));
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const Center(child: Text('No transects available'));
+          return  Center(child: Text(S.current.noTransectsAvailable));
         }
 
         final groupedTransects = _groupTransectsByLocality(snapshot.data!);
@@ -138,7 +139,7 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
     response.fold(
       (okMessage) => _showSnackbar(context, okMessage, false),
       (error) =>
-          _showSnackbar(context, 'Error while saving the transects', true),
+          _showSnackbar(context, S.current.errorWhileSavingTransects, true),
     );
   }
 
