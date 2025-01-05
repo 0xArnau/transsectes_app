@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/verify_email_view_model_provider.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class VerifyEmailView extends ConsumerStatefulWidget {
   const VerifyEmailView({super.key});
@@ -60,19 +61,19 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verify Email'),
+        title: Text(S.current.verifyEmail),
         actions: [
           TextButton(
             onPressed: () {
               _handleAsyncAction(
                 context,
                 viewModel.signOut(),
-                'Sign out successfully!',
-                'Error, cannot sign out',
+                S.current.signOutSuccessfully,
+                S.current.errorCannotSignOut,
               );
             },
             child: Text(
-              'Exit',
+              S.current.exit,
               style: TextStyle(color: Colors.red),
             ),
           ),
@@ -87,26 +88,26 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     CustomButton(
-                      text: 'Send Verification Email',
+                      text: S.current.sendVerificationEmail,
                       onTap: () {
                         _handleAsyncAction(
                           context,
                           viewModel.sendEmail(),
-                          'Verification email sent!',
-                          'Error sending verification email',
+                          S.current.verificationEmailSent,
+                          S.current.errorSendingVerificationEmail,
                         );
                       },
                       isMainAction: true,
                     ),
                     const SizedBox(height: 16), // Space between buttons
                     CustomButton(
-                      text: 'Reload',
+                      text: S.current.reload,
                       onTap: () {
                         _handleAsyncAction(
                           context,
                           viewModel.reload(),
-                          'Email status reloaded!',
-                          'Error reloading email status',
+                          S.current.emailStatusReloaded,
+                          S.current.errorReloadingEmailStatus,
                         );
                       },
                       isMainAction: false,

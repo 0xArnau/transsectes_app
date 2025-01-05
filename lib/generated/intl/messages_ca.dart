@@ -88,6 +88,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "download": MessageLookupByLibrary.simpleMessage("Descarregar"),
         "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
         "emailSent": MessageLookupByLibrary.simpleMessage("Correu enviat"),
+        "emailStatusReloaded": MessageLookupByLibrary.simpleMessage(
+            "Estat del correu recarregat!"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "S\'ha enviat un correu electrònic. Si us plau, revisa el teu correu."),
         "emailsMustBeTheSame": MessageLookupByLibrary.simpleMessage(
@@ -96,8 +98,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Els correus electrònics són diferents"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps buits"),
+        "errorCannotSignOut": MessageLookupByLibrary.simpleMessage(
+            "Error, no es pot tancar la sessió"),
+        "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
+            "Error en recarregar l\'estat del correu"),
         "errorSendingEmail":
             MessageLookupByLibrary.simpleMessage("Error en enviar el correu"),
+        "errorSendingVerificationEmail": MessageLookupByLibrary.simpleMessage(
+            "Error en enviar el correu de verificació"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "Ha hagut un error en comprovar si l\'usuari està autenticat."),
@@ -106,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ha hagut un error en comprovar si l\'usuari és tècnic o no."),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha hagut un error en obtenir l\'usuari actual."),
+        "exit": MessageLookupByLibrary.simpleMessage("Sortir"),
         "file_saved": MessageLookupByLibrary.simpleMessage("Fitxer guardat:"),
         "filter_clear": MessageLookupByLibrary.simpleMessage("Netejar filtre"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
@@ -208,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Nombre de persones informades"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacitat"),
+        "reload": MessageLookupByLibrary.simpleMessage("Recàrrega"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requereix que un no tècnic realitzi aquesta acció."),
@@ -219,6 +229,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Envia correu de verificació"),
         "settings": MessageLookupByLibrary.simpleMessage("Configuració"),
         "signOut": MessageLookupByLibrary.simpleMessage("Tancar sessió"),
+        "signOutSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Tancament de sessió amb èxit!"),
         "signUpSuccessfulClickToSendVerificationEmail":
             MessageLookupByLibrary.simpleMessage(
                 "Registre correcte. Feu clic a \'Envia correu de verificació\'"),
@@ -282,6 +294,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Usuari deshabilitat"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("Usuari no trobat"),
+        "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
+            "Correu de verificació enviat!"),
+        "verifyEmail": MessageLookupByLibrary.simpleMessage(
+            "Verifica el correu electrònic"),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Contrasenya incorrecta"),
         "yes_account":

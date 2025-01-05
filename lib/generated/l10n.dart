@@ -420,6 +420,16 @@ class S {
     );
   }
 
+  /// `Email status reloaded!`
+  String get emailStatusReloaded {
+    return Intl.message(
+      'Email status reloaded!',
+      name: 'emailStatusReloaded',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `An email has been sent. Please check your email.`
   String get email_sent {
     return Intl.message(
@@ -460,11 +470,41 @@ class S {
     );
   }
 
+  /// `Error, cannot sign out`
+  String get errorCannotSignOut {
+    return Intl.message(
+      'Error, cannot sign out',
+      name: 'errorCannotSignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error reloading email status`
+  String get errorReloadingEmailStatus {
+    return Intl.message(
+      'Error reloading email status',
+      name: 'errorReloadingEmailStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error sending the email`
   String get errorSendingEmail {
     return Intl.message(
       'Error sending the email',
       name: 'errorSendingEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error sending verification email`
+  String get errorSendingVerificationEmail {
+    return Intl.message(
+      'Error sending verification email',
+      name: 'errorSendingVerificationEmail',
       desc: '',
       args: [],
     );
@@ -495,6 +535,16 @@ class S {
     return Intl.message(
       'There has been an error while getting the current user.',
       name: 'errorWhileGettingCurrentUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get exit {
+    return Intl.message(
+      'Exit',
+      name: 'exit',
       desc: '',
       args: [],
     );
@@ -1070,6 +1120,16 @@ class S {
     );
   }
 
+  /// `Reload`
+  String get reload {
+    return Intl.message(
+      'Reload',
+      name: 'reload',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Remove`
   String get remove {
     return Intl.message(
@@ -1145,6 +1205,16 @@ class S {
     return Intl.message(
       'Sign Out',
       name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign out successfully!`
+  String get signOutSuccessfully {
+    return Intl.message(
+      'Sign out successfully!',
+      name: 'signOutSuccessfully',
       desc: '',
       args: [],
     );
@@ -1475,6 +1545,26 @@ class S {
     return Intl.message(
       'User not found',
       name: 'user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification email sent!`
+  String get verificationEmailSent {
+    return Intl.message(
+      'Verification email sent!',
+      name: 'verificationEmailSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify Email`
+  String get verifyEmail {
+    return Intl.message(
+      'Verify Email',
+      name: 'verifyEmail',
       desc: '',
       args: [],
     );

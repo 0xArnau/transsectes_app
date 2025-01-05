@@ -84,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "download": MessageLookupByLibrary.simpleMessage("Download"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
+        "emailStatusReloaded":
+            MessageLookupByLibrary.simpleMessage("Email status reloaded!"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "An email has been sent. Please check your email."),
         "emailsMustBeTheSame":
@@ -92,8 +94,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The emails are different"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("There are empty fields"),
+        "errorCannotSignOut":
+            MessageLookupByLibrary.simpleMessage("Error, cannot sign out"),
+        "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
+            "Error reloading email status"),
         "errorSendingEmail":
             MessageLookupByLibrary.simpleMessage("Error sending the email"),
+        "errorSendingVerificationEmail": MessageLookupByLibrary.simpleMessage(
+            "Error sending verification email"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "There has been an error while checking if the user is authenticated."),
@@ -101,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "There has been an error while checking if the user is a technician or not."),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "There has been an error while getting the current user."),
+        "exit": MessageLookupByLibrary.simpleMessage("Exit"),
         "file_saved": MessageLookupByLibrary.simpleMessage("File saved:"),
         "filter_clear": MessageLookupByLibrary.simpleMessage("Clear filter"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
@@ -200,6 +209,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "people_informed":
             MessageLookupByLibrary.simpleMessage("Number of people informed"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
+        "reload": MessageLookupByLibrary.simpleMessage("Reload"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requires a non-technician to perform this action."),
@@ -211,6 +221,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Send Verification Email"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
+        "signOutSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Sign out successfully!"),
         "signUpSuccessfulClickToSendVerificationEmail":
             MessageLookupByLibrary.simpleMessage(
                 "Sign up successful. Click to \'Send verification email\'"),
@@ -275,6 +287,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_disabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("User not found"),
+        "verificationEmailSent":
+            MessageLookupByLibrary.simpleMessage("Verification email sent!"),
+        "verifyEmail": MessageLookupByLibrary.simpleMessage("Verify Email"),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Wrong password"),
         "yes_account":

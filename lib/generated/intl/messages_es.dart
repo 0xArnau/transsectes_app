@@ -89,6 +89,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "download": MessageLookupByLibrary.simpleMessage("Descargar"),
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
         "emailSent": MessageLookupByLibrary.simpleMessage("Correo enviado"),
+        "emailStatusReloaded": MessageLookupByLibrary.simpleMessage(
+            "¡Estado del correo recargado!"),
         "email_sent": MessageLookupByLibrary.simpleMessage(
             "Se ha enviado un correo electrónico. Por favor, revisa tu correo."),
         "emailsMustBeTheSame": MessageLookupByLibrary.simpleMessage(
@@ -97,8 +99,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Los correos electrónicos son diferentes"),
         "empty_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos vacíos"),
+        "errorCannotSignOut": MessageLookupByLibrary.simpleMessage(
+            "Error, no se puede cerrar sesión"),
+        "errorReloadingEmailStatus": MessageLookupByLibrary.simpleMessage(
+            "Error al recargar el estado del correo"),
         "errorSendingEmail":
             MessageLookupByLibrary.simpleMessage("Error al enviar el correo"),
+        "errorSendingVerificationEmail": MessageLookupByLibrary.simpleMessage(
+            "Error al enviar el correo de verificación"),
         "errorWhileCheckingIfUserIsAuthenticated":
             MessageLookupByLibrary.simpleMessage(
                 "Ha habido un error al comprobar si el usuario está autenticado."),
@@ -107,6 +115,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ha habido un error al comprobar si el usuario es técnico o no."),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha habido un error al obtener el usuario actual."),
+        "exit": MessageLookupByLibrary.simpleMessage("Salir"),
         "file_saved": MessageLookupByLibrary.simpleMessage("Archivo guardado:"),
         "filter_clear": MessageLookupByLibrary.simpleMessage("Limpiar filtro"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
@@ -208,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "La contraseña debe ser la misma."),
         "people_informed": MessageLookupByLibrary.simpleMessage(
             "Número de personas informadas"),
+        "reload": MessageLookupByLibrary.simpleMessage("Recargar"),
         "remove": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "requiresNonTechnician": MessageLookupByLibrary.simpleMessage(
             "Requiere que un no técnico realice esta acción."),
@@ -219,6 +229,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enviar correo de verificación"),
         "settings": MessageLookupByLibrary.simpleMessage("Configuración"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+        "signOutSuccessfully":
+            MessageLookupByLibrary.simpleMessage("¡Cierre de sesión exitoso!"),
         "signUpSuccessfulClickToSendVerificationEmail":
             MessageLookupByLibrary.simpleMessage(
                 "Registro exitoso. Haz clic en \'Enviar correo de verificación\'"),
@@ -282,6 +294,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Usuario deshabilitado"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("Usuario no encontrado"),
+        "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
+            "¡Correo de verificación enviado!"),
+        "verifyEmail": MessageLookupByLibrary.simpleMessage(
+            "Verificar correo electrónico"),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Contraseña incorrecta"),
         "yes_account":
