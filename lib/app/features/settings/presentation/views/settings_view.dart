@@ -7,6 +7,7 @@ import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
+import 'package:transsectes_app/app/core/widgets/language_picker.dart';
 import 'package:transsectes_app/app/features/settings/presentation/providers/settings_provider.dart';
 import 'package:transsectes_app/app/features/settings/presentation/widgets/app_info_widget.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -89,10 +90,9 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                         }
                       },
                     ),
-
-                  _openSettings()
-
-                  // TODO: change language
+                  _openSettings(),
+                  const SizedBox(height: 16),
+                  _language(context),
                 ],
               ),
             ),
@@ -163,6 +163,33 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
         child: Icon(
           showEmail ? Icons.visibility_off : Icons.visibility,
         ),
+      ),
+    );
+  }
+
+  /// Creates a widget that displays a list tile for changing the app's language.
+  ///
+  /// This widget consists of a `ListTile` with a centered title, a language icon on the left,
+  /// and a chevron icon on the right that opens a modal for language selection.
+  ///
+  /// Parameters:
+  /// - [context]: The current `BuildContext`, required to display the modal.
+  ///
+  /// Returns:
+  /// A [ListTile] widget for accessing the language change option.
+  Widget _language(BuildContext context) {
+    return ListTile(
+      title: Text(
+        S.current.language_change_2,
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: const Icon(Icons.language),
+      trailing: GestureDetector(
+        onTap: () {
+          languagePickerModal(context);
+        },
+        child: const Icon(Icons.chevron_right),
       ),
     );
   }
