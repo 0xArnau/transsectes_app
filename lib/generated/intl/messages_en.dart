@@ -23,17 +23,27 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+        "accountRemoved":
+            MessageLookupByLibrary.simpleMessage("Account removed"),
         "add_new_geopoint":
             MessageLookupByLibrary.simpleMessage("Add new geopoint"),
         "add_new_marks": MessageLookupByLibrary.simpleMessage("Add new marks"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "All legal fields must be accepted."),
         "all_transects": MessageLookupByLibrary.simpleMessage("All Transects"),
+        "appCreatedBy": MessageLookupByLibrary.simpleMessage(
+            "The app has been created by Arnau for GePeC-EdC."),
+        "appCreator": MessageLookupByLibrary.simpleMessage("Creator"),
+        "appInfo": MessageLookupByLibrary.simpleMessage("App Info"),
+        "appName": MessageLookupByLibrary.simpleMessage("Name"),
+        "appSourceCode": MessageLookupByLibrary.simpleMessage("Source Code"),
+        "appVersion": MessageLookupByLibrary.simpleMessage("Version"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
             "Transect app will continue to receive your location even when you aren\'t using it"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Running in Background"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "buildNumber": MessageLookupByLibrary.simpleMessage("Build Number"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "If you continue, the information will be lost and cannot be recovered."),
@@ -282,6 +292,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Unknown error, cannot create user account."),
         "userEmailMissing":
             MessageLookupByLibrary.simpleMessage("User email is missing."),
+        "userIcon": MessageLookupByLibrary.simpleMessage("User icon"),
         "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
             "User must reauthenticate to delete their account."),
         "user_disabled": MessageLookupByLibrary.simpleMessage("User disabled"),

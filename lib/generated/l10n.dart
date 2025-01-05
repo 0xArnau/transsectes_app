@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `Account removed`
+  String get accountRemoved {
+    return Intl.message(
+      'Account removed',
+      name: 'accountRemoved',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add new geopoint`
   String get add_new_geopoint {
     return Intl.message(
@@ -100,6 +110,66 @@ class S {
     );
   }
 
+  /// `The app has been created by Arnau for GePeC-EdC.`
+  String get appCreatedBy {
+    return Intl.message(
+      'The app has been created by Arnau for GePeC-EdC.',
+      name: 'appCreatedBy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Creator`
+  String get appCreator {
+    return Intl.message(
+      'Creator',
+      name: 'appCreator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App Info`
+  String get appInfo {
+    return Intl.message(
+      'App Info',
+      name: 'appInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get appName {
+    return Intl.message(
+      'Name',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Source Code`
+  String get appSourceCode {
+    return Intl.message(
+      'Source Code',
+      name: 'appSourceCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get appVersion {
+    return Intl.message(
+      'Version',
+      name: 'appVersion',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Transect app will continue to receive your location even when you aren't using it`
   String get app_background_notification_text {
     return Intl.message(
@@ -125,6 +195,16 @@ class S {
     return Intl.message(
       'Back',
       name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Build Number`
+  String get buildNumber {
+    return Intl.message(
+      'Build Number',
+      name: 'buildNumber',
       desc: '',
       args: [],
     );
@@ -1515,6 +1595,16 @@ class S {
     return Intl.message(
       'User email is missing.',
       name: 'userEmailMissing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User icon`
+  String get userIcon {
+    return Intl.message(
+      'User icon',
+      name: 'userIcon',
       desc: '',
       args: [],
     );

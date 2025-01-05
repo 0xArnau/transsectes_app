@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Aceptar"),
+        "accountRemoved":
+            MessageLookupByLibrary.simpleMessage("Cuenta eliminada"),
         "add_new_geopoint":
             MessageLookupByLibrary.simpleMessage("Añadir nuevo geopunto"),
         "add_new_marks":
@@ -31,12 +33,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "Todos los campos legales deben ser aceptados."),
         "all_transects":
             MessageLookupByLibrary.simpleMessage("Todos los transectos"),
+        "appCreatedBy": MessageLookupByLibrary.simpleMessage(
+            "La aplicación ha sido creada por Arnau para GePeC-EdC."),
+        "appCreator": MessageLookupByLibrary.simpleMessage("Creador"),
+        "appInfo": MessageLookupByLibrary.simpleMessage(
+            "Información de la aplicación"),
+        "appName": MessageLookupByLibrary.simpleMessage("Nombre"),
+        "appSourceCode": MessageLookupByLibrary.simpleMessage("Código fuente"),
+        "appVersion": MessageLookupByLibrary.simpleMessage("Versión"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
             "La aplicación Transecto seguirá recibiendo tu ubicación incluso cuando no la estés usando"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage(
                 "Ejecutándose en segundo plano"),
         "back": MessageLookupByLibrary.simpleMessage("Atrás"),
+        "buildNumber":
+            MessageLookupByLibrary.simpleMessage("Número de compilación"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "Si continúas, la información se perderá y no se podrá recuperar."),
@@ -288,6 +300,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Error desconocido, no se puede crear la cuenta de usuario."),
         "userEmailMissing": MessageLookupByLibrary.simpleMessage(
             "Falta el correo electrónico del usuario."),
+        "userIcon": MessageLookupByLibrary.simpleMessage("Ícono de usuario"),
         "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
             "El usuario debe reautenticarse para eliminar su cuenta."),
         "user_disabled":

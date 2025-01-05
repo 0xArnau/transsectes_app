@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class AppInfoWidget extends StatefulWidget {
   const AppInfoWidget({super.key});
@@ -52,16 +53,16 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          title: const Text('App Info'),
+          title:  Text(S.current.appInfo),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _infoTile(context, 'Name', appName),
-              _infoTile(context, 'Version', version),
-              _infoTile(context, 'Build Number', buildNumber),
-              _infoTile(context, 'Creator', 'Arnau + GePeC-EdC'),
+              _infoTile(context, S.current.appName, appName),
+              _infoTile(context, S.current.appVersion, version),
+              _infoTile(context, S.current.buildNumber, buildNumber),
+              _infoTile(context, S.current.appCreator, S.current.appCreatedBy,),
               _infoTile(
-                  context, 'Source Code', 'github.com/0xArnau/transsectes_app'),
+                  context, S.current.appSourceCode, 'github.com/0xArnau/transsectes_app'),
             ],
           ),
           actions: [
@@ -69,7 +70,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
               onPressed: () {
                 Navigator.of(context).pop(); // Close the modal
               },
-              child: const Text('Accept'),
+              child: Text(S.current.accept),
             ),
           ],
         );

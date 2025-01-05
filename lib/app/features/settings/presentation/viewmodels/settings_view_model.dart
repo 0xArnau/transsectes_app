@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/delete_user_account_usecase.dart';
 import 'package:transsectes_app/app/features/auth/domain/usecases/sign_out_usecase.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel for the settings screen that manages the user's sign-out process
 /// and manages updates to the user state.
@@ -51,7 +52,7 @@ class SettingsViewModel {
 
     // Update the state with an error message if sign-out fails
     _updateState((state) => state.copyWith(
-        isLoading: false, errorMessage: 'Cannot sign out. Please try again'));
+        isLoading: false, errorMessage: S.current.cannotSignOutTryAgain));
   }
 
   /// Deletes the user account and updates the state accordingly.

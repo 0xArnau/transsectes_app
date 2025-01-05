@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Acceptar"),
+        "accountRemoved":
+            MessageLookupByLibrary.simpleMessage("Compte eliminat"),
         "add_new_geopoint":
             MessageLookupByLibrary.simpleMessage("Afegeix un nou geopunt"),
         "add_new_marks":
@@ -31,11 +33,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tots els camps legals han d\'ésser acceptats."),
         "all_transects":
             MessageLookupByLibrary.simpleMessage("Tots els transsectes"),
+        "appCreatedBy": MessageLookupByLibrary.simpleMessage(
+            "L\'aplicació ha estat creada per Arnau per a GePeC-EdC."),
+        "appCreator": MessageLookupByLibrary.simpleMessage("Creador"),
+        "appInfo":
+            MessageLookupByLibrary.simpleMessage("Informació de l\'aplicació"),
+        "appName": MessageLookupByLibrary.simpleMessage("Nom"),
+        "appSourceCode": MessageLookupByLibrary.simpleMessage("Codi font"),
+        "appVersion": MessageLookupByLibrary.simpleMessage("Versió"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
             "L\'aplicació Transsecte continuarà rebent la teva ubicació fins i tot quan no l\'estiguis utilitzant"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Executant-se en segon pla"),
         "back": MessageLookupByLibrary.simpleMessage("Enrere"),
+        "buildNumber":
+            MessageLookupByLibrary.simpleMessage("Número de compilació"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel·lar"),
         "cancel_transect": MessageLookupByLibrary.simpleMessage(
             "Si continues, la informació es perd i no es pot recuperar."),
@@ -288,6 +300,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Error desconegut, no es pot crear el compte d\'usuari."),
         "userEmailMissing": MessageLookupByLibrary.simpleMessage(
             "Falta el correu electrònic de l\'usuari."),
+        "userIcon": MessageLookupByLibrary.simpleMessage("Icona d\'usuari"),
         "userMustReauthenticate": MessageLookupByLibrary.simpleMessage(
             "L\'usuari ha de tornar a autenticar-se per eliminar el seu compte."),
         "user_disabled":

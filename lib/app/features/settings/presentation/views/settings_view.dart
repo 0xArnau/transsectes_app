@@ -54,7 +54,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(S.current.settings),
         actions: const [
           AppInfoWidget(),
         ],
@@ -127,7 +127,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
       child: Icon(
         Icons.person,
         size: MediaQuery.of(context).size.height / 6,
-        semanticLabel: 'User icon',
+        semanticLabel: S.current.userIcon,
       ),
     );
   }
@@ -263,7 +263,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
     if (context.mounted) {
       floatSnackbar(
         context: context,
-        message: 'Account removed',
+        message: S.current.accountRemoved,
         isSuccess: true,
       );
     }
@@ -273,7 +273,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
       floatSnackbar(
         context: context,
         message:
-            'Esta acción solo puede ser realizada por usuarios no técnicos',
+            S.current.requiresNonTechnician,
         isError: true,
       );
     }
@@ -282,7 +282,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
     if (context.mounted) {
       floatSnackbar(
         context: context,
-        message: 'Requires recent sign-in',
+        message: S.current.snackbar_error_requires_recent_login,
         isAlert: true,
       );
     }
@@ -291,7 +291,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
     if (context.mounted) {
       floatSnackbar(
         context: context,
-        message: 'Unexpected error',
+        message: S.current.unexpectedErrorWhileDeletingAccount,
         isError: true,
       );
     }
@@ -300,7 +300,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
     if (context.mounted) {
       floatSnackbar(
         context: context,
-        message: 'General error',
+        message: S.current.unexpectedErrorOccurred,
         isError: true,
       );
     }
