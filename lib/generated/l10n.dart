@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `All transects loaded successfully.`
+  String get allTransectsLoadedSuccessfully {
+    return Intl.message(
+      'All transects loaded successfully.',
+      name: 'allTransectsLoadedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `All Transects`
   String get all_transects {
     return Intl.message(
@@ -145,6 +155,16 @@ class S {
     return Intl.message(
       'Name',
       name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `App is running in the background`
+  String get appRunningInBackground {
+    return Intl.message(
+      'App is running in the background',
+      name: 'appRunningInBackground',
       desc: '',
       args: [],
     );
@@ -630,6 +650,36 @@ class S {
     );
   }
 
+  /// `Failed to load transects.`
+  String get failedToLoadTransects {
+    return Intl.message(
+      'Failed to load transects.',
+      name: 'failedToLoadTransects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load user transects.`
+  String get failedToLoadUserTransects {
+    return Intl.message(
+      'Failed to load user transects.',
+      name: 'failedToLoadUserTransects',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to update transect.`
+  String get failedToUpdateTransect {
+    return Intl.message(
+      'Failed to update transect.',
+      name: 'failedToUpdateTransect',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `File saved:`
   String get file_saved {
     return Intl.message(
@@ -695,6 +745,16 @@ class S {
     return Intl.message(
       'Forgot password?',
       name: 'forgot_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GPS service is disabled, please enable it before continuing`
+  String get gpsServiceDisabled {
+    return Intl.message(
+      'GPS service is disabled, please enable it before continuing',
+      name: 'gpsServiceDisabled',
       desc: '',
       args: [],
     );
@@ -1055,6 +1115,36 @@ class S {
     return Intl.message(
       'Legal documents',
       name: 'legal_documents',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location background permissions are permanently denied`
+  String get locationBackgroundPermissionsDenied {
+    return Intl.message(
+      'Location background permissions are permanently denied',
+      name: 'locationBackgroundPermissionsDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location permissions are not granted`
+  String get locationPermissionsNotGranted {
+    return Intl.message(
+      'Location permissions are not granted',
+      name: 'locationPermissionsNotGranted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location Service`
+  String get locationService {
+    return Intl.message(
+      'Location Service',
+      name: 'locationService',
       desc: '',
       args: [],
     );
@@ -1665,6 +1755,16 @@ class S {
     return Intl.message(
       'User not found',
       name: 'user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User's transects loaded successfully.`
+  String get usersTransectsLoadedSuccessfully {
+    return Intl.message(
+      'User\'s transects loaded successfully.',
+      name: 'usersTransectsLoadedSuccessfully',
       desc: '',
       args: [],
     );

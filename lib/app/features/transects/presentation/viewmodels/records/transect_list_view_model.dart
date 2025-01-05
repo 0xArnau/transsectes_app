@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_t
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/records/transect_state.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// ViewModel specific to the transects list view.
 ///
@@ -44,7 +45,7 @@ class TransectListViewModel {
             (state) => state.copyWith(
               isLoading: false,
               transects: transects,
-              okMessage: 'All transects loaded successfully.',
+              okMessage: S.current.allTransectsLoadedSuccessfully,
             ),
           );
         },
@@ -52,7 +53,7 @@ class TransectListViewModel {
           _updateAllTransectState(
             (state) => state.copyWith(
               isLoading: false,
-              errorMessage: 'Failed to load transects.',
+              errorMessage: S.current.failedToLoadTransects,
             ),
           );
         },
@@ -62,7 +63,7 @@ class TransectListViewModel {
       _updateAllTransectState(
         (state) => state.copyWith(
           isLoading: false,
-          errorMessage: 'An unexpected error occurred.',
+          errorMessage: S.current.unexpectedErrorOccurred,
         ),
       );
     }
@@ -81,7 +82,7 @@ class TransectListViewModel {
             (state) => state.copyWith(
               isLoading: false,
               transects: transects,
-              okMessage: "User's transects loaded successfully.",
+              okMessage: S.current.usersTransectsLoadedSuccessfully,
             ),
           );
         },
@@ -89,7 +90,7 @@ class TransectListViewModel {
           _updateUserTransectState(
             (state) => state.copyWith(
               isLoading: false,
-              errorMessage: 'Failed to load user transects.',
+              errorMessage: S.current.failedToLoadUserTransects,
             ),
           );
         },
@@ -99,7 +100,7 @@ class TransectListViewModel {
       _updateUserTransectState(
         (state) => state.copyWith(
           isLoading: false,
-          errorMessage: 'An unexpected error occurred.',
+          errorMessage: S.current.unexpectedErrorOccurred,
         ),
       );
     }

@@ -38,12 +38,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_marks": MessageLookupByLibrary.simpleMessage("Add new marks"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "All legal fields must be accepted."),
+        "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "All transects loaded successfully."),
         "all_transects": MessageLookupByLibrary.simpleMessage("All Transects"),
         "appCreatedBy": MessageLookupByLibrary.simpleMessage(
             "The app has been created by Arnau for GePeC-EdC."),
         "appCreator": MessageLookupByLibrary.simpleMessage("Creator"),
         "appInfo": MessageLookupByLibrary.simpleMessage("App Info"),
         "appName": MessageLookupByLibrary.simpleMessage("Name"),
+        "appRunningInBackground": MessageLookupByLibrary.simpleMessage(
+            "App is running in the background"),
         "appSourceCode": MessageLookupByLibrary.simpleMessage("Source Code"),
         "appVersion": MessageLookupByLibrary.simpleMessage("Version"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
@@ -128,6 +132,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "There has been an error while getting the current user."),
         "exit": MessageLookupByLibrary.simpleMessage("Exit"),
+        "failedToLoadTransects":
+            MessageLookupByLibrary.simpleMessage("Failed to load transects."),
+        "failedToLoadUserTransects": MessageLookupByLibrary.simpleMessage(
+            "Failed to load user transects."),
+        "failedToUpdateTransect":
+            MessageLookupByLibrary.simpleMessage("Failed to update transect."),
         "file_saved": MessageLookupByLibrary.simpleMessage("File saved:"),
         "file_saved_android": m0,
         "file_saved_generic": m1,
@@ -137,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "City or datetime (YYYY-MM-DDTHH:MM:SS)"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
+            "GPS service is disabled, please enable it before continuing"),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "GPS background service disabled"),
         "gps_service_background_disabled_content":
@@ -205,6 +217,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Legal notice"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Legal documents"),
+        "locationBackgroundPermissionsDenied":
+            MessageLookupByLibrary.simpleMessage(
+                "Location background permissions are permanently denied"),
+        "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
+            "Location permissions are not granted"),
+        "locationService":
+            MessageLookupByLibrary.simpleMessage("Location Service"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -309,6 +328,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_disabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("User not found"),
+        "usersTransectsLoadedSuccessfully":
+            MessageLookupByLibrary.simpleMessage(
+                "User\'s transects loaded successfully."),
         "verificationEmailSent":
             MessageLookupByLibrary.simpleMessage("Verification email sent!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage("Verify Email"),

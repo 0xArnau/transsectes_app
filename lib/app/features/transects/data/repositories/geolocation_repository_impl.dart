@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/transects/domain/datasources/geoloc
 import 'package:transsectes_app/app/features/transects/domain/datasources/permission_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/geocoding_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/repositories/geolocation_repository.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// Implementation of the `GeolocationRepository` interface.
 ///
@@ -25,7 +26,7 @@ class GeolocationRepositoryImpl implements GeolocationRepository {
     // First, ensure the necessary permissions are granted
     final hasPermission = await requestLocationPermissions();
     if (!hasPermission) {
-      throw Exception('Location permissions are not granted');
+      throw Exception(S.current.locationPermissionsNotGranted);
     }
 
     // Fetch the current position from the geolocation data source
@@ -37,7 +38,7 @@ class GeolocationRepositoryImpl implements GeolocationRepository {
     // First, ensure the necessary permissions are granted
     final hasPermission = await requestLocationPermissions();
     if (!hasPermission) {
-      throw Exception('Location permissions are not granted');
+      throw Exception(S.current.locationPermissionsNotGranted);
     }
     // Return the location stream from the geolocation data source
     return geolocationDataSource.positionStream();

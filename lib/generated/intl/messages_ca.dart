@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Afegir noves marques"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "Tots els camps legals han d\'ésser acceptats."),
+        "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Tots els transectes s\'han carregat correctament."),
         "all_transects":
             MessageLookupByLibrary.simpleMessage("Tots els transsectes"),
         "appCreatedBy": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "appInfo":
             MessageLookupByLibrary.simpleMessage("Informació de l\'aplicació"),
         "appName": MessageLookupByLibrary.simpleMessage("Nom"),
+        "appRunningInBackground": MessageLookupByLibrary.simpleMessage(
+            "L\'aplicació s\'està executant en segon pla"),
         "appSourceCode": MessageLookupByLibrary.simpleMessage("Codi font"),
         "appVersion": MessageLookupByLibrary.simpleMessage("Versió"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
@@ -135,6 +139,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha hagut un error en obtenir l\'usuari actual."),
         "exit": MessageLookupByLibrary.simpleMessage("Sortir"),
+        "failedToLoadTransects": MessageLookupByLibrary.simpleMessage(
+            "Error en carregar els transectes."),
+        "failedToLoadUserTransects": MessageLookupByLibrary.simpleMessage(
+            "Error en carregar els transectes de l\'usuari."),
+        "failedToUpdateTransect": MessageLookupByLibrary.simpleMessage(
+            "Error en actualitzar el transecte."),
         "file_saved": MessageLookupByLibrary.simpleMessage("Fitxer guardat:"),
         "file_saved_android": m0,
         "file_saved_generic": m1,
@@ -144,6 +154,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ciutat o data i hora (AAAA-MM-DDTHH:MM:SS)"),
         "forgot_password": MessageLookupByLibrary.simpleMessage(
             "Has oblidat la teva contrasenya?"),
+        "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
+            "El servei de GPS està desactivat, si us plau, habiliteu-lo abans de continuar"),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "Servei de GPS en segon pla deshabilitat"),
         "gps_service_background_disabled_content":
@@ -214,6 +226,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Avís legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documents legals"),
+        "locationBackgroundPermissionsDenied": MessageLookupByLibrary.simpleMessage(
+            "Els permisos d\'ubicació en segon pla estan permanentment denegats"),
+        "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
+            "Els permisos d\'ubicació no han estat atorgats"),
+        "locationService":
+            MessageLookupByLibrary.simpleMessage("Servei d\'ubicació"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
         "next": MessageLookupByLibrary.simpleMessage("Següent"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -318,6 +336,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Usuari deshabilitat"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("Usuari no trobat"),
+        "usersTransectsLoadedSuccessfully":
+            MessageLookupByLibrary.simpleMessage(
+                "Transectes de l\'usuari carregats correctament."),
         "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
             "Correu de verificació enviat!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage(

@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Añadir nuevas marcas"),
         "allLegalFieldsMustBeAccepted": MessageLookupByLibrary.simpleMessage(
             "Todos los campos legales deben ser aceptados."),
+        "allTransectsLoadedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Todos los transectos se han cargado con éxito."),
         "all_transects":
             MessageLookupByLibrary.simpleMessage("Todos los transectos"),
         "appCreatedBy": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "appInfo": MessageLookupByLibrary.simpleMessage(
             "Información de la aplicación"),
         "appName": MessageLookupByLibrary.simpleMessage("Nombre"),
+        "appRunningInBackground": MessageLookupByLibrary.simpleMessage(
+            "La aplicación está en segundo plano"),
         "appSourceCode": MessageLookupByLibrary.simpleMessage("Código fuente"),
         "appVersion": MessageLookupByLibrary.simpleMessage("Versión"),
         "app_background_notification_text": MessageLookupByLibrary.simpleMessage(
@@ -136,6 +140,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha habido un error al obtener el usuario actual."),
         "exit": MessageLookupByLibrary.simpleMessage("Salir"),
+        "failedToLoadTransects": MessageLookupByLibrary.simpleMessage(
+            "Error al cargar los transectos."),
+        "failedToLoadUserTransects": MessageLookupByLibrary.simpleMessage(
+            "Error al cargar los transectos del usuario."),
+        "failedToUpdateTransect": MessageLookupByLibrary.simpleMessage(
+            "Error al actualizar el transecto."),
         "file_saved": MessageLookupByLibrary.simpleMessage("Archivo guardado:"),
         "file_saved_android": m0,
         "file_saved_generic": m1,
@@ -145,6 +155,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ciudad o fecha y hora (AAAA-MM-DDTHH:MM:SS)"),
         "forgot_password":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
+        "gpsServiceDisabled": MessageLookupByLibrary.simpleMessage(
+            "El servicio de GPS está desactivado, por favor, actívalo antes de continuar"),
         "gps_service_background_disabled": MessageLookupByLibrary.simpleMessage(
             "Servicio de GPS en segundo plano deshabilitado"),
         "gps_service_background_disabled_content":
@@ -215,6 +227,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Aviso legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documentos legales"),
+        "locationBackgroundPermissionsDenied": MessageLookupByLibrary.simpleMessage(
+            "Los permisos de ubicación en segundo plano están permanentemente denegados"),
+        "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
+            "Los permisos de ubicación no han sido otorgados"),
+        "locationService":
+            MessageLookupByLibrary.simpleMessage("Servicio de ubicación"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "next": MessageLookupByLibrary.simpleMessage("Siguiente"),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -318,6 +336,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Usuario deshabilitado"),
         "user_not_found":
             MessageLookupByLibrary.simpleMessage("Usuario no encontrado"),
+        "usersTransectsLoadedSuccessfully":
+            MessageLookupByLibrary.simpleMessage(
+                "Transectos del usuario cargados con éxito."),
         "verificationEmailSent": MessageLookupByLibrary.simpleMessage(
             "¡Correo de verificación enviado!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage(

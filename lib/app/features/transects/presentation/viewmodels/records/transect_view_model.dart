@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/transects/domain/usecases/get_addre
 import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class TransectViewModel {
   final Ref _ref;
@@ -32,7 +33,7 @@ class TransectViewModel {
     final entity = await _updatedFields(transect);
 
     if (entity == null) {
-      errorMessage = 'Failed to update transect';
+      errorMessage = S.current.failedToUpdateTransect;
       return null;
     }
 
@@ -41,7 +42,7 @@ class TransectViewModel {
     result.fold(
       (value) {},
       (error) {
-        errorMessage = 'Failed to update transect: $error';
+        errorMessage = S.current.failedToUpdateTransect;
       },
     );
 
@@ -61,7 +62,7 @@ class TransectViewModel {
     final lastCoordinate = entity.coordinates.lastOrNull;
 
     if (firstCoordinate == null || lastCoordinate == null) {
-      errorMessage = 'Failed to update transect';
+      errorMessage = S.current.failedToUpdateTransect;
       return null;
     }
 
@@ -75,7 +76,7 @@ class TransectViewModel {
         subAdministrativeAreaFirst = success.subAdministrativeArea ?? '';
       },
       (_) {
-        errorMessage = 'Failed to update transect';
+        errorMessage = S.current.failedToUpdateTransect;
         return null;
       },
     );
@@ -90,7 +91,7 @@ class TransectViewModel {
         subAdministrativeAreaLast = success.subAdministrativeArea ?? '';
       },
       (_) {
-        errorMessage = 'Failed to update transect';
+        errorMessage = S.current.failedToUpdateTransect;
         return null;
       },
     );
@@ -121,7 +122,7 @@ class TransectViewModel {
         transects = []; // Clear the list when all transects are removed
       },
       (error) {
-        errorMessage = 'Failed to remove all transects: $error';
+        errorMessage = S.current.failedToUpdateTransect;
       },
     );
   }

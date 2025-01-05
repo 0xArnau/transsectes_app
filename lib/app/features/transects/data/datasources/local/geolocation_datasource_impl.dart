@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/geolocation_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/geo_point_entity.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// Implementation of the `GeolocationDataSource` interface.
 ///
@@ -53,9 +54,9 @@ class GeolocationDatasourceImpl implements GeolocationDataSource {
         distanceFilter: 1,
         forceLocationManager: true,
         intervalDuration: const Duration(seconds: 10),
-        foregroundNotificationConfig: const ForegroundNotificationConfig(
-          notificationText: 'App is running in the background',
-          notificationTitle: 'Location Service',
+        foregroundNotificationConfig: ForegroundNotificationConfig(
+          notificationText: S.current.appRunningInBackground,
+          notificationTitle: S.current.locationService,
           enableWakeLock: true,
         ),
       );

@@ -3,6 +3,7 @@ import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/permission_datasource.dart';
 import 'package:transsectes_app/app/features/transects/domain/exceptions/gps_exception.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// Implementation of the `PermissionDataSource` interface.
 ///
@@ -14,8 +15,7 @@ class PermissionDatasourceImpl implements PermissionDataSource {
     final serviceEnabled = await Geolocator.isLocationServiceEnabled();
 
     if (!serviceEnabled) {
-      throw GpsServiceDisabled(
-          'GPS service is disabled, please enable it before continuing');
+      throw GpsServiceDisabled(S.current.gpsServiceDisabled);
     }
 
     return true;
@@ -46,7 +46,7 @@ class PermissionDatasourceImpl implements PermissionDataSource {
     if (request.isPermanentlyDenied) {
       Logger().e(request);
       throw PermanentlyDeniedException(
-          'Location background permissions is permanently denied');
+          S.current.locationBackgroundPermissionsDenied);
     }
 
     return request.isGranted;
