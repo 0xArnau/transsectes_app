@@ -20,6 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
+  static String m0(fileName) =>
+      "Archivo guardado en \'Archivos > Menú > nombre del dispositivo > Android > data > cat.gepec.transsectes_app > files > ${fileName}\'";
+
+  static String m1(fileName) => "Archivo guardado: ${fileName}";
+
+  static String m2(fileName) =>
+      "Archivo guardado en \'Archivos > Explorar > En mi iPhone > Transsectes > ${fileName}\'";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Aceptar"),
@@ -129,6 +137,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ha habido un error al obtener el usuario actual."),
         "exit": MessageLookupByLibrary.simpleMessage("Salir"),
         "file_saved": MessageLookupByLibrary.simpleMessage("Archivo guardado:"),
+        "file_saved_android": m0,
+        "file_saved_generic": m1,
+        "file_saved_ios": m2,
         "filter_clear": MessageLookupByLibrary.simpleMessage("Limpiar filtro"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
             "Ciudad o fecha y hora (AAAA-MM-DDTHH:MM:SS)"),

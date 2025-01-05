@@ -112,11 +112,11 @@ class FileDatasourceImpl implements FileDatasource {
   /// Returns the file location message based on the platform.
   String _getFileLocation(String fileName) {
     if (Platform.isAndroid) {
-      return "${S.current.file_saved} 'Files > Menu > device name > Android > data > cat.gepec.transsectes_app > files > $fileName'";
+      return S.current.file_saved_android(fileName);
     } else if (Platform.isIOS) {
-      return "${S.current.file_saved} 'Files > Browse > On My iPhone > Transsectes > $fileName'";
+      return S.current.file_saved_ios(fileName);
     } else {
-      return '${S.current.file_saved} $fileName'; // Default for other platforms
+      return S.current.file_saved_generic(fileName);
     }
   }
 }

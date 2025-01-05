@@ -640,6 +640,36 @@ class S {
     );
   }
 
+  /// `File saved at 'Files > Menu > device name > Android > data > cat.gepec.transsectes_app > files > {fileName}'`
+  String file_saved_android(Object fileName) {
+    return Intl.message(
+      'File saved at \'Files > Menu > device name > Android > data > cat.gepec.transsectes_app > files > $fileName\'',
+      name: 'file_saved_android',
+      desc: '',
+      args: [fileName],
+    );
+  }
+
+  /// `File saved: {fileName}`
+  String file_saved_generic(Object fileName) {
+    return Intl.message(
+      'File saved: $fileName',
+      name: 'file_saved_generic',
+      desc: '',
+      args: [fileName],
+    );
+  }
+
+  /// `File saved at 'Files > Browse > On My iPhone > Transsectes > {fileName}'`
+  String file_saved_ios(Object fileName) {
+    return Intl.message(
+      'File saved at \'Files > Browse > On My iPhone > Transsectes > $fileName\'',
+      name: 'file_saved_ios',
+      desc: '',
+      args: [fileName],
+    );
+  }
+
   /// `Clear filter`
   String get filter_clear {
     return Intl.message(

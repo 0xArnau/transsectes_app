@@ -20,6 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ca';
 
+  static String m0(fileName) =>
+      "Fitxer desat a \'Arxius > Menú > nom del dispositiu > Android > data > cat.gepec.transsectes_app > files > ${fileName}\'";
+
+  static String m1(fileName) => "Fitxer desat: ${fileName}";
+
+  static String m2(fileName) =>
+      "Fitxer desat a \'Arxius > Navega > Al meu iPhone > Transsectes > ${fileName}\'";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accept": MessageLookupByLibrary.simpleMessage("Acceptar"),
@@ -128,6 +136,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ha hagut un error en obtenir l\'usuari actual."),
         "exit": MessageLookupByLibrary.simpleMessage("Sortir"),
         "file_saved": MessageLookupByLibrary.simpleMessage("Fitxer guardat:"),
+        "file_saved_android": m0,
+        "file_saved_generic": m1,
+        "file_saved_ios": m2,
         "filter_clear": MessageLookupByLibrary.simpleMessage("Netejar filtre"),
         "filter_hint": MessageLookupByLibrary.simpleMessage(
             "Ciutat o data i hora (AAAA-MM-DDTHH:MM:SS)"),
