@@ -135,8 +135,8 @@ class _SnackbarWithProgressState extends State<_SnackbarWithProgress>
 
   Color _getProgressBarColor(BuildContext context) {
     return Color.lerp(
-      Theme.of(context).colorScheme.surfaceContainerLowest,
-      Theme.of(context).colorScheme.surfaceContainerHigh,
+      Theme.of(context).colorScheme.surfaceContainer,
+      Theme.of(context).colorScheme.surfaceContainer,
       _controller.value,
     )!;
   }
