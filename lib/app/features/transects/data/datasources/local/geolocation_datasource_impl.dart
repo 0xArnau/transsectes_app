@@ -50,7 +50,7 @@ class GeolocationDatasourceImpl implements GeolocationDataSource {
         accuracy: LocationAccuracy.high,
         // the minimum distance (measured in meters) a device must
         // move horizontally before an update event is generated;
-        distanceFilter: 5,
+        distanceFilter: 1,
         forceLocationManager: true,
         intervalDuration: const Duration(seconds: 10),
         foregroundNotificationConfig: const ForegroundNotificationConfig(
