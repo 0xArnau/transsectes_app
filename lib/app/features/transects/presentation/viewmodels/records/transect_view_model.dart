@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_address_from_coordinates_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
@@ -7,7 +6,6 @@ import 'package:transsectes_app/app/features/transects/domain/entities/transect_
 import 'package:transsectes_app/generated/l10n.dart';
 
 class TransectViewModel {
-  final Ref _ref;
   final UpdateTransectUseCase _updateTransectUseCase;
   final RemoveAllTransectsUseCase _removeAllTransectsUseCase;
   final GetAddressFromCoordinatesUseCase _getAddressFromCoordinatesUseCase;
@@ -19,12 +17,10 @@ class TransectViewModel {
   List<TransectEntity> transects = [];
 
   TransectViewModel({
-    required Ref ref,
     required UpdateTransectUseCase updateTransectUseCase,
     required RemoveAllTransectsUseCase removeAllTransectsUseCase,
     required GetAddressFromCoordinatesUseCase getAddressFromCoordinatesUseCase,
-  })  : _ref = ref,
-        _updateTransectUseCase = updateTransectUseCase,
+  })  : _updateTransectUseCase = updateTransectUseCase,
         _removeAllTransectsUseCase = removeAllTransectsUseCase,
         _getAddressFromCoordinatesUseCase = getAddressFromCoordinatesUseCase;
 

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore_platform_interface/src/timestamp.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/results/result.dart';
 import 'package:transsectes_app/app/features/transects/domain/datasources/transect_datasource.dart';

@@ -17,7 +17,6 @@ final transectViewModelProvider = Provider<TransectViewModel>((ref) {
 
   // Returning a new instance of [TransectViewModel] with the injected use cases.
   return TransectViewModel(
-    ref: ref,
     updateTransectUseCase: updateTransectUseCase,
     removeAllTransectsUseCase: removeAllTransectsUseCase,
     getAddressFromCoordinatesUseCase: getAddressFromCoordinatesUseCase,
