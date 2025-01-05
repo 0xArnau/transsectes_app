@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -105,8 +106,9 @@ class ContactView extends StatelessWidget {
       onLongPress: () async {
         Clipboard.setData(ClipboardData(text: uri.path)).then((_) {
           if (context.mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(clipboardMessage)),
+            floatSnackbar(
+              context: context,
+              message: clipboardMessage,
             );
           }
         });
@@ -132,9 +134,10 @@ class ContactView extends StatelessWidget {
       Uri url, String errorMessage, BuildContext context) async {
     if (!await launchUrl(url)) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-              content: Text(errorMessage), backgroundColor: Colors.redAccent),
+        floatSnackbar(
+          context: context,
+          message: errorMessage,
+          isError: true,
         );
       }
     }

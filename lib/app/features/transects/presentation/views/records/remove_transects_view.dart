@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/providers/use_case_providers.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
 class RemoveTransectsView extends ConsumerStatefulWidget {
@@ -67,17 +68,15 @@ class _RemoveTransectsViewState extends ConsumerState<RemoveTransectsView> {
     final response = await usecase.execute();
 
     response.fold(
-      (_) => ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('All transects deleted successfully!'), // TODO: i18n
-        ),
+      (_) => floatSnackbar(
+        context: context,
+        message: 'All transects deleted successfully!',
+        isSuccess: true,
       ),
-      (_) => ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content:
-              Text('An error occurred while deleting transects!'), // TODO: i18n
-          backgroundColor: Theme.of(context).colorScheme.error,
-        ),
+      (_) => floatSnackbar(
+        context: context,
+        message: 'An error occurred while deleting transects!',
+        isError: true,
       ),
     );
   }

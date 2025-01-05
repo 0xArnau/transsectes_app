@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/detail_transect_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_view_model_provider.dart';
@@ -49,11 +50,10 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
       transectViewModelProvider,
       (prev, next) {
         if (next.errorMessage != null && next.errorMessage!.isNotEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(next.errorMessage!),
-              backgroundColor: Colors.redAccent,
-            ),
+          floatSnackbar(
+            context: context,
+            message: next.errorMessage!,
+            isError: true,
           );
 
           // Clear any error messages after showing them.
@@ -256,24 +256,11 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
   /// - [isError]: Whether the snackbar represents an error (true) or success (false).
   void _snackbar(BuildContext context, String message, bool isError) {
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          duration: const Duration(seconds: 30),
-          showCloseIcon: true,
-          closeIconColor:
-              isError ? Colors.black : Theme.of(context).colorScheme.onSurface,
-          content: Text(
-            message,
-            style: TextStyle(
-              color: isError
-                  ? Colors.black
-                  : Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
-          backgroundColor: isError
-              ? Colors.redAccent
-              : Theme.of(context).colorScheme.surface,
-        ),
+      floatSnackbar(
+        context: context,
+        durationInSeconds: 30,
+        message: message,
+        isError: isError,
       );
     }
   }

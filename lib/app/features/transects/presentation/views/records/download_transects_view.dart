@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/detail_transect_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_list_view_model_provider.dart';
@@ -148,20 +149,10 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
   /// - [isError]: Whether the snackbar represents an error (true) or success (false).
   void _showSnackbar(BuildContext context, String message, bool isError) {
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            message,
-            style: TextStyle(
-              color: isError
-                  ? Colors.black
-                  : Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
-          backgroundColor: isError
-              ? Colors.redAccent
-              : Theme.of(context).colorScheme.surface,
-        ),
+      floatSnackbar(
+        context: context,
+        message: message,
+        isError: isError,
       );
     }
   }

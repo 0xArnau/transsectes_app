@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_list_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/records/transect_provider.dart';
@@ -82,11 +83,10 @@ class _ListTransectsViewState extends ConsumerState<ListTransectsView> {
     if (errorMessage != null) {
       Future.delayed(Duration.zero, () {
         if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(errorMessage),
-              backgroundColor: Colors.redAccent,
-            ),
+          floatSnackbar(
+            context: context,
+            message: errorMessage,
+            isError: true,
           );
 
           _viewModel.clearMessages();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/forgot_password_view_model_provider.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -51,20 +52,17 @@ class _ForgotPasswordViewState extends ConsumerState<ForgotPasswordView> {
     try {
       await action;
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(successMessage)),
+        floatSnackbar(
+          context: context,
+          message: successMessage,
         );
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              errorMessage,
-              style: TextStyle(color: Theme.of(context).colorScheme.onError),
-            ),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          ),
+        floatSnackbar(
+          context: context,
+          message: errorMessage,
+          isError: true,
         );
       }
     } finally {

@@ -24,6 +24,7 @@ ThemeData lightMode = ThemeData(
     surfaceContainerLow: const Color.fromRGBO(235, 235, 240, 1),
     surfaceContainer: const Color.fromRGBO(215, 215, 220, 1),
     surfaceContainerHigh: const Color.fromRGBO(250, 250, 250, 1),
+    errorContainer: Colors.orange,
   ),
 );
 
@@ -51,5 +52,6 @@ ThemeData darkMode = ThemeData(
     surfaceContainerLowest: const Color.fromRGBO(72, 72, 74, 1),
     surfaceDim: const Color.fromRGBO(99, 99, 102, 1),
     surfaceBright: const Color.fromRGBO(144, 144, 147, 1),
+    errorContainer: Colors.orange,
   ),
 );

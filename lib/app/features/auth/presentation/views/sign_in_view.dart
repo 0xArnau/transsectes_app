@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/sign_in_view_model_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/views/forgot_password_view.dart';
@@ -37,11 +38,10 @@ class _SignInViewState extends ConsumerState<SignInView> {
   Widget build(BuildContext context) {
     ref.listen<UserState>(currentUserStateProvider, (prev, next) {
       if (next.errorMessage != null && next.errorMessage!.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(next.errorMessage!),
-            backgroundColor: Colors.redAccent,
-          ),
+        floatSnackbar(
+          context: context,
+          message: next.errorMessage!,
+          isError: true,
         );
 
         ref.read(signinViewModelProvider).clearMessages();

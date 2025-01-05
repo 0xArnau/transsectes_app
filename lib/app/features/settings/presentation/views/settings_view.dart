@@ -6,6 +6,7 @@ import 'package:transsectes_app/app/core/exceptions/exception.dart';
 import 'package:transsectes_app/app/core/providers/user_provider.dart';
 import 'package:transsectes_app/app/core/states/user_state.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/settings/presentation/providers/settings_provider.dart';
 import 'package:transsectes_app/app/features/settings/presentation/widgets/app_info_widget.dart';
 import 'package:transsectes_app/generated/l10n.dart';
@@ -29,11 +30,10 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
     // Listen to changes in the user state and show appropriate messages or actions.
     ref.listen<UserState>(currentUserStateProvider, (prev, next) {
       if (next.errorMessage != null && next.errorMessage!.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(next.errorMessage!),
-            backgroundColor: Colors.redAccent,
-          ),
+        floatSnackbar(
+          context: context,
+          message: next.errorMessage!,
+          isError: true,
         );
 
         // Clear any error messages after showing them.
@@ -234,57 +234,47 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
 
     // Show success snackbar
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          // content: Text(S.current.account_deleted_successfully),
-          content: Text('Account removed'),
-          backgroundColor: Colors.green,
-        ),
+      floatSnackbar(
+        context: context,
+        message: 'Account removed',
+        isSuccess: true,
       );
     }
   } on RequiresNonTechnicianException catch (_) {
     // Show snackbar for unexpected account deletion error
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          // content: Text(S.current.unexpected_error_deleting_account),
-          content: Text(
-              'Esta acción solo puede ser realizada por usuarios no técnicos'),
-          backgroundColor: Colors.red,
-        ),
+      floatSnackbar(
+        context: context,
+        message:
+            'Esta acción solo puede ser realizada por usuarios no técnicos',
+        isError: true,
       );
     }
   } on RequiresRecentLoginException catch (_) {
     // Show snackbar for reauthentication requirement
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          // content: Text(S.current.requires_recent_login),
-          content: Text('Requires recent sign-in'),
-          backgroundColor: Colors.orange,
-        ),
+      floatSnackbar(
+        context: context,
+        message: 'Requires recent sign-in',
+        isAlert: true,
       );
     }
   } on DeleteUserAccountException catch (_) {
     // Show snackbar for unexpected account deletion error
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          // content: Text(S.current.unexpected_error_deleting_account),
-          content: Text('Unexpected error'),
-          backgroundColor: Colors.red,
-        ),
+      floatSnackbar(
+        context: context,
+        message: 'Unexpected error',
+        isError: true,
       );
     }
   } catch (_) {
     // Show generic error snackbar
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          // content: Text(S.current.generic_error_message),
-          content: Text('General error'),
-          backgroundColor: Colors.red,
-        ),
+      floatSnackbar(
+        context: context,
+        message: 'General error',
+        isError: true,
       );
     }
   }

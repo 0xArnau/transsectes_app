@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // For clipboard functionality
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 
 /// View for displaying the map with markers based on transect coordinates.
@@ -138,25 +139,19 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
   void _copyGoogleMapsUrl() {
     final url = _generateGoogleMapsUrl();
     if (url.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Error: No coordinates available to generate the URL'),
-          backgroundColor: Colors.redAccent,
-        ),
+      floatSnackbar(
+        context: context,
+        message: 'Error: No coordinates available to generate the URL',
+        isError: true,
       );
       return;
     }
 
     // Copy the URL to the clipboard
     Clipboard.setData(ClipboardData(text: url));
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Google Maps URL copied to clipboard!',
-          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.surface,
-      ),
+    floatSnackbar(
+      context: context,
+      message: 'Google Maps URL copied to clipboard!',
     );
   }
 

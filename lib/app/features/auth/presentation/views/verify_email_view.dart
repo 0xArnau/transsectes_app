@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/verify_email_view_model_provider.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 
@@ -34,14 +35,18 @@ class _VerifyEmailViewState extends ConsumerState<VerifyEmailView> {
     try {
       await action;
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(successMessage)),
+        floatSnackbar(
+          context: context,
+          message: successMessage,
         );
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$errorMessage: $e')),
+        // TODO: revisar este cambio
+        floatSnackbar(
+          context: context,
+          message: errorMessage,
+          isError: true,
         );
       }
     } finally {

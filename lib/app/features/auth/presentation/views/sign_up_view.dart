@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/custom_button.dart';
 import 'package:transsectes_app/app/core/widgets/custom_text_form.dart';
+import 'package:transsectes_app/app/core/widgets/float_snackbar.dart';
 import 'package:transsectes_app/app/core/widgets/pdf_viewer_widget.dart';
 import 'package:transsectes_app/app/features/auth/presentation/providers/sign_up_view_model_provider.dart';
 import 'package:transsectes_app/app/features/auth/presentation/viewmodels/sign_up_view_model.dart';
@@ -102,20 +103,10 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
   /// [message]: The message to display.
   /// [isError]: Whether the message is an error or not.
   void _showSnackBar(String message, bool isError) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          message,
-          style: TextStyle(
-            color: isError
-                ? Theme.of(context).colorScheme.onError
-                : Theme.of(context).colorScheme.surface,
-          ),
-        ),
-        backgroundColor: isError
-            ? Theme.of(context).colorScheme.error
-            : Theme.of(context).colorScheme.onSurface,
-      ),
+    floatSnackbar(
+      context: context,
+      message: message,
+      isError: isError,
     );
   }
 
