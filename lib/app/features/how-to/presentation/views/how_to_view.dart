@@ -195,7 +195,7 @@ Widget _buildText(BuildContext context, String text) {
 Widget _buildImage(String imagePath) {
   return Image.asset(
     imagePath,
-    fit: BoxFit.fitWidth,
+    fit: BoxFit.contain,
     width: double.infinity,
   );
 }

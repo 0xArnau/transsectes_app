@@ -64,7 +64,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
               : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.contain,
         ),
       ),
       body: Padding(
@@ -272,8 +272,7 @@ void _handleDeleteAccount(BuildContext context, WidgetRef ref) async {
     if (context.mounted) {
       floatSnackbar(
         context: context,
-        message:
-            S.current.requiresNonTechnician,
+        message: S.current.requiresNonTechnician,
         isError: true,
       );
     }

@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
               : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.contain,
         ),
       ),
       body: ListView(
