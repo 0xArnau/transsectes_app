@@ -31,25 +31,20 @@
 
 ### Screenshots
 
-| Auth | Forgot password | Forgot password |
-|------|-----------------|-----------------|
-| <img src="docs/readme/auth/auth.png" alt="Auth" style="width: 100%;"> | <img src="docs/readme/auth/auth_password.png" alt="Forgot password" style="width: 100%;"> | <img src="docs/readme/auth/auth_password.png" alt="Forgot password" style="width: 100%;"> |
-
-| Sign up, part 1   | Sign up, part 2 | Sign up, part 3 |
-|------|-----------------|-----------------|
-| <img src="docs/readme/auth/auth_signup.png" alt="Sign up, part 1" style="width: 100%;"> | <img src="docs/readme/auth/auth_signup_pdf.png" alt="Sign up, part 2" style="width: 100%;"> | <img src="docs/readme/auth/auth_verify_email.png" alt="Sign up, part 3" style="width: 100%;"> |
-
-| Home   | Menu | Change language | Contact |
-|------|-----------------|-----------------|-----------------|
-| <img src="docs/readme/home/home.png" alt="Home" style="width: 100%;"> | <img src="docs/readme/menu/menu.png" alt="Menu" style="width: 100%;"> | <img src="docs/readme/menu/menu_language.png" alt="Change language" style="width: 100%;">  | <img src="docs/readme/contact/contact.png" alt="Contact" style="width: 100%;"> |
-
-| How to make a transect | Start/Stop a transect | Start/Stop a transect, send | 
-|------|-----------------|-----------------|
-| <img src="docs/readme/howto/howto.png" alt="How to make a transect" style="width: 100%;"> | <img src="docs/readme/start_stop/startstop.png" alt="Start/Stop a transect" style="width: 100%;"> | <img src="docs/readme/start_stop/stop_transect.png" alt="Start/Stop a transect, send" style="width: 100%;"> |
-
-| Transects (User)   | Transects (Technician) | Download transects | Remove transects (Technician) |
-|------|-----------------|-----------------|-----------------|
-| <img src="docs/readme/transects/transect.png" alt="Transects (User)" style="width: 100%;"> | <img src="docs/readme/transects/transects_filter.png" alt="Transects (Technician)" style="width: 100%;"> | <img src="docs/readme/transects/transects_download.png" alt="Download transects" style="width: 100%;"> | <img src="docs/readme/transects/transects_remove.png" alt="Remove transects (Technician)" style="width: 100%;"> |
+| Screen             | Dark Mode                                                                                  | Light Mode                                                                                 |
+|--------------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| **Contact**        | <img src="docs/readme/screens/Dark/Contact.png" alt="Contact - Dark" width="300px" />     | <img src="docs/readme/screens/Light/Contact.png" alt="Contact - Light" width="300px" />    |
+| **Forgot Password**| <img src="docs/readme/screens/Dark/ForgotPassword.png" alt="Forgot Password - Dark" width="300px" /> | <img src="docs/readme/screens/Light/ForgotPassword.png" alt="Forgot Password - Light" width="300px" /> |
+| **Home**           | <img src="docs/readme/screens/Dark/Home.png" alt="Home - Dark" width="300px" />           | <img src="docs/readme/screens/Light/Home.png" alt="Home - Light" width="300px" />          |
+| **How To**         | <img src="docs/readme/screens/Dark/HowTo.png" alt="How To - Dark" width="300px" />         | <img src="docs/readme/screens/Light/HowTo.png" alt="How To - Light" width="300px" />       |
+| **Login**          | <img src="docs/readme/screens/Dark/Login.png" alt="Login - Dark" width="300px" />          | <img src="docs/readme/screens/Light/Login.png" alt="Login - Light" width="300px" />        |
+| **Save**           | <img src="docs/readme/screens/Dark/Save.png" alt="Save - Dark" width="300px" />            | <img src="docs/readme/screens/Light/Save.png" alt="Save - Light" width="300px" />          |
+| **Settings**       | <img src="docs/readme/screens/Dark/Settings.png" alt="Settings - Dark" width="300px" />    | <img src="docs/readme/screens/Light/Settings.png" alt="Settings - Light" width="300px" />  |
+| **Sign Up**        | <img src="docs/readme/screens/Dark/SignUp.png" alt="Sign Up - Dark" width="300px" />       | <img src="docs/readme/screens/Light/SignUp.png" alt="Sign Up - Light" width="300px" />     |
+| **Splash**         | <img src="docs/readme/screens/Dark/Splash.png" alt="Splash - Dark" width="300px" />        | <img src="docs/readme/screens/Light/Splash.png" alt="Splash - Light" width="300px" />      |
+| **Start**          | <img src="docs/readme/screens/Dark/Start.png" alt="Start - Dark" width="300px" />          | <img src="docs/readme/screens/Light/Start.png" alt="Start - Light" width="300px" />        |
+| **Stop**           | <img src="docs/readme/screens/Dark/Stop.png" alt="Stop - Dark" width="300px" />            | <img src="docs/readme/screens/Light/Stop.png" alt="Stop - Light" width="300px" />          |
+| **Transects**      | <img src="docs/readme/screens/Dark/Transects.png" alt="Transects - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Transects.png" alt="Transects - Light" width="300px" />|
 
 ### Installation
 
