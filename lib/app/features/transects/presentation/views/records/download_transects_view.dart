@@ -151,6 +151,7 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
   void _showSnackbar(BuildContext context, String message, bool isError) {
     if (context.mounted) {
       floatSnackbar(
+        durationInSeconds: 30,
         context: context,
         message: message,
         isError: isError,
