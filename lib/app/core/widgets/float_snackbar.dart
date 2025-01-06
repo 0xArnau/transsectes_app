@@ -22,7 +22,7 @@ void floatSnackbar({
       backgroundColor: Colors.transparent,
       duration: duration,
       behavior: SnackBarBehavior.floating,
-      // elevation: 0,
+      elevation: 0,
     ),
   );
 }
@@ -94,6 +94,13 @@ class _SnackbarWithProgressState extends State<_SnackbarWithProgress>
     return BoxDecoration(
       color: _getSnackbarBackgroundColor(context),
       borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          color: Theme.of(context).colorScheme.surface,
+          blurRadius: 2,
+          offset: Offset(0, 0),
+        ),
+      ],
     );
   }
 
