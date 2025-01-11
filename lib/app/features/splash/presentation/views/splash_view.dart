@@ -114,7 +114,7 @@ class _SplashViewState extends State<SplashView> {
         child: Image.asset(
           'assets/imgs/background/imatge_tortuga.png',
           fit: BoxFit.contain,
-          height: MediaQuery.of(context).size.width / 1.12,
+          height: MediaQuery.of(context).size.height / 2.3,
         ),
       ),
     );
