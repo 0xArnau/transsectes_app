@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/charts/chart_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/charts/charts_view_model.dart';
+import 'package:transsectes_app/app/features/transects/presentation/views/records/charts_detail_view.dart';
 
 /// A widget that displays a list of metrics for transects based on a time range.
 class ChartsListView extends ConsumerStatefulWidget {
@@ -187,6 +188,22 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
             ),
           ],
         ),
+        onTap: () {
+          if (context.mounted) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChartsDetailView(
+                  title: key,
+                  numberOfTransects: metrics['numberOfTransects'] ?? 0,
+                  informedPeople: metrics['informedPeople'] ?? 0,
+                  tractorCount: metrics['tractorCount'] ?? 0,
+                  noTractorCount: metrics['noTractorCount'] ?? 0,
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }
