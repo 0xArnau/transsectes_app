@@ -4,6 +4,7 @@ import 'package:transsectes_app/app/features/transects/domain/entities/transect_
 import 'package:transsectes_app/app/features/transects/presentation/providers/charts/chart_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/charts/charts_view_model.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/records/charts_detail_view.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 /// A widget that displays a list of metrics for transects based on a time range.
 class ChartsListView extends ConsumerStatefulWidget {
@@ -44,11 +45,11 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
   /// It contains the title 'Metrics' and a button to toggle the visibility of charts.
   AppBar _buildAppBar() {
     return AppBar(
-      title: const Text('Metrics'),
+      title: Text(S.current.metrics),
       // actions: [
       //   TextButton(
       //     onPressed: _toggleChartsVisibility,
-      //     child: Text(showCharts ? 'Hide' : 'Charts'),
+      //     child: Text(showCharts ? S.current.list : S.current.chart),
       //   ),
       // ],
     );

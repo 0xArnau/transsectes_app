@@ -76,7 +76,7 @@ class _ChartsDetailViewState extends State<ChartsDetailView> {
         series: <PieSeries<_PieData, String>>[
           PieSeries<_PieData, String>(
             explode: true,
-            explodeIndex: 0,
+            explodeIndex: null,
             dataSource: pieData,
             xValueMapper: (_PieData data, _) => data.xData,
             yValueMapper: (_PieData data, _) => data.yData,

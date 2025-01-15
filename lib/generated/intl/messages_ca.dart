@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No pots aturar un transsecte, no n\'hi ha cap que hagi començat."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Canviar contrasenya"),
+        "chart": MessageLookupByLibrary.simpleMessage("Gràfic"),
         "close": MessageLookupByLibrary.simpleMessage("Tancar"),
         "confirm_email":
             MessageLookupByLibrary.simpleMessage("Confirmar correu electrònic"),
@@ -103,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No es pot obrir el lloc web"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta l\'usuari actual."),
+        "daily": MessageLookupByLibrary.simpleMessage("Diari"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Eliminar compte"),
@@ -183,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "El servei de GPS està deshabilitat"),
         "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
             "Habilita el servei de GPS i torna"),
+        "hide": MessageLookupByLibrary.simpleMessage("Amagar"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Com fer un transsecte"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
@@ -244,6 +247,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Avís legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documents legals"),
+        "list": MessageLookupByLibrary.simpleMessage("Llista"),
         "locationBackgroundPermissionsDenied": MessageLookupByLibrary.simpleMessage(
             "Els permisos d\'ubicació en segon pla estan permanentment denegats"),
         "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
@@ -256,6 +260,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("Servei d\'ubicació"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
+        "metrics": MessageLookupByLibrary.simpleMessage("Mètriques"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Mensual"),
         "next": MessageLookupByLibrary.simpleMessage("Següent"),
         "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
             "No hi ha transectes disponibles."),
@@ -359,6 +365,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "S\'ha produït un error inesperat en eliminar el compte."),
+        "unknown": MessageLookupByLibrary.simpleMessage("Desconegut"),
         "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
             "Error desconegut, no es pot recarregar."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
@@ -379,8 +386,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Correu de verificació enviat!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage(
             "Verifica el correu electrònic"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Setmanal"),
+        "weeklySubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nota: les setmanes són de l\'1 al 7, del 8 al 14, etc. No es té en compte el dia de la setmana."),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Contrasenya incorrecta"),
+        "yearly": MessageLookupByLibrary.simpleMessage("Anual"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Ja tens un compte?")
       };

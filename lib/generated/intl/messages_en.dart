@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can\'t stop a transect, there isn\'t one that\'s started."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "chart": MessageLookupByLibrary.simpleMessage("Chart"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirm_email": MessageLookupByLibrary.simpleMessage("Confirm email"),
         "confirm_password":
@@ -97,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cannot open the website"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Current user is missing."),
+        "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -176,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("GPS service is disabled"),
         "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
             "Enable GPS service and go back"),
+        "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
@@ -235,6 +238,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Legal notice"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Legal documents"),
+        "list": MessageLookupByLibrary.simpleMessage("List"),
         "locationBackgroundPermissionsDenied":
             MessageLookupByLibrary.simpleMessage(
                 "Location background permissions are permanently denied"),
@@ -248,6 +252,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "metrics": MessageLookupByLibrary.simpleMessage("Metrics"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Monthly"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noTransectsAvailable":
             MessageLookupByLibrary.simpleMessage("No transects available."),
@@ -352,6 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "An unexpected error occurred while deleting the account."),
+        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
             "Unknown error, cannot reload."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
@@ -370,8 +377,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "verificationEmailSent":
             MessageLookupByLibrary.simpleMessage("Verification email sent!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Weekly"),
+        "weeklySubtitle": MessageLookupByLibrary.simpleMessage(
+            "Note: Weeks are from 1 to 7, 8 to 14, and so on. The day of the week is not considered."),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "yearly": MessageLookupByLibrary.simpleMessage("Yearly"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?")
       };
