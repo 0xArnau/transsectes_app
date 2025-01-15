@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class ChartsDetailView extends StatefulWidget {
   const ChartsDetailView({
@@ -30,22 +31,22 @@ class _ChartsDetailViewState extends State<ChartsDetailView> {
 
     setState(() {
       pieData.add(_PieData(
-        'Number of Transects (${widget.numberOfTransects})',
+        '${S.current.numberOfTransects} (${widget.numberOfTransects})',
         widget.numberOfTransects,
         '${widget.numberOfTransects}',
       ));
       pieData.add(_PieData(
-        'Informed People (${widget.informedPeople})',
+        '${S.current.informedPeople} (${widget.informedPeople})',
         widget.informedPeople,
         '${widget.informedPeople}',
       ));
       pieData.add(_PieData(
-        'Tractor Count (${widget.tractorCount})',
+        '${S.current.tractorCount} (${widget.tractorCount})',
         widget.tractorCount,
         '${widget.tractorCount}',
       ));
       pieData.add(_PieData(
-        'No Tractor Count (${widget.noTractorCount})',
+        '${S.current.noTractorCount} (${widget.noTractorCount})',
         widget.noTractorCount,
         '${widget.noTractorCount}',
       ));

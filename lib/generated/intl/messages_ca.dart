@@ -102,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No es pot obrir el número de telèfon"),
         "contact_error_website":
             MessageLookupByLibrary.simpleMessage("No es pot obrir el lloc web"),
+        "counts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta l\'usuari actual."),
         "daily": MessageLookupByLibrary.simpleMessage("Diari"),
@@ -232,6 +233,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Clàusula informativa"),
+        "informedPeople":
+            MessageLookupByLibrary.simpleMessage("Persones informades"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instruccions enviades per correu electrònic"),
         "invalid_email":
@@ -263,6 +266,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "metrics": MessageLookupByLibrary.simpleMessage("Mètriques"),
         "monthly": MessageLookupByLibrary.simpleMessage("Mensual"),
         "next": MessageLookupByLibrary.simpleMessage("Següent"),
+        "noTractorCount":
+            MessageLookupByLibrary.simpleMessage("Nombre de tractors sense"),
         "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
             "No hi ha transectes disponibles."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -276,6 +281,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Si vols continuar amb el transsecte actual, has de prémer el botó a l\'extrem superior esquerre per tornar enrere."),
         "note_send": MessageLookupByLibrary.simpleMessage(
             "Si prems el botó \'enviar\', s\'enviaran les dades del transsecte actual i hauràs de començar un nou transsecte."),
+        "numberOfTransects":
+            MessageLookupByLibrary.simpleMessage("Nombre de transectes"),
         "observations": MessageLookupByLibrary.simpleMessage("Observacions"),
         "ok": MessageLookupByLibrary.simpleMessage("D\'acord"),
         "open_map":
@@ -334,8 +341,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Aturar un transsecte"),
         "technician": MessageLookupByLibrary.simpleMessage("Tècnic"),
+        "timeRange": MessageLookupByLibrary.simpleMessage("Rang de temps"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("Ha passat el tractor?"),
+        "tractorCount":
+            MessageLookupByLibrary.simpleMessage("Nombre de tractors"),
         "transectStopped":
             MessageLookupByLibrary.simpleMessage("Transecte aturat."),
         "transect_administrative_are":

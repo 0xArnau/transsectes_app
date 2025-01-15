@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:transsectes_app/app/features/transects/domain/entities/transect_entity.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/charts/chart_view_model_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/charts/charts_view_model.dart';
@@ -36,7 +37,7 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildBody(),
+      body: SafeArea(child: _buildBody()),
     );
   }
 
@@ -44,14 +45,23 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
   ///
   /// It contains the title 'Metrics' and a button to toggle the visibility of charts.
   AppBar _buildAppBar() {
+    final Map<String, String> translations = {
+      'yearly': S.current.yearly,
+      'monthly': S.current.monthly,
+      'weekly': S.current.weekly,
+      'daily': S.current.daily,
+    };
+
     return AppBar(
-      title: Text(S.current.metrics),
-      // actions: [
-      //   TextButton(
-      //     onPressed: _toggleChartsVisibility,
-      //     child: Text(showCharts ? S.current.list : S.current.chart),
-      //   ),
-      // ],
+      title: Text(
+        '${S.current.metrics} (${translations[widget.label] ?? S.current.unknown})',
+      ),
+      actions: [
+        TextButton(
+          onPressed: _toggleChartsVisibility,
+          child: Text(showCharts ? S.current.list : S.current.chart),
+        ),
+      ],
     );
   }
 
@@ -125,8 +135,79 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
         }
 
         final items = futureSnapshot.data!;
+
+        if (showCharts) return _buildMetricsListChart(items);
+
         return _buildMetricsListView(items);
       },
+    );
+  }
+
+  /// Builds a [SfCartesianChart] (Line chart) to display the metrics.
+  ///
+  /// This chart shows four lines representing the number of transects, informed people,
+  /// tractor count, and no tractor count for each group in the data.
+  Widget _buildMetricsListChart(Map<String, Map<String, int>> items) {
+    final List<_ChartData> chartData = [];
+
+    // Process items to convert into chart data
+    items.forEach((key, metrics) {
+      chartData.add(_ChartData(
+        key,
+        metrics['numberOfTransects'] ?? 0,
+        metrics['informedPeople'] ?? 0,
+        metrics['tractorCount'] ?? 0,
+        metrics['noTractorCount'] ?? 0,
+      ));
+    });
+
+    return SfCartesianChart(
+      // title: ChartTitle(text: 'Metrics Overview'),
+      legend: Legend(
+        isVisible: true,
+        position: LegendPosition.bottom,
+        alignment: ChartAlignment.center,
+        overflowMode: LegendItemOverflowMode.wrap,
+      ),
+      primaryXAxis: CategoryAxis(
+        title: AxisTitle(text: S.current.timeRange),
+      ),
+      primaryYAxis: NumericAxis(
+        title: AxisTitle(text: S.current.counts),
+        interval: 10, // Adjust based on your data range
+      ),
+      tooltipBehavior: TooltipBehavior(enable: true),
+      // series: [],
+      series: <CartesianSeries<_ChartData, String>>[
+        LineSeries<_ChartData, String>(
+          name: S.current.numberOfTransects,
+          dataSource: chartData,
+          xValueMapper: (_ChartData data, _) => data.label,
+          yValueMapper: (_ChartData data, _) => data.numberOfTransects,
+          markerSettings: const MarkerSettings(isVisible: true),
+        ),
+        LineSeries<_ChartData, String>(
+          name: S.current.informedPeople,
+          dataSource: chartData,
+          xValueMapper: (_ChartData data, _) => data.label,
+          yValueMapper: (_ChartData data, _) => data.informedPeople,
+          markerSettings: const MarkerSettings(isVisible: true),
+        ),
+        LineSeries<_ChartData, String>(
+          name: S.current.tractorCount,
+          dataSource: chartData,
+          xValueMapper: (_ChartData data, _) => data.label,
+          yValueMapper: (_ChartData data, _) => data.tractorCount,
+          markerSettings: const MarkerSettings(isVisible: true),
+        ),
+        LineSeries<_ChartData, String>(
+          name: S.current.noTractorCount,
+          dataSource: chartData,
+          xValueMapper: (_ChartData data, _) => data.label,
+          yValueMapper: (_ChartData data, _) => data.noTractorCount,
+          markerSettings: const MarkerSettings(isVisible: true),
+        ),
+      ],
     );
   }
 
@@ -172,19 +253,19 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Number of Transects: ${metrics['numberOfTransects'] ?? 0}',
+              '${S.current.numberOfTransects}: ${metrics['numberOfTransects'] ?? 0}',
               style: const TextStyle(fontSize: 14),
             ),
             Text(
-              'Informed People: ${metrics['informedPeople'] ?? 0}',
+              '${S.current.informedPeople}: ${metrics['informedPeople'] ?? 0}',
               style: const TextStyle(fontSize: 14),
             ),
             Text(
-              'Tractor Count: ${metrics['tractorCount'] ?? 0}',
+              '${S.current.tractorCount}: ${metrics['tractorCount'] ?? 0}',
               style: const TextStyle(fontSize: 14),
             ),
             Text(
-              'No Tractor Count: ${metrics['noTractorCount'] ?? 0}',
+              '${S.current.noTractorCount}: ${metrics['noTractorCount'] ?? 0}',
               style: const TextStyle(fontSize: 14),
             ),
           ],
@@ -208,4 +289,16 @@ class _ChartsListViewState extends ConsumerState<ChartsListView> {
       ),
     );
   }
+}
+
+/// Model class for chart data.
+class _ChartData {
+  _ChartData(this.label, this.numberOfTransects, this.informedPeople,
+      this.tractorCount, this.noTractorCount);
+
+  final String label;
+  final int numberOfTransects;
+  final int informedPeople;
+  final int tractorCount;
+  final int noTractorCount;
 }

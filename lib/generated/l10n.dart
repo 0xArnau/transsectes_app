@@ -460,6 +460,16 @@ class S {
     );
   }
 
+  /// `Counts`
+  String get counts {
+    return Intl.message(
+      'Counts',
+      name: 'counts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Current user is missing.`
   String get currentUserMissing {
     return Intl.message(
@@ -1170,6 +1180,16 @@ class S {
     );
   }
 
+  /// `Informed people`
+  String get informedPeople {
+    return Intl.message(
+      'Informed people',
+      name: 'informedPeople',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions sent by email`
   String get instructions_sent {
     return Intl.message(
@@ -1350,6 +1370,16 @@ class S {
     );
   }
 
+  /// `No tractor count`
+  String get noTractorCount {
+    return Intl.message(
+      'No tractor count',
+      name: 'noTractorCount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No transects available.`
   String get noTransectsAvailable {
     return Intl.message(
@@ -1415,6 +1445,16 @@ class S {
     return Intl.message(
       'If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect.',
       name: 'note_send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of transects`
+  String get numberOfTransects {
+    return Intl.message(
+      'Number of transects',
+      name: 'numberOfTransects',
       desc: '',
       args: [],
     );
@@ -1780,11 +1820,31 @@ class S {
     );
   }
 
+  /// `Time Range`
+  String get timeRange {
+    return Intl.message(
+      'Time Range',
+      name: 'timeRange',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Has the tractor passed?`
   String get tractor {
     return Intl.message(
       'Has the tractor passed?',
       name: 'tractor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tractor count`
+  String get tractorCount {
+    return Intl.message(
+      'Tractor count',
+      name: 'tractorCount',
       desc: '',
       args: [],
     );

@@ -103,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No se puede abrir el número de teléfono"),
         "contact_error_website": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir el sitio web"),
+        "counts": MessageLookupByLibrary.simpleMessage("Conteos"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta el usuario actual."),
         "daily": MessageLookupByLibrary.simpleMessage("Diario"),
@@ -233,6 +234,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Cláusula informativa"),
+        "informedPeople":
+            MessageLookupByLibrary.simpleMessage("Personas informadas"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instrucciones enviadas por correo electrónico"),
         "invalid_email":
@@ -264,6 +267,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "metrics": MessageLookupByLibrary.simpleMessage("Métricas"),
         "monthly": MessageLookupByLibrary.simpleMessage("Mensual"),
         "next": MessageLookupByLibrary.simpleMessage("Siguiente"),
+        "noTractorCount":
+            MessageLookupByLibrary.simpleMessage("Cantidad de tractores sin"),
         "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
             "No hay transectos disponibles."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -277,6 +282,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Si deseas continuar con el transecto actual, debes presionar el botón en la parte superior izquierda para regresar."),
         "note_send": MessageLookupByLibrary.simpleMessage(
             "Si presionas el botón \'enviar\', se enviarán los datos del transecto actual y tendrás que comenzar un nuevo transecto."),
+        "numberOfTransects":
+            MessageLookupByLibrary.simpleMessage("Número de transectos"),
         "observations": MessageLookupByLibrary.simpleMessage("Observaciones"),
         "ok": MessageLookupByLibrary.simpleMessage("Aceptar"),
         "open_map":
@@ -334,8 +341,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Detener un transecto"),
         "technician": MessageLookupByLibrary.simpleMessage("Técnico"),
+        "timeRange": MessageLookupByLibrary.simpleMessage("Rango de tiempo"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "tractorCount":
+            MessageLookupByLibrary.simpleMessage("Cantidad de tractores"),
         "transectStopped":
             MessageLookupByLibrary.simpleMessage("Transecto detenido."),
         "transect_administrative_are":
