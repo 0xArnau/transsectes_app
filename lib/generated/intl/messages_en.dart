@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can\'t stop a transect, there isn\'t one that\'s started."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "chart": MessageLookupByLibrary.simpleMessage("Chart"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirm_email": MessageLookupByLibrary.simpleMessage("Confirm email"),
         "confirm_password":
@@ -95,8 +96,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cannot open the phone number"),
         "contact_error_website":
             MessageLookupByLibrary.simpleMessage("Cannot open the website"),
+        "counts": MessageLookupByLibrary.simpleMessage("Counts"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Current user is missing."),
+        "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -176,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("GPS service is disabled"),
         "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
             "Enable GPS service and go back"),
+        "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("How to do a transect"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
@@ -221,6 +225,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Informative clause"),
+        "informedPeople":
+            MessageLookupByLibrary.simpleMessage("Informed people"),
         "instructions_sent":
             MessageLookupByLibrary.simpleMessage("Instructions sent by email"),
         "invalid_email": MessageLookupByLibrary.simpleMessage("Invalid email"),
@@ -235,6 +241,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Legal notice"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Legal documents"),
+        "list": MessageLookupByLibrary.simpleMessage("List"),
         "locationBackgroundPermissionsDenied":
             MessageLookupByLibrary.simpleMessage(
                 "Location background permissions are permanently denied"),
@@ -248,7 +255,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "metrics": MessageLookupByLibrary.simpleMessage("Metrics"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Monthly"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noTractorCount":
+            MessageLookupByLibrary.simpleMessage("No tractor count"),
         "noTransectsAvailable":
             MessageLookupByLibrary.simpleMessage("No transects available."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -262,6 +273,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "If you want to continue with the current transect, you must press the button at the top left to go back."),
         "note_send": MessageLookupByLibrary.simpleMessage(
             "If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect."),
+        "numberOfTransects":
+            MessageLookupByLibrary.simpleMessage("Number of transects"),
         "observations": MessageLookupByLibrary.simpleMessage("Observations"),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open_map": MessageLookupByLibrary.simpleMessage("See transect on map"),
@@ -320,8 +333,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Stop a transect"),
         "technician": MessageLookupByLibrary.simpleMessage("Technician"),
+        "timeRange": MessageLookupByLibrary.simpleMessage("Time Range"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("Has the tractor passed?"),
+        "tractorCount": MessageLookupByLibrary.simpleMessage("Tractor count"),
         "transectStopped":
             MessageLookupByLibrary.simpleMessage("Transect stopped."),
         "transect_administrative_are":
@@ -352,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "An unexpected error occurred while deleting the account."),
+        "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
             "Unknown error, cannot reload."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
@@ -370,8 +386,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "verificationEmailSent":
             MessageLookupByLibrary.simpleMessage("Verification email sent!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage("Verify Email"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Weekly"),
+        "weeklySubtitle": MessageLookupByLibrary.simpleMessage(
+            "Note: Weeks are from 1 to 7, 8 to 14, and so on. The day of the week is not considered."),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "yearly": MessageLookupByLibrary.simpleMessage("Yearly"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?")
       };

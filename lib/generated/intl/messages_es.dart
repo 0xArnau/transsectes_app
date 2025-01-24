@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No puedes detener un transecto, no hay uno que haya comenzado."),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
+        "chart": MessageLookupByLibrary.simpleMessage("Gráfico"),
         "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
         "confirm_email": MessageLookupByLibrary.simpleMessage(
             "Confirmar correo electrónico"),
@@ -102,8 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "No se puede abrir el número de teléfono"),
         "contact_error_website": MessageLookupByLibrary.simpleMessage(
             "No se puede abrir el sitio web"),
+        "counts": MessageLookupByLibrary.simpleMessage("Conteos"),
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta el usuario actual."),
+        "daily": MessageLookupByLibrary.simpleMessage("Diario"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Eliminar cuenta"),
@@ -184,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "El servicio de GPS está deshabilitado"),
         "gps_services_enable_gps": MessageLookupByLibrary.simpleMessage(
             "Habilita el servicio de GPS y regresa"),
+        "hide": MessageLookupByLibrary.simpleMessage("Ocultar"),
         "how2transect":
             MessageLookupByLibrary.simpleMessage("Cómo hacer un transecto"),
         "how_to_1_1": MessageLookupByLibrary.simpleMessage(
@@ -230,6 +234,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Cláusula informativa"),
+        "informedPeople":
+            MessageLookupByLibrary.simpleMessage("Personas informadas"),
         "instructions_sent": MessageLookupByLibrary.simpleMessage(
             "Instrucciones enviadas por correo electrónico"),
         "invalid_email":
@@ -245,6 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "legalNotice": MessageLookupByLibrary.simpleMessage("Aviso legal"),
         "legal_documents":
             MessageLookupByLibrary.simpleMessage("Documentos legales"),
+        "list": MessageLookupByLibrary.simpleMessage("Lista"),
         "locationBackgroundPermissionsDenied": MessageLookupByLibrary.simpleMessage(
             "Los permisos de ubicación en segundo plano están permanentemente denegados"),
         "locationPermissionsNotGranted": MessageLookupByLibrary.simpleMessage(
@@ -257,7 +264,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("Servicio de ubicación"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
+        "metrics": MessageLookupByLibrary.simpleMessage("Métricas"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Mensual"),
         "next": MessageLookupByLibrary.simpleMessage("Siguiente"),
+        "noTractorCount":
+            MessageLookupByLibrary.simpleMessage("Cantidad de tractores sin"),
         "noTransectsAvailable": MessageLookupByLibrary.simpleMessage(
             "No hay transectos disponibles."),
         "noUserAuthenticated": MessageLookupByLibrary.simpleMessage(
@@ -271,6 +282,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Si deseas continuar con el transecto actual, debes presionar el botón en la parte superior izquierda para regresar."),
         "note_send": MessageLookupByLibrary.simpleMessage(
             "Si presionas el botón \'enviar\', se enviarán los datos del transecto actual y tendrás que comenzar un nuevo transecto."),
+        "numberOfTransects":
+            MessageLookupByLibrary.simpleMessage("Número de transectos"),
         "observations": MessageLookupByLibrary.simpleMessage("Observaciones"),
         "ok": MessageLookupByLibrary.simpleMessage("Aceptar"),
         "open_map":
@@ -328,8 +341,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "stop_transect":
             MessageLookupByLibrary.simpleMessage("Detener un transecto"),
         "technician": MessageLookupByLibrary.simpleMessage("Técnico"),
+        "timeRange": MessageLookupByLibrary.simpleMessage("Rango de tiempo"),
         "tractor":
             MessageLookupByLibrary.simpleMessage("¿Ha pasado el tractor?"),
+        "tractorCount":
+            MessageLookupByLibrary.simpleMessage("Cantidad de tractores"),
         "transectStopped":
             MessageLookupByLibrary.simpleMessage("Transecto detenido."),
         "transect_administrative_are":
@@ -359,6 +375,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unexpectedErrorWhileDeletingAccount":
             MessageLookupByLibrary.simpleMessage(
                 "Ocurrió un error inesperado al eliminar la cuenta."),
+        "unknown": MessageLookupByLibrary.simpleMessage("Desconocido"),
         "unknownErrorCannotReload": MessageLookupByLibrary.simpleMessage(
             "Error desconocido, no se puede recargar."),
         "unknownErrorCreateUserAccount": MessageLookupByLibrary.simpleMessage(
@@ -379,8 +396,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "¡Correo de verificación enviado!"),
         "verifyEmail": MessageLookupByLibrary.simpleMessage(
             "Verificar correo electrónico"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Semanal"),
+        "weeklySubtitle": MessageLookupByLibrary.simpleMessage(
+            "Nota: las semanas son del 1 al 7, 8 al 14, etc. No se tiene en cuenta el día de la semana."),
         "wrong_password":
             MessageLookupByLibrary.simpleMessage("Contraseña incorrecta"),
+        "yearly": MessageLookupByLibrary.simpleMessage("Anual"),
         "yes_account":
             MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?")
       };

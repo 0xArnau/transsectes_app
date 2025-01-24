@@ -310,6 +310,16 @@ class S {
     );
   }
 
+  /// `Chart`
+  String get chart {
+    return Intl.message(
+      'Chart',
+      name: 'chart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Close`
   String get close {
     return Intl.message(
@@ -450,11 +460,31 @@ class S {
     );
   }
 
+  /// `Counts`
+  String get counts {
+    return Intl.message(
+      'Counts',
+      name: 'counts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Current user is missing.`
   String get currentUserMissing {
     return Intl.message(
       'Current user is missing.',
       name: 'currentUserMissing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daily`
+  String get daily {
+    return Intl.message(
+      'Daily',
+      name: 'daily',
       desc: '',
       args: [],
     );
@@ -900,6 +930,16 @@ class S {
     );
   }
 
+  /// `Hide`
+  String get hide {
+    return Intl.message(
+      'Hide',
+      name: 'hide',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `How to do a transect`
   String get how2transect {
     return Intl.message(
@@ -1140,6 +1180,16 @@ class S {
     );
   }
 
+  /// `Informed people`
+  String get informedPeople {
+    return Intl.message(
+      'Informed people',
+      name: 'informedPeople',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions sent by email`
   String get instructions_sent {
     return Intl.message(
@@ -1220,6 +1270,16 @@ class S {
     );
   }
 
+  /// `List`
+  String get list {
+    return Intl.message(
+      'List',
+      name: 'list',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Location background permissions are permanently denied`
   String get locationBackgroundPermissionsDenied {
     return Intl.message(
@@ -1280,11 +1340,41 @@ class S {
     );
   }
 
+  /// `Metrics`
+  String get metrics {
+    return Intl.message(
+      'Metrics',
+      name: 'metrics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monthly`
+  String get monthly {
+    return Intl.message(
+      'Monthly',
+      name: 'monthly',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Next`
   String get next {
     return Intl.message(
       'Next',
       name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No tractor count`
+  String get noTractorCount {
+    return Intl.message(
+      'No tractor count',
+      name: 'noTractorCount',
       desc: '',
       args: [],
     );
@@ -1355,6 +1445,16 @@ class S {
     return Intl.message(
       'If you press the \'send\' button, the data for the current transect will be sent, and you will have to start a new transect.',
       name: 'note_send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of transects`
+  String get numberOfTransects {
+    return Intl.message(
+      'Number of transects',
+      name: 'numberOfTransects',
       desc: '',
       args: [],
     );
@@ -1720,11 +1820,31 @@ class S {
     );
   }
 
+  /// `Time Range`
+  String get timeRange {
+    return Intl.message(
+      'Time Range',
+      name: 'timeRange',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Has the tractor passed?`
   String get tractor {
     return Intl.message(
       'Has the tractor passed?',
       name: 'tractor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tractor count`
+  String get tractorCount {
+    return Intl.message(
+      'Tractor count',
+      name: 'tractorCount',
       desc: '',
       args: [],
     );
@@ -1890,6 +2010,16 @@ class S {
     );
   }
 
+  /// `Unknown`
+  String get unknown {
+    return Intl.message(
+      'Unknown',
+      name: 'unknown',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Unknown error, cannot reload.`
   String get unknownErrorCannotReload {
     return Intl.message(
@@ -1990,11 +2120,41 @@ class S {
     );
   }
 
+  /// `Weekly`
+  String get weekly {
+    return Intl.message(
+      'Weekly',
+      name: 'weekly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Note: Weeks are from 1 to 7, 8 to 14, and so on. The day of the week is not considered.`
+  String get weeklySubtitle {
+    return Intl.message(
+      'Note: Weeks are from 1 to 7, 8 to 14, and so on. The day of the week is not considered.',
+      name: 'weeklySubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Wrong password`
   String get wrong_password {
     return Intl.message(
       'Wrong password',
       name: 'wrong_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yearly`
+  String get yearly {
+    return Intl.message(
+      'Yearly',
+      name: 'yearly',
       desc: '',
       args: [],
     );
