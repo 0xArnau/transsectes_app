@@ -1,0 +1,351 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [unreleased]
+
+### 🚀 Features
+
+- *(Charts)* Show metrics, forma now only in text
+- *(ChartsListView)* Add an option to visualize a linear chart instead of a list of cards
+
+### 🐛 Bug Fixes
+
+- *(image_turtle)* Use `height / 2.3` instead of `width / 1.12`
+- *(SaveTransectView)* Add `horizontal scroll` on AppBar title
+
+### 💼 Other
+
+- *(Charts)* Add a detailed view to display a chart
+- Use `syncfusion_flutter_charts` instead of `fl_chart`
+- *(ChartsDetailView)* Add `circular` chart
+- *(pubspec)* Update version
+
+### 📚 Documentation
+
+- *(README)* Add `charts`  screenshots
+
+### ⚙️ Miscellaneous Tasks
+
+- Add i18n texts
+
+## [2.0.0+] - 2025-01-06
+
+### 🚀 Features
+
+- *(main)* Add `dark`/`light` mode
+- *(splash)* Add view
+- *(shared/domain)* Create a result wrapper
+- *(Auth)* Create the domain layer
+- *(data)* Add `Firebase` conection
+- *(Auth)* Add logic to check if user is authenticated or not and use riverpod as state management
+- *(main)* Add translations
+- *(SignIn)* Add view
+- *(HomeView)* Display options
+- *(Contact)* Add view
+- *(HowTo)* Add view
+- *(Result)* Add a `fold` method
+- *(Transects)* Add usecases
+- *(ListTransectsView)* Show items as clickable card
+- *(GoogleMapsView)* Add an `action` to copy the coordinates as a google maps `url`
+- *(SaveTransects)* On `DetailTransectView` now users can save the transect as a `csv` file
+- *(DownloadTransectsView)* Add view to download transects `group by` locality
+- *(GoogleMapsView)* Make marker `clickable` & change color to blue for first & last coordinate
+- *(StartStopTransectView)* Add a `Resume` action in `Send inform`
+- *(CustomTextForm)* Add infinite `maxLines`
+- *(CustomButton)* Add minimum size
+- *(SaveTransect)* Add logic to `save` transect to the database
+- *(Settings)* Add logic to remove user account
+- *(SettingsView)* Add an `AlertDialog` before removing account
+- *(CustomButton)* Add a different color if is a `main` action
+- *(AuthExceptions)* Add another exception + comments
+- *(SignUpView)* Add legal stuff
+- *(VerifyEmailView)* Add an option to `sign-out`
+- *(ForgotPassword)* Add view + logic to send email
+- *(FloatSnackbar)* Add a custom snackbar
+- *(Language)* Add a language picker
+- *(i18n)* Change hard-coded texts for a translated text
+
+### 🐛 Bug Fixes
+
+- Stop using  & document_file_save_plus does not work properly on new android version
+- Save csv file
+- *(View)* Change gepec logo color base on current theme mode
+- *(AuthViewModel)* Fetch user role
+- *(Transects)* `GetUserTransectsUseCase` & `GetAllTransectsUseCase` returns a `Result` instead of a `Stream` of results
+- *(RecordView)* Use different `keys` for `ListTransectsView` widget
+- *(TransectListView)* Now `TransectState` has a `Stream` instead of a `List`
+- *(ListTransectsView)* Sort transects
+- *(DownloadTransectsView)* When widget ins initialize fetch `allTransects`
+- *(HomeView)* Change text color to `onSurface`
+- *(StartStopTransectViewModel)* Fetch current position before anything else
+- *(StartStopTransectViewModel)* Use `private` instead of `public` attributes
+- *(CustomTextForm)* Use multiline if `obscureText` is `false`
+- *(SaveTransectViewModel)* Use `firstOrNull` & `lastOrNull` instead of `first` & `last`
+- *(AuthFirebaseDataSourceImpl)* Set technician to false if verification fails during login
+- *(GoogleMapsView)* Check the number of coordinates
+- *(AuthFirebaseDataSourceImpl)* On `signIn` use `isTechnicianResult.value`
+- *(AuthRepositoryImpl)* Remove unused import
+- *(AuthFirebaseDatasourceImpl)* `isTechnician` always returns `success` with `true` or `false`
+- *(VerifyEmailView)* Pass `context` as parameter
+- *(SignUpView)* `pop` sign-up-view if the user  creation is successful
+- *(VerifyEmailView)* Execute up to 3 times the `reload` function
+- *(VerifyEmailView)* Check if is `mounted` before using `setState`
+- Change the use of colors
+- *(VerifyGpsPermission)* If is `permanently denied` open `app settings`
+- *(ForgotPasswordView)* Change snackbar background color
+- *(GeolocationDatasourceImpl)* `desiredAccuracy` is deprecated
+- *(VerifyGpsPermissionsViewModel)* `isLocationPermissionEnabled` set to false when background gps permission is not enabled
+- *(Permissions)* Verify if `location` service is enabled before allowing to start a transect
+- Remove unnecessary imports
+- *(FloatSnackbar)* Add a shadow
+- Ensure `portraitUp`
+- *(DownloadTransectsView)* Show snackbar for 30 seconds
+- *(BottomAppBar)* Change image fit from `cover` to `contain`
+
+### 💼 Other
+
+- Update versions of flutter, plugins & iOS
+- Stop using fluter_config to read api key
+- Add key directly to swift file
+- Update plugins
+- *(Android)* Update `com.android.application` version
+- *(Home)* Start view
+- *(SignIn)* Add logic to update UserState and show an `SnackBar` on error
+- *(SettingsView)* Add `icon`, `role` & `email`
+- *(SettingsView)* Display app info
+- *(Settings)* Add logic to `sign out`
+- *(SettingsView)* Move `logout` button & `app-info` to bottom
+- *(SettingsView)* Add `delete-account` button
+- *(Transects)* Add domain & data layers
+- *(TransectRecords)* Add `records` view and create `ListTransectView` & `RemoveTransectView` files
+- *(TransectsList)* Add logic fetch `transects` and view it
+- *(DetailTransectView)* Add view
+- *(ios)* Update dependencies
+- *(CSV)* Add `domain` & `data` layer to save `List<TransectEntity` as a `csv` file
+- *(GPS)* Add `domain` & `data` layer and start working with the `presentation` layer
+- *(GPS)* Add `presentation` layer
+- *(start/stop)* Add view to `start` & `stop`. Pending to save the transect
+- *(SaveTransectView)* Add components to inform about `tractor`, `people` & observations. Also add a `cancel` button
+- *(dependencies)* Remove bloc
+- *(dependencies)* Update `shared_preferences`  to fix the vulnerability(https://github.com/0xArnau/transsectes_app/security/dependabot/1)
+- *(dependencies)* Upgrade with `--major-versions`
+- *(RemoveTransects)* Add UI
+- *(save_transect)* Without internet connection
+- *(RemoveTransects)* Add logic to actually remove al transects
+- *(DetailTransect)* Add an action to update `address` from `coordinate`
+- *(SignUp)* Create structure
+- *(SignUpView)* Add 2 phases
+- *(SignUp)* When account is created does not change `reactively` to the `verify-email` view
+- *(VerifyEmail)* Add logic to send a verification email & check if the current user is verified
+- *(VerifyEmailView)* Add logic to send email & reload user state
+- *(LightTheme)* Change surface container colors
+- *(i18n)* `exception` & `AuthFirebaseDatasourceImpl`
+- *(i18n)* Change hard-coded texts for a translated text
+- *(i18n)* Change hard-coded texts for a translated text
+- *(i18n)* Change hard-coded texts for a translated text
+- *(i18n)* Change hard-coded texts for a translated text
+- *(i18n)* Change hard-coded texts for a translated text
+- *(i18n)* Change hard-coded texts for a translated text
+- Set version to 2
+
+### 🚜 Refactor
+
+- Use PageView instead of 'introduction_screen'
+- *(AuthView)* Move to view folder
+- Change project folder structure
+- *(AppInfoWidget)* Change from a `card` to a `modal`
+- *(ListTransectsView)* Date format
+- *(Theme)* Add the correct color scheme
+- *(ListTransectsVIew)* Change `surfaceTintColor`
+- *(AppInfoWidget)* Change icon color
+- *(DetailTransectView)* Use `CustomButton` to open maps
+- *(SplashView)* Add the correct color scheme
+- *(GoogleMapsView)* Change color of snackbar
+- *(RecordView)* Use `icon` & `selectedIcon`
+- *(records)* Move files to `records` folder
+- *(usecases)* Move from `auth` to `transects`
+- *(GeolocationDatasourceImpl)* Change `distanceFilter` from `5` to `1` meter
+
+### 📚 Documentation
+
+- *(README)* Add how to generate `i10n`
+- *(README)* Update screenshots
+
+### ⚙️ Miscellaneous Tasks
+
+- *(README)* Add features & ToC
+- *(ListTile Transsects)* Add Card as a parent to ListTile
+- Generate translations
+- Add linter rules
+- *(VerifyEmailVIew)* Change the color of the action to red
+- *(CustomButton)* Change color to `onSurface`
+
+## [1.1.1+1] - 2024-09-08
+
+### 🚀 Features
+
+- *(Language)* Save/read language using shared preferences
+
+### 🐛 Bug Fixes
+
+- *(LanguagePicker)* Show the current language directly
+
+### 💼 Other
+
+- Update version
+
+## [1.0.2+1] - 2024-09-06
+
+### 🐛 Bug Fixes
+
+- *(SetState)* Use only if widget is mounted
+- *(Download)* Always loads the transects to download
+- *(transect-records-view)* Translate bottom navigation
+
+### 💼 Other
+
+- Update version
+
+### 📚 Documentation
+
+- *(README)* Add links to play and app store, also add a short description of the app
+
+## [1.0.1+1] - 2024-07-18
+
+### 🐛 Bug Fixes
+
+- *(language)* Change translation from home page
+
+### 💼 Other
+
+- Update patch version
+
+## [1.0.0+1] - 2024-07-18
+
+### 🚀 Features
+
+- Add splash view
+- *(UI)* Add login view
+- *(UI)* Add signup view
+- Add navigation between login & signup views
+- *(UI)* Add login view
+- Add forgot password view
+- *(home)* Add elements (images + text)
+- Add tortoise image to wave
+- Add translations (es, en, ca)
+- Add Firebase Auth using Bloc
+- Keep session alive
+- *(SignIn)* Add error message and translations
+- *(Menu)* Move menu to its own folder & add user email
+- *(Forgot password)* Send email with instrucctions to change password
+- *(Sign Up)* Add user
+- *(Contact)* Add information (emails, phones numbers)
+- Add a carousel of how to do a 'transsecte'
+- *(View)* Add start/stop transect & the stop transect form
+- *(transects)* Show a list of transects made by active user
+- *(transects)* Create the bloc structure
+- *(geolocation)* Create the structure to get the geolocation
+- *(transects)* Get Transects with a lists of coordinates
+- *(menu)* Add geolocation options & open app settings (OS)
+- *(gps disabled)* Add a view when gps services is disabled
+- *(gps)* Get the address from the first and last coordinates
+- *(transects)* Save transect to database
+- *(transects)* Show transects
+- *(transects)* Show transect detailed
+- Show initial and final locality when are different
+- Add a bottom navigation to show 'user transects' 'all transects (when user is a technician)' and 'download transects'
+- Add 'localityFirst' and 'createdAt' search filter
+- Save single transect
+- Download all transects or by locality
+- *(Widget)* Add a custom modal bottom sheet
+- *(customActionSheet)* Remove background blur
+- *(Log Out)* Add a confirmation modal
+- *(CustomAlertDialogWidget)* Make some fields optionals
+- *(Start a transect)* Add an alert dialog if 'background' gps is not enabled
+- *(menu)* Add show technician role
+- *(transects list view)* Change the filter and navigation bar colors
+- *(android)* Add automatic signin
+- *(iOS)* Add google maps
+- *(Android)* Add google maps
+- *(Transects)* Remove all from database
+- *(TransectView)* Add an icon to update the address
+- *(language)* Add an option change language, until app is restarted
+
+### 🐛 Bug Fixes
+
+- Change circle size, change color of 'Sign Up' to white
+- *(text form)* Change style
+- *(signup view)* Add the same style that is in the login view
+- *(icon)* Change app icon & add 'flutter_launcher_icons' as a dev dependency
+- Change the way the menu is done
+- *(tortoise)* Change to white color
+- *(Login)* Keyboard overflow
+- *(Login & SingUp)* After entering the credentials go to home
+- *(How to do a transect)* Use a plugin now
+- *(Login)* Now can login automatically after goign to others pages ('Forgot password' & 'Sign up')
+- *(SignUp)* Add pop of the previous push (Login -> SignUp -> Legal)
+- *(SignUp)* All fields cannot be empty
+- *(geolocation)* Use geolocator
+- Make navigation & top bar transparent
+- Get user transect and all transect on same view and pass it as arguments to other views
+- The get user transect, now the email is not hardcoded
+- *(auth)* Check email verification before login
+- *(auth)* Verify email before login
+- *(account)* Remove account and show snackbar on error
+- *(verify email)* Set a timer, every 2 seconds check if the email has been verified
+- *(Transectes)* Download and all transects have differents streams
+- *(Log out)* Ignore context from the showDialog build
+- *(Remove/Send data)* Add a confirmation dialog
+- *(android)* Add automatic signin (keystore)
+- *(transects list view)* Make the input text above keyboard
+- *(App icon Android)* Change size
+- *(Locale)* Use system language or english as default
+- *(Transect)* Cannot be saved if coordenates are empty
+- *(TransectView)* Show updated changes
+- *(I10N)* Change hard coded text to use translations
+- *(bottomNavigationBar)* Show all labels (when selected)
+- *(menu)* Add how to change language
+- *(menu)* Change text format and position
+- *(download transects)* Normal user have a download screen where they can download theirs transects
+
+### 💼 Other
+
+- Change app name
+- *(Android)* Add 'minSdkVersion' to 21
+- *(Android)* Add Firebase
+- *(iOS)* Add Firebase
+- *(Android)* Use flutterfire to configure firebase
+- *(android)* Add some permission/services require for background location
+
+### 🚜 Refactor
+
+- Use a custom scaffold
+- *(L10N)* Add english text
+- *(L10N)* Add spanish text
+- *(L10N)* Add catalan text
+- Run 'dart fix --apply'
+- Add const & remove unused imports
+
+### ⚙️ Miscellaneous Tasks
+
+- Add recommended vscode extensions
+- Initialize a flutter project + add home view, menu view & routes
+- Initialize home views
+- Add images for 'HowToTransectView'
+- *(splash login home)* Add navigation
+- *(menu)* Remove '*****'
+- *(geaolocation)* Add bloc structure
+- *(geolocation)* Show the geopoints made
+- *(transects)* Add 'Cancel' & 'Start' events
+- *(gps)* Add background gps location
+- *(menu)* Remove foreground & background switch
+- *(customAlertDialogWidget)* Change style
+- *(customActionSheet)* Change style
+- *(menu)* Add some info releting to GPS
+- *(transects list)* Change filter style
+- *(menu)* Generate translations
+- *(widget)* Add language_picker file
+- Generate translations
+
+<!-- generated by git-cliff -->

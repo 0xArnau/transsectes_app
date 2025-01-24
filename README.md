@@ -22,6 +22,7 @@
     - [Screenshots](#screenshots)
     - [Installation](#installation)
     - [Usage](#usage)
+      - [Changelogs](#changelogs)
       - [i10n](#i10n)
     - [Features](#features)
       - [Users](#users)
@@ -57,6 +58,22 @@ coming soon...
 ### Usage
 
 coming soon...
+
+#### Changelogs
+
+Use [git cliff](https://git-cliff.org/docs/) to generate the changelogs
+
+To install: 
+
+```sh
+cargo install git-cliff
+```
+
+To auto generate the changelog
+
+```sh
+git cliff -o CHANGELOG.md
+```
 
 #### i10n
 
