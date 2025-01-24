@@ -45,6 +45,10 @@
 | **Start**          | <img src="docs/readme/screens/Dark/Start.png" alt="Start - Dark" width="300px" />          | <img src="docs/readme/screens/Light/Start.png" alt="Start - Light" width="300px" />        |
 | **Stop**           | <img src="docs/readme/screens/Dark/Stop.png" alt="Stop - Dark" width="300px" />            | <img src="docs/readme/screens/Light/Stop.png" alt="Stop - Light" width="300px" />          |
 | **Transects**      | <img src="docs/readme/screens/Dark/Transects.png" alt="Transects - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Transects.png" alt="Transects - Light" width="300px" />|
+| **Charts (1)**      | <img src="docs/readme/screens/Dark/Chart-1.png" alt="Chart-1 - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Chart-1.png" alt="Chart-1 - Light" width="300px" />|
+| **Charts (2)**      | <img src="docs/readme/screens/Dark/Chart-2.png" alt="Chart-2 - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Chart-2.png" alt="Chart-2 - Light" width="300px" />|
+| **Charts (3)**      | <img src="docs/readme/screens/Dark/Chart-3.png" alt="Chart-3 - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Chart-3.png" alt="Chart-3 - Light" width="300px" />|
+| **Charts (4)**      | <img src="docs/readme/screens/Dark/Chart-4.png" alt="Chart-4 - Dark" width="300px" />  | <img src="docs/readme/screens/Light/Chart-4.png" alt="Chart-4 - Light" width="300px" />|
 
 ### Installation
 
