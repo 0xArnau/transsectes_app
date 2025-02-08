@@ -38,14 +38,17 @@
 
 #### Store
 
-<img src="docs/readme/screens/Store/Frame 1.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 2.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 3.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 4.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 5.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 6.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 7.jpg" alt="Frame 1" width="300px" />
-<img src="docs/readme/screens/Store/Frame 8.jpg" alt="Frame 1" width="300px" />
+<div align="center">
+  <img src="docs/readme/screens/Store/Frame 1.jpg" alt="Frame 1" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 2.jpg" alt="Frame 2" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 3.jpg" alt="Frame 3" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 4.jpg" alt="Frame 4" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 5.jpg" alt="Frame 5" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 6.jpg" alt="Frame 6" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 7.jpg" alt="Frame 7" width="300px" />
+  <img src="docs/readme/screens/Store/Frame 8.jpg" alt="Frame 8" width="300px" />
+</div>
+
 
 #### App
 
