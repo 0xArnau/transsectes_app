@@ -8,10 +8,12 @@
 
 </h3>
 
+<a href="https://gepec.cat">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png">
   <img alt="GePeE-EdC logo" src="assets/imgs/logo/GEPEC_EdC_OFICIAL.png" width="50%" height="50%">
 </picture>
+</a>
 </div>
 
 
