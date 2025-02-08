@@ -20,6 +20,8 @@
 - [Transsectes APP: mobile application for carrying out transects along the beaches to locate sea turtles or their nests](#transsectes-app-mobile-application-for-carrying-out-transects-along-the-beaches-to-locate-sea-turtles-or-their-nests)
   - [Table of Contents](#table-of-contents)
     - [Screenshots](#screenshots)
+      - [Store](#store)
+      - [App](#app)
     - [Installation](#installation)
     - [Usage](#usage)
       - [Changelogs](#changelogs)
@@ -31,6 +33,19 @@
 ---
 
 ### Screenshots
+
+#### Store
+
+<img src="docs/readme/screens/Store/Frame 1.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 2.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 3.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 4.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 5.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 6.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 7.jpg" alt="Frame 1" width="300px" />
+<img src="docs/readme/screens/Store/Frame 8.jpg" alt="Frame 1" width="300px" />
+
+#### App
 
 | Screen             | Dark Mode                                                                                  | Light Mode                                                                                 |
 |--------------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
