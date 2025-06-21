@@ -160,21 +160,30 @@ Widget _buildRowWidget({
     ),
   );
 
-  final imageWidget = Image.asset(
-    imgSrc,
-    width: imgSize,
+  final imageWidget = Semantics(
+    hidden: true,
+    child: Image.asset(
+      imgSrc,
+      width: imgSize,
+    ),
   );
 
-  return InkWell(
-    onTap: onTap,
-    child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: textFirst
-            ? [textWidget, const SizedBox(width: 10), imageWidget]
-            : [imageWidget, const SizedBox(width: 10), textWidget],
+  return Semantics(
+    button: true,
+    label: text,
+    child: ExcludeSemantics(
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: textFirst
+                ? [textWidget, const SizedBox(width: 10), imageWidget]
+                : [imageWidget, const SizedBox(width: 10), textWidget],
+          ),
+        ),
       ),
     ),
   );
