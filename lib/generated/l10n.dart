@@ -1530,6 +1530,36 @@ class S {
     );
   }
 
+  /// `Previous`
+  String get page_control_back {
+    return Intl.message(
+      'Previous',
+      name: 'page_control_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish`
+  String get page_control_finish {
+    return Intl.message(
+      'Finish',
+      name: 'page_control_finish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get page_control_next {
+    return Intl.message(
+      'Next',
+      name: 'page_control_next',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `NEXT`
   String get page_next {
     return Intl.message(

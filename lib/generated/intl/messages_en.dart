@@ -287,6 +287,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "open_system_settings":
             MessageLookupByLibrary.simpleMessage("Open system settings"),
         "page_back": MessageLookupByLibrary.simpleMessage("PREVIOUS"),
+        "page_control_back": MessageLookupByLibrary.simpleMessage("Previous"),
+        "page_control_finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "page_control_next": MessageLookupByLibrary.simpleMessage("Next"),
         "page_next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordMustBeTheSame":

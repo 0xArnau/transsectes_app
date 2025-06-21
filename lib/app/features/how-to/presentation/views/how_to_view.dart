@@ -69,9 +69,12 @@ class _HowToViewState extends State<HowToView> {
         pre: S.current.how_to_7_1,
         image: 'assets/imgs/explanation/7.png',
       ),
-      Image.asset(
-        'assets/imgs/explanation/8.png',
-        fit: BoxFit.fitHeight,
+      Semantics(
+        hidden: true,
+        child: Image.asset(
+          'assets/imgs/explanation/8.png',
+          fit: BoxFit.fitHeight,
+        ),
       ),
     ]);
 
@@ -105,37 +108,53 @@ class _HowToViewState extends State<HowToView> {
   }
 
   /// Builds the slider indicator at the bottom of the screen.
+  ///
+  /// Replaces the original indicator dots with accessible navigation buttons.
+  /// Improves accessibility and ensures only relevant buttons are shown.
+  ///
+  /// Returns:
+  /// - A Positioned widget containing the navigation buttons.
   Widget _buildIndicator() {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(
-          _sliders.length,
-          (index) => Padding(
-            padding: const EdgeInsets.all(3.0),
-            child: _buildIndicatorDot(index),
-          ),
-        ),
-      ),
-    );
-  }
+    final bool isFirst = _currentSlider == 0;
+    final bool isLast = _currentSlider == _sliders.length - 1;
 
-  /// Builds a single dot for the slider indicator.
-  Widget _buildIndicatorDot(int index) {
-    final bool isActive = _currentSlider == index;
-    return InkWell(
-      onTap: () => _sliderController.animateToPage(
-        index,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      ),
-      child: CircleAvatar(
-        radius: isActive ? 6 : 3,
-        backgroundColor:
-            isActive ? Theme.of(context).colorScheme.primary : Colors.grey,
+    return Positioned(
+      bottom: 16,
+      left: 16,
+      right: 16,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (!isFirst)
+            Semantics(
+              button: true,
+              label: S.current.page_control_back,
+              child: ElevatedButton(
+                onPressed: () => _sliderController.previousPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                ),
+                child: Text(S.current.page_control_back),
+              ),
+            )
+          else
+            const SizedBox(), // Para mantener el espacio y el alineamiento
+
+          if (!isLast)
+            Semantics(
+              button: true,
+              label: S.current.page_control_next,
+              child: ElevatedButton(
+                onPressed: () => _sliderController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                ),
+                child: Text(S.current.page_control_next),
+              ),
+            )
+          else
+            const SizedBox(), // Para mantener el espacio y el alineamiento
+        ],
       ),
     );
   }
@@ -159,7 +178,7 @@ Widget _createSliderWidget({
           if (pre != null) _buildText(context, pre),
           if (image != null) _buildImage(image),
           if (post != null) _buildText(context, post),
-          const SizedBox(height: 30),
+          const SizedBox(height: 80),
         ],
       ),
     ),
@@ -193,9 +212,12 @@ Widget _buildText(BuildContext context, String text) {
 
 /// Builds an image widget for the slider.
 Widget _buildImage(String imagePath) {
-  return Image.asset(
-    imagePath,
-    fit: BoxFit.contain,
-    width: double.infinity,
+  return Semantics(
+    hidden: true,
+    child: Image.asset(
+      imagePath,
+      fit: BoxFit.contain,
+      width: double.infinity,
+    ),
   );
 }
