@@ -23,10 +23,10 @@ class PdfViewerWidget extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
-      _PdfViewerrWidgetState();
+      _PdfViewerWidgetState();
 }
 
-class _PdfViewerrWidgetState extends ConsumerState<PdfViewerWidget> {
+class _PdfViewerWidgetState extends ConsumerState<PdfViewerWidget> {
   late DetailPdfViewModel _detailPdfViewModel;
 
   @override
