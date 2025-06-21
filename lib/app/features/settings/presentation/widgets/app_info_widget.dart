@@ -37,6 +37,7 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
       icon: Icon(
         Icons.info_outline,
         color: Theme.of(context).colorScheme.secondaryContainer,
+        semanticLabel: S.current.appInfo,
       ),
       onPressed: () {
         _showAppInfoModal(context);
@@ -53,16 +54,20 @@ class _AppInfoWidgetState extends State<AppInfoWidget> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          title:  Text(S.current.appInfo),
+          title: Text(S.current.appInfo),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               _infoTile(context, S.current.appName, appName),
               _infoTile(context, S.current.appVersion, version),
               _infoTile(context, S.current.buildNumber, buildNumber),
-              _infoTile(context, S.current.appCreator, S.current.appCreatedBy,),
               _infoTile(
-                  context, S.current.appSourceCode, 'github.com/0xArnau/transsectes_app'),
+                context,
+                S.current.appCreator,
+                S.current.appCreatedBy,
+              ),
+              _infoTile(context, S.current.appSourceCode,
+                  'github.com/0xArnau/transsectes_app'),
             ],
           ),
           actions: [
