@@ -31,6 +31,7 @@ class _HomeViewState extends State<HomeView> {
             icon: Icon(
               Icons.settings,
               color: Theme.of(context).colorScheme.secondaryContainer,
+              semanticLabel: S.of(context).settings,
             ),
           ),
         ],
