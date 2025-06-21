@@ -126,31 +126,23 @@ class _HowToViewState extends State<HowToView> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if (!isFirst)
-            Semantics(
-              button: true,
-              label: S.current.page_control_back,
-              child: ElevatedButton(
-                onPressed: () => _sliderController.previousPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                ),
-                child: Text(S.current.page_control_back),
+            ElevatedButton(
+              onPressed: () => _sliderController.previousPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
               ),
+              child: Text(S.current.page_control_back),
             )
           else
             const SizedBox(), // Para mantener el espacio y el alineamiento
 
           if (!isLast)
-            Semantics(
-              button: true,
-              label: S.current.page_control_next,
-              child: ElevatedButton(
-                onPressed: () => _sliderController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                ),
-                child: Text(S.current.page_control_next),
+            ElevatedButton(
+              onPressed: () => _sliderController.nextPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
               ),
+              child: Text(S.current.page_control_next),
             )
           else
             const SizedBox(), // Para mantener el espacio y el alineamiento
