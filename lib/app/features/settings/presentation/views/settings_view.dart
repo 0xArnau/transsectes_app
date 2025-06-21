@@ -126,10 +126,13 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
   /// The size of the icon is dynamically calculated based on the screen height.
   Widget _userIcon(BuildContext context) {
     return Center(
-      child: Icon(
-        Icons.person,
-        size: MediaQuery.of(context).size.height / 6,
-        semanticLabel: S.current.userIcon,
+      child: Semantics(
+        hidden: true,
+        child: Icon(
+          Icons.person,
+          size: MediaQuery.of(context).size.height / 6,
+          semanticLabel: S.current.userIcon,
+        ),
       ),
     );
   }
