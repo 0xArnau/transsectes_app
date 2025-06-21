@@ -11,6 +11,7 @@ import 'package:transsectes_app/app/core/providers/language_provider.dart';
 import 'package:transsectes_app/app/features/splash/presentation/views/splash_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 import 'package:transsectes_app/l10n/l10n.dart';
+import 'package:accessibility_tools/accessibility_tools.dart';
 
 /// The entry point of the application that initializes Firebase and sets up the app.
 ///
@@ -23,7 +24,7 @@ void main() async {
   ]);
   await Firebase.initializeApp();
 
-  runApp(const ProviderScope(child: MainApp()));
+  runApp(const ProviderScope(child: MainApp(enableAccessibilityTools: true,)));
 }
 
 /// The main app widget that manages the language state and app theme.
@@ -32,7 +33,9 @@ void main() async {
 /// and adjusts the language of the app dynamically. It also loads the language preference
 /// from `SharedPreferences` and updates it accordingly.
 class MainApp extends ConsumerStatefulWidget {
-  const MainApp({super.key});
+  const MainApp({super.key, this.enableAccessibilityTools = false});
+
+  final bool enableAccessibilityTools;
 
   @override
   ConsumerState<MainApp> createState() => _MainAppState();
@@ -98,6 +101,7 @@ class _MainAppState extends ConsumerState<MainApp> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      builder: (context, child) => widget.enableAccessibilityTools ? AccessibilityTools(child: child) : child!,
       home: const SplashView(),
       theme: lightMode,
       darkTheme: darkMode,
