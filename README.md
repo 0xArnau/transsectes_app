@@ -4,7 +4,14 @@
 <div align="center">
 <h3>
 
-[Homepage](https://github.com/0xArnau/transsectes_app/tree/trunk) | [Play store (comming soon)](https://play.google.com/store/apps/developer?id=GEPEC-EdC) | [App store (comming soon)](https://apps.apple.com/us/developer/elisabeth-bofill-ventosa/id1697539680)
+<p align="center">
+   <a href="https://play.google.com/store/apps/details?id=cat.gepec.transsectes_app" target="_blank" rel="noreferrer">
+      <img src="https://www.vectorlogo.zone/logos/google_play/google_play-ar21.svg" alt="Play Store" width="200"/>
+   </a>
+   <a href="" target="_blank" rel="noreferrer">
+      <img src="https://www.vectorlogo.zone/logos/apple_appstore/apple_appstore-ar21.svg" alt="Apple Store" width="200"/>
+   </a>
+</p>
 
 </h3>
 
