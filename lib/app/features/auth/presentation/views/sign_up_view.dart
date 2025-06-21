@@ -183,6 +183,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
           },
           text: S.current.legalNotice,
           path: 'assets/docs/legal/avis-legal.pdf',
+          value: _avisLegal,
         ),
         _checkboxPdfTile(
           context: context,
@@ -196,6 +197,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
           },
           text: S.current.informativeClause,
           path: 'assets/docs/legal/clausula-informativa.pdf',
+          value: _clausulaInformativa,
         ),
         _checkboxPdfTile(
           context: context,
@@ -209,6 +211,7 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
           },
           text: S.current.privacy,
           path: 'assets/docs/legal/privacitat.pdf',
+          value: _privacitat,
         ),
         const SizedBox(height: 16),
         CustomButton(
@@ -235,12 +238,17 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
     required Function(bool) onChanged,
     required String text,
     required String path,
+    required bool value,
   }) {
     return ListTile(
-      leading: Checkbox(
-        activeColor: Theme.of(context).colorScheme.primary,
-        value: checkbox,
-        onChanged: (value) => onChanged(value ?? false),
+      leading: Semantics(
+        label: text,
+        value: value ? 'Marcado' : 'Desmarcado',
+        child: Checkbox(
+          activeColor: Theme.of(context).colorScheme.primary,
+          value: checkbox,
+          onChanged: (value) => onChanged(value ?? false),
+        ),
       ),
       title: TextButton(
         onPressed: () {
