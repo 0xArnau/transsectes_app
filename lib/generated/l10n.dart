@@ -730,6 +730,16 @@ class S {
     );
   }
 
+  /// `Error while saving the PDF.`
+  String get errorWhileSavingFile {
+    return Intl.message(
+      'Error while saving the PDF.',
+      name: 'errorWhileSavingFile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Error while saving the transects.`
   String get errorWhileSavingTransects {
     return Intl.message(

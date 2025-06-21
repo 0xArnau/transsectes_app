@@ -153,6 +153,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "¡Ocurrió un error al eliminar los transectos!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha habido un error al obtener el usuario actual."),
+        "errorWhileSavingFile":
+            MessageLookupByLibrary.simpleMessage("Error al guardar el PDF."),
         "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
             "Error al guardar los transectos."),
         "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(

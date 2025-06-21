@@ -145,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "An error occurred while deleting transects!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "There has been an error while getting the current user."),
+        "errorWhileSavingFile":
+            MessageLookupByLibrary.simpleMessage("Error while saving the PDF."),
         "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
             "Error while saving the transects."),
         "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(

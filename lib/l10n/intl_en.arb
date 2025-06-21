@@ -67,6 +67,7 @@
   "errorWhileCheckingUserIsTechnician": "There has been an error while checking if the user is a technician or not.",
   "errorWhileDeletingTransects": "An error occurred while deleting transects!",
   "errorWhileGettingCurrentUser": "There has been an error while getting the current user.",
+  "errorWhileSavingFile": "Error while saving the PDF.",
   "errorWhileSavingTransects": "Error while saving the transects.",
   "errorWhileStartingTransect": "Error while starting a transect.",
   "exit": "Exit",

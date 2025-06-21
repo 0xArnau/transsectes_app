@@ -67,6 +67,7 @@
   "errorWhileCheckingUserIsTechnician": "Ha hagut un error en comprovar si l'usuari és tècnic o no.",
   "errorWhileDeletingTransects": "Ha ocurrit un error en eliminar els transectes!",
   "errorWhileGettingCurrentUser": "Ha hagut un error en obtenir l'usuari actual.",
+  "errorWhileSavingFile": "Error en guardar el PDF.",
   "errorWhileSavingTransects": "Error en guardar els transectes.",
   "errorWhileStartingTransect": "Error en iniciar el transecte.",
   "exit": "Sortir",

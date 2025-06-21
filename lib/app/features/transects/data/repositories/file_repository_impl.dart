@@ -20,4 +20,15 @@ class FileRepositoryImpl implements FileRepository {
       locality: locality,
     );
   }
+
+  @override
+  Future<Result<String, DataError>> savePdfFromAssets({
+    required String assetPath,
+    required String fileName,
+  }) {
+    return _fileDatasource.savePdfFromAssets(
+      assetPath: assetPath,
+      fileName: fileName,
+    );
+  }
 }

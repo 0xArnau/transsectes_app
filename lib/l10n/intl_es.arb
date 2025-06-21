@@ -67,6 +67,7 @@
   "errorWhileCheckingUserIsTechnician": "Ha habido un error al comprobar si el usuario es técnico o no.",
   "errorWhileDeletingTransects": "¡Ocurrió un error al eliminar los transectos!",
   "errorWhileGettingCurrentUser": "Ha habido un error al obtener el usuario actual.",
+  "errorWhileSavingFile": "Error al guardar el PDF.",
   "errorWhileSavingTransects": "Error al guardar los transectos.",
   "errorWhileStartingTransect": "Error al iniciar el transecto.",
   "exit": "Salir",

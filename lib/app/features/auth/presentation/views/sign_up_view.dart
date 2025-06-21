@@ -255,7 +255,11 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PdfViewerWidget(title: text, asset: path),
+              builder: (context) => PdfViewerWidget(
+                title: text,
+                asset: path,
+                fileName: text,
+              ),
             ),
           );
         },
