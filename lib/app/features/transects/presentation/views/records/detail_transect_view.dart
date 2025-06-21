@@ -73,6 +73,7 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
               Icons.download,
               color: Theme.of(context).colorScheme.secondaryContainer,
             ),
+            tooltip: '${S.current.reload} ${S.current.transect_detail}',
           ),
           IconButton(
             onPressed: () async {
@@ -90,6 +91,7 @@ class _DetailTransectViewState extends ConsumerState<DetailTransectView> {
               Icons.update,
               color: Theme.of(context).colorScheme.secondaryContainer,
             ),
+            tooltip: '${S.current.download} ${S.current.transect_detail}',
           ),
         ],
         title: Text(S.current.transect_detail),

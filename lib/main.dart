@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:accessibility_tools/accessibility_tools.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,7 +33,9 @@ void main() async {
 /// and adjusts the language of the app dynamically. It also loads the language preference
 /// from `SharedPreferences` and updates it accordingly.
 class MainApp extends ConsumerStatefulWidget {
-  const MainApp({super.key});
+  const MainApp({super.key, this.enableAccessibilityTools = false});
+
+  final bool enableAccessibilityTools;
 
   @override
   ConsumerState<MainApp> createState() => _MainAppState();
@@ -97,7 +100,8 @@ class _MainAppState extends ConsumerState<MainApp> {
     }
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
+      builder: (context, child) => AccessibilityTools(child: child),
       home: const SplashView(),
       theme: lightMode,
       darkTheme: darkMode,

@@ -490,6 +490,16 @@ class S {
     );
   }
 
+  /// `Decrease the number of people informed`
+  String get decrement_the_number_of_people_informed {
+    return Intl.message(
+      'Decrease the number of people informed',
+      name: 'decrement_the_number_of_people_informed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete`
   String get delete {
     return Intl.message(
@@ -715,6 +725,16 @@ class S {
     return Intl.message(
       'There has been an error while getting the current user.',
       name: 'errorWhileGettingCurrentUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error while saving the PDF.`
+  String get errorWhileSavingFile {
+    return Intl.message(
+      'Error while saving the PDF.',
+      name: 'errorWhileSavingFile',
       desc: '',
       args: [],
     );
@@ -1170,6 +1190,16 @@ class S {
     );
   }
 
+  /// `Increase the number of people informed`
+  String get increment_the_number_of_people_informed {
+    return Intl.message(
+      'Increase the number of people informed',
+      name: 'increment_the_number_of_people_informed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Informative clause`
   String get informativeClause {
     return Intl.message(
@@ -1505,6 +1535,36 @@ class S {
     return Intl.message(
       'PREVIOUS',
       name: 'page_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous`
+  String get page_control_back {
+    return Intl.message(
+      'Previous',
+      name: 'page_control_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish`
+  String get page_control_finish {
+    return Intl.message(
+      'Finish',
+      name: 'page_control_finish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get page_control_next {
+    return Intl.message(
+      'Next',
+      name: 'page_control_next',
       desc: '',
       args: [],
     );

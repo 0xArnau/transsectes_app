@@ -81,13 +81,13 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: [
-          // IconButton for copying the Google Maps URL
-          IconButton(
-            onPressed: _copyGoogleMapsUrl,
-            icon: const Icon(Icons.copy),
-          ),
-        ],
+        // actions: [
+        //   // IconButton for copying the Google Maps URL
+        //   IconButton(
+        //     onPressed: _copyGoogleMapsUrl,
+        //     icon: const Icon(Icons.copy),
+        //   ),
+        // ],
       ),
       body: SafeArea(
         child: GoogleMap(

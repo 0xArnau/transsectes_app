@@ -38,6 +38,7 @@ import 'package:transsectes_app/app/features/transects/domain/usecases/find_docu
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_all_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/get_user_transects_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/remove_all_transects_usecase.dart';
+import 'package:transsectes_app/app/features/transects/domain/usecases/save_pdf_from_assets_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/save_transects_as_csv_usecase.dart';
 import 'package:transsectes_app/app/features/transects/domain/usecases/update_transect_usecase.dart';
 
@@ -190,11 +191,18 @@ final updateTransectUseCaseProvider = Provider<UpdateTransectUseCase>((ref) {
   return UpdateTransectUseCase(transectRepository);
 });
 
-/// Provider for UpdateTransectUseCase, which depends on TransectRepository
+/// Provider for saveTransectsAsCsvUsecaseProvider, which depends on TransectRepository
 final saveTransectsAsCsvUsecaseProvider =
     Provider<SaveTransectsAsCsvUsecase>((ref) {
   final fileRepository = ref.watch(fileRepositoryProvider);
   return SaveTransectsAsCsvUsecase(fileRepository);
+});
+
+/// Provider for SavePDFFromAssetsUsecase, which depends on TransectRepository
+final savePDFFromAssetsUsecaseProvider =
+    Provider<SavePDFFromAssetsUsecase>((ref) {
+  final fileRepository = ref.watch(fileRepositoryProvider);
+  return SavePDFFromAssetsUsecase(fileRepository);
 });
 
 /// Provider for GetCurrentPositionUseCase, which depends on GeolocationRepository

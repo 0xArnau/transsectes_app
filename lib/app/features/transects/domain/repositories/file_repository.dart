@@ -40,4 +40,15 @@ abstract class FileRepository {
     required List<TransectEntity> reports,
     required String locality,
   });
+
+  /// Saves a PDF file that is bundled in the app's assets.
+  ///
+  /// [assetPath] is the path to the asset in the project (e.g., 'assets/docs/legal/terms.pdf').
+  /// [fileName] is the desired name of the file when saved to the device.
+  ///
+  /// Returns a [Result] with a success message or a [DataError] on failure.
+  Future<Result<String, DataError>> savePdfFromAssets({
+    required String assetPath,
+    required String fileName,
+  });
 }

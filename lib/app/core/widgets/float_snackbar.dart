@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 void floatSnackbar({
   required BuildContext context,
@@ -12,12 +13,16 @@ void floatSnackbar({
 
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      content: _SnackbarWithProgress(
-        message: message,
-        duration: duration,
-        isError: isError,
-        isAlert: isAlert,
-        isSuccess: isSuccess,
+      content: Semantics(
+        liveRegion: true,
+        focused: true,
+        child: _SnackbarWithProgress(
+          message: message,
+          duration: duration,
+          isError: isError,
+          isAlert: isAlert,
+          isSuccess: isSuccess,
+        ),
       ),
       backgroundColor: Colors.transparent,
       duration: duration,
@@ -25,6 +30,9 @@ void floatSnackbar({
       elevation: 0,
     ),
   );
+
+  SemanticsService.announce(message, TextDirection.ltr);
+  Directionality.of(context);
 }
 
 class _SnackbarWithProgress extends StatefulWidget {

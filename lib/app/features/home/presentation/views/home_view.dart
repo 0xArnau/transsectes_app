@@ -31,18 +31,21 @@ class _HomeViewState extends State<HomeView> {
             icon: Icon(
               Icons.settings,
               color: Theme.of(context).colorScheme.secondaryContainer,
+              semanticLabel: S.of(context).settings,
             ),
           ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+          child: Semantics(
+        hidden: true,
         child: Image.asset(
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
               : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
           fit: BoxFit.contain,
         ),
-      ),
+      )),
       body: ListView(
         children: [
           _buildRowWidget(
@@ -157,21 +160,30 @@ Widget _buildRowWidget({
     ),
   );
 
-  final imageWidget = Image.asset(
-    imgSrc,
-    width: imgSize,
+  final imageWidget = Semantics(
+    hidden: true,
+    child: Image.asset(
+      imgSrc,
+      width: imgSize,
+    ),
   );
 
-  return InkWell(
-    onTap: onTap,
-    child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: textFirst
-            ? [textWidget, const SizedBox(width: 10), imageWidget]
-            : [imageWidget, const SizedBox(width: 10), textWidget],
+  return Semantics(
+    button: true,
+    label: text,
+    child: ExcludeSemantics(
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: textFirst
+                ? [textWidget, const SizedBox(width: 10), imageWidget]
+                : [imageWidget, const SizedBox(width: 10), textWidget],
+          ),
+        ),
       ),
     ),
   );

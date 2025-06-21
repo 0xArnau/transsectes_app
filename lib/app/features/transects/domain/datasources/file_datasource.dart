@@ -37,4 +37,30 @@ abstract class FileDatasource {
     required List<TransectEntity> reports,
     required String locality,
   });
+
+  /// Saves a PDF file that is bundled in the app's assets.
+  ///
+  /// The [assetPath] parameter should be the relative path to the asset file
+  /// (e.g., 'assets/docs/legal/terms.pdf').
+  ///
+  /// The [fileName] parameter is the desired name of the file when saved to the device.
+  ///
+  /// Returns a [Result] with a success message on success, or a [DataError] on failure.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// final result = await fileDatasource.savePdfFromAssets(
+  ///   assetPath: 'assets/docs/legal/terms.pdf',
+  ///   fileName: 'terms_and_conditions.pdf',
+  /// );
+  ///
+  /// result.when(
+  ///   success: (path) => print('Saved to: $path'),
+  ///   failure: (error) => handle(error),
+  /// );
+  /// ```
+  Future<Result<String, DataError>> savePdfFromAssets({
+    required String assetPath,
+    required String fileName,
+  });
 }

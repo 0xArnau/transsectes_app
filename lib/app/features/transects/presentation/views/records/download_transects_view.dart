@@ -58,11 +58,11 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
         }
 
         if (snapshot.hasError) {
-          return  Center(child: Text(S.current.failedToLoadTransects));
+          return Center(child: Text(S.current.failedToLoadTransects));
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return  Center(child: Text(S.current.noTransectsAvailable));
+          return Center(child: Text(S.current.noTransectsAvailable));
         }
 
         final groupedTransects = _groupTransectsByLocality(snapshot.data!);
@@ -118,6 +118,7 @@ class _DownloadTransectsViewState extends ConsumerState<DownloadTransectsView> {
         trailing: IconButton(
           icon: const Icon(Icons.download),
           onPressed: () => _save(context, transects, locality),
+          tooltip: '${S.current.download}  (${transects.length})',
         ),
       ),
     );

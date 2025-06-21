@@ -107,6 +107,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta el usuario actual."),
         "daily": MessageLookupByLibrary.simpleMessage("Diario"),
+        "decrement_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Disminuir el número de personas informadas"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Eliminar cuenta"),
@@ -150,6 +153,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "¡Ocurrió un error al eliminar los transectos!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "Ha habido un error al obtener el usuario actual."),
+        "errorWhileSavingFile":
+            MessageLookupByLibrary.simpleMessage("Error al guardar el PDF."),
         "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
             "Error al guardar los transectos."),
         "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(
@@ -232,6 +237,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Conviértete en voluntario"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hay campos incorrectos"),
+        "increment_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Aumentar el número de personas informadas"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Cláusula informativa"),
         "informedPeople":
@@ -291,6 +299,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "open_system_settings": MessageLookupByLibrary.simpleMessage(
             "Abrir configuración del sistema"),
         "page_back": MessageLookupByLibrary.simpleMessage("ANTERIOR"),
+        "page_control_back": MessageLookupByLibrary.simpleMessage("Anterior"),
+        "page_control_finish":
+            MessageLookupByLibrary.simpleMessage("Finalizar"),
+        "page_control_next": MessageLookupByLibrary.simpleMessage("Siguiente"),
         "page_next": MessageLookupByLibrary.simpleMessage("SIGUIENTE"),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "passwordMustBeTheSame": MessageLookupByLibrary.simpleMessage(

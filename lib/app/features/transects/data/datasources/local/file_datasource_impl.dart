@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:csv/csv.dart';
 import 'package:file_saver/file_saver.dart';
+import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import 'package:transsectes_app/app/core/errors/data_error.dart';
 import 'package:transsectes_app/app/core/results/result.dart';
@@ -117,6 +117,29 @@ class FileDatasourceImpl implements FileDatasource {
       return S.current.file_saved_ios(fileName);
     } else {
       return S.current.file_saved_generic(fileName);
+    }
+  }
+
+  @override
+  Future<Result<String, DataError>> savePdfFromAssets({
+    required String assetPath,
+    required String fileName,
+  }) async {
+    try {
+      final ByteData byteData = await rootBundle.load(assetPath);
+      final Uint8List bytes = byteData.buffer.asUint8List();
+
+      await FileSaver.instance.saveFile(
+        name: '$fileName.pdf',
+        bytes: bytes,
+        mimeType: MimeType.pdf,
+      );
+
+      final fileLocation = _getFileLocation(fileName);
+      return Result.success(fileLocation);
+    } catch (error, stackTrace) {
+      Logger().e([error, stackTrace]);
+      return Result.failure(LocalError(LocalErrorType.unknown));
     }
   }
 }

@@ -111,10 +111,13 @@ class _SplashViewState extends State<SplashView> {
     return Align(
       alignment: Alignment.bottomRight,
       child: SafeArea(
-        child: Image.asset(
-          'assets/imgs/background/imatge_tortuga.png',
-          fit: BoxFit.contain,
-          height: MediaQuery.of(context).size.height / 2.3,
+        child: Semantics(
+          hidden: true,
+          child: Image.asset(
+            'assets/imgs/background/imatge_tortuga.png',
+            fit: BoxFit.contain,
+            height: MediaQuery.of(context).size.height / 2.3,
+          ),
         ),
       ),
     );
@@ -125,11 +128,14 @@ class _SplashViewState extends State<SplashView> {
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
-        child: Image.asset(
-          Theme.of(context).brightness == Brightness.dark
-              ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
-              : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
-          fit: BoxFit.contain,
+        child: Semantics(
+          hidden: true,
+          child: Image.asset(
+            Theme.of(context).brightness == Brightness.dark
+                ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
+                : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
+            fit: BoxFit.contain,
+          ),
         ),
       ),
     );

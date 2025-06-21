@@ -100,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Current user is missing."),
         "daily": MessageLookupByLibrary.simpleMessage("Daily"),
+        "decrement_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Decrease the number of people informed"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -142,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "An error occurred while deleting transects!"),
         "errorWhileGettingCurrentUser": MessageLookupByLibrary.simpleMessage(
             "There has been an error while getting the current user."),
+        "errorWhileSavingFile":
+            MessageLookupByLibrary.simpleMessage("Error while saving the PDF."),
         "errorWhileSavingTransects": MessageLookupByLibrary.simpleMessage(
             "Error while saving the transects."),
         "errorWhileStartingTransect": MessageLookupByLibrary.simpleMessage(
@@ -223,6 +228,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Become a volunteer"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
+        "increment_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Increase the number of people informed"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Informative clause"),
         "informedPeople":
@@ -281,6 +289,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "open_system_settings":
             MessageLookupByLibrary.simpleMessage("Open system settings"),
         "page_back": MessageLookupByLibrary.simpleMessage("PREVIOUS"),
+        "page_control_back": MessageLookupByLibrary.simpleMessage("Previous"),
+        "page_control_finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "page_control_next": MessageLookupByLibrary.simpleMessage("Next"),
         "page_next": MessageLookupByLibrary.simpleMessage("NEXT"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordMustBeTheSame":

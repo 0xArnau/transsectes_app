@@ -60,13 +60,15 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+          child: Semantics(
+        hidden: true,
         child: Image.asset(
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
               : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
           fit: BoxFit.contain,
         ),
-      ),
+      )),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0),
         child: Column(
@@ -124,10 +126,13 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
   /// The size of the icon is dynamically calculated based on the screen height.
   Widget _userIcon(BuildContext context) {
     return Center(
-      child: Icon(
-        Icons.person,
-        size: MediaQuery.of(context).size.height / 6,
-        semanticLabel: S.current.userIcon,
+      child: Semantics(
+        hidden: true,
+        child: Icon(
+          Icons.person,
+          size: MediaQuery.of(context).size.height / 6,
+          semanticLabel: S.current.userIcon,
+        ),
       ),
     );
   }

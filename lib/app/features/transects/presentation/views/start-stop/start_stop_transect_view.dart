@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transsectes_app/app/core/widgets/wave_shape_widget.dart';
 import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/start_stop_transect_view_model_provider.dart';
+import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/start-stop/transect_coordinates_state.dart';
 import 'package:transsectes_app/app/features/transects/presentation/viewmodels/start-stop/start_stop_transect_view_model.dart';
-import 'package:transsectes_app/app/features/transects/presentation/providers/start-stop/transect_coordinates_state_provider.dart';
 import 'package:transsectes_app/app/features/transects/presentation/views/start-stop/save_transect_view.dart';
 import 'package:transsectes_app/generated/l10n.dart';
 
@@ -119,30 +119,37 @@ class _StartStopTransectViewState extends ConsumerState<StartStopTransectView> {
     String text,
     Function()? action,
   ) {
-    return InkWell(
-      onTap: action,
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Image.asset(
-                imgSrc,
-                width: imgSize,
-              ),
-              const SizedBox(width: 10),
-              Flexible(
-                child: Text(
-                  text,
-                  style: const TextStyle(
-                    fontSize: 20,
+    return Semantics(
+      button: true,
+      label: text,
+      child: InkWell(
+        onTap: action,
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          width: double.infinity,
+          child: SingleChildScrollView(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Semantics(
+                  hidden: true,
+                  child: Image.asset(
+                    imgSrc,
+                    width: imgSize,
                   ),
-                  overflow: TextOverflow.clip,
                 ),
-              ),
-            ],
+                const SizedBox(width: 10),
+                Flexible(
+                  child: Text(
+                    text,
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                    overflow: TextOverflow.clip,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
