@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transsectes_app/generated/l10n.dart';
 
 class CounterButtonWidget extends StatefulWidget {
   const CounterButtonWidget({
@@ -65,6 +66,7 @@ class _CounterButtonWidgetState extends State<CounterButtonWidget> {
             IconButton(
               icon: const Icon(Icons.remove),
               onPressed: _decrement,
+              tooltip: S.current.decrement_the_number_of_people_informed,
             ),
             Text(
               '$_count',
@@ -75,6 +77,7 @@ class _CounterButtonWidgetState extends State<CounterButtonWidget> {
             IconButton(
               icon: const Icon(Icons.add),
               onPressed: _increment,
+              tooltip: S.current.increment_the_number_of_people_informed,
             ),
           ],
         )

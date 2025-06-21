@@ -490,6 +490,16 @@ class S {
     );
   }
 
+  /// `Decrease the number of people informed`
+  String get decrement_the_number_of_people_informed {
+    return Intl.message(
+      'Decrease the number of people informed',
+      name: 'decrement_the_number_of_people_informed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete`
   String get delete {
     return Intl.message(
@@ -1165,6 +1175,16 @@ class S {
     return Intl.message(
       'There are incorrect fields',
       name: 'incorrect_fields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Increase the number of people informed`
+  String get increment_the_number_of_people_informed {
+    return Intl.message(
+      'Increase the number of people informed',
+      name: 'increment_the_number_of_people_informed',
       desc: '',
       args: [],
     );

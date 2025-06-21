@@ -100,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Current user is missing."),
         "daily": MessageLookupByLibrary.simpleMessage("Daily"),
+        "decrement_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Decrease the number of people informed"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -223,6 +226,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Become a volunteer"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("There are incorrect fields"),
+        "increment_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Increase the number of people informed"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Informative clause"),
         "informedPeople":

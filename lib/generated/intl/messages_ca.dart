@@ -106,6 +106,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentUserMissing":
             MessageLookupByLibrary.simpleMessage("Falta l\'usuari actual."),
         "daily": MessageLookupByLibrary.simpleMessage("Diari"),
+        "decrement_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Disminuir el nombre de persones informades"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "delete_account":
             MessageLookupByLibrary.simpleMessage("Eliminar compte"),
@@ -231,6 +234,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Fes-te voluntari"),
         "incorrect_fields":
             MessageLookupByLibrary.simpleMessage("Hi ha camps incorrectes"),
+        "increment_the_number_of_people_informed":
+            MessageLookupByLibrary.simpleMessage(
+                "Augmentar el nombre de persones informades"),
         "informativeClause":
             MessageLookupByLibrary.simpleMessage("Clàusula informativa"),
         "informedPeople":
