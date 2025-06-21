@@ -36,13 +36,15 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+          child: Semantics(
+        hidden: true,
         child: Image.asset(
           Theme.of(context).brightness == Brightness.dark
               ? 'assets/imgs/logo/GEPEC_EdC_OFICIAL_blanc.png'
               : 'assets/imgs/logo/GEPEC_EdC_OFICIAL.png',
           fit: BoxFit.contain,
         ),
-      ),
+      )),
       body: ListView(
         children: [
           _buildRowWidget(
