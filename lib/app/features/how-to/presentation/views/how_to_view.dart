@@ -168,19 +168,16 @@ Widget _createSliderWidget({
   String? post,
   String? image,
 }) {
-  return SingleChildScrollView(
-    child: Padding(
+  return MergeSemantics(
+    child: ListView(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (title != null) _buildTitle(title),
-          if (pre != null) _buildText(context, pre),
-          if (image != null) _buildImage(image),
-          if (post != null) _buildText(context, post),
-          const SizedBox(height: 80),
-        ],
-      ),
+      children: [
+        if (title != null) _buildTitle(title),
+        if (pre != null) _buildText(context, pre),
+        if (image != null) _buildImage(image),
+        if (post != null) _buildText(context, post),
+        const SizedBox(height: 80),
+      ],
     ),
   );
 }
