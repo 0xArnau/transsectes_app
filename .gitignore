@@ -71,3 +71,6 @@ ios/Common.xcconfig
 ios/Release.xcconfig
 ios/Debug.xcconfig
 ios/Runner/AppDelegate.swift
+
+# direnv
+.direnv/
