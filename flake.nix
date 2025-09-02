@@ -1,5 +1,5 @@
 {
-  description = "Development environment for transsectes_app";
+  description = "Development environment for corriol_app";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -17,17 +17,19 @@
           packages = with pkgs; [
             flutter329
             dart
+            ruby
+            cocoapods
           ];
 
           shellHook = ''
             echo "=== Development Environment ==="
             echo "Dart version: $(dart --version 2>&1 | head -n1)"
             echo "Flutter version: $(flutter --version | head -n1)"
-            echo "Git version: $(git --version)"
+            echo "Ruby version: $(ruby --version)"
+            echo "CocoaPods version: $(pod --version)"
             echo "==============================="
           '';
         };
       });
     };
 }
-
