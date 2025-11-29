@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/gps/gps_state.dart';
 
 /// A Riverpod provider for managing the state of GPS permissions and services.

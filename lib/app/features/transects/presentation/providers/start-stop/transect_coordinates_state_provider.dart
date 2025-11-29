@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:transsectes_app/app/features/transects/presentation/states/start-stop/transect_coordinates_state.dart';
 
 /// A [StateProvider] that manages the state of the transect coordinates.
