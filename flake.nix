@@ -15,21 +15,19 @@
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            flutter329
+            flutter
             dart
-            ruby
-            cocoapods
           ];
 
           shellHook = ''
             echo "=== Development Environment ==="
             echo "Dart version: $(dart --version 2>&1 | head -n1)"
             echo "Flutter version: $(flutter --version | head -n1)"
-            echo "Ruby version: $(ruby --version)"
-            echo "CocoaPods version: $(pod --version)"
+            echo "Git version: $(git --version)"
             echo "==============================="
           '';
         };
       });
     };
 }
+
