@@ -64,7 +64,7 @@ GoogleService-Info.plist
 !*/.env.example
 
 # Android
-android/app/src/main/res/values/string.xml
+android/app/src/main/res/values/strings.xml
 
 # iOS
 ios/Common.xcconfig
