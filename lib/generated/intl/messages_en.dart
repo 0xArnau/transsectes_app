@@ -56,6 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Transect app will continue to receive your location even when you aren\'t using it"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Running in Background"),
+        "background_location_disclosure_body": MessageLookupByLibrary
+            .simpleMessage(
+                "This app collects location data in the background to record your GPS route during turtle monitoring transect patrols. This happens even when the app is closed or not in use, allowing accurate tracking of your route. The location data is used exclusively for transect recording purposes and is not shared with third parties."),
+        "background_location_disclosure_title": MessageLookupByLibrary
+            .simpleMessage("Background Location Access"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "buildNumber": MessageLookupByLibrary.simpleMessage("Build Number"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),

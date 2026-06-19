@@ -60,6 +60,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage(
                 "Ejecutándose en segundo plano"),
+        "background_location_disclosure_body": MessageLookupByLibrary
+            .simpleMessage(
+                "Esta aplicación recopila datos de ubicación en segundo plano para registrar tu ruta GPS durante los transectos de seguimiento de tortugas marinas. Esto ocurre incluso cuando la aplicación está cerrada o no está en uso, lo que permite un seguimiento preciso de tu ruta. Los datos de ubicación se utilizan exclusivamente para el registro de transectos y no se comparten con terceros."),
+        "background_location_disclosure_title": MessageLookupByLibrary
+            .simpleMessage(
+                "Acceso a la ubicación en segundo plano"),
         "back": MessageLookupByLibrary.simpleMessage("Atrás"),
         "buildNumber":
             MessageLookupByLibrary.simpleMessage("Número de compilación"),

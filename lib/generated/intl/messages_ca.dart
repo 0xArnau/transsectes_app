@@ -59,6 +59,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "L\'aplicació Transsecte continuarà rebent la teva ubicació fins i tot quan no l\'estiguis utilitzant"),
         "app_background_notification_title":
             MessageLookupByLibrary.simpleMessage("Executant-se en segon pla"),
+        "background_location_disclosure_body": MessageLookupByLibrary
+            .simpleMessage(
+                "Aquesta aplicació recull dades d\'ubicació en segon pla per registrar la teva ruta GPS durant els transectes de seguiment de tortugues marines. Això passa fins i tot quan l\'aplicació està tancada o no s\'utilitza, permetent un seguiment precís de la teva ruta. Les dades d\'ubicació s\'utilitzen exclusivament per al registre de transectes i no es comparteixen amb tercers."),
+        "background_location_disclosure_title": MessageLookupByLibrary
+            .simpleMessage(
+                "Accés a la ubicació en segon pla"),
         "back": MessageLookupByLibrary.simpleMessage("Enrere"),
         "buildNumber":
             MessageLookupByLibrary.simpleMessage("Número de compilació"),

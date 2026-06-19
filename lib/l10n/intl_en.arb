@@ -16,6 +16,8 @@
   "appVersion": "Version",
   "app_background_notification_text": "Transect app will continue to receive your location even when you aren't using it",
   "app_background_notification_title": "Running in Background",
+  "background_location_disclosure_title": "Background Location Access",
+  "background_location_disclosure_body": "This app collects location data in the background to record your GPS route during turtle monitoring transect patrols. This happens even when the app is closed or not in use, allowing accurate tracking of your route. The location data is used exclusively for transect recording purposes and is not shared with third parties.",
   "back": "Back",
   "buildNumber": "Build Number",
   "cancel": "Cancel",
