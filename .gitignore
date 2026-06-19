@@ -45,6 +45,7 @@ app.*.map.json
 /android/app/release
 
 # Android related stuff
+local.properties
 key.*.properties
 !key.*.properties.example
 
@@ -74,3 +75,7 @@ ios/Runner/AppDelegate.swift
 
 # direnv
 .direnv/
+
+# devenv
+.devenv/
+devenv.lock
