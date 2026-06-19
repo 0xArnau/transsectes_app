@@ -220,6 +220,26 @@ class S {
     );
   }
 
+  /// `Background Location Access`
+  String get background_location_disclosure_title {
+    return Intl.message(
+      'Background Location Access',
+      name: 'background_location_disclosure_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This app collects location data in the background to record your GPS route during turtle monitoring transect patrols. This happens even when the app is closed or not in use, allowing accurate tracking of your route. The location data is used exclusively for transect recording purposes and is not shared with third parties.`
+  String get background_location_disclosure_body {
+    return Intl.message(
+      'This app collects location data in the background to record your GPS route during turtle monitoring transect patrols. This happens even when the app is closed or not in use, allowing accurate tracking of your route. The location data is used exclusively for transect recording purposes and is not shared with third parties.',
+      name: 'background_location_disclosure_body',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Back`
   String get back {
     return Intl.message(

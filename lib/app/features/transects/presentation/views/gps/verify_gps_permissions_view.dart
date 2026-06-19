@@ -24,9 +24,11 @@ class _VerifyGpsPermissionsViewState
   @override
   void initState() {
     super.initState();
-    // Request location permissions on view load
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _onRequestPermissionPressed();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final accepted = await _showBackgroundLocationDisclosure();
+      if (accepted && mounted) {
+        _onRequestPermissionPressed();
+      }
     });
   }
 
@@ -88,7 +90,10 @@ class _VerifyGpsPermissionsViewState
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
-                _onRequestPermissionPressed();
+                final accepted = await _showBackgroundLocationDisclosure();
+                if (accepted && mounted) {
+                  _onRequestPermissionPressed();
+                }
               },
               child: Text(S.current.reload),
             ),
@@ -101,6 +106,34 @@ class _VerifyGpsPermissionsViewState
   /// Builds a view shown when location permission is granted.
   Widget _buildPermissionGrantedView() {
     return const StartStopTransectView();
+  }
+
+  /// Shows a prominent disclosure dialog explaining background location usage,
+  /// as required by Google Play's User Data policy.
+  /// Returns true if the user accepted, false otherwise.
+  Future<bool> _showBackgroundLocationDisclosure() async {
+    if (!mounted) return false;
+    final result = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        title: Text(S.current.background_location_disclosure_title),
+        content: SingleChildScrollView(
+          child: Text(S.current.background_location_disclosure_body),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(S.current.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(S.current.accept),
+          ),
+        ],
+      ),
+    );
+    return result ?? false;
   }
 
   /// Handles the button press to request location permissions again.
